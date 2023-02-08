@@ -2,15 +2,16 @@
 module.exports = {
   content: ['index.html'],
   theme: {
-    extend: {},
-    fontFamily: {
-      'sans': ["\"Franklin Gothic Demi\"", 'sans-serif'],
+    extend: {
+      colors: {
+        'primary': '#A0D995',
+        'secondary': '#6CC4A1',
+        'dark': '#2D0333',
+      },
+      fontFamily: {
+        'sans': ["\"Franklin Gothic Demi\"", 'sans-serif'],
+      },
     },
-    colors: {
-      'primary': '#A0D995',
-      'secondary': '#6CC4A1',
-      'dark': '#2D0333',
-    }
   },
   plugins: [
 
