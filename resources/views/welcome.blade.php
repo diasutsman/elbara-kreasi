@@ -51,7 +51,7 @@
 
     <!-- Nav Bar -->
     <nav class="w-full">
-        <ul class="uppercase flex items-center justify-center gap-4 py-4">
+        <ul class="uppercase flex items-center justify-center gap-4 py-4 text-xs">
             <li><a href="#" class="px-4">Home</a></li>
             <li><a href="#" class="px-4">Tentang kami</a></li>
             <li><a href="#" class="px-4">Produk kami</a></li>
