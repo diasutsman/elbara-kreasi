@@ -4,24 +4,25 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @vite('resources/css/app.css')
 		<link
 			rel="shortcut icon"
-			href="assets/img/favicon.ico"
+			href="/img/favicon.ico"
 			type="image/x-icon"
 		/>
 		<link
 			rel="shortcut icon"
-			href="assets/img/favicon-dark.ico"
+			href="/img/favicon-dark.ico"
 			type="image/x-icon"
 			media="(prefers-color-scheme: dark)"
 		/>
-		<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+		{{-- <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 		<link
 			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
 			rel="stylesheet"
-		/>
+		/> --}}
 
-		<link rel="stylesheet" href="assets/css/style.css" />
+		{{-- <link rel="stylesheet" href="assets/css/app.css" /> --}}
 		<title>Elbara Kreasi Indonesia</title>
 	</head>
 
@@ -33,7 +34,7 @@
 		<header class="w-full bg-[#EEEEEE] py-4 h-24 px-4">
 			<div class="flex max-w-6xl mx-auto h-full flex-wrap justify-between">
 				<img
-					src="assets/img/logo.webp"
+					src="{{ asset('/img/logo.webp') }}"
 					alt="Elbara Kreasi Logo"
 					class="h-full"
 				/>
