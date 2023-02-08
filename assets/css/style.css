@@ -43,7 +43,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Franklin Gothic Demi", sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -517,31 +517,46 @@ video {
   display: flex;
 }
 
-.h-screen {
-  height: 100vh;
+.hidden {
+  display: none;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .items-center {
   align-items: center;
 }
 
-.justify-center {
-  justify-content: center;
+.justify-end {
+  justify-content: flex-end;
 }
 
-.text-center {
-  text-align: center;
+.font-sans {
+  font-family: "Franklin Gothic Demi", sans-serif;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.uppercase {
+  text-transform: uppercase;
 }
 
-.font-bold {
-  font-weight: 700;
+.capitalize {
+  text-transform: capitalize;
 }
 
-.underline {
-  text-decoration-line: underline;
+@font-face {
+  font-family: 'Franklin Gothic Demi';
+
+  src: url('../fonts/Franklin Gothic Demi.ttf');
+}
+
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
 }
