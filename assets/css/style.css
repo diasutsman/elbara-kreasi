@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Franklin Gothic Demi';
+
+  src: url('../fonts/Franklin_Gothic_Demi_Regular.ttf');
+}
+
 /*
 ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
 */
@@ -16,7 +22,7 @@
   /* 2 */
   border-style: solid;
   /* 2 */
-  border-color: #e5e7eb;
+  border-color: currentColor;
   /* 2 */
 }
 
@@ -513,12 +519,21 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .flex {
   display: flex;
 }
 
 .hidden {
   display: none;
+}
+
+.h-24 {
+  height: 6rem;
 }
 
 .h-full {
@@ -529,6 +544,10 @@ video {
   width: 100%;
 }
 
+.max-w-5xl {
+  max-width: 64rem;
+}
+
 .items-center {
   align-items: center;
 }
@@ -537,22 +556,43 @@ video {
   justify-content: flex-end;
 }
 
+.divide-x-\[0\.5px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(0.5px * var(--tw-divide-x-reverse));
+  border-left-width: calc(0.5px * calc(1 - var(--tw-divide-x-reverse)));
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .font-sans {
   font-family: "Franklin Gothic Demi", sans-serif;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .uppercase {
   text-transform: uppercase;
 }
 
-.capitalize {
-  text-transform: capitalize;
+.text-dark {
+  --tw-text-opacity: 1;
+  color: rgb(45 3 51 / var(--tw-text-opacity));
 }
 
-@font-face {
-  font-family: 'Franklin Gothic Demi';
-
-  src: url('../fonts/Franklin Gothic Demi.ttf');
+.text-\[\#000\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {
