@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite('resources/css/app.css')
 
-    <link rel="shortcut icon" href="{{ asset('/img/favicon.ico') }}" type="image/x-icon" />
-    <link rel="shortcut icon" href="{{ asset('/img/favicon-dark.ico') }}" type="image/x-icon"
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('favicon-dark.ico') }}" type="image/x-icon"
         media="(prefers-color-scheme: dark)" />
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
