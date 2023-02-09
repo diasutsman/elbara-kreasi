@@ -75,7 +75,7 @@
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line origin-bottom-left"></span>
             </button>
-            <nav id="nav-menu"
+            <div id="nav-menu"
                 class="order-3 w-full max-h-0 md:max-h-max overflow-hidden md:block md:w-auto md:order-none
              text-sm md:text-xs transition-[max-height] duration-500 ease-in-out">
                 <ul
@@ -86,7 +86,7 @@
                     <li><a href="#" class="md:px-4">Produk kami</a></li>
                     <li><a href="#" class="md:px-4">cara order</a></li>
                 </ul>
-            </nav>
+            </div>
             <div class="search-trigger grid place-content-center">
                 <a href="#" class="md:px-4 px-0 grid place-content-center z-10" id="search-btn">
                     <box-icon name='search'
