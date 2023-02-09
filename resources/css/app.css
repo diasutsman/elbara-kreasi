@@ -19,5 +19,5 @@
 }
 
 .container {
-  @apply max-w-6xl
+  @apply max-w-6xl mx-auto
 }

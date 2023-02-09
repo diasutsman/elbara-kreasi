@@ -23,7 +23,7 @@
 <body class="font-sans">
     <!-- Top Bar -->
     <div class="bg-primary h-11 text-onPrimary text-sm px-4">
-        <div class="container flex justify-between items-center h-full mx-auto">
+        <div class="container flex justify-between items-center h-full ">
             <div class="flex gap-5">
                 <p><a href="https://facebook.com"><i class='bx bxl-facebook'></i> Facebook</a></p>
                 <p><a href="https://facebook.com"><i class='bx bxl-instagram-alt'></i> Instagram</a></p>
@@ -42,7 +42,7 @@
 
     <!-- Header -->
     <header class="w-full bg-[#EEEEEE] py-4 h-24 px-4">
-        <div class="flex container mx-auto h-full flex-wrap lg:justify-between justify-center">
+        <div class="flex container  h-full flex-wrap lg:justify-between justify-center">
             <a href="/" class="h-full block">
                 <img src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-full" />
             </a>
@@ -69,7 +69,7 @@
 
     <!-- Nav Bar -->
     <div class="w-full p-4 md:flex md:justify-center">
-        <div class="flex md:justify-center justify-between flex-wrap max-w-4xl mx-auto relative">
+        <div class="flex md:justify-center justify-between flex-wrap container relative">
             <button id="hamburger" name="hamburger" type="button" class="block md:hidden relative">
                 <span class="hamburger-line origin-top-left"></span>
                 <span class="hamburger-line"></span>
@@ -110,9 +110,9 @@
 
     <!-- Hero -->
     <div class="px-4">
-        <div class="flex container mx-auto mt-16 flex-wrap gap-y-8">
+        <div class="flex container mt-16 flex-wrap gap-y-8">
             <div class="md:flex-1">
-                <div class="mr-40 flex flex-col justify-center items-start h-full gap-4">
+                <div class="md:mr-40 flex flex-col justify-center items-start h-full gap-4">
                     <h1 class="text-4xl">
                         Custom Cosmetic <br />
                         Packaging Solutions
@@ -131,6 +131,20 @@
             </div>
         </div>
     </div>
+
+    {{-- Category --}}
+    <section class="mt-36 text-center px-4">
+        <div class="container">
+            <h2 class="text-3xl">Kategori Pilihan</h2>
+            <div class="flex justify-between flex-wrap mt-4 gap-4">
+                @foreach (range(0, 3) as $i)
+                    <div class="w-60 h-60 bg-[#d9d9d9]">
+
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
     @vite('resources/js/app.js')
 </body>
