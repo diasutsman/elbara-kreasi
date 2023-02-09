@@ -69,7 +69,7 @@
 
     <!-- Nav Bar -->
     <div class="w-full p-4 md:flex md:justify-center">
-        <div class="flex md:justify-center justify-between flex-wrap container relative">
+        <div class="flex md:justify-center justify-between flex-wrap mx-auto w-auto relative">
             <button id="hamburger" name="hamburger" type="button" class="block md:hidden relative">
                 <span class="hamburger-line origin-top-left"></span>
                 <span class="hamburger-line"></span>
