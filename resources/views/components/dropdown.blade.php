@@ -1,6 +1,6 @@
 <div id="menu-dropdown"
-    class="transition ease-out duration-100 transform opacity-0 scale-95
- absolute right-0 z-10 top-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1
+    class="transition ease-out duration-100 transform opacity-0 scale-95 -z-10
+ absolute right-0 top-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1
                 ring-black ring-opacity-5 focus:outline-none"
     role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
     <div class="py-1" role="none">
