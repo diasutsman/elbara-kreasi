@@ -26,9 +26,9 @@
 
     <!-- Header -->
     <header class="w-full bg-[#EEEEEE] py-4 h-24 px-4">
-        <div class="flex max-w-6xl mx-auto h-full flex-wrap justify-between">
+        <div class="flex max-w-6xl mx-auto h-full flex-wrap lg:justify-between justify-center">
             <img src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-full" />
-            <ul class="hidden md:flex items-center justify-end text-dark divide-x-[0.5px]">
+            <ul class="hidden lg:flex items-center justify-end text-dark divide-x-[0.5px]">
                 <li class="px-3">
                     <p class="uppercase text-[#000] text-xs">Telepon kami</p>
                     <p class="text-base">0812-3456-7890</p>
@@ -50,22 +50,33 @@
     </header>
 
     <!-- Nav Bar -->
-    <nav class="w-full">
-        <ul class="uppercase flex items-center justify-center gap-4 py-4 text-xs">
-            <li><a href="#" class="px-4">Home</a></li>
-            <li><a href="#" class="px-4">Tentang kami</a></li>
-            <li><a href="#" class="px-4">Produk kami</a></li>
-            <li><a href="#" class="px-4">cara order</a></li>
-            <li>
-                <a href="#" class="px-4"><i class="bx bx-search h-5 w-5"></i></a>
-            </li>
-        </ul>
-    </nav>
+    <div class="w-full p-4">
+        <div class="flex md:justify-center justify-between flex-wrap">
+            <button id="hamburger" name="hamburger" type="button" class="block md:hidden relative">
+                <span class="hamburger-line origin-top-left"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line origin-bottom-left"></span>
+            </button>
+            <nav id="nav-menu"
+                class="order-3 w-full max-h-0 md:max-h-max overflow-hidden md:block md:w-auto md:order-none
+             text-sm md:text-xs transition-[max-height] duration-500 ease-in-out">
+                <ul
+                    class="uppercase flex flex-col md:flex-row md:items-center items-start
+            justify-center gap-4 h-full py-4 md:py-0">
+                    <li><a href="#" class="md:px-4">Home</a></li>
+                    <li><a href="#" class="md:px-4">Tentang kami</a></li>
+                    <li><a href="#" class="md:px-4">Produk kami</a></li>
+                    <li><a href="#" class="md:px-4">cara order</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="px-4"><i class="bx bx-search h-5 w-5"></i></a>
+        </div>
+    </div>
 
     <!-- Hero -->
     <div class="px-4">
-        <div class="flex max-w-6xl mx-auto mt-16">
-            <div class="flex-1">
+        <div class="flex max-w-6xl mx-auto mt-16 flex-wrap gap-y-8">
+            <div class="md:flex-1">
                 <div class="mr-40 flex flex-col justify-center items-start h-full gap-4">
                     <h1 class="text-4xl">
                         Custom Cosmetic <br />
@@ -80,11 +91,13 @@
                         sekarang!</a>
                 </div>
             </div>
-            <div class="flex-1">
+            <div class="md:flex-1 w-full">
                 <div class="h-80 bg-[#CCCCCC] rounded-[67px]"></div>
             </div>
         </div>
     </div>
+
+    @vite('resources/js/app.js')
 </body>
 
 </html>
