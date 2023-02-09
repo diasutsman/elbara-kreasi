@@ -22,12 +22,36 @@
 
 <body class="font-sans">
     <!-- Top Bar -->
-    <div class="w-full bg-[#D9D9D9] h-11"></div>
+    <div class="bg-primary h-11 text-onPrimary text-sm px-4">
+        <div class="container flex justify-between items-center h-full mx-auto">
+            <div class="flex gap-5">
+                <p><a href="https://facebook.com"><i class='bx bxl-facebook'></i> Facebook</a></p>
+                <p><a href="https://facebook.com"><i class='bx bxl-instagram-alt'></i> Instagram</a></p>
+            </div>
+            <div class="flex uppercase gap-10">
+                <p>ALAMAT</p>
+                <div class="relative inline-block">
+                    <button id="contact-btn" class="inline-flex w-full justify-center" aria-expanded="false">HUBUNGI
+                        <svg class="h-5 w-5 transition-transform origin-center" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08
+                                1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    @include('components.dropdown')
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Header -->
     <header class="w-full bg-[#EEEEEE] py-4 h-24 px-4">
         <div class="flex container mx-auto h-full flex-wrap lg:justify-between justify-center">
-            <img src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-full" />
+            <a href="/" class="h-full block">
+                <img src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-full" />
+            </a>
             <ul class="hidden lg:flex items-center justify-end text-dark divide-x-[0.5px]">
                 <li class="px-3">
                     <p class="uppercase text-[#000] text-xs">Telepon kami</p>
@@ -79,7 +103,8 @@
                 transition-opacity duration-500 opacity-0">
                     </box-icon>
                 </a>
-                <form action="#" method="GET" class="absolute w-full h-full m-0 top-0 left-0 -z-10 opacity-0 transition-opacity duration-500"
+                <form action="#" method="GET"
+                    class="absolute w-full h-full m-0 top-0 left-0 -z-10 opacity-0 transition-opacity duration-500"
                     id="search-form">
                     <input type="text" name="search" id="search" placeholder="Cari produk"
                         class="w-full h-full py-0 outline-none border-none
