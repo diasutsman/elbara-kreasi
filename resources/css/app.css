@@ -17,3 +17,7 @@
 .hamburger-active > span:nth-child(2) {
 	@apply scale-0;
 }
+
+.container {
+  @apply max-w-6xl
+}

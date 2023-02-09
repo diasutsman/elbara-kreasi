@@ -26,7 +26,7 @@
 
     <!-- Header -->
     <header class="w-full bg-[#EEEEEE] py-4 h-24 px-4">
-        <div class="flex max-w-6xl mx-auto h-full flex-wrap lg:justify-between justify-center">
+        <div class="flex container mx-auto h-full flex-wrap lg:justify-between justify-center">
             <img src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-full" />
             <ul class="hidden lg:flex items-center justify-end text-dark divide-x-[0.5px]">
                 <li class="px-3">
@@ -51,7 +51,7 @@
 
     <!-- Nav Bar -->
     <div class="w-full p-4">
-        <div class="flex md:justify-center justify-between flex-wrap">
+        <div class="flex md:justify-center justify-between flex-wrap max-w-4xl mx-auto relative">
             <button id="hamburger" name="hamburger" type="button" class="block md:hidden relative">
                 <span class="hamburger-line origin-top-left"></span>
                 <span class="hamburger-line"></span>
@@ -69,13 +69,29 @@
                     <li><a href="#" class="md:px-4">cara order</a></li>
                 </ul>
             </nav>
-            <a href="#" class="px-4"><i class="bx bx-search h-5 w-5"></i></a>
+            <div class="search-trigger grid place-content-center">
+                <a href="#" class="md:px-4 px-0 grid place-content-center z-10" id="search-btn">
+                    <box-icon name='search'
+                        class="col-span-full row-span-full
+                transition-opacity duration-500"></box-icon>
+                    <box-icon name='x'
+                        class="col-span-full row-span-full
+                transition-opacity duration-500 opacity-0">
+                    </box-icon>
+                </a>
+                <form action="#" method="GET" class="absolute w-full h-full m-0 top-0 left-0 -z-10 opacity-0 transition-opacity duration-500"
+                    id="search-form">
+                    <input type="text" name="search" id="search" placeholder="Cari produk"
+                        class="w-full h-full py-0 outline-none border-none
+                     text-xl" />
+                </form>
+            </div>
         </div>
     </div>
 
     <!-- Hero -->
     <div class="px-4">
-        <div class="flex max-w-6xl mx-auto mt-16 flex-wrap gap-y-8">
+        <div class="flex container mx-auto mt-16 flex-wrap gap-y-8">
             <div class="md:flex-1">
                 <div class="mr-40 flex flex-col justify-center items-start h-full gap-4">
                     <h1 class="text-4xl">
