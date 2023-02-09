@@ -68,7 +68,7 @@
     </header>
 
     <!-- Nav Bar -->
-    <div class="w-full p-4 md:flex md:justify-center">
+    <div class="w-full p-4 md:flex md:justify-center sticky top-0 bg-white">
         <div class="flex md:justify-center justify-between flex-wrap mx-auto w-auto relative">
             <button id="hamburger" name="hamburger" type="button" class="block md:hidden relative">
                 <span class="hamburger-line origin-top-left"></span>
