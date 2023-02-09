@@ -28,9 +28,9 @@
       <section class="mt-36 text-center px-4">
           <div class="container">
               <h2 class="text-3xl">Kategori Pilihan</h2>
-              <div class="flex justify-between flex-wrap mt-4 gap-4">
+              <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
                   @foreach (range(0, 3) as $i)
-                      <div class="w-60 h-60 bg-[#d9d9d9]">
+                      <div class="h-60 bg-[#d9d9d9]">
   
                       </div>
                   @endforeach
