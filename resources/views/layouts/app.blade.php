@@ -40,14 +40,14 @@
                 ring-black ring-opacity-5 focus:outline-none"
                         role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                         <div class="py-1 divide-y-[1px] divide-primary" role="none">
-                            <a class="p-3 block" href="tel:6281234567890" target="_blank">
+                            <a class="p-3 block hover:bg-gray-50" href="tel:6281234567890" target="_blank">
                                 <p>Telepon</p>
                                 <div class="flex mt-2">
                                     <box-icon type='solid' name='phone'></box-icon>
                                     <p>0812-3456-7890</p>
                                 </div>
                             </a>
-                            <a class="p-3 block"
+                            <a class="p-3 block hover:bg-gray-50"
                                 href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order" target="_blank">
                                 <p>Whatsapp</p>
                                 <div class="flex mt-2">
