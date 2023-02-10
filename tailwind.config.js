@@ -14,6 +14,7 @@ module.exports = {
         'secondary': '#6CC4A1',
         'dark': '#2D0333',
         'onPrimary': '#518646',
+        'onPrimaryDark': '#5B974F',
         'muted' : '#9B9B9B',
         'grey': '#D9D9D9',
       },
