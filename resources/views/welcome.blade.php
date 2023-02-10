@@ -64,4 +64,9 @@
             Lihat Produk Lainnya
         </a>
     </div>
+
+    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
+        class="block bg-primaryVariant text-white text-center text-xl p-9 mt-16 hover:opacity-90 transition-opacity">
+        Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>>
+    </a>
 @endsection
