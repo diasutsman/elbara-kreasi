@@ -12,6 +12,7 @@ module.exports = {
         'secondary': '#6CC4A1',
         'dark': '#2D0333',
         'onPrimary': '#518646',
+        'muted' : '#9B9B9B'
       },
       fontFamily: {
         'sans': ["\"Franklin Gothic Demi\"", 'sans-serif'],
