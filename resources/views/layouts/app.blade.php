@@ -30,8 +30,13 @@
             <div class="flex uppercase gap-x-10 gap-y-4 flex-wrap justify-end">
                 <p>ALAMAT</p>
                 <div class="relative inline-block">
-                    <button id="contact-btn" aria-expanded="false">HUBUNGI<i
-                            class='bx bxs-chevron-down transition-transform origin-center'></i>
+                    <button id="contact-btn" aria-expanded="false" class="flex gap-x-1">
+                        <span>HUBUNGI KAMI</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down transition-transform origin-center" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg>
                     </button>
                     <div id="menu-dropdown"
                         class="transition ease-out duration-100 transform opacity-0 scale-95 -z-10
