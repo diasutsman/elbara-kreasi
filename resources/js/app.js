@@ -46,3 +46,9 @@ contactBtn.addEventListener('click', () => {
     dropdown.addEventListener('transitionend', fun)
   }
 })
+
+// dark mode
+const darkModeBtn = document.getElementById('dark-mode-toggle')
+darkModeBtn.addEventListener('change', () => {
+  document.querySelector('html').classList.toggle('dark')
+})

@@ -41,8 +41,7 @@
                     <div id="menu-dropdown"
                         class="transition ease-out duration-100 transform opacity-0 scale-95 -z-10
                               absolute right-0 top-10 w-max origin-top-right rounded-md bg-white
-                              shadow-lg dark:bg-black ring-1
-              ring-black ring-opacity-5 focus:outline-none"
+                              shadow-lg dark:bg-black ring-1 ring-black ring-opacity-5 focus:outline-none"
                         role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                         <div class="py-1 divide-y-[1px] divide-primary" role="none">
                             <a class="p-3 block hover:bg-gray-50 dark:hover:bg-gray-900" href="tel:6281234567890"
@@ -63,7 +62,14 @@
                         </div>
                     </div>
                 </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input id="dark-mode-toggle" type="checkbox" class="sr-only peer">
+                    <div
+                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                    </div>
+                </label>
             </div>
+
         </div>
     </div>
 
