@@ -11,8 +11,7 @@
     <link rel="shortcut icon" href="{{ asset('favicon-dark.ico') }}" type="image/x-icon"
         media="(prefers-color-scheme: dark)" />
 
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
     {{-- Fonts custom --}}
     <link rel="stylesheet" href="/css/fonts.css">
@@ -25,8 +24,8 @@
     <div class="bg-primary text-onPrimary text-sm p-4">
         <div class="container flex justify-between items-center h-full gap-x-4">
             <div class="flex gap-x-5 gap-y-4 flex-wrap justify-start">
-                <p><a href="https://facebook.com"><i class='bx bxl-facebook'></i> Facebook</a></p>
-                <p><a href="https://facebook.com"><i class='bx bxl-instagram-alt'></i> Instagram</a></p>
+                <p><a href="https://facebook.com"><i class="bi bi-facebook"></i> Facebook</a></p>
+                <p><a href="https://facebook.com"><i class="bi bi-instagram"></i> Instagram</a></p>
             </div>
             <div class="flex uppercase gap-x-10 gap-y-4 flex-wrap justify-end">
                 <p>ALAMAT</p>
@@ -42,18 +41,16 @@
                         <div class="py-1 divide-y-[1px] divide-primary" role="none">
                             <a class="p-3 block hover:bg-gray-50" href="tel:6281234567890" target="_blank">
                                 <p>Telepon</p>
-                                <div class="flex mt-2">
-                                    <box-icon type='solid' name='phone'></box-icon>
-                                    <p>0812-3456-7890</p>
+                                <div class="mt-2">
+                                    <p><i class="bi bi-telephone-fill"></i> 0812-3456-7890</p>
                                 </div>
                             </a>
                             <a class="p-3 block hover:bg-gray-50"
                                 href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
                                 target="_blank">
                                 <p>Whatsapp</p>
-                                <div class="flex mt-2">
-                                    <box-icon type='logo' name='whatsapp'></box-icon>
-                                    <p>0812-3456-7890</p>
+                                <div class="mt-2">
+                                    <p><i class="bi bi-whatsapp"></i> 0812-3456-7890</p>
                                 </div>
                             </a>
                         </div>
@@ -137,7 +134,7 @@
         <div class="px-4 bg-primary text-onPrimary pt-11 pb-6">
             <div class="container flex flex-wrap md:flex-nowrap justify-between gap-8 lg:gap-16">
                 <div>
-                  <img src="img/white-logo.webp" alt="White Elbara Kreasi Logo" class="max-h-24 min-h">
+                    <img src="img/white-logo.webp" alt="White Elbara Kreasi Logo" class="max-h-24 min-h">
                 </div>
                 <div class="flex flex-col capitalize">
                     <a href="#" class="w-max">Home</a>
@@ -149,7 +146,8 @@
                     <div>
                         <p>Main Office</p>
                         <p class="text-white inline">
-                          Jl. Raya Keadilan No.39, Rangkapan Jaya Baru, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16434
+                            Jl. Raya Keadilan No.39, Rangkapan Jaya Baru, Kec. Pancoran Mas, Kota Depok, Jawa Barat
+                            16434
                         </p>
                     </div>
                     <iframe class="m-0 p-0" title="Elbara Kreasi Map"
@@ -165,12 +163,12 @@
                         class="text-xl text-white mt-1">0812-3456-7890</a>
                     <p class="text-base mt-2">Email Kami :</p>
                     <a href="mailto:elbarakreasi@gmail.com" class="text-xl text-white mt-1">elbarakreasi@gmail.com</a>
-                    <div class="mt-4">
-                        <a href="https://facebook.com">
-                            <i class='bx bxl-facebook'></i>
+                    <div class="mt-4 gap-x-4 flex">
+                        <a href="https://facebook.com" class="text-2xl">
+                            <i class="bi bi-facebook"></i>
                         </a>
-                        <a href="https://instagram.com">
-                            <i class='bx bxl-instagram-alt'></i>
+                        <a href="https://instagram.com" class="text-2xl">
+                            <i class="bi bi-instagram"></i>
                         </a>
                     </div>
                 </div>
