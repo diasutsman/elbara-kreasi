@@ -113,15 +113,13 @@
                 </ul>
             </div>
             <div class="search-trigger grid place-content-center">
-                <a href="#" class="md:px-4 px-0 grid place-content-center z-10" id="search-btn">
-                    <box-icon name='search'
-                        class="col-span-full row-span-full
-                transition-opacity duration-500"></box-icon>
-                    <box-icon name='x'
-                        class="col-span-full row-span-full
+                <button class="md:px-4 px-0 grid place-content-center z-10" id="search-btn">
+                    <i class="bi bi-search col-span-full row-span-full
+                transition-opacity duration-500"></i>
+                    <i class="bi bi-x-lg col-span-full row-span-full
                 transition-opacity duration-500 opacity-0">
-                    </box-icon>
-                </a>
+                    </i>
+                </button>
                 <form action="#" method="GET"
                     class="absolute w-full h-full m-0 top-0 left-0 -z-10 opacity-0 transition-opacity duration-500"
                     id="search-form">
