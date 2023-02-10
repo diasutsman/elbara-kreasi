@@ -69,4 +69,52 @@
         class="block bg-primaryVariant text-white text-center text-xl p-9 mt-16 hover:opacity-90 transition-opacity">
         Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>>
     </a>
+
+    {{-- Why Us & Contact us form --}}
+    <div class="mt-24 px-4 mb-60">
+        <div class="container flex flex-col md:flex-row gap-16">
+            {{-- Why Us --}}
+            <div>
+                <h1 class="text-4xl">Kenapa Kami?</h1>
+                <h2 class="text-2xl mt-11">
+                    Elbara Kreasi Indonesia - Solusi Packaging Custom Untuk Produk Kosmetik Profesional
+                </h2>
+                <p class="text-sm mt-5 tracking-wide font-thin">
+                    Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie,
+                    dictum est a, mattis
+                    tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus,
+                    ut interdum tellus
+                    elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Vorem ipsum
+                    dolor sit amet,
+                    consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.
+                    Sed dignissim, metus
+                    nec fringilla accumsan, risus sem sollicitudin lacus,
+                    ut interdum tellus elit sed risus. Maecenas eget
+                    condimentum velit, sit amet feugiat lectus.
+                </p>
+            </div>
+            {{-- Contact us form --}}
+            <div class="basis-64 flex-grow-0 flex-shrink-0">
+                <h1 class="text-xl mb-3">Pemesanan via email</h1>
+                <form action="" method="POST" class="flex flex-col gap-1 w-full">
+                    <input type="text" name="name"
+                        class="p-4 border-grey border-2 text-grey font-medium placeholder:text-grey
+                        placeholder:font-medium text-xs"
+                        placeholder="Nama Lengkap">
+                    <input type="email" name="email"
+                        class="p-4 border-grey border-2 text-grey font-medium placeholder:text-grey
+                        placeholder:font-medium text-xs"
+                        placeholder="Email">
+                    <textarea placeholder="Pesan" name="message"
+                        class="p-4 border-grey border-2 text-grey font-medium placeholder:text-grey
+                        placeholder:font-medium text-xs"
+                        id="message"></textarea>
+                    <button type="submit"
+                        class="px-5 py-2 bg-primary text-white mt-2 self-start rounded-md hover:opacity-90 transition-opacity">
+                        Kirim
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
