@@ -45,7 +45,8 @@
               ring-black ring-opacity-5 focus:outline-none"
                         role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                         <div class="py-1 divide-y-[1px] divide-primary" role="none">
-                            <a class="p-3 block hover:bg-gray-50 dark:hover:bg-gray-900" href="tel:6281234567890" target="_blank">
+                            <a class="p-3 block hover:bg-gray-50 dark:hover:bg-gray-900" href="tel:6281234567890"
+                                target="_blank">
                                 <p>Telepon</p>
                                 <div class="mt-2">
                                     <p><i class="bi bi-telephone-fill"></i> 0812-3456-7890</p>
@@ -141,7 +142,7 @@
         <div class="px-4 bg-primary text-onPrimary dark:text-onPrimaryDark pt-11 pb-6">
             <div class="container flex flex-wrap md:flex-nowrap justify-between gap-8 lg:gap-16">
                 <div>
-                    <img src="img/white-logo.webp" alt="White Elbara Kreasi Logo" class="max-h-24 min-h">
+                    <img src="img/white-logo.webp" alt="White Elbara Kreasi Logo" class="w-52 md:w-full">
                 </div>
                 <div class="flex flex-col capitalize">
                     <a href="#" class="w-max">Home</a>
@@ -164,12 +165,14 @@
                 </div>
                 <div>
                     <p class="text-base">Telepon Kami :</p>
-                    <a href="tel:6281234567890" class="text-xl text-white dark:text-dark-mode-text mt-1">0812-3456-7890</a>
+                    <a href="tel:6281234567890"
+                        class="text-xl text-white dark:text-dark-mode-text mt-1">0812-3456-7890</a>
                     <p class="text-base mt-2">Whatsapp Kami :</p>
                     <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
                         class="text-xl text-white dark:text-dark-mode-text mt-1">0812-3456-7890</a>
                     <p class="text-base mt-2">Email Kami :</p>
-                    <a href="mailto:elbarakreasi@gmail.com" class="text-xl text-white dark:text-dark-mode-text mt-1">elbarakreasi@gmail.com</a>
+                    <a href="mailto:elbarakreasi@gmail.com"
+                        class="text-xl text-white dark:text-dark-mode-text mt-1">elbarakreasi@gmail.com</a>
                     <div class="mt-4 gap-x-4 flex">
                         <a href="https://facebook.com" class="text-2xl">
                             <i class="bi bi-facebook"></i>
