@@ -28,12 +28,9 @@ searchBtn.addEventListener('click', () => {
 const contactBtn = document.getElementById('contact-btn');
 const dropdown = document.querySelector('#menu-dropdown')
 contactBtn.addEventListener('click', () => {
-  contactBtn.querySelector('i').classList.toggle('rotate-180')
+  contactBtn.querySelector('svg').classList.toggle('rotate-180')
   if (contactBtn.ariaExpanded === 'false') {
     dropdown.classList.add('z-10')
-    // dropdown.addEventListener('transitionend', () => {
-
-    // })
     dropdown.classList.remove(...'opacity-0 scale-95 ease-out duration-100'.split(' '))
     dropdown.classList.add(...'opacity-100 scale-100 ease-in duration-75'.split(' '))
     contactBtn.ariaExpanded = 'true'
