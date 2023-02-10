@@ -22,13 +22,13 @@
 
 <body class="font-sans">
     <!-- Top Bar -->
-    <div class="bg-primary h-11 text-onPrimary text-sm px-4">
-        <div class="container flex justify-between items-center h-full ">
-            <div class="flex gap-5">
+    <div class="bg-primary text-onPrimary text-sm p-4">
+        <div class="container flex justify-between items-center h-full gap-x-4">
+            <div class="flex gap-x-5 gap-y-4 flex-wrap justify-start">
                 <p><a href="https://facebook.com"><i class='bx bxl-facebook'></i> Facebook</a></p>
                 <p><a href="https://facebook.com"><i class='bx bxl-instagram-alt'></i> Instagram</a></p>
             </div>
-            <div class="flex uppercase gap-10">
+            <div class="flex uppercase gap-x-10 gap-y-4 flex-wrap justify-end">
                 <p>ALAMAT</p>
                 <div class="relative inline-block">
                     <button id="contact-btn" aria-expanded="false">HUBUNGI<i
