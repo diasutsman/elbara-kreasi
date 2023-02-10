@@ -30,12 +30,31 @@
               <h2 class="text-3xl">Kategori Pilihan</h2>
               <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
                   @foreach (range(0, 3) as $i)
-                      <div class="h-60 bg-[#d9d9d9]">
-  
+                      <div>
+                        <div class="h-60 bg-[#d9d9d9]">
+                        </div>
+                        <p class="mt-5 text-base">Category {{ $i + 1 }}</p>
                       </div>
                   @endforeach
               </div>
           </div>
       </section>
+
+      {{-- Best Seller Product --}}
+      <section class="mt-16 text-center px-4">
+        <div class="container">
+            <h2 class="text-3xl">Product Best Seller</h2>
+            <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
+                @foreach (range(0, 3) as $i)
+                    <div class="text-left">
+                      <div class="h-60 bg-[#d9d9d9]">
+                      </div>
+                      <p class="mt-4 text-base uppercase">Product {{ $i + 1 }}</p>
+                      <p class="text-xs text-muted mt-1">Category {{ rand(0, 3) + 1 }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
   
 @endsection
