@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="font-sans">
 
 <head>
     <meta charset="UTF-8" />
@@ -19,9 +19,9 @@
     <title>Elbara Kreasi Indonesia</title>
 </head>
 
-<body class="font-sans">
+<body class="dark:bg-dark-mode">
     <!-- Top Bar -->
-    <div class="bg-primary text-onPrimary text-sm p-4">
+    <div class="bg-primary text-onPrimary dark:text-onPrimaryDark text-sm p-4">
         <div class="container flex justify-between items-center h-full gap-x-4">
             <div class="flex gap-x-5 gap-y-4 flex-wrap justify-start">
                 <p><a href="https://facebook.com"><i class="bi bi-facebook"></i> Facebook</a></p>
@@ -40,17 +40,18 @@
                     </button>
                     <div id="menu-dropdown"
                         class="transition ease-out duration-100 transform opacity-0 scale-95 -z-10
- absolute right-0 top-10 w-max origin-top-right rounded-md bg-white shadow-lg ring-1
-                ring-black ring-opacity-5 focus:outline-none"
+                              absolute right-0 top-10 w-max origin-top-right rounded-md bg-white
+                              shadow-lg dark:bg-black ring-1
+              ring-black ring-opacity-5 focus:outline-none"
                         role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                         <div class="py-1 divide-y-[1px] divide-primary" role="none">
-                            <a class="p-3 block hover:bg-gray-50" href="tel:6281234567890" target="_blank">
+                            <a class="p-3 block hover:bg-gray-50 dark:hover:bg-gray-900" href="tel:6281234567890" target="_blank">
                                 <p>Telepon</p>
                                 <div class="mt-2">
                                     <p><i class="bi bi-telephone-fill"></i> 0812-3456-7890</p>
                                 </div>
                             </a>
-                            <a class="p-3 block hover:bg-gray-50"
+                            <a class="p-3 block hover:bg-gray-50 dark:hover:bg-gray-900"
                                 href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
                                 target="_blank">
                                 <p>Whatsapp</p>
@@ -66,26 +67,27 @@
     </div>
 
     <!-- Header -->
-    <header class="w-full bg-[#EEEEEE] py-4 h-24 px-4">
-        <div class="flex container  h-full flex-wrap lg:justify-between justify-center">
+    <header class="w-full bg-[#EEEEEE] dark:bg-[#1E1E1E] py-4 h-24 px-4">
+        <div class="flex container h-full flex-wrap lg:justify-between justify-center">
             <a href="/" class="h-full block">
                 <img src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-full" />
             </a>
-            <ul class="hidden lg:flex items-center justify-end text-dark divide-x-[0.5px]">
+            <ul class="hidden lg:flex items-center justify-end text-dark dark:text-linkDarkMode divide-x-[0.5px]">
                 <li class="px-3">
-                    <p class="uppercase text-[#000] text-xs">Telepon kami</p>
-                    <p class="text-base">0812-3456-7890</p>
+                    <p class="uppercase text-black dark:text-white text-xs">Telepon kami</p>
+                    <p class="text-base"><a href="tel:081234567890">0812-3456-7890</a></p>
                 </li>
                 <li class="px-3">
-                    <p class="uppercase text-[#000] text-xs">Whatsapp Kami</p>
-                    <p class="text-base">0812-3456-7890</p>
+                    <p class="uppercase text-black dark:text-white text-xs">Whatsapp Kami</p>
+                    <a class="text-base"
+                        href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order">0812-3456-7890</a>
                 </li>
                 <li class="px-3">
-                    <p class="uppercase text-[#000] text-xs">email kami</p>
-                    <p class="text-base">elbarakreasi@gmail.com</p>
+                    <p class="uppercase text-black dark:text-white text-xs">email kami</p>
+                    <a class="text-base" href="mailto:elbarakreasi@gmail.com">elbarakreasi@gmail.com</a>
                 </li>
                 <li class="px-3">
-                    <p class="uppercase text-[#000] text-xs">jam kerja</p>
+                    <p class="uppercase text-black dark:text-white text-xs">jam kerja</p>
                     <p class="text-base">Senin - Jumat 09:00 - 21:00</p>
                 </li>
             </ul>
@@ -93,7 +95,7 @@
     </header>
 
     <!-- Nav Bar -->
-    <nav class="w-full p-4 md:flex md:justify-center sticky top-0 bg-white">
+    <nav class="w-full p-4 md:flex md:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode">
         <div class="flex md:justify-center justify-between flex-wrap mx-auto w-auto relative">
             <button id="hamburger" name="hamburger" type="button" class="block md:hidden relative">
                 <span class="hamburger-line origin-top-left"></span>
@@ -102,10 +104,10 @@
             </button>
             <div id="nav-menu"
                 class="order-3 w-full max-h-0 md:max-h-max overflow-hidden md:block md:w-auto md:order-none
-             text-sm md:text-xs transition-[max-height] duration-500 ease-in-out">
+           text-sm md:text-xs transition-[max-height] duration-500 ease-in-out">
                 <ul
                     class="uppercase flex flex-col md:flex-row md:items-center items-start
-            justify-center gap-4 h-full py-4 md:py-0">
+          justify-center gap-4 h-full py-4 md:py-0">
                     <li><a href="#" class="md:px-4">Home</a></li>
                     <li><a href="#" class="md:px-4">Tentang kami</a></li>
                     <li><a href="#" class="md:px-4">Produk kami</a></li>
@@ -114,10 +116,12 @@
             </div>
             <div class="search-trigger grid place-content-center">
                 <button class="md:px-4 px-0 grid place-content-center z-10" id="search-btn">
-                    <i class="bi bi-search col-span-full row-span-full
-                transition-opacity duration-500"></i>
-                    <i class="bi bi-x-lg col-span-full row-span-full
-                transition-opacity duration-500 opacity-0">
+                    <i
+                        class="bi bi-search col-span-full row-span-full
+              transition-opacity duration-500"></i>
+                    <i
+                        class="bi bi-x-lg col-span-full row-span-full
+              transition-opacity duration-500 opacity-0">
                     </i>
                 </button>
                 <form action="#" method="GET"
@@ -125,7 +129,7 @@
                     id="search-form">
                     <input type="text" name="search" id="search" placeholder="Cari produk"
                         class="w-full h-full py-0 outline-none border-none
-                     text-xl" />
+                   text-xl dark:bg-dark-mode" />
                 </form>
             </div>
         </div>
@@ -134,7 +138,7 @@
     @yield('content')
 
     <footer>
-        <div class="px-4 bg-primary text-onPrimary pt-11 pb-6">
+        <div class="px-4 bg-primary text-onPrimary dark:text-onPrimaryDark pt-11 pb-6">
             <div class="container flex flex-wrap md:flex-nowrap justify-between gap-8 lg:gap-16">
                 <div>
                     <img src="img/white-logo.webp" alt="White Elbara Kreasi Logo" class="max-h-24 min-h">
@@ -148,7 +152,7 @@
                 <div class="flex gap-5 flex-wrap md:flex-nowrap">
                     <div>
                         <p>Main Office</p>
-                        <p class="text-white inline">
+                        <p class="text-white dark:text-dark-mode-text inline">
                             Jl. Raya Keadilan No.39, Rangkapan Jaya Baru, Kec. Pancoran Mas, Kota Depok, Jawa Barat
                             16434
                         </p>
@@ -160,12 +164,12 @@
                 </div>
                 <div>
                     <p class="text-base">Telepon Kami :</p>
-                    <a href="tel:6281234567890" class="text-xl text-white mt-1">0812-3456-7890</a>
+                    <a href="tel:6281234567890" class="text-xl text-white dark:text-dark-mode-text mt-1">0812-3456-7890</a>
                     <p class="text-base mt-2">Whatsapp Kami :</p>
                     <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
-                        class="text-xl text-white mt-1">0812-3456-7890</a>
+                        class="text-xl text-white dark:text-dark-mode-text mt-1">0812-3456-7890</a>
                     <p class="text-base mt-2">Email Kami :</p>
-                    <a href="mailto:elbarakreasi@gmail.com" class="text-xl text-white mt-1">elbarakreasi@gmail.com</a>
+                    <a href="mailto:elbarakreasi@gmail.com" class="text-xl text-white dark:text-dark-mode-text mt-1">elbarakreasi@gmail.com</a>
                     <div class="mt-4 gap-x-4 flex">
                         <a href="https://facebook.com" class="text-2xl">
                             <i class="bi bi-facebook"></i>
@@ -177,7 +181,7 @@
                 </div>
             </div>
         </div>
-        <div class="bg-onPrimary text-primary p-3">
+        <div class="bg-onPrimaryDark text-primary p-3">
             <div class="container">
                 <p class="text-xs">©{{ date('Y') }} Elbara Kreasi Indonesia</p>
             </div>
