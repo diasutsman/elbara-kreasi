@@ -9,10 +9,11 @@ module.exports = {
     extend: {
       colors: {
         'primary': '#A0D995',
+        'primaryVariant': '#79A172',
         'secondary': '#6CC4A1',
         'dark': '#2D0333',
         'onPrimary': '#518646',
-        'muted' : '#9B9B9B'
+        'muted' : '#9B9B9B',
       },
       fontFamily: {
         'sans': ["\"Franklin Gothic Demi\"", 'sans-serif'],
