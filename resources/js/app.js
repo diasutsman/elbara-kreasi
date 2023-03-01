@@ -1,4 +1,3 @@
-import { drop } from "lodash";
 import "./bootstrap";
 
 // Hamburger
