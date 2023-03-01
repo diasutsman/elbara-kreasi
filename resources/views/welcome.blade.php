@@ -33,14 +33,16 @@
             <h2 class="text-3xl">Kategori Pilihan</h2>
             <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
                 @foreach ($categories as $category)
-                    <div>
-                        <div class="min-h-[250px] bg-[#d9d9d9]">
-                            <img src="https://source.unsplash.com/500x500?{{ $category->slug }}" alt="{{ $category->name }}"
-                                class="w-full"
-                                loading="lazy">
+                    <a class="group" href="#">
+                        <div class="min-h-[250px] bg-[#d9d9d9] grid">
+                            <div class="aspect-square p-1 opacity-0 group-hover:opacity-100 transition-opacity row-span-full col-span-full z-10 place-self-center bg-white rounded-full grid place-items-center">
+                                <p class="text-base text-primary dark:text-onPrimary">Lihat Produk</p>
+                            </div>
+                            <img src="https://source.unsplash.com/500x500?{{ $category->slug }}"
+                                alt="{{ $category->name }}" class="w-full row-span-full col-span-full group-hover:brightness-50 transition" loading="lazy">
                         </div>
                         <p class="mt-5 text-base">{{ $category->name }}</p>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>
