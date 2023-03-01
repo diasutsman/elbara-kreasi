@@ -107,43 +107,40 @@
 
     <!-- Nav Bar -->
     <nav
-        class="w-full p-4 px-4 md:p-0 md:flex md:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode">
-        <div class="flex md:justify-center justify-between flex-wrap mx-auto w-auto relative">
-            <button id="hamburger" name="hamburger" type="button" class="block md:hidden relative">
+        class="w-full px-4 sm:p-0 sm:flex sm:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode">
+        <div class="flex sm:justify-center justify-between flex-wrap mx-auto w-auto relative">
+            <button id="hamburger" name="hamburger" type="button" class="block sm:hidden relative py-3">
                 <span class="hamburger-line origin-top-left"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line origin-bottom-left"></span>
             </button>
-            <div id="nav-menu"
-                class="order-3 w-full max-h-0 md:max-h-max overflow-hidden md:block md:w-auto md:order-none
-           text-sm md:text-xs transition-[max-height] duration-500 ease-in-out">
+            <div id="nav-menu" class="order-3 w-full max-h-0 sm:max-h-max overflow-hidden sm:block sm:w-auto sm:order-none text-sm sm:text-xs transition-[max-height] duration-500 ease-in-out">
                 <ul
-                    class="uppercase flex flex-col md:flex-row md:items-center items-start
-          justify-center h-full py-4 md:py-0">
-                    <li class="w-full md:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                        <a href="#" class="md:p-4 md:px-6 block p-2">
+                    class="uppercase flex flex-col sm:flex-row sm:items-center items-start justify-center h-full py-4 sm:py-0">
+                    <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                        <a href="#" class="sm:p-4 sm:px-6 block p-2">
                             Home
                         </a>
                     </li>
-                    <li class="w-full md:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                        <a href="#" class="md:p-4 md:px-6 block p-2">
+                    <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                        <a href="#" class="sm:p-4 sm:px-6 block p-2">
                             Tentang kami
                         </a>
                     </li>
-                    <li class="w-full md:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                        <a href="#" class="md:p-4 md:px-6 block p-2">
+                    <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                        <a href="#" class="sm:p-4 sm:px-6 block p-2">
                             Produk kami
                         </a>
                     </li>
-                    <li class="w-full md:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                        <a href="#" class="md:p-4 md:px-6 block p-2">
+                    <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                        <a href="#" class="sm:p-4 sm:px-6 block p-2">
                             cara order
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="search-trigger grid place-content-center">
-                <button class="md:px-4 px-0 grid place-content-center z-10" id="search-btn">
+            <div class="search-trigger grid place-content-center sm:hover:bg-gray-200 sm:dark:hover:bg-gray-900 transition-colors duration-300">
+                <button class="sm:px-4 px-0 grid place-content-center z-10" id="search-btn">
                     <i
                         class="bi bi-search col-span-full row-span-full
               transition-opacity duration-500"></i>
