@@ -106,7 +106,8 @@
     </header>
 
     <!-- Nav Bar -->
-    <nav class="w-full p-4 md:flex md:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode">
+    <nav
+        class="w-full p-4 px-4 md:p-0 md:flex md:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode">
         <div class="flex md:justify-center justify-between flex-wrap mx-auto w-auto relative">
             <button id="hamburger" name="hamburger" type="button" class="block md:hidden relative">
                 <span class="hamburger-line origin-top-left"></span>
@@ -118,11 +119,27 @@
            text-sm md:text-xs transition-[max-height] duration-500 ease-in-out">
                 <ul
                     class="uppercase flex flex-col md:flex-row md:items-center items-start
-          justify-center gap-4 h-full py-4 md:py-0">
-                    <li><a href="#" class="md:px-4">Home</a></li>
-                    <li><a href="#" class="md:px-4">Tentang kami</a></li>
-                    <li><a href="#" class="md:px-4">Produk kami</a></li>
-                    <li><a href="#" class="md:px-4">cara order</a></li>
+          justify-center h-full py-4 md:py-0">
+                    <li>
+                        <a href="#" class="md:p-4 md:px-8 hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300 block">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="md:p-4 md:px-8 hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300 block">
+                            Tentang kami
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="md:p-4 md:px-8 hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300 block">
+                            Produk kami
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="md:p-4 md:px-8 hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300 block">
+                            cara order
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="search-trigger grid place-content-center">
