@@ -120,23 +120,23 @@
                 <ul
                     class="uppercase flex flex-col md:flex-row md:items-center items-start
           justify-center h-full py-4 md:py-0">
-                    <li>
-                        <a href="#" class="md:p-4 md:px-8 hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300 block">
+                    <li class="w-full md:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                        <a href="#" class="md:p-4 md:px-6 block p-2">
                             Home
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="md:p-4 md:px-8 hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300 block">
+                    <li class="w-full md:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                        <a href="#" class="md:p-4 md:px-6 block p-2">
                             Tentang kami
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="md:p-4 md:px-8 hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300 block">
+                    <li class="w-full md:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                        <a href="#" class="md:p-4 md:px-6 block p-2">
                             Produk kami
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="md:p-4 md:px-8 hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300 block">
+                    <li class="w-full md:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                        <a href="#" class="md:p-4 md:px-6 block p-2">
                             cara order
                         </a>
                     </li>
