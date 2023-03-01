@@ -32,11 +32,14 @@
         <div class="container">
             <h2 class="text-3xl">Kategori Pilihan</h2>
             <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
-                @foreach (range(0, 3) as $i)
+                @foreach ($categories as $category)
                     <div>
-                        <div class="h-60 bg-[#d9d9d9]">
+                        <div class="min-h-[250px] bg-[#d9d9d9]">
+                            <img src="https://source.unsplash.com/500x500?{{ $category->slug }}" alt="{{ $category->name }}"
+                                class="w-full"
+                                loading="lazy">
                         </div>
-                        <p class="mt-5 text-base">Category {{ $i + 1 }}</p>
+                        <p class="mt-5 text-base">{{ $category->name }}</p>
                     </div>
                 @endforeach
             </div>
@@ -48,12 +51,12 @@
         <div class="container">
             <h2 class="text-3xl">Product Best Seller</h2>
             <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
-                @foreach (range(0, 3) as $i)
+                @foreach ($products as $product)
                     <div class="text-left">
                         <div class="h-60 bg-[#d9d9d9]">
                         </div>
-                        <p class="mt-4 text-base uppercase">Product {{ $i + 1 }}</p>
-                        <p class="text-xs text-muted mt-1">Category {{ rand(0, 3) + 1 }}</p>
+                        <p class="mt-4 text-base uppercase">{{ $product->name }}</p>
+                        <p class="text-xs text-muted mt-1">{{ $product->category->name }}</p>
                     </div>
                 @endforeach
             </div>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'categories' => Category::all(),
+        'products' => Product::where('is_best_seller', 1)->get(),
+    ]);
 });
