@@ -3,6 +3,7 @@
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::get('/', function () {
         'products' => Product::where('is_best_seller', 1)->get(),
     ]);
 });
+
+Route::get('/{category}', [CategoryController::class, 'productsByCategory'])->name('category.products');

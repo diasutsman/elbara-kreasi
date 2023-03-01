@@ -35,11 +35,13 @@
                 @foreach ($categories as $category)
                     <div>
                         <div class="min-h-[250px] bg-[#d9d9d9]">
-                            <img src="https://source.unsplash.com/500x500?{{ $category->slug }}" alt="{{ $category->name }}"
-                                class="w-full"
-                                loading="lazy">
+                            <img src="@if ($category->image) {{ asset($category->image) }}
+                            @else https://source.unsplash.com/500x500?{{ $category->slug }} @endif"
+                                alt="{{ $category->name }}" class="w-full" loading="lazy">
                         </div>
-                        <p class="mt-5 text-base">{{ $category->name }}</p>
+                        <p class="mt-5 text-base">
+                            <a href="{{ route('category.products', $category->slug) }}">{{ $category->name }}</a>
+                        </p>
                     </div>
                 @endforeach
             </div>

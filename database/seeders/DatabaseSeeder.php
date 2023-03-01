@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'kalender-notes',
         ]);
 
-        Product::factory(10)->create();
+        Product::factory(20)->create();
 
         Client::factory(10)->create();
 
