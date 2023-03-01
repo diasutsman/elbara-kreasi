@@ -142,7 +142,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="search-trigger grid place-content-center">
+            <div class="search-trigger grid place-content-center hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
                 <button class="md:px-4 px-0 grid place-content-center z-10" id="search-btn">
                     <i
                         class="bi bi-search col-span-full row-span-full
