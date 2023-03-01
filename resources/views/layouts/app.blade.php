@@ -77,7 +77,7 @@
     <header class="w-full bg-[#EEEEEE] dark:bg-[#1E1E1E] py-4 h-24 px-4">
         <div class="flex container h-full flex-wrap lg:justify-between justify-center">
             <a href="/" class="h-full block">
-                <img src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-full" />
+                <img src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-full dark:invert" />
             </a>
             <ul class="hidden lg:flex items-center justify-end text-dark dark:text-linkDarkMode divide-x-[0.5px]">
                 <li class="px-3">
