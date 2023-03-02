@@ -10,8 +10,9 @@
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    @vite('resources/css/app.css')
+    
     <!--Replace with your tailwind.css once created-->
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <!--Totally optional :) -->
@@ -29,8 +30,22 @@
 
         <div class="flex flex-col md:flex-row">
             @include('admin.layouts.sidebar')
-            <section>
+            <section class="flex-1">
                 <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
+                  <div class="bg-gray-800 pt-3 w-full">
+                    <div class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
+                        <h1 class="font-bold pl-2">
+                          @if (Request::is('admin'))
+                            Dashboard
+                          @elseif (Request::is('admin/products'))
+                            Products
+                          @elseif (Request::is('admin/categories'))
+                            Categories
+                          @else
+                          @endif
+                        </h1>
+                    </div>
+                  </div>
 
                   @yield('content')
                     

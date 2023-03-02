@@ -3,6 +3,7 @@
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -17,15 +18,19 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', function () {
-    return view('welcome', [
-        'categories' => Category::all(),
-        'products' => Product::where('is_best_seller', 1)->get(),
-    ]);
+  return view('welcome', [
+    'categories' => Category::all(),
+    'products' => Product::where('is_best_seller', 1)->get(),
+  ]);
 });
 
-/* Admin Routes */
-Route::get('/admin', function () {
-  return view('admin.dashboard');
-})->name('admin.dashboard');
+Route::resource('/category', CategoryController::class)
+  ->name('show', 'category.products');
 
-Route::get('/{category}', [CategoryController::class, 'productsByCategory'])->name('category.products');
+/* Admin Routes */
+Route::group(['prefix' => 'admin'], function () {
+
+  Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+  Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
+  Route::get('/categories', [AdminController::class, 'categories'])->name('admin.categories');
+});

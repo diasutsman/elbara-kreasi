@@ -1,12 +1,6 @@
 @extends('admin.layouts.main')
 
 @section('content')
-<div class="bg-gray-800 pt-3">
-  <div
-      class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
-      <h1 class="font-bold pl-2">Analytics</h1>
-  </div>
-</div>
 
 <div class="flex flex-wrap">
   <div class="w-full md:w-1/2 xl:w-1/3 p-6">
