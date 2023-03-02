@@ -1,5 +1,31 @@
 import "./bootstrap";
 
+// dark mode
+// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+const darkModeBtn = document.getElementById("dark-mode-toggle");
+const mainIcon = document.querySelector("link[rel~='icon']");
+const lightUrl = mainIcon.href;
+const darkUrl = document.getElementById("darkUrl").href;
+if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+    document.documentElement.classList.add("dark");
+    darkModeBtn.checked = true;
+    mainIcon.href = darkUrl;
+} else {
+    document.documentElement.classList.remove("dark");
+}
+
+darkModeBtn.addEventListener("change", () => {
+    localStorage.theme = document.querySelector("html").classList.toggle("dark")
+        ? "dark"
+        : "light";
+
+    mainIcon.href = localStorage.theme === "dark" ? darkUrl : lightUrl;
+});
+
 // Hamburger
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("nav-menu");
@@ -62,20 +88,6 @@ window.addEventListener("click", (event) => {
         !dropdown.contains(event.target) &&
         !contactBtn.contains(event.target)
     ) {
-        if(contactBtn.ariaExpanded === "true")contactBtn.click();
+        if (contactBtn.ariaExpanded === "true") contactBtn.click();
     }
-});
-
-// dark mode
-// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-const darkModeBtn = document.getElementById("dark-mode-toggle");
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark')
-  darkModeBtn.checked = true
-} else {
-  document.documentElement.classList.remove('dark')
-}
-
-darkModeBtn.addEventListener("change", () => {
-  localStorage.theme = document.querySelector("html").classList.toggle("dark")? "dark" : "light";
 });
