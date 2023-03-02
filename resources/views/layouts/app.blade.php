@@ -8,8 +8,7 @@
     @vite('resources/css/app.css')
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
-    <link rel="shortcut icon" href="{{ asset('favicon-dark.ico') }}" type="image/x-icon"
-        media="(prefers-color-scheme: dark)" />
+    <link href="{{ asset('favicon-dark.ico') }}" id="darkUrl"/>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
