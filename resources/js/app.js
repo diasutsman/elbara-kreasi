@@ -67,7 +67,15 @@ window.addEventListener("click", (event) => {
 });
 
 // dark mode
+// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 const darkModeBtn = document.getElementById("dark-mode-toggle");
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+  darkModeBtn.checked = true
+} else {
+  document.documentElement.classList.remove('dark')
+}
+
 darkModeBtn.addEventListener("change", () => {
-    document.querySelector("html").classList.toggle("dark");
+  localStorage.theme = document.querySelector("html").classList.toggle("dark")? "dark" : "light";
 });
