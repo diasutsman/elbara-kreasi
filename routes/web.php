@@ -23,4 +23,9 @@ Route::get('/', function () {
     ]);
 });
 
+/* Admin Routes */
+Route::get('/admin', function () {
+  return view('admin.dashboard');
+})->name('admin.dashboard');
+
 Route::get('/{category}', [CategoryController::class, 'productsByCategory'])->name('category.products');
