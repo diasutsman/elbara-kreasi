@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
-    <link href="{{ asset('favicon-dark.ico') }}" id="darkUrl"/>
+    <link href="{{ asset('favicon-dark.ico') }}" id="darkUrl" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
@@ -113,32 +113,38 @@
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line origin-bottom-left"></span>
             </button>
-            <div id="nav-menu" class="order-3 w-full max-h-0 sm:max-h-max overflow-hidden sm:block sm:w-auto sm:order-none text-sm sm:text-xs transition-[max-height] duration-500 ease-in-out">
+            <div id="nav-menu"
+                class="order-3 w-full max-h-0 sm:max-h-max overflow-hidden sm:block sm:w-auto sm:order-none text-sm sm:text-xs transition-[max-height] duration-500 ease-in-out">
                 <ul
                     class="uppercase flex flex-col sm:flex-row sm:items-center items-start justify-center h-full py-4 sm:py-0">
-                    <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                    <li
+                        class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
                         <a href="#" class="sm:p-4 sm:px-6 block p-2">
                             Home
                         </a>
                     </li>
-                    <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                    <li
+                        class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
                         <a href="#" class="sm:p-4 sm:px-6 block p-2">
                             Tentang kami
                         </a>
                     </li>
-                    <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                    <li
+                        class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
                         <a href="#" class="sm:p-4 sm:px-6 block p-2">
                             Produk kami
                         </a>
                     </li>
-                    <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                    <li
+                        class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
                         <a href="#" class="sm:p-4 sm:px-6 block p-2">
                             cara order
                         </a>
                     </li>
                 </ul>
             </div>
-            <div class="search-trigger grid place-content-center sm:hover:bg-gray-200 sm:dark:hover:bg-gray-900 transition-colors duration-300">
+            <div
+                class="search-trigger grid place-content-center sm:hover:bg-gray-200 sm:dark:hover:bg-gray-900 transition-colors duration-300">
                 <button class="sm:px-4 px-0 grid place-content-center z-10" id="search-btn">
                     <i
                         class="bi bi-search col-span-full row-span-full

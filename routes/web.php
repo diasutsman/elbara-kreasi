@@ -3,7 +3,9 @@
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -30,7 +32,7 @@ Route::resource('/category', CategoryController::class)
 /* Admin Routes */
 Route::group(['prefix' => 'admin'], function () {
 
-  Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-  Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
-  Route::get('/categories', [AdminController::class, 'categories'])->name('admin.categories');
+  Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
+  Route::resource('/products', AdminProductController::class)->names('admin.products');
+  Route::resource('/categories', AdminCategoryController::class)->names('admin.categories');
 });

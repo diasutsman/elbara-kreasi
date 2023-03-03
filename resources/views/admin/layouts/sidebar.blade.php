@@ -13,14 +13,14 @@
                     </a>
                 </li>
                 <li class="mr-3 flex-1">
-                    <a href="{{ route('admin.categories') }}"
+                    <a href="{{ route('admin.categories.index') }}"
                         class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500 transition-colors duration-300 @if (Request::is('admin/categories')) border-b-2 border-purple-500 @endif">
                         <i class="bi @if (Request::is('admin/categories')) bi-bookmarks-fill @else bi-bookmarks @endif pr-0 md:pr-3 @if (Request::is('admin/categories')) text-purple-500 @endif"></i><span
                             class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Categories</span>
                     </a>
                 </li>
                 <li class="mr-3 flex-1">
-                    <a href="{{ route('admin.products') }}"
+                    <a href="{{ route('admin.products.index') }}"
                         class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 hover:border-pink-500 @if (Request::is('admin/products')) border-pink-500 @else border-gray-800 @endif transition-colors duration-300">
                         <i class="bi bi-card-list pr-0 md:pr-3 @if (Request::is('admin/products')) text-pink-500 @endif"></i><span
                             class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Products</span>
