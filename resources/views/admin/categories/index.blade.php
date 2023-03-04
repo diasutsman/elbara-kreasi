@@ -31,7 +31,6 @@
                                 </td>
                                 <td class="text-center">
                                     <form action="{{ route('admin.categories.update', $category->slug) }}" enctype="multipart/form-data">
-                                      @csrf
                                         <label class="grid group cursor-pointer">
                                             <img loading="lazy"
                                                 src="@if ($category->image) {{ asset('storage/' . $category->image) }} @else https://picsum.photos/200/300 @endif"
@@ -41,6 +40,7 @@
                                                 class="row-span-full col-span-full">
                                             <input type="file" class="hidden row-span-full col-span-full"
                                                 onchange="previewImage(event)" name="image">
+                                            @csrf
                                             <div
                                                 class="bg-black group-hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
