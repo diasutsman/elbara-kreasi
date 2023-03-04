@@ -7,11 +7,36 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Yajra\DataTables\DataTables;
 
 class AdminCategoryController extends Controller
 {
-  public function index()
+  public function index(Request $request)
   {
+    if ($request->ajax()) {
+      $data = Category::all();
+      return DataTables::of($data)->addIndexColumn()
+        ->addColumn('name', function ($category) {
+          $btn = view('admin.categories.name', [
+            'category' => $category,
+          ])->render();
+          return $btn;
+        })
+        ->addColumn('image', function ($category) {
+          $btn = view('admin.categories.image', [
+            'category' => $category,
+          ])->render();
+          return $btn;
+        })
+        ->addColumn('action', function ($category) {
+          $btn = view('admin.categories.action', [
+            'category' => $category,
+          ])->render();
+          return $btn;
+        })
+        ->rawColumns(['action', 'name', 'image'])
+        ->make(true);
+    }
     return view('admin.categories.index', [
       'categories' => Category::all()
     ]);

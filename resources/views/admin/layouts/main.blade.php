@@ -64,6 +64,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <<!-- jQuery -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -105,10 +106,28 @@
             }
 
             // // data table
+            let categoryTable
             $(document).ready(function() {
 
-                var table = $('#category-table').DataTable({
-                        responsive: true
+                categoryTable = $('#category-table').DataTable({
+                        responsive: true,
+                        processing: true,
+                        serverSide: true,
+                        ajax: "{{ route('admin.categories.index') }}",
+                        columns: [
+                            {
+                                data: 'name',
+                                name: 'name'
+                            },
+                            {
+                                data: 'image',
+                                name: 'image'
+                            },
+                            {
+                                data: 'action',
+                                name: 'action',
+                            },
+                        ]
                     })
                     .columns.adjust()
                     .responsive.recalc();
