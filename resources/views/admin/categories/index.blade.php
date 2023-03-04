@@ -30,8 +30,10 @@
                                     </form>
                                 </td>
                                 <td class="text-center">
-                                    <form action="{{ route('admin.categories.update', $category->slug) }}" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.categories.update', $category->slug) }}" data-slug="{{ $category->slug }}" id="form-image"
+                                        enctype="multipart/form-data">
                                         <label class="grid group cursor-pointer">
+                                            @csrf
                                             <img loading="lazy"
                                                 src="@if ($category->image) {{ asset('storage/' . $category->image) }} @else https://picsum.photos/200/300 @endif"
                                                 class="row-span-full col-span-full" />
@@ -40,7 +42,6 @@
                                                 class="row-span-full col-span-full">
                                             <input type="file" class="hidden row-span-full col-span-full"
                                                 onchange="previewImage(event)" name="image">
-                                            @csrf
                                             <div
                                                 class="bg-black group-hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +55,7 @@
                                                         stroke-width="5" />
                                                 </svg>
                                         </label>
-                                        
+
                                     </form>
             </div>
 
@@ -92,15 +93,16 @@
     <script>
         function updateCategory(event) {
             event.preventDefault();
+            console.log(event.target.action)
             fetch(event.target.action, {
                 method: "PUT",
                 body: new URLSearchParams(new FormData(event.target)),
             });
         }
 
-        document.addEventListener('trix-file-accept', (e) => {
-            e.preventDefault();
-        })
+        // document.addEventListener('trix-file-accept', (e) => {
+        //     e.preventDefault();
+        // })
 
         function previewImage(event) {
             const image = event.target;
@@ -111,19 +113,22 @@
                 imgPreview.src = oFREvent.target.result;
             }
 
-            uploadImage(event.target.closest('form'))
+            uploadImage(event.target.closest('#form-image'))
         }
 
         function uploadImage(form) {
-            console.log(form.action)
-            console.log([...form.querySelectorAll('input')].map(input => [input.name,input.value]))
-            fetch(form.action, {
+            console.log([...form.querySelectorAll('input')].map(input => [input.name, input.value]))
+
+            fetch(`/admin/categories/${form.dataset.slug}`, {
                     method: 'PUT',
-                    body: new URLSearchParams(new FormData(form)), // method unsupported eventhough it is literally the right url but laravel just didn't read the last bit for some reason
-                    // body: new FormData(form) // page expired 419
+                    // body: new URLSearchParams(new FormData(form)), // method unsupported eventhough it is literally the right url but laravel just didn't read the last bit for some reason
+                    body: new FormData(form), // still page expired 419,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    } // when i add this, it says method not allowed for `/admin/categories` but it is /admin/categories/*slug* so it should be allowed
                 })
-                .then(response => response.text())
-                .then(data => console.log(data))
+                // .then(response => response.text())
+                // .then(data => console.log(data))
         }
     </script>
 @endsection

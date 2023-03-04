@@ -10,6 +10,8 @@
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     @vite('resources/css/app.css')
 

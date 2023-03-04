@@ -32,7 +32,7 @@ Route::resource('/category', CategoryController::class)
 /* Admin Routes */
 Route::group(['prefix' => 'admin'], function () {
 
-  Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
-  Route::resource('/products', AdminProductController::class)->names('admin.products');
   Route::resource('/categories', AdminCategoryController::class)->names('admin.categories');
+  Route::resource('/products', AdminProductController::class)->names('admin.products');
+  Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 });

@@ -40,8 +40,6 @@ class AdminCategoryController extends Controller
       'image' => 'image|file|max:1024',
     ]);
 
-    dd($validatedData);
-
     $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
 
     if ($request->file('image')) {
