@@ -31,36 +31,15 @@ async function update(event) {
     const formData = new FormData(event.target);
     const tr = event.target.closest("tr");
 
-    // await fetch(event.target.action, {
-    //     method: tr.querySelector('input[name="_method"]').value,
-    //     body: formData,
-    //     headers: {
-    //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-    //     },
-    // })
-    //     .then((response) => response.text())
-    //     .then((data) => console.log(data));
-    // categoryTable.ajax.reload(null, false);
+    console.log([...formData.entries()]);
 
-    console.log([...formData.entries()].reduce((acc, [key, val]) => (acc[key] = val, acc),{}));
-    formData.delete('image');
-    $.ajax({
-      url: event.target.action,
-      method: "PUT",
-      data: formData,
-      processData: false,
-      headers: {
-          "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-      },
-      success: function (msg) {
-          console.log(msg);
-          categoryTable.ajax.reload(null, false);
-      },
-      error: function (msg) {
-          console.log(msg);
-          // categoryTable.ajax.reload(null, false);
-      },
-  });
+    await fetch(event.target.action, {
+        method: tr.querySelector('input[name="_method"]').value,
+        body: new URLSearchParams(formData),
+    })
+        .then((response) => response.text())
+        .then((data) => console.log(data));
+    categoryTable.ajax.reload(null, false);
 }
 
 async function onEdit(event) {
@@ -80,12 +59,11 @@ async function onEdit(event) {
     btnCancel.classList.remove("hidden");
 
     const inputs = [...tr.querySelectorAll("input")].filter(
-        (input) => input.closest("form") === null && input.type !== "hidden"
+        (input) => input.closest("form") === null && !input.name.startsWith('_')
     );
 
     inputs.forEach(
-        (input) =>
-            (input.disabled = input.type == "text" ? false : input.disabled)
+        (input) => input.disabled = false
     );
     inputs[0].focus();
     inputs[0].selectionStart = inputs[0].selectionEnd = 10000;

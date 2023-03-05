@@ -62,12 +62,12 @@ class AdminCategoryController extends Controller
 
   public function update(Request $request, Category $category)
   {
-    // $validatedData = $request->validate([
-    //   'name' => 'required|max:255|unique:categories,name,' . $category->id . ',id',
-    //   'image' => 'image|file|max:1024',
-    // ]);
-
-    // $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
+    $validatedData = $request->validate([
+      'name' => 'required|max:255|unique:categories,name,' . $category->id . ',id',
+      // 'image' => 'image|file|max:1024',
+    ]);
+    
+    $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
 
     // if ($request->file('image')) {
     //   if ($request->oldImage) {
@@ -76,16 +76,7 @@ class AdminCategoryController extends Controller
     //   $validatedData['image'] = $request->file('image')->store('category-images');
     // }
 
-    // Category::where('id', $category->id)
-    //   ->update($validatedData);
-
-    // var_dump($request->all());
-    // var_dump($request->all());
-    // die;
-
-    var_dump($request->all());die;
-
     Category::where('id', $category->id)
-      ->update($request->all());
+      ->update($validatedData);
   }
 }
