@@ -1,24 +1,23 @@
 @extends('admin.layouts.main')
 
 @section('content')
-    <div x-data="{ modelOpen: false }">
-        <!--Container-->
-        <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
+    <!--Container-->
+    <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
 
-            <!--Card-->
-            <div id="card-wrapper" class="p-8 mt-6 rounded shadow bg-white">
+        <!--Card-->
+        <div id="card-wrapper" class="p-8 mt-6 rounded shadow bg-white">
 
-                <table id="category-table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-                    <thead>
-                        <tr>
-                            <th data-priority="1">Name</th>
-                            <th data-orderable="false">Image</th>
-                            <th data-orderable="false">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <table id="category-table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                <thead>
+                    <tr>
+                        <th data-priority="1">Name</th>
+                        <th data-orderable="false">Image</th>
+                        <th data-orderable="false">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        {{-- @foreach ($categories as $category)
+                    {{-- @foreach ($categories as $category)
                             <tr>
                                 <form action="" method="POST">
                                     <td>
@@ -80,16 +79,15 @@
                                 </form>
                             </tr>
                         @endforeach --}}
-                    </tbody>
+                </tbody>
 
-                </table>
-
-
-            </div>
-            <!--/Card-->
+            </table>
 
 
         </div>
-        <!--/container-->
+        <!--/Card-->
+
+
     </div>
+    <!--/container-->
 @endsection
