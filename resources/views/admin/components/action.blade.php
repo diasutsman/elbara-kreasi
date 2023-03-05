@@ -33,7 +33,7 @@
 
     <button
         class="btn-cancel inline-flex items-center p-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md mr-0 hidden"
-        type="button">
+        type="button" onclick="onCancel(event)">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg h-5 w-5"
             viewBox="0 0 16 16">
             <path

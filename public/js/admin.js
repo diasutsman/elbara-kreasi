@@ -44,12 +44,11 @@ async function update(event) {
         tr.querySelector('input[name="_method"]'),
         tr.querySelector('input[name="_token"]'),
     ].reduce((formData, { name, value }) => {
-        console.log({ name, value });
         formData.append(name, value);
         return formData;
     }, new FormData());
 
-    console.log([...formData.values()]);
+    console.log([...formData.entries()]);
 
     await fetch(event.target.action, {
         method: "PUT",
@@ -100,6 +99,10 @@ async function onEdit(event) {
     );
     inputs[0].focus();
     inputs[0].selectionStart = inputs[0].selectionEnd = 10000;
+}
+
+async function onCancel() {
+  categoryTable.ajax.reload(null, false);
 }
 
 async function onDelete(event) {
