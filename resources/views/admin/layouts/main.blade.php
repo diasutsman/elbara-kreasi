@@ -13,7 +13,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css'])
 
     <!--Replace with your tailwind.css once created-->
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
@@ -66,74 +66,47 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <<!-- jQuery -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-        <!--Datatables -->
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-        <script>
-            /*Toggle dropdown list*/
-            function toggleDD(myDropMenu) {
-                document.getElementById(myDropMenu).classList.toggle("invisible");
+    <!--Datatables -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script>
+        /*Toggle dropdown list*/
+        function toggleDD(myDropMenu) {
+            document.getElementById(myDropMenu).classList.toggle("invisible");
+        }
+        /*Filter dropdown options*/
+        function filterDD(myDropMenu, myDropMenuSearch) {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById(myDropMenuSearch);
+            filter = input.value.toUpperCase();
+            div = document.getElementById(myDropMenu);
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
             }
-            /*Filter dropdown options*/
-            function filterDD(myDropMenu, myDropMenuSearch) {
-                var input, filter, ul, li, a, i;
-                input = document.getElementById(myDropMenuSearch);
-                filter = input.value.toUpperCase();
-                div = document.getElementById(myDropMenu);
-                a = div.getElementsByTagName("a");
-                for (i = 0; i < a.length; i++) {
-                    if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        a[i].style.display = "";
-                    } else {
-                        a[i].style.display = "none";
+        }
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.drop-button') && !event.target.matches('.drop-search')) {
+                var dropdowns = document.getElementsByClassName("dropdownlist");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (!openDropdown.classList.contains('invisible')) {
+                        openDropdown.classList.add('invisible');
                     }
                 }
             }
-            // Close the dropdown menu if the user clicks outside of it
-            window.onclick = function(event) {
-                if (!event.target.matches('.drop-button') && !event.target.matches('.drop-search')) {
-                    var dropdowns = document.getElementsByClassName("dropdownlist");
-                    for (var i = 0; i < dropdowns.length; i++) {
-                        var openDropdown = dropdowns[i];
-                        if (!openDropdown.classList.contains('invisible')) {
-                            openDropdown.classList.add('invisible');
-                        }
-                    }
-                }
-            }
+        }
+    </script>
 
-            // // data table
-            let categoryTable
-            $(document).ready(function() {
-
-                categoryTable = $('#category-table').DataTable({
-                        responsive: true,
-                        processing: true,
-                        serverSide: true,
-                        ajax: "{{ route('admin.categories.index') }}",
-                        columns: [
-                            {
-                                data: 'name',
-                                name: 'name'
-                            },
-                            {
-                                data: 'image',
-                                name: 'image'
-                            },
-                            {
-                                data: 'action',
-                                name: 'action',
-                            },
-                        ]
-                    })
-                    .columns.adjust()
-                    .responsive.recalc();
-            });
-        </script>
-
+    <script src="/js/admin.js"></script>
 </body>
 
 </html>

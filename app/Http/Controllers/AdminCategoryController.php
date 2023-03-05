@@ -17,22 +17,29 @@ class AdminCategoryController extends Controller
       $data = Category::all();
       return DataTables::of($data)->addIndexColumn()
         ->addColumn('name', function ($category) {
-          $btn = view('admin.categories.name', [
-            'category' => $category,
-          ])->render();
-          return $btn;
+          return
+            view('admin.components.form',  [
+              'route' => route('admin.categories.update', $category->slug),
+              'method' => 'PUT',
+              'obj' => $category,
+            ])->render()
+            .
+            view('admin.components.input', [
+              'obj' => $category,
+              'field' => 'name',
+            ])->render();
         })
         ->addColumn('image', function ($category) {
-          $btn = view('admin.categories.image', [
-            'category' => $category,
+          return view('admin.components.image', [
+            'obj' => $category,
+            'field' => 'image',
           ])->render();
-          return $btn;
         })
         ->addColumn('action', function ($category) {
-          $btn = view('admin.categories.action', [
-            'category' => $category,
+          return view('admin.components.action', [
+            'obj' => $category,
+            'field' => 'slug',
           ])->render();
-          return $btn;
         })
         ->rawColumns(['action', 'name', 'image'])
         ->make(true);
