@@ -49,11 +49,6 @@ class AdminCategoryController extends Controller
     ]);
   }
 
-  public function show()
-  {
-    # code...
-  }
-
   public function destroy(Category $category)
   {
     $category->delete();

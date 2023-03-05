@@ -29,7 +29,7 @@ $(document).ready(function () {
 async function update(event) {
     event.preventDefault();
 
-    const tr = event.target.closest("tr");
+    // const tr = event.target.closest("tr");
     // console.log(
     //     [...tr.querySelectorAll("input")]
     //         .filter(
@@ -39,20 +39,20 @@ async function update(event) {
     //         .map((input) => [input.name, input.value])
     // );
 
-    const formData = [
-        ...document.querySelectorAll(`input[form=${event.target.id}]`),
-        tr.querySelector('input[name="_method"]'),
-        tr.querySelector('input[name="_token"]'),
-    ].reduce((formData, { name, value }) => {
-        formData.append(name, value);
-        return formData;
-    }, new FormData());
+    // const formData = [
+    //     ...document.querySelectorAll(`input[form=${event.target.id}]`),
+    //     tr.querySelector('input[name="_method"]'),
+    //     tr.querySelector('input[name="_token"]'),
+    // ].reduce((formData, { name, value }) => {
+    //     formData.append(name, value);
+    //     return formData;
+    // }, new FormData());
 
-    console.log([...formData.entries()]);
+    console.log([...(new FormData(event.target)).entries()]);
 
     await fetch(event.target.action, {
-        method: "PUT",
-        body: formData,
+        method: 'PUT',
+        body: new FormData(event.target),
     })
         .then((response) => response.text())
         .then((data) => console.log(data));
