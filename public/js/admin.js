@@ -28,15 +28,39 @@ $(document).ready(function () {
 async function update(event) {
     event.preventDefault();
 
-    console.log([...new FormData(event.target).entries()]);
+    const formData = new FormData(event.target);
+    const tr = event.target.closest("tr");
 
-    await fetch(event.target.action, {
-        method: "PUT",
-        body: new FormData(event.target),
-    })
-        .then((response) => response.text())
-        .then((data) => console.log(data));
-    categoryTable.ajax.reload(null, false);
+    // await fetch(event.target.action, {
+    //     method: tr.querySelector('input[name="_method"]').value,
+    //     body: formData,
+    //     headers: {
+    //         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+    //     },
+    // })
+    //     .then((response) => response.text())
+    //     .then((data) => console.log(data));
+    // categoryTable.ajax.reload(null, false);
+
+    console.log([...formData.entries()].reduce((acc, [key, val]) => (acc[key] = val, acc),{}));
+    formData.delete('image');
+    $.ajax({
+      url: event.target.action,
+      method: "PUT",
+      data: formData,
+      processData: false,
+      headers: {
+          "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+      },
+      success: function (msg) {
+          console.log(msg);
+          categoryTable.ajax.reload(null, false);
+      },
+      error: function (msg) {
+          console.log(msg);
+          // categoryTable.ajax.reload(null, false);
+      },
+  });
 }
 
 async function onEdit(event) {
