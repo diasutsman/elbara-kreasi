@@ -1,10 +1,9 @@
-<label class="grid">
+<label class="grid min-w-min">
+    <input type="file" class="hidden row-span-full col-span-full peer" onchange="previewImage(event)" name="image"
+        form="form-{{ $obj->slug }}" disabled>
     <img loading="lazy"
-        src="@if ($obj->$field) {{ asset('/storage/' . $obj->$field) }} @else https://picsum.photos/200/300 @endif"
+        src="@if ($obj->$field) {{ asset('/storage/' . $obj->$field) }} @else {{ asset('/img/placeholder.webp') }} @endif"
         class="row-span-full col-span-full w-full" />
-
-    {{-- <input type="hidden" name="oldImage" value="{{ $obj->$field }}" class="row-span-full col-span-full"> --}}
-    <input type="file" class="hidden row-span-full col-span-full peer" onchange="previewImage(event)" name="image" form="form-{{ $obj->slug }}" disabled>
     <div
         class="bg-black peer-enabled:cursor-pointer peer-enabled:hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 row-span-full col-span-full" fill="white"

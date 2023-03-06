@@ -18,7 +18,7 @@
                     <input type="file" class="hidden row-span-full col-span-full peer" onchange="previewImage(event)"
                         name="image" required>
 
-                    <img loading="lazy" src="https://picsum.photos/50/50"
+                    <img loading="lazy" src="{{ asset('/img/placeholder.webp') }}"
                         class="row-span-full col-span-full w-full peer-invalid:aspect-square" />
 
                     <div
