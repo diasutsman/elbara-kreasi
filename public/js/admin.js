@@ -1,4 +1,4 @@
-let categoryTable;
+let categoryTable, trContent;
 $(document).ready(function () {
     categoryTable = $("#category-table")
         .DataTable({
@@ -33,19 +33,21 @@ async function update(event) {
 
     console.log([...formData.entries()]);
 
-    await fetch(event.target.action, {
-        method: tr.querySelector('input[name="_method"]').value,
-        body: new URLSearchParams(formData),
+    const data = await fetch(event.target.action, {
+        method: "POST",
+        body: formData,
     })
         .then((response) => response.text())
-        .then((data) => console.log(data));
-    categoryTable.ajax.reload(null, false);
+        .then((data) => data);
+
+    tr.innerHTML = data;
 }
 
 async function onEdit(event) {
     event.preventDefault();
 
     const tr = event.target.closest("tr");
+    trContent = tr.innerHTML;
 
     const btnDelete = tr.querySelector(".btn-delete");
     const btnEdit = tr.querySelector(".btn-edit");
@@ -59,18 +61,16 @@ async function onEdit(event) {
     btnCancel.classList.remove("hidden");
 
     const inputs = [...tr.querySelectorAll("input")].filter(
-        (input) => input.closest("form") === null && !input.name.startsWith('_')
+        (input) => input.closest("form") === null && !input.name.startsWith("_")
     );
 
-    inputs.forEach(
-        (input) => input.disabled = false
-    );
+    inputs.forEach((input) => (input.disabled = false));
     inputs[0].focus();
     inputs[0].selectionStart = inputs[0].selectionEnd = 10000;
 }
 
-async function onCancel() {
-    categoryTable.ajax.reload(null, false);
+async function onCancel(event) {
+    event.target.closest("tr").innerHTML = trContent;
 }
 
 async function onDelete(event) {

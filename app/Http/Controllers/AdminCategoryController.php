@@ -64,19 +64,49 @@ class AdminCategoryController extends Controller
   {
     $validatedData = $request->validate([
       'name' => 'required|max:255|unique:categories,name,' . $category->id . ',id',
-      // 'image' => 'image|file|max:1024',
+      'image' => 'image|file|max:1024',
     ]);
-    
+
     $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
 
-    // if ($request->file('image')) {
-    //   if ($request->oldImage) {
-    //     Storage::delete($request->oldImage);
-    //   }
-    //   $validatedData['image'] = $request->file('image')->store('category-images');
-    // }
+    if ($request->file('image')) {
+      if ($category->image) {
+        Storage::delete($category->image);
+      }
+      $validatedData['image'] = $request->file('image')->store('category-images');
+    }
 
-    Category::where('id', $category->id)
-      ->update($validatedData);
+    $category = Category::where('id', $category->id);
+    $category->update($validatedData);
+
+    $updatedCategory = $category->first();
+
+    return view('admin.components.td', [
+      'data' => view('admin.components.form',  [
+        'route' => route('admin.categories.update', $updatedCategory->slug),
+        'method' => 'PUT',
+        'obj' => $updatedCategory,
+      ])->render()
+        .
+        view('admin.components.input', [
+          'obj' => $updatedCategory,
+          'field' => 'name',
+        ])->render(),
+    ])->render()
+      .
+      view('admin.components.td', [
+        'data' => view('admin.components.image', [
+          'obj' => $updatedCategory,
+          'field' => 'image',
+        ])->render(),
+      ])->render()
+      .
+      view('admin.components.td', [
+        'data' => view('admin.components.action', [
+          'obj' => $updatedCategory,
+          'field' => 'slug',
+        ])->render(),
+      ])->render();
+    ;
   }
 }

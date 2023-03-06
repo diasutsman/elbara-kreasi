@@ -1,6 +1,6 @@
 <label class="grid">
     <img loading="lazy"
-        src="@if ($obj->$field) {{ asset('storage/' . $obj->$field) }} @else https://picsum.photos/200/300 @endif"
+        src="@if ($obj->$field) {{ asset('/storage/' . $obj->$field) }} @else https://picsum.photos/200/300 @endif"
         class="row-span-full col-span-full w-full" />
 
     {{-- <input type="hidden" name="oldImage" value="{{ $obj->$field }}" class="row-span-full col-span-full"> --}}
