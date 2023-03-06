@@ -49,6 +49,22 @@ class AdminCategoryController extends Controller
     ]);
   }
 
+  public function store(Request $request)
+  {
+    $validatedData = $request->validate([
+      'name' => 'required|max:255|unique:categories,name',
+      'image' => 'image|file|max:1024',
+    ]);
+
+    $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
+
+    if ($request->file('image')) {
+      $validatedData['image'] = $request->file('image')->store('category-images');
+    }
+
+    Category::create($validatedData);
+  }
+
   public function destroy(Category $category)
   {
     $category->delete();
@@ -106,7 +122,6 @@ class AdminCategoryController extends Controller
           'obj' => $updatedCategory,
           'field' => 'slug',
         ])->render(),
-      ])->render();
-    ;
+      ])->render();;
   }
 }

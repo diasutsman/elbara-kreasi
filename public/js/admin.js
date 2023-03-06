@@ -1,29 +1,4 @@
-let categoryTable, trContent;
-$(document).ready(function () {
-    categoryTable = $("#category-table")
-        .DataTable({
-            responsive: true,
-            processing: true,
-            serverSide: true,
-            ajax: "/admin/categories",
-            columns: [
-                {
-                    data: "name",
-                    name: "name",
-                },
-                {
-                    data: "image",
-                    name: "image",
-                },
-                {
-                    data: "action",
-                    name: "action",
-                },
-            ],
-        })
-        .columns.adjust()
-        .responsive.recalc();
-});
+let trContent;
 
 async function update(event) {
     event.preventDefault();
@@ -82,10 +57,7 @@ async function onDelete(event) {
         denyButtonText: `Don't delete`,
     }).then((result) => result);
 
-    if (result.isDenied || result.isDismissed) {
-        Swal.fire("Data not deleted", "", "info");
-        return;
-    }
+    if (result.isDenied || result.isDismissed) return;
 
     await fetch(event.target.action, {
         method: event.target.querySelector('input[name="_method"]').value,
@@ -94,12 +66,12 @@ async function onDelete(event) {
 
     Swal.fire("Successfully delete data!", "", "success");
 
-    categoryTable.ajax.reload(null, false);
+    table.ajax.reload(null, false);
 }
 
 function previewImage(event) {
     const image = event.target;
-    const imgPreview = event.target.closest("td").querySelector("img");
+    const imgPreview = event.target.closest("label").querySelector("img");
     const oFReader = new FileReader();
     oFReader.readAsDataURL(image.files[0]);
     oFReader.onload = function (oFREvent) {
@@ -107,20 +79,17 @@ function previewImage(event) {
     };
 }
 
-function uploadImage(form) {
-    console.log(
-        [...form.querySelectorAll("input")].map((input) => [
-            input.name,
-            input.value,
-        ])
-    );
+async function onAdd(event) {
+    event.preventDefault();
 
-    fetch(`/admin/categories/${form.dataset.slug}`, {
-        method: "PUT",
+    try {
+        await fetch(event.target.action, {
+            method: "POST",
+            body: new FormData(event.target),
+        })
 
-        body: new FormData(form), // still page expired 419,
-        headers: {
-            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-        }, // when i add this, it says method not allowed for `/admin/categories` but it is /admin/categories/*slug* so it should be allowed
-    });
+        table.ajax.reload();
+    } catch (error) {
+      
+    }
 }
