@@ -141,6 +141,19 @@
                             cara order
                         </a>
                     </li>
+                    <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
+                        @auth
+                            <form action="{{ route('logout') }}" method="POST" class="">
+                                @csrf
+                                <button type="submit" class="sm:p-4 sm:px-6 block p-2">Logout</button>
+                            </form>
+                        @else
+                            <div class="flex flex-col sm:p-4 sm:px-6 p-2">
+                                <a href="{{ route('login') }}">Login</a>
+                                <a href="{{ route('register') }}">Register</a>
+                            </div>
+                        @endauth
+                    </li>
                 </ul>
             </div>
             <div

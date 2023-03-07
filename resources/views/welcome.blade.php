@@ -38,7 +38,7 @@
                             <div class="aspect-square p-1 opacity-0 group-hover:opacity-100 transition-opacity row-span-full col-span-full z-10 place-self-center bg-white rounded-full grid place-items-center">
                                 <p class="text-base text-primary dark:text-onPrimary">Lihat Produk</p>
                             </div>
-                            <img src="@if ($category->image) {{ asset($category->image) }}
+                            <img src="@if ($category->image) {{ asset('storage/' .$category->image) }}
                             @else https://source.unsplash.com/500x500?{{ $category->slug }} @endif"
                                 alt="{{ $category->name }}" class="w-full row-span-full col-span-full group-hover:brightness-50 transition" loading="lazy">
                         </div>

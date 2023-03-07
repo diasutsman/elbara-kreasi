@@ -2,11 +2,13 @@
 
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\AdminProductController;
-use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +32,11 @@ Route::resource('/category', CategoryController::class)
   ->name('show', 'category.products');
 
 /* Admin Routes */
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], function () {
 
   Route::resource('/categories', AdminCategoryController::class)->names('admin.categories');
   Route::resource('/products', AdminProductController::class)->names('admin.products');
   Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 });
+
+Auth::routes();

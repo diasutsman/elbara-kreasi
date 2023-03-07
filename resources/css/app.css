@@ -111,3 +111,12 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
     background-color: #667eea !important;
     /*bg-indigo-500*/
 }
+
+/* input styles */
+.is-invalid {
+    @apply bg-red-50 border border-red-500 text-red-900 placeholder:text-red-700 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400;
+}
+
+.is-invalid::placeholder {
+    @apply text-red-700;
+}

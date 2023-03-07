@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Category;
+use App\Models\User;
 use App\Models\Client;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,12 +19,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(20)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'role' => 'admin',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        User::create([
+            'name' => 'User 1',
+            'email' => 'user1@gmail.com',
+            'role' => 'user',   
+            'password' => bcrypt('12345678'),
+        ]);
 
         Category::create([
             'name' => 'Kemasan Makanan',
@@ -48,6 +58,5 @@ class DatabaseSeeder extends Seeder
         Product::factory(20)->create();
 
         Client::factory(10)->create();
-
     }
 }
