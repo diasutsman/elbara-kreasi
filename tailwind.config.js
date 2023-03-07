@@ -4,6 +4,7 @@ module.exports = {
   content: [
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
+    "./public/**/*.js",
     "./resources/**/*.vue",
   ],
   theme: {
