@@ -48,7 +48,7 @@
             </form>
 
 
-            <table id="category-table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+            <table id="categories-table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>
                     <tr>
                         <th data-priority="1">Name</th>

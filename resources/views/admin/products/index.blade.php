@@ -8,13 +8,13 @@
       <div id='recipients' class="p-8 mt-6 rounded shadow bg-white">
 
 
-          <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+          <table id="products-table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
               <thead>
                   <tr>
                       <th data-priority="1">Name</th>
-                      <th data-priority="2">Slug</th>
-                      <th data-priority="3">Best Seller</th>
-                      <th>Action</th>
+                      <th data-priority="2">Best Seller</th>
+                      <th data-orderable="false">Image</th>
+                      <th data-orderable="false">Action</th>
                   </tr>
               </thead>
               <tbody>

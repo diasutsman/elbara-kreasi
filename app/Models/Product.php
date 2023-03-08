@@ -12,6 +12,10 @@ class Product extends Model
     use HasFactory, Sluggable;
 
     public $with = ['category'];
+    
+    protected $casts = [
+        'is_best_seller' => 'boolean',
+    ];
 
     public function category()
     {
@@ -25,5 +29,10 @@ class Product extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

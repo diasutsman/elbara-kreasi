@@ -108,6 +108,8 @@
 
     @if (Request::is('admin/categories'))
         <script src="/js/categories.js"></script>
+    @elseif(Request::is('admin/products'))
+        <script src="/js/products.js"></script>
     @endif
     <script src="/js/admin.js"></script>
 </body>
