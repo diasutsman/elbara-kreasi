@@ -87,7 +87,7 @@
                 <div class="-space-y-px rounded-md shadow-sm">
                     <div>
                         <label for="email-address" class="sr-only">Email address</label>
-                        <input id="email-address" name="email" type="email" autocomplete="email" required
+                        <input autofocus id="email-address" name="email" type="email" autocomplete="email" required
                             class="relative block w-full rounded-t-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus-visible:outline-none transition @error('email')
                             is-invalid placeholder:text-red-700
                         @enderror"

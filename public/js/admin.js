@@ -1,7 +1,3 @@
-document.addEventListener("trix-file-accept", (e) => {
-    e.preventDefault();
-});
-
 let trContent;
 
 async function onUpdate(event) {
@@ -170,4 +166,47 @@ async function onAdd(event) {
         btnAdd.disabled = false;
         btnAdd.setAttribute("class", classes);
     }
+}
+
+/* 
+    Elements related code
+*/
+document.addEventListener("trix-file-accept", (e) => {
+    e.preventDefault();
+});
+
+function openModal(key) {
+    document.getElementById(key).showModal();
+    document.body.setAttribute("style", "overflow: hidden;");
+    document.getElementById(key).children[0].scrollTop = 0;
+    document.getElementById(key).children[0].classList.remove("opacity-0");
+    document.getElementById(key).children[0].classList.add("opacity-100");
+}
+
+function modalClose(key) {
+    document.getElementById(key).children[0].classList.remove("opacity-100");
+    document.getElementById(key).children[0].classList.add("opacity-0");
+    setTimeout(function () {
+        document.getElementById(key).close();
+        document.body.removeAttribute("style");
+    }, 100);
+}
+
+function okModal(key) {
+    const parentElement = document.getElementById(key).closest("div");
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = document
+        .getElementById(key)
+        .querySelector("input").value;
+
+    const value = parentElement.querySelector(".value");
+
+    const text =
+        tempDiv.innerText.slice(0, 20) +
+        (tempDiv.innerText.length > 20 ? "..." : "");
+
+    if (value.tagName === "INPUT") value.value = text;
+    else value.innerHTML = text;
+
+    modalClose(key);
 }
