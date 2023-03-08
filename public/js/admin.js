@@ -67,7 +67,7 @@ async function onEdit(event) {
     btnUpdate.classList.remove("hidden");
     btnCancel.classList.remove("hidden");
 
-    const inputs = [...tr.querySelectorAll("input, button")].filter(
+    const inputs = [...tr.querySelectorAll("input, button, select")].filter(
         (input) => input.closest("form") === null && !input.name.startsWith("_")
     );
 
@@ -152,7 +152,8 @@ async function onAdd(event) {
         await fetch(event.target.action, {
             method: "POST",
             body: new FormData(event.target),
-        });
+        }).then(res => res.text())
+        .then(data => console.log(data));
 
         btnAdd.innerHTML = btnAddContent;
         btnAdd.disabled = false;

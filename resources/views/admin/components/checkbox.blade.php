@@ -1,1 +1,1 @@
-<input type="checkbox" name="is_best_seller" @checked($checked) disabled form="{{ $formId }}">
+<input type="checkbox" class="w-12 h-12 text-center" name="is_best_seller" @checked($checked) disabled form="{{ $formId }}">

@@ -24,6 +24,14 @@ $(document).ready(function () {
                     name: "description",
                 },
                 {
+                    data: "additional_information",
+                    name: "additional_information",
+                },
+                {
+                    data: "category_id",
+                    name: "category_id",
+                },
+                {
                     data: "action",
                     name: "action",
                 },

@@ -1,9 +1,9 @@
-<label class="grid min-w-min">
+<label class="grid w-min min-w-[100px]">
     <input type="file" class="hidden row-span-full col-span-full peer" onchange="previewImage(event)" name="image"
         form="form-{{ $obj->slug }}" disabled>
     <img loading="lazy"
         src="@if ($obj->$field) {{ asset('/storage/' . $obj->$field) }} @else {{ asset('/img/placeholder.webp') }} @endif"
-        class="row-span-full col-span-full w-full" />
+        class="row-span-full col-span-full" />
     <div
         class="bg-black peer-enabled:cursor-pointer peer-enabled:hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 row-span-full col-span-full" fill="white"
