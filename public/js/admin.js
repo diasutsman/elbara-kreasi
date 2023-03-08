@@ -1,3 +1,7 @@
+document.addEventListener('trix-file-accept', (e) => {
+    e.preventDefault();
+})
+
 let trContent;
 
 async function update(event) {
@@ -20,7 +24,7 @@ async function update(event) {
     btnUpdate.classList.add("bg-gray-800", "hover:bg-gray-900");
     btnUpdate.querySelector("svg").classList.add("animate-spin");
 
-    btnCancel.classList.add('hidden');
+    btnCancel.classList.add("hidden");
     /* End Loading State */
 
     console.log([...formData.entries()]);
@@ -31,14 +35,17 @@ async function update(event) {
             body: formData,
         })
             .then((response) => {
-                if (!response.ok)return response.text().then((text) => {throw new Error(text)});
+                if (!response.ok)
+                    return response.text().then((text) => {
+                        throw new Error(text);
+                    });
                 return response.text();
             })
-            .then((data) => data)
+            .then((data) => data);
         tr.innerHTML = data;
     } catch (error) {
-        const obj = JSON.parse(error.message)
-        Swal.fire(obj['error'], "", "error")
+        const obj = JSON.parse(error.message);
+        Swal.fire(obj["error"], "", "error");
         tr.innerHTML = trContent;
     }
 }
@@ -60,13 +67,31 @@ async function onEdit(event) {
     btnUpdate.classList.remove("hidden");
     btnCancel.classList.remove("hidden");
 
-    const inputs = [...tr.querySelectorAll("input")].filter(
+    const inputs = [...tr.querySelectorAll("input, button")].filter(
         (input) => input.closest("form") === null && !input.name.startsWith("_")
     );
 
     inputs.forEach((input) => (input.disabled = false));
     inputs[0].focus();
     inputs[0].selectionStart = inputs[0].selectionEnd = 10000;
+}
+
+async function onEditLongText(event) {
+
+    const tr = event.target.closest("tr");
+
+    Swal.fire({
+        title: "<strong>Edit Long Text</strong>",
+        icon: "info",
+        html: tr.querySelector(".editor").innerHTML,
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: 'Save',
+        cancelButtonText: 'Cancel',
+    }).then(
+        
+    )
 }
 
 async function onCancel(event) {

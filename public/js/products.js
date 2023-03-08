@@ -20,6 +20,10 @@ $(document).ready(function () {
                     name: "image",
                 },
                 {
+                    data: "description",
+                    name: "description",
+                },
+                {
                     data: "action",
                     name: "action",
                 },

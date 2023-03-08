@@ -42,6 +42,13 @@ class AdminProductController extends Controller
                     'field' => 'image',
                 ])->render();
             },
+            'description' => function (Product $product)
+            {
+                return view('admin.components.editor', [
+                    'obj' => $product,
+                    'field' => 'description',
+                ])->render();
+            },
             'action' => function (Product $product) {
                 return view('admin.components.action', [
                     'obj' => $product,
@@ -64,8 +71,9 @@ class AdminProductController extends Controller
                 ->addColumn('name', $this->fieldsView['name'])
                 ->addColumn('image', $this->fieldsView['image'])
                 ->addColumn('is_best_seller', $this->fieldsView['is_best_seller'])
+                ->addColumn('description', $this->fieldsView['description'])
                 ->addColumn('action', $this->fieldsView['action'])
-                ->rawColumns(['action', 'name', 'is_best_seller', 'image'])
+                ->rawColumns(['action', 'name', 'is_best_seller', 'image', 'description'])
                 ->make(true);
         }
         return view('admin.products.index');
