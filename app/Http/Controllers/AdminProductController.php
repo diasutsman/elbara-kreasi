@@ -69,6 +69,7 @@ class AdminProductController extends Controller
                 return view('admin.components.action', [
                     'obj' => $product,
                     'field' => 'slug',
+                    'route' => 'admin.products.destroy',
                 ])->render();
             }
         ];
@@ -196,6 +197,6 @@ class AdminProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
     }
 }

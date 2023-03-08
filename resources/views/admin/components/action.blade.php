@@ -1,5 +1,5 @@
 <div class="w-full flex justify-center gap-x-2">
-    <form action="{{ route('admin.categories.destroy', $obj->$field) }}" method="POST" onsubmit="onDelete(event)" class="btn-delete">
+    <form action="{{ route($route, $obj->$field) }}" method="POST" onsubmit="onDelete(event)" class="btn-delete">
         @method('DELETE')
         @csrf
         <button

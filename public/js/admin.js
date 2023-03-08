@@ -1,10 +1,10 @@
-document.addEventListener('trix-file-accept', (e) => {
+document.addEventListener("trix-file-accept", (e) => {
     e.preventDefault();
-})
+});
 
 let trContent;
 
-async function update(event) {
+async function onUpdate(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -44,6 +44,7 @@ async function update(event) {
             .then((data) => data);
         tr.innerHTML = data;
     } catch (error) {
+        console.error(error.message);
         const obj = JSON.parse(error.message);
         Swal.fire(obj["error"], "", "error");
         tr.innerHTML = trContent;
@@ -77,7 +78,6 @@ async function onEdit(event) {
 }
 
 async function onEditLongText(event) {
-
     const tr = event.target.closest("tr");
 
     Swal.fire({
@@ -87,11 +87,9 @@ async function onEditLongText(event) {
         showCloseButton: true,
         showCancelButton: true,
         focusConfirm: false,
-        confirmButtonText: 'Save',
-        cancelButtonText: 'Cancel',
-    }).then(
-        
-    )
+        confirmButtonText: "Save",
+        cancelButtonText: "Cancel",
+    }).then();
 }
 
 async function onCancel(event) {
@@ -152,13 +150,24 @@ async function onAdd(event) {
         await fetch(event.target.action, {
             method: "POST",
             body: new FormData(event.target),
-        }).then(res => res.text())
-        .then(data => console.log(data));
+        })
+            .then((response) => {
+                if (!response.ok)
+                    return response.text().then((text) => {
+                        throw new Error(text);
+                    });
+                return response.text();
+            })
+            .then((data) => console.log(data));
 
+        table.ajax.reload();
+    } catch (error) {
+        console.error(error.message);
+        const obj = JSON.parse(error.message);
+        Swal.fire(obj["error"], "", "error");
+    } finally {
         btnAdd.innerHTML = btnAddContent;
         btnAdd.disabled = false;
         btnAdd.setAttribute("class", classes);
-
-        table.ajax.reload();
-    } catch (error) {}
+    }
 }
