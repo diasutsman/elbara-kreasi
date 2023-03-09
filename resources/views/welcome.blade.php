@@ -33,7 +33,7 @@
             <h2 class="text-3xl">Kategori Pilihan</h2>
             <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
                 @foreach ($categories as $category)
-                    <a class="group" href="{{ route('category.products', $category->slug) }}">
+                    <a class="group" href="{{ route('categories.show', $category->slug) }}">
                         <div class="min-h-[250px] bg-[#d9d9d9] grid">
                             <div class="aspect-square p-1 opacity-0 group-hover:opacity-100 transition-opacity row-span-full col-span-full z-10 place-self-center bg-white rounded-full grid place-items-center">
                                 <p class="text-base text-primary dark:text-onPrimary">Lihat Produk</p>

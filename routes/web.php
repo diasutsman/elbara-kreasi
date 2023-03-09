@@ -28,9 +28,6 @@ Route::get('/', function () {
   ]);
 });
 
-Route::resource('/category', CategoryController::class)
-  ->name('show', 'category.products');
-
 /* Admin Routes */
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], function () {
 
@@ -40,3 +37,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], funct
 });
 
 Auth::routes();
+
+/* Category routes (being put here because of url design) */
+Route::get('/{category}', [CategoryController::class, 'show'])->name('categories.show');
