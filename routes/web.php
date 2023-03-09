@@ -5,6 +5,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminCategoryController;
@@ -27,6 +28,8 @@ Route::get('/', function () {
     'products' => Product::where('is_best_seller', 1)->get(),
   ]);
 });
+
+Route::resource('/products', ProductController::class);
 
 /* Admin Routes */
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], function () {

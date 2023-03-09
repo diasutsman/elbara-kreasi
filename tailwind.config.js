@@ -31,7 +31,7 @@ module.exports = {
                 "dark-mode-text": "#12350C",
             },
             fontFamily: {
-                sans: ['"Franklin Gothic Demi"', "sans-serif"],
+                sans: ['Helvetica', "sans-serif"],
             },
         },
     },

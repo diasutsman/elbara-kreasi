@@ -91,3 +91,21 @@ window.addEventListener("click", (event) => {
         if (contactBtn.ariaExpanded === "true") contactBtn.click();
     }
 });
+
+/* Isotope Code */
+const iso = new Isotope('.products', {
+    itemSelector: '.product',
+    layoutMode: 'fitRows'
+})
+
+const filterButtons = document.querySelectorAll('.filter-button-group button');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        filterButtons.forEach(button => button.classList.remove('bg-secondary', 'text-white'))
+        button.classList.add('bg-secondary', 'text-white')
+        iso.arrange({
+            filter: event.target.dataset.filter
+        })
+    })
+})

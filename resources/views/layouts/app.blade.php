@@ -26,6 +26,8 @@
     @yield('content')
 
     @include('partials.footer')
+    
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     @vite('resources/js/app.js')
 </body>
 

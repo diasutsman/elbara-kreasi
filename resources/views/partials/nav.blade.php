@@ -1,6 +1,6 @@
 <!-- Nav Bar -->
 <nav
-    class="w-full px-4 sm:p-0 sm:flex sm:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode">
+    class="w-full px-4 sm:p-0 sm:flex sm:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode z-10">
     <div class="flex sm:justify-center justify-between flex-wrap mx-auto w-auto relative">
         <button id="hamburger" name="hamburger" type="button" class="block sm:hidden relative py-3">
             <span class="hamburger-line origin-top-left"></span>
@@ -25,7 +25,7 @@
                 </li>
                 <li
                     class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                    <a href="#" class="sm:p-4 sm:px-6 block p-2">
+                    <a href="{{ route('products.index') }}" class="sm:p-4 sm:px-6 block p-2">
                         Produk kami
                     </a>
                 </li>
