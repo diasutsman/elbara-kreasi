@@ -18,20 +18,21 @@
                 <p class="uppercase text-black dark:text-white text-xs">email kami</p>
                 <a class="text-base" href="mailto:elbarakreasi@gmail.com">elbarakreasi@gmail.com</a>
             </li>
-            <li class="px-3 flex flex-col gap-y-1 text-center">
-                @auth
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit"
-                            class="text-white px-16 py-3 bg-red-600 rounded-md hover:opacity-90 transition-opacity">Logout</button>
-                    </form>
-                @else
+            @auth
+                <li class="px-3 flex items-center gap-x-2">
+                    <p>{{ auth()->user()->name }}</p>
+                    <div class="h-12 w-12 bg-placeholder rounded-full">
+                        <img src="img/user-placeholder.webp" alt="{{ auth()->user()->name }} Image">
+                    </div>
+                </li>
+            @else
+                <li class="px-3 flex flex-col gap-y-1 text-center">
                     <a href="{{ route('login') }}"
                         class="text-white px-16 py-3 bg-secondary rounded-md hover:opacity-90 transition-opacity">Login</a>
                     <a href="{{ route('register') }}"
                         class="text-white px-16 py-3 bg-primary rounded-md hover:opacity-90 transition-opacity">Register</a>
-                @endauth
-            </li>
+                </li>
+            @endauth
         </ul>
     </div>
 </header>
