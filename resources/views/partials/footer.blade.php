@@ -2,7 +2,7 @@
     <div class="px-4 bg-primary text-onPrimary dark:text-onPrimaryDark pt-11 pb-6 font-bold">
         <div class="container flex flex-wrap md:flex-nowrap justify-between gap-8 lg:gap-16">
             <div>
-                <img src="img/white-logo.webp" alt="White Elbara Kreasi Logo" class="w-52 md:w-full">
+                <img src="{{ asset('img/white-logo.webp') }}" alt="White Elbara Kreasi Logo" class="w-52 md:w-full">
             </div>
             <div class="flex flex-col capitalize">
                 <a href="#" class="w-max">Home</a>

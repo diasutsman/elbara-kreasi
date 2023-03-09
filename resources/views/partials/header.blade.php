@@ -22,7 +22,7 @@
                 <li class="px-3 flex items-center gap-x-2">
                     <p>{{ auth()->user()->name }}</p>
                     <div class="h-12 w-12 bg-placeholder rounded-full">
-                        <img src="img/user-placeholder.webp" alt="{{ auth()->user()->name }} Image">
+                        <img src="{{ asset('img/user-placeholder.webp') }}" alt="{{ auth()->user()->name }} Image">
                     </div>
                 </li>
             @else
