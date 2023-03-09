@@ -1,13 +1,13 @@
 <!-- Top Bar -->
-<div class="bg-primary text-onPrimary dark:text-onPrimaryDark text-sm p-4">
+<div class="bg-primary text-onPrimary dark:text-onPrimaryDark text-sm p-4 font-bold">
     <div class="container flex justify-between sm:items-center h-full gap-x-4 items-start">
         <div class="flex gap-x-5 gap-y-4 flex-wrap justify-start">
             <p><a href="https://facebook.com"><i class="bi bi-facebook"></i> Facebook</a></p>
             <p><a href="https://facebook.com"><i class="bi bi-instagram"></i> Instagram</a></p>
         </div>
-        <div class="flex uppercase gap-x-10 gap-y-4 flex-wrap justify-end">
+        <div class="flex uppercase gap-x-10 gap-y-4 flex-wrap justify-end items-center">
             <p>ALAMAT</p>
-            <div class="relative inline-block">
+            <div class="relative inline-flex items-center">
                 <button id="contact-btn" aria-expanded="false" class="flex gap-x-1">
                     <span>HUBUNGI KAMI</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

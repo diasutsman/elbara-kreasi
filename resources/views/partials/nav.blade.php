@@ -1,6 +1,6 @@
 <!-- Nav Bar -->
 <nav
-    class="w-full px-4 sm:p-0 sm:flex sm:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode z-10">
+    class="w-full px-4 sm:p-0 sm:flex sm:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode z-10 font-bold">
     <div class="flex sm:justify-center justify-between flex-wrap mx-auto w-auto relative">
         <button id="hamburger" name="hamburger" type="button" class="block sm:hidden relative py-3">
             <span class="hamburger-line origin-top-left"></span>

@@ -4,7 +4,7 @@
 
 
         <div class="container">
-            <h2 class="text-3xl mt-8">Produk Kami</h2>
+            <h2 class="text-3xl mt-8 font-bold">Produk Kami</h2>
 
             <ul class="button-group filter-button-group mt-5 mb-16 flex w-fit mx-auto border-[1px] border-[#DBDBDB] rounded-md divide-x-[1px] divide-[#DBDBDB] overflow-hidden text-[#A3A3A3] font-normal">
                 <li>
@@ -26,7 +26,7 @@
                             @else /img/placeholder.webp @endif"
                                 alt="" class="w-full h-full block object-center">
                         </div>
-                        <p class="mt-4 text-base uppercase">{{ $product->name }}</p>
+                        <p class="mt-4 text-base uppercase font-bold">{{ $product->name }}</p>
                         <p class="text-xs text-muted mt-1">{{ $product->category->name }}</p>
                     </a>
                 @endforeach

@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="w-full bg-[#EEEEEE] dark:bg-[#1E1E1E] py-3 h-min px-4">
+<header class="w-full bg-[#EEEEEE] dark:bg-[#1E1E1E] py-3 h-min px-4 font-bold">
     <div class="flex container h-full flex-wrap lg:justify-between justify-center">
         <a href="/" class="flex items-center">
             <img src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-16 dark:invert" />
