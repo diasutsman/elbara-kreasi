@@ -18,10 +18,6 @@
                 <p class="uppercase text-black dark:text-white text-xs">email kami</p>
                 <a class="text-base" href="mailto:elbarakreasi@gmail.com">elbarakreasi@gmail.com</a>
             </li>
-            <li class="px-3">
-                <p class="uppercase text-black dark:text-white text-xs">jam kerja</p>
-                <p class="text-base">Senin - Jumat 09:00 - 21:00</p>
-            </li>
             <li class="px-3 flex flex-col gap-y-1 text-center">
                 @auth
                     <form action="{{ route('logout') }}" method="POST">
