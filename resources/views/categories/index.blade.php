@@ -4,7 +4,9 @@
 
         
         <div class="container">
-            <div class="w-full bg-placeholder h-[250px]"></div>
+            <div class="w-full bg-placeholder h-[250px] overflow-hidden">
+                <img src="{{ asset('storage/'.$category->image) }}" alt="{{ $category->name }}" class="w-full">
+            </div>
             <h2 class="text-3xl my-8 font-bold">{{ $category->name }}</h2>
             <div class="mt-4 gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 @foreach ($category->products as $product)

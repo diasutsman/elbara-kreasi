@@ -8,7 +8,7 @@ class CategoryController extends Controller
 {
     public function show(Category $category)
     {
-        return view('categories', [
+        return view('categories.index', [
             'category' => $category,
         ]);
     }

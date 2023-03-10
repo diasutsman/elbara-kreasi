@@ -36,7 +36,7 @@
                     <a class="group" href="{{ route('categories.show', $category->slug) }}">
                         <div class="min-h-[250px] bg-[#d9d9d9] grid">
                             <div class="aspect-square p-1 opacity-0 group-hover:opacity-100 transition-opacity row-span-full col-span-full z-10 place-self-center bg-white rounded-full grid place-items-center">
-                                <p class="text-base text-primary dark:text-onPrimary">Lihat Produk</p>
+                                <p class="text-base text-primary dark:text-onPrimary font-bold">Lihat Produk</p>
                             </div>
                             <img src="@if ($category->image) {{ asset('storage/' .$category->image) }}
                             @else https://source.unsplash.com/500x500?{{ $category->slug }} @endif"
@@ -57,19 +57,30 @@
             <h2 class="text-3xl font-bold">Product Best Seller</h2>
             <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
                 @foreach ($products as $product)
-                    <div class="text-left">
+                    {{-- <div class="text-left">
                         <div class="h-60 bg-[#d9d9d9]">
                         </div>
                         <p class="mt-4 text-base uppercase font-bold">{{ $product->name }}</p>
                         <p class="text-xs text-muted mt-1">{{ $product->category->name }}</p>
-                    </div>
+                    </div> --}}
+                    <a class="text-left" href="{{ route('products.show', $product->slug) }}">
+                        <div class="bg-[#d9d9d9] overflow-hidden">
+                            <img src="@if ($product->image)
+                            {{ asset('storage/' . $product->image) }}
+                            @else
+                                /img/placeholder.webp
+                            @endif" alt="" class="w-full">
+                        </div>
+                        <p class="mt-5 text-base uppercase font-bold">{{ $product->name }}</p>
+                        <p class="text-xs text-muted mt-1">{{ $product->category->name }}</p>
+                    </a>
                 @endforeach
             </div>
         </div>
     </section>
 
     <div class="mt-16 px-4">
-        <a href="#"
+        <a href="{{ route('products.index') }}"
             class="container block text-center bg-secondary dark:bg-secondaryDark text-white dark:text-dark-mode
         p-4 rounded-md hover:opacity-80 focus:bg-opacity-80 transition-opacity font-bold">
             Lihat Produk Lainnya
