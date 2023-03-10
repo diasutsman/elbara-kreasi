@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.main')
 
 @section('content')
     {{-- <div class="container">
@@ -71,7 +71,7 @@
     </div>
 </div> --}}
 
-    <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    {{-- <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="w-full max-w-md space-y-8">
             <div>
                 <img class="mx-auto h-12 w-auto" src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi">
@@ -111,19 +111,6 @@
                             </p>
                         @enderror
                     </div>
-
-                    {{-- <div class="mb-6">
-                    <label for="email" class="block mb-2 text-sm font-medium text-green-700 dark:text-green-500">Your Email</label>
-                    <input type="text" id="email" class="bg-green-50 border border-green-500 text-green-900 placeholder-green-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-green-100 dark:border-green-400" placeholder="Bonnie Green">
-                    <p class="mt-2 text-sm text-green-600 dark:text-green-500"><span class="font-medium">Alright!</span> Username
-                        available!</p>
-                </div>
-                <div>
-                    <label for="username-error" class="block mb-2 text-sm font-medium text-red-700 dark:text-red-500">Your name</label>
-                    <input type="text" id="username-error" class="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-red-100 dark:border-red-400" placeholder="Bonnie Green">
-                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops!</span> Username already
-                        taken!</p>
-                </div> --}}
                 </div>
 
                 <div class="flex items-center justify-between">
@@ -154,6 +141,43 @@
                         Sign in
                     </button>
                 </div>
+            </form>
+        </div>
+    </div> --}}
+
+    <div class="grid items-center h-full">
+        <div>
+            <h1 class="font-bold text-2xl">Login</h1>
+            <p class="mt-6 text-xl">Welcome Back!</p>
+            <p class="mt-2 text-xl">Don't have account? <a href="{{ route('register') }}" class="text-onPrimary underline hover:text-primary transition-colors">Register Here</a></p>
+
+            <form action="{{ route('login') }}" method="POST" class="mt-16 flex flex-col gap-y-11">
+                @csrf   
+                <div class="flex flex-col gap-y-4">
+                    <label for="username" class="text-[#777] text-xl font-bold">Username</label>
+                    <input type="text" id="username" name="username"
+                        class="w-full h-12 border-primary border-opacity-30 border-2 rounded-md focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
+                        value="{{ old('username') }}">
+                    @error('username')
+                        <p class="text-sm text-red-600 dark:text-red-500">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
+
+                <div class="flex flex-col gap-y-4">
+                    <label for="password" class="text-[#777] text-xl font-bold">Password</label>
+                    <input type="password" id="password" name="password"
+                        class="w-full h-12 border-primary border-opacity-30 border-2 rounded-md focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none transition-all">
+                    @error('password')
+                        <p class="text-sm text-red-600 dark:text-red-500">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                </div>
+
+                <button type="submit"
+                    class="bg-primary px-8 rounded-xl py-4 text-white self-start font-bold hover:opacity-90 focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none transition-all">Login</button>
             </form>
         </div>
     </div>

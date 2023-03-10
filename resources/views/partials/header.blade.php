@@ -19,10 +19,20 @@
                 <a class="text-base" href="mailto:elbarakreasi@gmail.com">elbarakreasi@gmail.com</a>
             </li>
             @auth
-                <li class="px-3 flex items-center gap-x-2">
-                    <p>{{ auth()->user()->name }}</p>
-                    <div class="h-12 w-12 bg-placeholder rounded-full">
-                        <img src="{{ asset('img/user-placeholder.webp') }}" alt="{{ auth()->user()->name }} Image">
+                <li class="px-3" x-data="{ show: false }">
+                    <div class="relative flex items-center justify-center">
+                        <button class="flex items-center gap-x-2 cursor-pointer" @click="show = !show">
+                            <p>{{ auth()->user()->username }}</p>
+                            <div class="h-12 w-12 bg-placeholder rounded-full">
+                                <img src="{{ asset('img/user-placeholder.webp') }}"
+                                    alt="{{ auth()->user()->username }} Image">
+                            </div>
+                        </button>
+
+                        <form action="{{ route('logout') }}" method="POST" class="absolute top-14 z-20 left-0 right-0" x-show="show" x-transition @click.outside="show = false">
+                            @csrf
+                            <button class="font-bold p-3 z-20 border-dark border-2 bg-white hover:bg-red-500 hover:text-white transition-colors w-full">Logout</button>
+                        </form>
                     </div>
                 </li>
             @else
