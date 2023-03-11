@@ -2,10 +2,10 @@
 
 @section('content')
     <!--Container-->
-    <div class="container w-max  mx-auto px-2">
+    <div class="container w-full mx-auto px-2 overflow-x-auto h-full">
 
         <!--Card-->
-        <div id='recipients' class="p-8 mt-6 rounded shadow bg-white">
+        <div id='recipients' class="p-8 mt-6 rounded shadow bg-white w-max">
 
             <form action="{{ route('admin.products.store') }}" method="POST" onsubmit="onAdd(event)"
                 class="flex gap-x-2 justify-center mb-4 items-start">
