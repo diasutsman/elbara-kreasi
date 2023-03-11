@@ -36,7 +36,7 @@
                     <li class="flex-1 md:flex-none md:mr-3">
                         <div class="relative inline-block">
                             <button onclick="toggleDD('myDropdown')" class="drop-button text-white py-2 px-2"> <span
-                                    class="pr-2"><i class="em em-robot_face"></i></span> Hi, {{ auth()->user()->name }} <svg
+                                    class="pr-2"><i class="em em-robot_face"></i></span> Hi, {{ auth()->user()->username }} <svg
                                     class="h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 20 20">
                                     <path
