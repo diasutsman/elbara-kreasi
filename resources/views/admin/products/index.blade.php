@@ -5,7 +5,7 @@
     <div class="w-full overflow-x-auto h-full">
 
         <!--Card-->
-        <div id='recipients' class="p-8 mt-6 rounded shadow bg-white w-max mx-4">
+        <div id='recipients' class="p-8 mt-6 rounded shadow bg-white mx-4">
 
             <div class="flex justify-start mb-4" x-data="{ open: false }">
                 <button @click="$refs.dialogAdd.showModal();open=true;"

@@ -123,6 +123,17 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
     /*bg-indigo-500*/
 }
 
+/* Loading */
+.dataTables_wrapper .dataTables_processing {
+    /* @apply absolute left-1/2 -translate-x-1/2 m-0 -top-16 bg-opacity-100 h-auto p-0 w-full from-transparent to-transparent bg-gradient-to-b; */
+    @apply w-auto left-1/2 m-0 -translate-x-1/2 p-0 h-auto invisible -top-4;
+}
+
+.dataTables_wrapper .dataTables_processing::after {
+    @apply block visible indent-0 leading-[initial] font-bold text-4xl;
+    content: 'Loading...';
+}
+
 /* input styles */
 .is-invalid {
     @apply bg-red-50 border border-red-500 text-red-900 placeholder:text-red-700 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400;
