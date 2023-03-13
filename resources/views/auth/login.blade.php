@@ -145,6 +145,12 @@
         </div>
     </div> --}}
 
+    @if (session()->has('adminMessage'))
+        <script>
+            alert('{{ session("adminMessage") }}');
+        </script>
+    @endif
+
     <div class="grid items-center h-full">
         <div>
             <h1 class="font-bold text-2xl">Login</h1>

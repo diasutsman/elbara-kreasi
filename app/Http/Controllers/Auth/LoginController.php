@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -43,7 +45,9 @@ class LoginController extends Controller
     public function authenticated(Request $request, User $user)
     {
         if($user->isAdmin()) {
-            return redirect()->route('admin.dashboard');
+            Session::flush();
+            Auth::logout();
+            return back()->withErrors(['username' => 'These credentials do not match our records.'])->withInput();
         }
     }
 

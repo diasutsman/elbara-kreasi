@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Category;
-use App\Models\Product;
-use Cviebrock\EloquentSluggable\Services\SlugService;
-use Error;
 use Exception;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
-use Throwable;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Validator;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminProductController extends Controller
 {
