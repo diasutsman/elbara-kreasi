@@ -29,6 +29,7 @@ class ProductFactory extends Factory
       'is_best_seller' => $this->faker->boolean(70),
       'additional_information' => collect($this->faker->paragraphs(mt_rand(5, 10)))
       ->map(fn ($p) => '<p>' . $p . '</p>')->join(''),
+      'price' => $this->faker->numberBetween(1000, 10_000_000),
     ];
   }
 }

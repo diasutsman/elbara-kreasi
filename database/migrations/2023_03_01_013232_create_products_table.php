@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('is_best_seller');
             $table->text('additional_information');
             $table->string('image')->nullable();
+            $table->integer('price');
             $table->timestamps();
         });
     }

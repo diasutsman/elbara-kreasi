@@ -14,7 +14,7 @@
 
             <div class="flex-1">
                 <h1 class="text-3xl text-dark font-bold">{{ $product->name }}</h1>
-                <p class="text-secondary text-2xl mt-4">Rp 600</p>
+                <p class="text-secondary text-2xl mt-4">@currency($product->price)</p>
 
                 <form action="#" method="POST" class="mt-8">
                     <label class="text-[#B0B0B0] block" for="quantity">Quantity</label>

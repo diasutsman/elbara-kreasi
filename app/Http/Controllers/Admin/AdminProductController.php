@@ -57,6 +57,13 @@ class AdminProductController extends Controller
                     'field' => 'additional_information',
                 ])->render();
             },
+            'price' => function (Product $product) {
+                return view('admin.components.input', [
+                    'obj' => $product,
+                    'field' => 'price',
+                    'type' => 'number',
+                ])->render();
+            },
             'category_id' => function (Product $product) {
                 return view('admin.components.select', [
                     'obj' => $product,
@@ -89,9 +96,10 @@ class AdminProductController extends Controller
                 ->addColumn('is_best_seller', $this->fieldsView['is_best_seller'])
                 ->addColumn('description', $this->fieldsView['description'])
                 ->addColumn('additional_information', $this->fieldsView['additional_information'])
+                ->addColumn('price', $this->fieldsView['price'])
                 ->addColumn('category_id', $this->fieldsView['category_id'])
                 ->addColumn('action', $this->fieldsView['action'])
-                ->rawColumns(['action', 'name', 'is_best_seller', 'image', 'description', 'category_id', 'additional_information'])
+                ->rawColumns(['action', 'name', 'is_best_seller', 'image', 'description', 'category_id', 'additional_information', 'price'])
                 ->make(true);
         }
         return view('admin.products.index', [
@@ -106,6 +114,7 @@ class AdminProductController extends Controller
             'image' => 'image|file|max:1024',
             'description' => 'required',
             'additional_information' => 'required',
+            'price' => 'required|min_digits:1|max_digits:100',
             'category_id' => 'required',
         ]);
 

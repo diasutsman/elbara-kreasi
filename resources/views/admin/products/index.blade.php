@@ -132,7 +132,8 @@
                         <th data-orderable="false">Image</th>
                         <th data-priority="3">Description</th>
                         <th data-priority="4">Additional Information</th>
-                        <th data-priority="5">Category</th>
+                        <th data-priority="5">Price</th>
+                        <th data-priority="6">Category</th>
                         <th data-orderable="false">Action</th>
                     </tr>
                 </thead>

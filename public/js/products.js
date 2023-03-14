@@ -28,6 +28,10 @@ $(document).ready(function () {
                     name: "additional_information",
                 },
                 {
+                    data: "price",
+                    name: "price",
+                },
+                {
                     data: "category_id",
                     name: "category_id",
                 },
