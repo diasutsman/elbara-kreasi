@@ -15,6 +15,7 @@
     @if (Request::is('products/*'))
         <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.theme.default.min.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
     @endif
 
     {{-- Fonts custom --}}
@@ -73,6 +74,38 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     @vite('resources/js/app.js')
+
+    @if (Request::is('products/*'))
+        <script type="module">
+        import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+        const lightbox = new PhotoSwipeLightbox({
+          gallery: '#my-gallery',
+          children: 'a',
+          pswpModule: () => import('https://unpkg.com/photoswipe')
+        });
+        lightbox.on('uiRegister', function() {
+        lightbox.pswp.ui.registerElement({
+            name: 'caption text-white text-center absolute left-1/2 -translate-x-1/2 bottom-10 font-bold text-2xl',
+            ariaLabel: 'Toggle zoom',
+            order: 9,
+            html: 'Test',
+            appendTo: 'root',
+            onInit: (el, pswp) => {
+      lightbox.pswp.on('change', () => {
+        console.log('change');
+        const currSlideElement = lightbox.pswp.currSlide.data.element;
+        let captionHTML = '';
+        if (currSlideElement) {
+            // get caption from alt attribute
+            captionHTML = currSlideElement.querySelector('img').getAttribute('alt');
+        }
+        el.innerHTML = captionHTML || '';
+      });
+    }})
+        });
+        lightbox.init();
+        </script>
+    @endif
 </body>
 
 </html>

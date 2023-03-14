@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Client;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Portfolio;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -58,5 +59,7 @@ class DatabaseSeeder extends Seeder
         Product::factory(20)->create();
 
         Client::factory(10)->create();
+
+        Portfolio::factory(30)->create();
     }
 }

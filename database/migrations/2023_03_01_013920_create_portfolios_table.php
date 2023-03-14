@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string('title');
             $table->string('slug')->unique();

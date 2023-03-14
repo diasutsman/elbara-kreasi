@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Portfolio extends Model
 {
-  use HasFactory, Sluggable;
+    use HasFactory, Sluggable;
 
-  public function sluggable(): array
-  {
-    return [
-      'slug' => [
-        'source' => 'title'
-      ]
-    ];
-  }
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }

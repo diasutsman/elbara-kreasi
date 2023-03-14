@@ -12,7 +12,7 @@ class Product extends Model
 {
     use HasFactory, Sluggable;
 
-    public $with = ['category'];
+    public $with = ['category', 'portfolios'];
 
     protected $casts = [
         'is_best_seller' => 'boolean',
@@ -23,6 +23,11 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function portfolios()
+    {
+        return $this->hasMany(Portfolio::class);
     }
 
     public function sluggable(): array

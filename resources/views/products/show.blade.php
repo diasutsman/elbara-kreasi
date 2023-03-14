@@ -5,29 +5,55 @@
             <div class="flex flex-col gap-y-6 basis-[400px] shrink">
                 {{-- <div class="w-full min-h-[400px] bg-placeholder"></div> --}}
                 <img class="max-w-[400px] mx-auto w-full" src="{{ asset('storage/' . $product->image) }}" alt="">
-                <div class="flex gap-x-2 justify-center">
+                {{-- <div class="flex gap-x-2 justify-center">
                     <div class="h-16 w-16 bg-placeholder"></div>
                     <div class="h-16 w-16 bg-placeholder"></div>
                     <div class="h-16 w-16 bg-placeholder"></div>
+                </div> --}}
+                <div class="pswp-gallery flex gap-2 justify-center flex-wrap" id="my-gallery">
+                    @foreach ($product->portfolios as $portfolio)
+                        <a href="{{ $portfolio->image }}" target="_blank" data-pswp-width="700" class="w-[70px]"
+                            data-pswp-height="700" >
+                            <img src="{{ $portfolio->image }}"
+                                alt="{{ $portfolio->title }}" loading="lazy"/>
+                        </a>
+                        {{-- <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg" target="_blank" data-pswp-width="462" 
+                        data-pswp-height="616" >
+                            <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-200.jpg" alt="" />
+                        </a> --}}
+                    @endforeach
+                    {{-- <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg" target="_blank">
+                        <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-200.jpg" alt="" />
+                    </a>
+                    <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg" target="_blank">
+                        <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg" alt="" />
+                    </a>
+                    <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg" target="_blank">
+                        <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg" alt="" />
+                    </a> --}}
                 </div>
             </div>
 
-            <div class="flex-1" x-data="{price: {{ $product->price }}, quantity: 1}">
+            <div class="flex-1" x-data="{ price: {{ $product->price }}, quantity: 1 }">
                 <h1 class="text-3xl text-dark font-bold">{{ $product->name }}</h1>
-                <p class="text-secondary text-2xl mt-4" x-text='new Intl.NumberFormat("id-ID", {
+                <p class="text-secondary text-2xl mt-4"
+                    x-text='new Intl.NumberFormat("id-ID", {
                     style: "currency",
                     currency: "IDR"
-                  }).format(quantity * price)'>@currency($product->price)</p>
+                  }).format(quantity * price)'>
+                    @currency($product->price)</p>
 
                 <form action="#" method="POST" class="mt-8">
                     <label class="text-[#B0B0B0] block" for="quantity">Quantity</label>
                     <div class="flex border-[1px] border-secondary rounded-md overflow-hidden mt-2 w-fit">
                         <button class="bg-secondary px-4 py-2 text-white" type="button"
-                            onclick="this.parentElement.querySelector('input[type=number]').stepDown()" @click="quantity = Math.max(1, quantity - 1)">-</button>
+                            onclick="this.parentElement.querySelector('input[type=number]').stepDown()"
+                            @click="quantity = Math.max(1, quantity - 1)">-</button>
                         <input type="number" name="quantity" id="quantity"
                             class="w-16 text-center focus-visible:outline-none" min="1" value="1" readonly>
                         <button class="bg-secondary px-4 py-2 text-white" type="button"
-                            onclick="this.parentElement.querySelector('input[type=number]').stepUp()" @click="quantity++">+</button>
+                            onclick="this.parentElement.querySelector('input[type=number]').stepUp()"
+                            @click="quantity++">+</button>
                     </div>
 
                     <button type="submit"
