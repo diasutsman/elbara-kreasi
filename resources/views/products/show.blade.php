@@ -12,19 +12,22 @@
                 </div>
             </div>
 
-            <div class="flex-1">
+            <div class="flex-1" x-data="{price: {{ $product->price }}, quantity: 1}">
                 <h1 class="text-3xl text-dark font-bold">{{ $product->name }}</h1>
-                <p class="text-secondary text-2xl mt-4">@currency($product->price)</p>
+                <p class="text-secondary text-2xl mt-4" x-text='new Intl.NumberFormat("id-ID", {
+                    style: "currency",
+                    currency: "IDR"
+                  }).format(quantity * price)'>@currency($product->price)</p>
 
                 <form action="#" method="POST" class="mt-8">
                     <label class="text-[#B0B0B0] block" for="quantity">Quantity</label>
                     <div class="flex border-[1px] border-secondary rounded-md overflow-hidden mt-2 w-fit">
                         <button class="bg-secondary px-4 py-2 text-white" type="button"
-                            onclick="this.parentElement.querySelector('input[type=number]').stepDown()">-</button>
+                            onclick="this.parentElement.querySelector('input[type=number]').stepDown()" @click="quantity = Math.max(1, quantity - 1)">-</button>
                         <input type="number" name="quantity" id="quantity"
                             class="w-16 text-center focus-visible:outline-none" min="1" value="1" readonly>
                         <button class="bg-secondary px-4 py-2 text-white" type="button"
-                            onclick="this.parentElement.querySelector('input[type=number]').stepUp()">+</button>
+                            onclick="this.parentElement.querySelector('input[type=number]').stepUp()" @click="quantity++">+</button>
                     </div>
 
                     <button type="submit"

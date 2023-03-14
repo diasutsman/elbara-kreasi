@@ -46,6 +46,10 @@
                                             class="bg-gray-100 p-2 focus-visible:outline-none focus:ring-2 transition"
                                             required>
 
+                                        <input type="number" placeholder="Product Price (RP)" name="price"
+                                            class="bg-gray-100 p-2 focus-visible:outline-none focus:ring-2 transition"
+                                            required >
+
                                         <label>
                                             Is Best Seller?
                                             <input type="checkbox" name="is_best_seller"
@@ -78,8 +82,10 @@
                                                 <input type="file" class="hidden row-span-full col-span-full peer"
                                                     onchange="previewImage(event)" name="image">
 
-                                                <img loading="lazy" src="{{ asset('/img/placeholder.webp') }}" data-placeholder="{{ asset('/img/placeholder.webp') }}"
-                                                    class="row-span-full col-span-full w-full peer-invalid:aspect-square" x-ref="imgAdd"/>
+                                                <img loading="lazy" src="{{ asset('/img/placeholder.webp') }}"
+                                                    data-placeholder="{{ asset('/img/placeholder.webp') }}"
+                                                    class="row-span-full col-span-full w-full peer-invalid:aspect-square"
+                                                    x-ref="imgAdd" />
 
                                                 <div
                                                     class="bg-black cursor-pointer hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">
