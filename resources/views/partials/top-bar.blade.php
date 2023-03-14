@@ -17,7 +17,7 @@
                     </svg>
                 </button>
                 <div id="menu-dropdown"
-                    class="transition ease-out duration-100 transform opacity-0 scale-95 -z-10
+                    class="transition ease-out duration-100 transform opacity-0 scale-95 z-30
                           absolute right-0 top-10 w-max origin-top-right rounded-md bg-white
                           shadow-lg dark:bg-black ring-1 ring-black ring-opacity-5 focus:outline-none"
                     role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
