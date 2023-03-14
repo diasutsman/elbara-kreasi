@@ -28,6 +28,9 @@ module.exports = {
       fontFamily: {
         'sans': ["\"Franklin Gothic Demi\"", 'sans-serif'],
       },
+      height : {
+        '85' : '22rem'
+      },
     },
   },
   plugins: [
