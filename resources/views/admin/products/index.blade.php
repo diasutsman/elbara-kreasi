@@ -23,16 +23,16 @@
                     x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300"
                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
                     <div
-                        class="p-7 flex justify-center items-start overflow-x-hidden overflow-y-auto fixed left-0 top-0 w-full h-full bg-gray-900 bg-opacity-50 z-50 transition-opacity duration-300">
-                        <div class="bg-white flex rounded-lg w-min relative"
+                        class="sm:p-7 flex justify-center items-start overflow-x-hidden overflow-y-auto fixed left-0 top-0 w-full h-full bg-gray-900 bg-opacity-50 z-50 transition-opacity duration-300">
+                        <div class="bg-white flex sm:rounded-lg w-min relative"
                             @click.away="open = false;setTimeout(function(){ $refs.dialogAdd.close(); document.body.style.overflow = null }, 300)">
                             <form class="flex flex-col items-start" action="{{ route('admin.products.store') }}"
                                 method="POST" onsubmit="onAdd(event)" x-ref="formAdd"
                                 @submit="open = false;setTimeout(function(){ $refs.dialogAdd.close(); document.body.style.overflow = null }, 300)">
-                                <div class="p-7 flex items-center w-full">
+                                <div class="p-7 flex items-center w-full justify-between">
                                     <div class="text-gray-900 font-bold text-lg">Add product</div>
                                     <svg @click="open = false;setTimeout(function(){ $refs.dialogAdd.close();document.body.style.overflow = null }, 300)"
-                                        class="ml-auto fill-current text-gray-700 w-5 h-5 cursor-pointer"
+                                        class="fill-current text-gray-700 w-5 h-5 cursor-pointer"
                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
                                         <path
                                             d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />

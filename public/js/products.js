@@ -2,7 +2,7 @@ let table;
 $(document).ready(function () {
     table = $("#products-table")
         .DataTable({
-            responsive: true,
+            scrollX: true,
             processing: true,
             serverSide: true,
             ajax: "/admin/products",
