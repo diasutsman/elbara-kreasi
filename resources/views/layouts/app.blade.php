@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" class="font-sans">
+<html lang="en" class="font-sans"
+    x-data='{ dark: localStorage.theme === "dark", 
+    toggleDark() {
+        $el.classList.toggle("dark");
+        localStorage.theme = (this.dark = !this.dark) ? "dark" : "light";
+    } }'
+    :class="dark && 'dark'" x-ref="html">
 
 <head>
     <meta charset="UTF-8" />
@@ -9,6 +15,15 @@
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
     <link href="{{ asset('favicon-dark.ico') }}" id="darkUrl" />
+
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
@@ -48,7 +63,7 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
         <script src="{{ asset('/js/owlcarousel/owl.carousel.min.js') }}"></script>
 
-        <script>
+        <script type="module">
             $(document).ready(function() {
                 $(".owl-carousel").owlCarousel({
                     margin: 35,
@@ -67,6 +82,35 @@
                     }
                 });
             });
+            import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+            const lightbox = new PhotoSwipeLightbox({
+                gallery: '#my-gallery',
+                children: 'a',
+                pswpModule: () => import('https://unpkg.com/photoswipe')
+            });
+            lightbox.on('uiRegister', function() {
+                lightbox.pswp.ui.registerElement({
+                    name: 'caption text-white text-center absolute left-1/2 -translate-x-1/2 bottom-10 font-bold text-2xl',
+                    ariaLabel: 'Toggle zoom',
+                    order: 9,
+                    html: 'Test',
+                    appendTo: 'root',
+                    onInit: (el, pswp) => {
+                        lightbox.pswp.on('change', () => {
+                            console.log('change');
+                            const currSlideElement = lightbox.pswp.currSlide.data.element;
+                            let captionHTML = '';
+                            if (currSlideElement) {
+                                // get caption from alt attribute
+                                captionHTML = currSlideElement.querySelector('img').getAttribute(
+                                    'alt');
+                            }
+                            el.innerHTML = captionHTML || '';
+                        });
+                    }
+                })
+            });
+            lightbox.init();
         </script>
     @endif
 
@@ -75,35 +119,30 @@
 
     @vite('resources/js/app.js')
 
+    @if (Request::is('products'))
+        <script>
+            /* Isotope Code */
+            const iso = new Isotope('.products', {
+                itemSelector: '.product',
+                layoutMode: 'fitRows'
+            })
+
+            const filterButtons = document.querySelectorAll('.filter-button-group button');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    filterButtons.forEach(button => button.classList.remove('bg-secondary', 'text-white'))
+                    button.classList.add('bg-secondary', 'text-white')
+                    iso.arrange({
+                        filter: event.target.dataset.filter
+                    })
+                })
+            })
+        </script>
+    @endif
+
     @if (Request::is('products/*'))
         <script type="module">
-        import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
-        const lightbox = new PhotoSwipeLightbox({
-          gallery: '#my-gallery',
-          children: 'a',
-          pswpModule: () => import('https://unpkg.com/photoswipe')
-        });
-        lightbox.on('uiRegister', function() {
-        lightbox.pswp.ui.registerElement({
-            name: 'caption text-white text-center absolute left-1/2 -translate-x-1/2 bottom-10 font-bold text-2xl',
-            ariaLabel: 'Toggle zoom',
-            order: 9,
-            html: 'Test',
-            appendTo: 'root',
-            onInit: (el, pswp) => {
-      lightbox.pswp.on('change', () => {
-        console.log('change');
-        const currSlideElement = lightbox.pswp.currSlide.data.element;
-        let captionHTML = '';
-        if (currSlideElement) {
-            // get caption from alt attribute
-            captionHTML = currSlideElement.querySelector('img').getAttribute('alt');
-        }
-        el.innerHTML = captionHTML || '';
-      });
-    }})
-        });
-        lightbox.init();
         </script>
     @endif
 </body>
