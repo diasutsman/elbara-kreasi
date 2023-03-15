@@ -42,7 +42,7 @@
                 <i class="bi bi-search col-span-full row-span-full transition-opacity duration-500"
                     :class="searchOpen && 'opacity-0'"></i>
                 <i class="bi bi-x-lg col-span-full row-span-full transition-opacity duration-500"
-                    :class="!searchOpen && 'opacity-0'">
+                    :class="!searchOpen && 'opacity-0'" x-cloak>
                 </i>
             </button>
             <form action="#" method="GET"
