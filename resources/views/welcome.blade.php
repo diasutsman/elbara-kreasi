@@ -30,7 +30,77 @@
 
 
     {{-- Points --}}
-    
+    <div class="block bg-primary dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-16 mt-16">
+        <div class="container flex">
+            <div class="w-1/4">
+                <div class="h-40 bg-white"></div>
+            </div>
+            <div class="w-3/4 flex">
+                <div class="w-1/2">
+                    <div class="flex pl-10 mb-10">
+                        <div class="h-20 w-20 bg-white rounded-full"></div>
+                        <div class="w-1/2 pl-6">
+                            <p class="text-left text-2xl">Point 1</p>
+                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="flex pl-10 mb-10">
+                        <div class="h-20 w-20 bg-white rounded-full"></div>
+                        <div class="w-1/2 pl-6">
+                            <p class="text-left text-2xl">Point 2</p>
+                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="flex pl-10 mb-10">
+                        <div class="h-20 w-20 bg-white rounded-full"></div>
+                        <div class="w-1/2 pl-6">
+                            <p class="text-left text-2xl">Point 3</p>
+                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/2">
+                    <div class="flex pl-10 mb-10">
+                        <div class="h-20 w-20 bg-white rounded-full"></div>
+                        <div class="w-1/2 pl-6">
+                            <p class="text-left text-2xl">Point 1</p>
+                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="flex pl-10 mb-10">
+                        <div class="h-20 w-20 bg-white rounded-full"></div>
+                        <div class="w-1/2 pl-6">
+                            <p class="text-left text-2xl">Point 2</p>
+                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="flex pl-10 mb-10">
+                        <div class="h-20 w-20 bg-white rounded-full"></div>
+                        <div class="w-1/2 pl-6">
+                            <p class="text-left text-2xl">Point 3</p>
+                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
+
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            
+                
+            
+            
+        </div>
+    </div>
 
 
     <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
