@@ -27,7 +27,7 @@
     <!-- Trix Editor -->
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
-    
+
     <!--Replace with your tailwind.css once created-->
     @vite(['resources/css/app.css'])
 
@@ -82,6 +82,8 @@
         <script src="/js/categories.js"></script>
     @elseif(Request::is('admin/products'))
         <script src="/js/products.js"></script>
+    @elseif(Request::is('admin/portfolios'))
+        <script src="/js/portfolios.js"></script>
     @endif
     <script src="/js/admin.js"></script>
 </body>

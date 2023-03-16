@@ -27,10 +27,10 @@
                     </a>
                 </li>
                 <li class="mr-3 flex-1">
-                    <a href="#"
-                        class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-red-500 transition-colors duration-300">
-                        <i class="fa fa-wallet pr-0 md:pr-3"></i><span
-                            class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Payments</span>
+                    <a href="{{ route('admin.portfolios.index') }}"
+                        class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 hover:border-yellow-500 @if (Request::is('admin/portfolios')) border-yellow-500 @else border-gray-800 @endif transition-colors duration-300">
+                        <i class="bi bi-images pr-0 md:pr-3 @if (Request::is('admin/portfolios')) text-yellow-500 @endif"></i><span
+                            class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Portfolios</span>
                     </a>
                 </li>
             </ul>

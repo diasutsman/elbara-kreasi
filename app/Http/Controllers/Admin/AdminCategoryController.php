@@ -82,9 +82,7 @@ class AdminCategoryController extends Controller
                 ->rawColumns(['action', 'name', 'image'])
                 ->make(true);
         }
-        return view('admin.categories.index', [
-            'categories' => Category::all()
-        ]);
+        return view('admin.categories.index');
     }
 
     public function store(Request $request)

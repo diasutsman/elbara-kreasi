@@ -12,7 +12,7 @@ class Product extends Model
 {
     use HasFactory, Sluggable;
 
-    public $with = ['category', 'portfolios'];
+    public $with = ['category'];
 
     protected $casts = [
         'is_best_seller' => 'boolean',

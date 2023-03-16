@@ -29,6 +29,9 @@ async function onUpdate(event) {
         const data = await fetch(event.target.action, {
             method: "POST",
             body: formData,
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+            },
         })
             .then((response) => {
                 if (!response.ok)
@@ -42,7 +45,7 @@ async function onUpdate(event) {
     } catch (error) {
         console.error(error.message);
         const obj = JSON.parse(error.message);
-        Swal.fire(obj["error"], "", "error");
+        Swal.fire(obj["message"], "", "error");
         tr.innerHTML = trContent;
     }
 }
@@ -165,6 +168,9 @@ async function onAdd(event) {
         await fetch(event.target.action, {
             method: "POST",
             body: new FormData(event.target),
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+            },
         })
             .then((response) => {
                 if (!response.ok)
@@ -179,7 +185,7 @@ async function onAdd(event) {
     } catch (error) {
         console.error(error.message);
         const obj = JSON.parse(error.message);
-        Swal.fire(obj["error"], "", "error");
+        Swal.fire(obj["message"], "", "error");
     } finally {
         btnAdd.innerHTML = btnAddContent;
         btnAdd.disabled = false;

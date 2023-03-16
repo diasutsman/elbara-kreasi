@@ -13,7 +13,7 @@ class UpdatePortfolioRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class UpdatePortfolioRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string|max:255',
+            'image' => 'image|file|max:1024',
+            'product_id' => 'required|integer|exists:products,id',
         ];
     }
 }

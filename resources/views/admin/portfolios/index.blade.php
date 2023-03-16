@@ -7,11 +7,11 @@
         <!--Card-->
         <div id="card-wrapper" class="p-8 mt-6 rounded shadow bg-white">
 
-            <form action="{{ route('admin.categories.store') }}" method="POST" onsubmit="onAdd(event)"
+            <form action="{{ route('admin.portfolios.store') }}" method="POST" onsubmit="onAdd(event)"
                 class="flex gap-x-2 justify-center mb-4 items-start">
                 @csrf
 
-                <input type="text" placeholder="Add Category" name="name"
+                <input type="text" placeholder="Portfolio Title" name="title"
                     class="bg-gray-100 p-2 focus-visible:outline-none focus:ring-2 transition" required>
 
                 <label class="grid basis-16">
@@ -35,6 +35,18 @@
                     </div>
                 </label>
 
+                <div x-data="{productId: ''}">
+                    <input type="text" list="products" id="product" placeholder="Product Name" x-on:change="productId = [...$refs.products.children].find(prod => prod.value == $refs.productInput.value).dataset.value" x-ref="productInput">
+
+                    <datalist id="products" x-ref="products">
+                        @foreach ($products as $product)
+                            <option value="{{ $product->name }}" data-value="{{ $product->id }}" />
+                        @endforeach
+                    </datalist>
+
+                    <input type="hidden" name="product_id" x-model="productId">
+                </div>
+
                 <button
                     class="btn-add inline-flex gap-x-1 items-center p-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md mr-0"
                     type="submit">
@@ -48,11 +60,12 @@
             </form>
 
 
-            <table id="categories-table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+            <table id="portfolios-table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>
                     <tr>
-                        <th data-priority="1">Name</th>
+                        <th data-priority="1">Title</th>
                         <th data-orderable="false">Image</th>
+                        <th data-priority="2">Product</th>
                         <th data-orderable="false">Action</th>
                     </tr>
                 </thead>

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminPortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','can:admin']], functi
 
   Route::resource('/categories', AdminCategoryController::class)->names('admin.categories');
   Route::resource('/products', AdminProductController::class)->names('admin.products');
+  Route::resource('/portfolios', AdminPortfolioController::class)->names('admin.portfolios');
   Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 
 });
