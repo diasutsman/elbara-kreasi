@@ -30,7 +30,7 @@
 
 
     {{-- Points --}}
-    <div class="block bg-primary dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-16 mt-16">
+    <div class="block bg-primary dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-16 my-20">
         <div class="container flex">
             <div class="w-1/4">
                 <div class="h-40 bg-[#CCCCCC]"></div>
@@ -95,18 +95,12 @@
                 
             </div>
 
-            
-                
-            
-            
         </div>
     </div>
 
 
     <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
-        class="block bg-primaryVariant dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-9 mt-16 hover:opacity-90 transition-opacity">
+        class="block bg-primaryVariant dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-9 mt-16 hover:opacity-90 transition-opacity mb-80">
         Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>>
-    </a>
-
-    <br class="mb-10">
+    </a> 
 @endsection
