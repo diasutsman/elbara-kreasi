@@ -81,16 +81,6 @@ class AdminPortfolioController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StorePortfolioRequest  $request
@@ -107,27 +97,6 @@ class AdminPortfolioController extends Controller
         }
 
         Portfolio::create($validatedData);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Portfolio $portfolio)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Portfolio  $portfolio
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Portfolio $portfolio)
-    {
     }
 
     /**
@@ -170,6 +139,7 @@ class AdminPortfolioController extends Controller
      */
     public function destroy(Portfolio $portfolio)
     {
-        //
+        Storage::delete($portfolio->image);
+        $portfolio->delete();
     }
 }

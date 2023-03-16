@@ -23,12 +23,9 @@ class PortfolioFactory extends Factory
     {
         $title = $this->faker->words(2, true);
 
-        $url = 'https://source.unsplash.com/random/700x700?sig=' . rand(1, 100);
-
         return [
             'title' => $title,
             'slug' => SlugService::createSlug(Portfolio::class, 'slug', $title),
-            'image' => $url,
             'product_id' => Product::all()->random()->id,
         ];
     }

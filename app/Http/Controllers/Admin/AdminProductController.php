@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Validator;
@@ -16,6 +18,11 @@ class AdminProductController extends Controller
 {
 
     private $fieldsView;
+    private $categories;
+    private function categories()
+    {
+        return $this->categories ?? ($this->categories = Category::all());
+    }
 
     public function __construct()
     {
@@ -68,7 +75,7 @@ class AdminProductController extends Controller
                 return view('admin.components.select', [
                     'obj' => $product,
                     'field' => 'category_id',
-                    'options' => Category::all(),
+                    'options' => $this->categories(),
                 ])->render();
             },
             'action' => function (Product $product) {
@@ -103,26 +110,42 @@ class AdminProductController extends Controller
                 ->make(true);
         }
         return view('admin.products.index', [
-            'categories' => Category::all(),
+            'categories' => $this->categories(),
         ]);
     }
 
-    public function validatedData(Request $request, Product $product = null)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreProductRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
-            'image' => 'image|file|max:1024',
-            'description' => 'required',
-            'additional_information' => 'required',
-            'price' => 'required|min_digits:1|max_digits:100',
-            'category_id' => 'required',
-        ]);
+        $validatedData = $request->validated();
 
-        if ($validator->fails()) throw new Exception($validator->errors()->first());
+        $validatedData['slug'] = SlugService::createSlug(Product::class, 'slug', $validatedData['name']);
+        $validatedData['is_best_seller'] = $request->has('is_best_seller');
 
-        $validatedData = $validator->validated();
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('product-images');
+        }
 
-        if (isset($product) && $product->name !== $validatedData['name'])
+        Product::create($validatedData);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateProductRequest $request, Product $product)
+    {
+        $validatedData = $request->validated();
+
+        if ($product->name !== $validatedData['name'])
             $validatedData['slug'] = SlugService::createSlug(Product::class, 'slug', $validatedData['name']);
 
         if ($request->file('image')) {
@@ -134,58 +157,9 @@ class AdminProductController extends Controller
 
         $validatedData['is_best_seller'] = $request->has('is_best_seller');
 
-        return $validatedData;
-    }
+        $product->update($validatedData);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        try {
-            $validatedData = $this->validatedData($request);
-
-            Product::create($validatedData);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 422);
-        }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $product)
-    {
-        try {
-            $validatedData = $this->validatedData($request, $product);
-
-            $product = Product::where('id', $product->id);
-            $product->update($validatedData);
-
-            $updatedProduct = $product->first();
-
-            return $this->updatedRow($updatedProduct);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 422);
-        }
+        return $this->updatedRow($product);
     }
 
     public function updatedRow(Product $product)
@@ -205,6 +179,9 @@ class AdminProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        if ($product->image) {
+            Storage::delete($product->image);
+        }
         $product->delete();
     }
 }

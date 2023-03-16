@@ -6,6 +6,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -48,29 +50,6 @@ class AdminCategoryController extends Controller
         ];
     }
 
-    public function validatedData(Request $request, Category $category = null)
-    {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255|unique:categories,name' . (isset($category)? ',' . $category->id . ',id' : ''),
-            'image' => 'image|file|max:1024',
-        ]);
-
-        if ($validator->fails()) throw new Exception($validator->errors()->first());
-
-        $validatedData = $validator->validated();
-
-        $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
-
-        if ($request->file('image')) {
-            if ($category?->image) {
-                Storage::delete($category->image);
-            }
-            $validatedData['image'] = $request->file('image')->store('category-images');
-        }
-
-        return $validatedData;
-    }
-
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -85,48 +64,45 @@ class AdminCategoryController extends Controller
         return view('admin.categories.index');
     }
 
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        try {
-            $validatedData = $this->validatedData($request);
+        $validatedData = $request->validated();
 
-            $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
+        $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
 
-            if ($request->file('image')) {
-                $validatedData['image'] = $request->file('image')->store('category-images');
-            }
-
-            Category::create($validatedData);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 422);
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('category-images');
         }
+
+        Category::create($validatedData);
     }
 
     public function destroy(Category $category)
     {
+        if ($category->image) {
+            Storage::delete($category->image);
+        }
         $category->delete();
     }
 
-    public function edit(Category $category)
-    {
-        return $category;
-    }
-
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
 
-        try {
-            $validatedData = $this->validatedData($request, $category);
+        $validatedData = $request->validated();
 
-            $category = Category::where('id', $category->id);
-            $category->update($validatedData);
+        if ($category->name !== $validatedData['name'])
+            $validatedData['slug'] = SlugService::createSlug(Category::class, 'slug', $validatedData['name']);
 
-            $updatedCategory = $category->first();
-
-            return $this->updatedRow($updatedCategory);
-        } catch (Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 422);
+        if ($request->file('image')) {
+            if ($category->image) {
+                Storage::delete($category->image);
+            }
+            $validatedData['image'] = $request->file('image')->store('category-images');
         }
+
+        $category->update($validatedData);
+
+        return $this->updatedRow($category);
     }
 
     public function updatedRow(Category $category)
