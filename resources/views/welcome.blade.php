@@ -33,7 +33,7 @@
     <div class="block bg-primary dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-16 mt-16">
         <div class="container flex">
             <div class="w-1/4">
-                <div class="h-40 bg-white"></div>
+                <div class="h-40 bg-[#CCCCCC]"></div>
             </div>
             <div class="w-3/4 flex">
                 <div class="w-1/2">
