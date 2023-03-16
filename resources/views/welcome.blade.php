@@ -4,7 +4,7 @@
     <div class="px-4 dark:text-white">
         <div class="flex container mt-16 flex-wrap gap-y-8">
             <div class="md:flex-1">
-                <div class="md:mr-40 flex flex-col justify-center items-start h-full gap-4">
+                <div class="md:mr-14 flex flex-col justify-center items-start h-full gap-4">
                     <h1 class="text-4xl text-dark">
                         Tentang Kami
                     </h1>
@@ -30,7 +30,7 @@
 
 
     {{-- Points --}}
-    <div class="block bg-primary dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-16 my-20">
+    <div class="block bg-primary dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-16 my-32">
         <div class="container flex">
             <div class="w-1/4">
                 <div class="h-40 bg-[#CCCCCC]"></div>
