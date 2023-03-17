@@ -29,10 +29,19 @@
                             </div>
                         </button>
 
-                        <form action="{{ route('logout') }}" method="POST" class="absolute top-14 z-20 left-0 right-0" x-cloak x-show="show" x-transition @click.outside="show = false">
-                            @csrf
-                            <button class="font-bold p-3 z-20 border-dark border-2 bg-white hover:bg-red-500 hover:text-white transition-colors w-full">Logout</button>
-                        </form>
+                        <div class="absolute top-14 z-20 left-0 right-0 flex flex-col gap-2" x-cloak x-show="show"
+                            x-transition @click.outside="show = false">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button
+                                    class="font-bold text-center p-3 z-20 border-dark border-2 bg-white hover:bg-red-500 hover:text-white transition-colors w-full">Logout</button>
+                            </form>
+
+                            @can('admin')
+                                <a href="{{ route('admin.dashboard') }}"
+                                    class="block text-center font-bold p-3 z-20 border-dark border-2 bg-white hover:bg-red-500 hover:text-white transition-colors w-full">Dashboard</a>
+                            @endcan
+                        </div>
                     </div>
                 </li>
             @else
