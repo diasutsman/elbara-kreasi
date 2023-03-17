@@ -54,12 +54,13 @@ class AdminCategoryController extends Controller
     {
         if ($request->ajax()) {
             $data = Category::all();
-            return DataTables::of($data)->addIndexColumn()
-                ->addColumn('name', $this->fieldsView['name'])
-                ->addColumn('image', $this->fieldsView['image'])
-                ->addColumn('action', $this->fieldsView['action'])
-                ->rawColumns(['action', 'name', 'image'])
-                ->make(true);
+            $dataTable = DataTables::of($data)->addIndexColumn();
+
+            foreach ($this->fieldsView as $field => $view) {
+                $dataTable->addColumn($field, $view);
+            }
+
+            return $dataTable->rawColumns(array_keys($this->fieldsView))->make(true);
         }
         return view('admin.categories.index');
     }

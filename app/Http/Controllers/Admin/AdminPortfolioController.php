@@ -67,13 +67,13 @@ class AdminPortfolioController extends Controller
     {
         if ($request->ajax()) {
             $data = Portfolio::all();
-            return DataTables::of($data)->addIndexColumn()
-                ->addColumn('title', $this->fieldsView['title'])
-                ->addColumn('image', $this->fieldsView['image'])
-                ->addColumn('product_id', $this->fieldsView['product_id'])
-                ->addColumn('action', $this->fieldsView['action'])
-                ->rawColumns(['action', 'title', 'image', 'product_id'])
-                ->make(true);
+            $dataTable = DataTables::of($data)->addIndexColumn();
+
+            foreach ($this->fieldsView as $field => $view) {
+                $dataTable->addColumn($field, $view);
+            }
+
+            return $dataTable->rawColumns(array_keys($this->fieldsView))->make(true);
         }
         return view('admin.portfolios.index', [
             'products' => $this->products,
@@ -113,7 +113,7 @@ class AdminPortfolioController extends Controller
         $validatedData['slug'] = SlugService::createSlug(Portfolio::class, 'slug', $validatedData['title']);
 
         if ($request->file('image')) {
-            Storage::delete($portfolio->image);
+            if ($portfolio->image) Storage::delete($portfolio->image);
             $validatedData['image'] = $request->file('image')->store('portfolio-images');
         }
 

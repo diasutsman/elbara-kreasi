@@ -97,17 +97,13 @@ class AdminProductController extends Controller
     {
         if ($request->ajax()) {
             $data = Product::all();
-            return DataTables::of($data)->addIndexColumn()
-                ->addColumn('name', $this->fieldsView['name'])
-                ->addColumn('image', $this->fieldsView['image'])
-                ->addColumn('is_best_seller', $this->fieldsView['is_best_seller'])
-                ->addColumn('description', $this->fieldsView['description'])
-                ->addColumn('additional_information', $this->fieldsView['additional_information'])
-                ->addColumn('price', $this->fieldsView['price'])
-                ->addColumn('category_id', $this->fieldsView['category_id'])
-                ->addColumn('action', $this->fieldsView['action'])
-                ->rawColumns(['action', 'name', 'is_best_seller', 'image', 'description', 'category_id', 'additional_information', 'price'])
-                ->make(true);
+            $dataTable = DataTables::of($data)->addIndexColumn();
+
+            foreach ($this->fieldsView as $field => $view) {
+                $dataTable->addColumn($field, $view);
+            }
+
+            return $dataTable->rawColumns(array_keys($this->fieldsView))->make(true);
         }
         return view('admin.products.index', [
             'categories' => $this->categories(),
