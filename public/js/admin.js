@@ -34,6 +34,8 @@ function UpdateAction() {
 
             console.log([...formData.entries()]);
 
+            this.isUpdating = true;
+
             try {
                 const data = await fetch(event.target.action, {
                     method: "POST",
@@ -136,7 +138,7 @@ function DeleteAction() {
             }).then((result) => result);
 
             if (result.isDenied || result.isDismissed) return;
-            this.isLoading = true;
+            this.isDeleting = true;
 
             await fetch(event.target.action, {
                 method: event.target.querySelector('input[name="_method"]')

@@ -15,7 +15,8 @@
                         $refs.dialogAdd.close();
                         document.body.style.overflow = null
                     }, 300)
-                }
+                },
+                ...ImagePreview('{{ asset('/img/placeholder.webp') }}'),
             }">
                 <button @click="$refs.dialogAdd.show();open=true;document.body.style.overflow='hidden'"
                     class="btn-add inline-flex gap-x-1 items-center p-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md mr-0"
@@ -35,12 +36,10 @@
                         class="sm:p-7 flex justify-center items-start overflow-x-hidden overflow-y-auto fixed left-0 top-0 w-full h-full bg-gray-900 bg-opacity-50 z-50 transition-opacity duration-300">
                         <div class="bg-white flex sm:rounded-lg w-min relative" @click.outside="close">
                             <form class="flex flex-col items-start" action="{{ route('admin.products.store') }}"
-                                method="POST" onsubmit="onAdd(event)" x-ref="formAdd"
-                                @submit="close">
+                                method="POST" onsubmit="onAdd(event)" x-ref="formAdd" @submit="close">
                                 <div class="p-7 flex items-center w-full justify-between">
                                     <div class="text-gray-900 font-bold text-lg">Add product</div>
-                                    <svg @click="close"
-                                        class="fill-current text-gray-700 w-5 h-5 cursor-pointer"
+                                    <svg @click="close" class="fill-current text-gray-700 w-5 h-5 cursor-pointer"
                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
                                         <path
                                             d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
@@ -88,12 +87,11 @@
                                             <p>Image:</p>
                                             <label class="grid w-24">
                                                 <input type="file" class="hidden row-span-full col-span-full peer"
-                                                    onchange="previewImage(event)" name="image">
+                                                    name="image" x-on:change="previewImage(event)">
 
-                                                <img loading="lazy" src="{{ asset('/img/placeholder.webp') }}"
+                                                <img loading="lazy" x-ref="imgAdd" :src="src"
                                                     data-placeholder="{{ asset('/img/placeholder.webp') }}"
-                                                    class="row-span-full col-span-full w-full peer-invalid:aspect-square"
-                                                    x-ref="imgAdd" />
+                                                    class="row-span-full col-span-full w-full peer-invalid:aspect-square"/>
 
                                                 <div
                                                     class="bg-black cursor-pointer hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">
@@ -124,8 +122,7 @@
                                             class="btn-add bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3">
                                             Add
                                         </button>
-                                        <button type="button"
-                                            @click="close"
+                                        <button type="button" @click="close"
                                             class="bg-transparent hover:bg-gray-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                                             Close
                                         </button>

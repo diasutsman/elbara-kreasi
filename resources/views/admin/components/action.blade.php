@@ -37,7 +37,7 @@
 
     <button
         class="btn-update inline-flex items-center p-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md mr-0"
-        :class="isUpdating && 'bg-gray-800 hover:bg-gray-900'" type="submit" form="form-{{ $obj->slug }}" x-show="editMode">
+        :class="isUpdating && 'bg-gray-800 hover:bg-gray-900'" type="submit" form="form-{{ $obj->slug }}" x-show="editMode" :disabled="isUpdating">
         <template x-if="!isUpdating">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check2 h-5 w-5"
                 viewBox="0 0 16 16">
@@ -58,7 +58,7 @@
 
     <button
         class="btn-cancel inline-flex items-center p-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md mr-0"
-        type="button" @click="onCancel(event)" x-show="editMode">
+        type="button" @click="onCancel(event)" x-show="editMode && !isUpdating">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x-lg h-5 w-5" viewBox="0 0 16 16">
             <path
                 d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
