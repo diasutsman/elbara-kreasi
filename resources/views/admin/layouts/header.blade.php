@@ -46,13 +46,13 @@
                                     <input type="text" class="drop-search p-2 text-gray-600" placeholder="Search.."
                                         id="myInput" x-model="search">
                                     <a href="#"
-                                        class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block" x-show="show_item($refs.profile)" x-ref="profile"><i
+                                        class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block" x-show="show_item($el)"><i
                                             class="fa fa-user fa-fw"></i> Profile</a>
                                     <a href="#"
-                                        class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block" x-show="show_item($refs.settings)" x-ref="settings"><i
+                                        class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block" x-show="show_item($el)"><i
                                             class="fa fa-cog fa-fw"></i> Settings</a>
                                     <div class="border border-gray-800"></div>
-                                    <form action="{{ route('logout') }}" method="POST" x-show="show_item($refs.logout)" x-ref="logout">
+                                    <form action="{{ route('logout') }}" method="POST" x-show="show_item($el)">
                                         @csrf
                                         <button
                                             class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"

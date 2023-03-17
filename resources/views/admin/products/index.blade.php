@@ -7,8 +7,17 @@
         <!--Card-->
         <div class="p-8 mt-6 rounded shadow bg-white mx-4">
 
-            <div class="flex justify-start mb-4" x-data="{ open: false }">
-                <button @click="$refs.dialogAdd.showModal();open=true;document.body.style.overflow='hidden'"
+            <div class="flex justify-start mb-4" x-data="{
+                open: false,
+                close() {
+                    this.open = false;
+                    setTimeout(function() {
+                        $refs.dialogAdd.close();
+                        document.body.style.overflow = null
+                    }, 300)
+                }
+            }">
+                <button @click="$refs.dialogAdd.show();open=true;document.body.style.overflow='hidden'"
                     class="btn-add inline-flex gap-x-1 items-center p-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md mr-0"
                     type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus-lg h-5 w-5"
@@ -18,20 +27,19 @@
                     </svg>
                     <p>Add Data</p>
                 </button>
-                <dialog x-ref="dialogAdd" x-transition x-show="open" class="bg-transparent z-0 relative w-screen h-screen"
+                <dialog x-ref="dialogAdd" x-show="open" x-cloak class="bg-transparent z-50 absolute w-screen h-screen"
                     x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
                     x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300"
                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
                     <div
                         class="sm:p-7 flex justify-center items-start overflow-x-hidden overflow-y-auto fixed left-0 top-0 w-full h-full bg-gray-900 bg-opacity-50 z-50 transition-opacity duration-300">
-                        <div class="bg-white flex sm:rounded-lg w-min relative"
-                            @click.outside="open = false;setTimeout(function(){ $refs.dialogAdd.close(); document.body.style.overflow = null }, 300)">
+                        <div class="bg-white flex sm:rounded-lg w-min relative" @click.outside="close">
                             <form class="flex flex-col items-start" action="{{ route('admin.products.store') }}"
                                 method="POST" onsubmit="onAdd(event)" x-ref="formAdd"
-                                @submit="open = false;setTimeout(function(){ $refs.dialogAdd.close(); document.body.style.overflow = null }, 300)">
+                                @submit="close">
                                 <div class="p-7 flex items-center w-full justify-between">
                                     <div class="text-gray-900 font-bold text-lg">Add product</div>
-                                    <svg @click="open = false;setTimeout(function(){ $refs.dialogAdd.close();document.body.style.overflow = null }, 300)"
+                                    <svg @click="close"
                                         class="fill-current text-gray-700 w-5 h-5 cursor-pointer"
                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
                                         <path
@@ -48,7 +56,7 @@
 
                                         <input type="number" placeholder="Product Price (RP)" name="price"
                                             class="bg-gray-100 p-2 focus-visible:outline-none focus:ring-2 transition"
-                                            required >
+                                            required>
 
                                         <label>
                                             Is Best Seller?
@@ -117,7 +125,7 @@
                                             Add
                                         </button>
                                         <button type="button"
-                                            @click="open = false;setTimeout(function(){ $refs.dialogAdd.close(); document.body.style.overflow = null }, 300)"
+                                            @click="close"
                                             class="bg-transparent hover:bg-gray-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                                             Close
                                         </button>

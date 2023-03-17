@@ -1,10 +1,11 @@
-let trContent;
-
 function createdRow(row, data, dataIndex) {
     const jsonString = JSON.stringify(
         Object.keys(data).reduce(
             (obj, key) => (
-                key.endsWith("_html") ? delete obj[key] : null, obj
+                key.endsWith("_html")
+                    ? delete obj[key]
+                    : (obj[key + "-temp"] = obj[key]),
+                obj
             ),
             { ...data }
         )
@@ -14,9 +15,12 @@ function createdRow(row, data, dataIndex) {
         `{
             editMode: false,
             data: ${jsonString},
+            ...CancelAction(),
             ...UpdateAction(),
             ...DeleteAction(),
-            ...ImagePreview('${data.image ??  window.location.origin + '/img/placeholder.webp'}'),
+            ...ImagePreview('${
+                data.image ?? window.location.origin + "/img/placeholder.webp"
+            }'),
         }
         `
     );
@@ -27,25 +31,6 @@ function UpdateAction() {
         isUpdating: false,
         async onUpdate(event) {
             const formData = new FormData(event.target);
-            this.isUpdating = true;
-            // const tr = event.target.closest("tr");
-            // const btnUpdate = tr.querySelector(".btn-update");
-            // const btnCancel = tr.querySelector(".btn-cancel");
-
-            /* Loading State */
-            // btnUpdate.innerHTML = `
-            // <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-clockwise h-5 w-5" viewBox="0 0 16 16">
-            //   <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-            //   <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-            // </svg>
-            // `;
-            // btnUpdate.disabled = true;
-            // btnUpdate.classList.remove("bg-green-600", "hover:bg-green-700");
-            // btnUpdate.classList.add("bg-gray-800", "hover:bg-gray-900");
-            // btnUpdate.querySelector("svg").classList.add("animate-spin");
-
-            // btnCancel.classList.add("hidden");
-            /* End Loading State */
 
             console.log([...formData.entries()]);
 
@@ -67,7 +52,7 @@ function UpdateAction() {
                     .then((data) => data);
                 Object.keys(data).forEach((key) => {
                     this.data[key] = data[key];
-                })
+                });
                 this.isUpdating = false;
                 this.editMode = false;
             } catch (error) {
@@ -121,8 +106,21 @@ async function onEditLongText(event) {
     }).then();
 }
 
-async function onCancel(event) {
-    event.target.closest("tr").innerHTML = trContent;
+function CancelAction() {
+    return {
+        onCancel(event) {
+            event.preventDefault();
+
+            Object.keys(this.data).forEach((key) => {
+                if (key.endsWith("-temp")) {
+                    this.data[key.split("-")[0]] = this.data[key];
+                }
+            });
+
+
+            this.editMode = false;
+        },
+    };
 }
 
 function DeleteAction() {
@@ -139,25 +137,6 @@ function DeleteAction() {
 
             if (result.isDenied || result.isDismissed) return;
             this.isLoading = true;
-
-            // Animation loading after press delete
-            // const tr = event.target.closest("tr");
-            // const btnDelete = tr.querySelector(".btn-delete button");
-            // const btnEdit = tr.querySelector(".btn-edit");
-
-            /* Loading State */
-            // btnDelete.innerHTML = `
-            // <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-clockwise h-5 w-5" viewBox="0 0 16 16">
-            //   <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-            //   <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-            // </svg>
-            // `;
-            // btnDelete.disabled = true;
-            // btnDelete.classList.remove("bg-green-600", "hover:bg-green-700");
-            // btnDelete.classList.add("bg-gray-800", "hover:bg-gray-900");
-            // btnDelete.querySelector("svg").classList.add("animate-spin");
-
-            // btnEdit.classList.add("hidden");
 
             await fetch(event.target.action, {
                 method: event.target.querySelector('input[name="_method"]')
