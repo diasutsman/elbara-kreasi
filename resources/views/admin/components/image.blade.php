@@ -1,8 +1,9 @@
 <label class="grid w-min min-w-[100px]">
-    <input type="file" class="hidden row-span-full col-span-full peer" onchange="previewImage(event)" name="image"
-        form="form-{{ $obj->slug }}" disabled>
+    <input type="file" class="hidden row-span-full col-span-full peer" x-on:change="previewImage(event)" name="image"
+        form="form-{{ $obj->slug }}" :disabled="!editMode">
     <img loading="lazy"
-        src="@if ($obj->$field) {{ asset('/storage/' . $obj->$field) }} @else {{ asset('/img/placeholder.webp') }} @endif"
+        :src="src"
+        src="{{ $obj->image ? asset('storage/' . $obj->image) : asset('img/placeholder.png') }}"
         class="row-span-full col-span-full" />
     <div
         class="bg-black peer-enabled:cursor-pointer peer-enabled:hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">

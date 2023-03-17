@@ -25,7 +25,7 @@
                     <div
                         class="sm:p-7 flex justify-center items-start overflow-x-hidden overflow-y-auto fixed left-0 top-0 w-full h-full bg-gray-900 bg-opacity-50 z-50 transition-opacity duration-300">
                         <div class="bg-white flex sm:rounded-lg w-min relative"
-                            @click.away="open = false;setTimeout(function(){ $refs.dialogAdd.close(); document.body.style.overflow = null }, 300)">
+                            @click.outside="open = false;setTimeout(function(){ $refs.dialogAdd.close(); document.body.style.overflow = null }, 300)">
                             <form class="flex flex-col items-start" action="{{ route('admin.products.store') }}"
                                 method="POST" onsubmit="onAdd(event)" x-ref="formAdd"
                                 @submit="open = false;setTimeout(function(){ $refs.dialogAdd.close(); document.body.style.overflow = null }, 300)">

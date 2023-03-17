@@ -1,5 +1,5 @@
 <div x-data="{value: '{{ $obj->$field }}'}">
-    <input type="text" list="datalist" placeholder="Enter to search" x-on:change="value = [...$refs.datalist.children].find(option => option.value == $refs.input.value).dataset.value" x-ref="input" disabled value="{{ $options->find($obj->$field)->name }}">
+    <input type="text" list="datalist" placeholder="Enter to search" x-on:change="value = [...$refs.datalist.children].find(option => option.value == $refs.input.value).dataset.value" x-ref="input" x-bind:disabled="!editMode" value="{{ $options->find($obj->$field)->name }}">
 
     <datalist id="datalist" x-ref="datalist">
         @foreach ($options as $option)

@@ -5,19 +5,17 @@ $(document).ready(function () {
             responsive: true,
             processing: true,
             serverSide: true,
+            createdRow,
             ajax: "/admin/categories",
             columns: [
                 {
-                    data: "name",
-                    name: "name",
+                    data: "name_html",
                 },
                 {
-                    data: "image",
-                    name: "image",
+                    data: "image_html",
                 },
                 {
-                    data: "action",
-                    name: "action",
+                    data: "action_html",
                 },
             ],
         })

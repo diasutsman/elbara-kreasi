@@ -1,7 +1,7 @@
 <div>
     <p>
         <span class="value">{{ Str::limit(strip_tags($obj->$field), 20, '...') }}</span>
-        <button disabled onclick="openModal('modal-{{ $obj->slug }}-{{ $field }}')" class="enabled:text-blue-400 enabled:hover:text-blue-500">Edit</button>
+        <button x-bind:disabled="!editMode" onclick="openModal('modal-{{ $obj->slug }}-{{ $field }}')" class="enabled:text-blue-400 enabled:hover:text-blue-500">Edit</button>
     </p>
     
     {{-- <div class="hidden editor">

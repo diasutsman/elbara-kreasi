@@ -11,7 +11,6 @@ use App\Http\Requests\UpdateCategoryRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Cviebrock\EloquentSluggable\Services\SlugService;
-use Exception;
 
 class AdminCategoryController extends Controller
 {
@@ -21,10 +20,10 @@ class AdminCategoryController extends Controller
     public function __construct()
     {
         $this->fieldsView = [
-            'name' => function ($category) {
+            'name_html' => function ($category) {
                 return
                     view('admin.components.form',  [
-                        'route' => route('admin.categories.update', $category->slug),
+                        'route' => route('admin.categories.update', ''),
                         'method' => 'PUT',
                         'obj' => $category,
                     ])->render()
@@ -34,13 +33,13 @@ class AdminCategoryController extends Controller
                         'field' => 'name',
                     ])->render();
             },
-            'image' => function ($category) {
+            'image_html' => function ($category) {
                 return view('admin.components.image', [
                     'obj' => $category,
                     'field' => 'image',
                 ])->render();
             },
-            'action' => function ($category) {
+            'action_html' => function ($category) {
                 return view('admin.components.action', [
                     'obj' => $category,
                     'field' => 'slug',
@@ -54,12 +53,11 @@ class AdminCategoryController extends Controller
     {
         if ($request->ajax()) {
             $data = Category::all();
-            return DataTables::of($data)->addIndexColumn()
-                ->addColumn('name', $this->fieldsView['name'])
-                ->addColumn('image', $this->fieldsView['image'])
-                ->addColumn('action', $this->fieldsView['action'])
-                ->rawColumns(['action', 'name', 'image'])
-                ->make(true);
+            $dataTables = DataTables::of($data)->addIndexColumn();
+            foreach ($this->fieldsView as $key => $value) {
+                $dataTables->addColumn($key, $value);
+            }
+            return $dataTables->rawColumns(array_keys($this->fieldsView))->make(true);
         }
         return view('admin.categories.index');
     }
@@ -102,15 +100,20 @@ class AdminCategoryController extends Controller
 
         $category->update($validatedData);
 
-        return $this->updatedRow($category);
+        return $this->show($category);
     }
 
-    public function updatedRow(Category $category)
+    // public function updatedRow(Category $category)
+    // {
+    //     return collect($this->fieldsView)->map(function ($field) use ($category) {
+    //         return view('admin.components.td', [
+    //             'data' => $field($category),
+    //         ])->render();
+    //     })->join('');
+    // }
+
+    public function show(Category $category)
     {
-        return collect($this->fieldsView)->map(function ($field) use ($category) {
-            return view('admin.components.td', [
-                'data' => $field($category),
-            ])->render();
-        })->join('');
+        return $category;
     }
 }

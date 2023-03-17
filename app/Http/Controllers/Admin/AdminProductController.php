@@ -27,9 +27,9 @@ class AdminProductController extends Controller
     public function __construct()
     {
         $this->fieldsView = [
-            'name' => function (Product $product) {
+            'name_html' => function (Product $product) {
                 return view('admin.components.form',  [
-                    'route' => route('admin.products.update', $product->slug),
+                    'route' => route('admin.products.update', ''),
                     'method' => 'PUT',
                     'obj' => $product,
                 ])->render()
@@ -39,46 +39,46 @@ class AdminProductController extends Controller
                         'field' => 'name',
                     ])->render();
             },
-            'is_best_seller' => function (Product $product) {
+            'is_best_seller_html' => function (Product $product) {
                 return view('admin.components.checkbox', [
                     'obj' => $product,
                     'checked' => $product->is_best_seller == '1' ? true : false,
                     'formId' => 'form-' . $product->slug,
                 ])->render();
             },
-            'image' => function (Product $product) {
+            'image_html' => function (Product $product) {
                 return view('admin.components.image', [
                     'obj' => $product,
                     'field' => 'image',
                 ])->render();
             },
-            'description' => function (Product $product) {
+            'description_html' => function (Product $product) {
                 return view('admin.components.editor', [
                     'obj' => $product,
                     'field' => 'description',
                 ])->render();
             },
-            'additional_information' => function (Product $product) {
+            'additional_information_html' => function (Product $product) {
                 return view('admin.components.editor', [
                     'obj' => $product,
                     'field' => 'additional_information',
                 ])->render();
             },
-            'price' => function (Product $product) {
+            'price_html' => function (Product $product) {
                 return view('admin.components.input', [
                     'obj' => $product,
                     'field' => 'price',
                     'type' => 'number',
                 ])->render();
             },
-            'category_id' => function (Product $product) {
+            'category_id_html' => function (Product $product) {
                 return view('admin.components.select', [
                     'obj' => $product,
                     'field' => 'category_id',
                     'options' => $this->categories(),
                 ])->render();
             },
-            'action' => function (Product $product) {
+            'action_html' => function (Product $product) {
                 return view('admin.components.action', [
                     'obj' => $product,
                     'field' => 'slug',
@@ -97,17 +97,11 @@ class AdminProductController extends Controller
     {
         if ($request->ajax()) {
             $data = Product::all();
-            return DataTables::of($data)->addIndexColumn()
-                ->addColumn('name', $this->fieldsView['name'])
-                ->addColumn('image', $this->fieldsView['image'])
-                ->addColumn('is_best_seller', $this->fieldsView['is_best_seller'])
-                ->addColumn('description', $this->fieldsView['description'])
-                ->addColumn('additional_information', $this->fieldsView['additional_information'])
-                ->addColumn('price', $this->fieldsView['price'])
-                ->addColumn('category_id', $this->fieldsView['category_id'])
-                ->addColumn('action', $this->fieldsView['action'])
-                ->rawColumns(['action', 'name', 'is_best_seller', 'image', 'description', 'category_id', 'additional_information', 'price'])
-                ->make(true);
+            $dataTables = DataTables::of($data)->addIndexColumn();
+            foreach ($this->fieldsView as $key => $value) {
+                $dataTables->addColumn($key, $value);
+            }
+            return $dataTables->rawColumns(array_keys($this->fieldsView))->make(true);
         }
         return view('admin.products.index', [
             'categories' => $this->categories(),
@@ -159,16 +153,21 @@ class AdminProductController extends Controller
 
         $product->update($validatedData);
 
-        return $this->updatedRow($product);
+        return $this->show($product);
     }
 
-    public function updatedRow(Product $product)
+    // public function updatedRow(Product $product)
+    // {
+    //     return collect($this->fieldsView)->map(function ($field) use ($product) {
+    //         return view('admin.components.td', [
+    //             'data' => $field($product),
+    //         ])->render();
+    //     })->join('');
+    // }
+
+    public function show(Product $product)
     {
-        return collect($this->fieldsView)->map(function ($field) use ($product) {
-            return view('admin.components.td', [
-                'data' => $field($product),
-            ])->render();
-        })->join('');
+        return $product;
     }
 
     /**

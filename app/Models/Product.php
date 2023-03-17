@@ -30,6 +30,11 @@ class Product extends Model
         return $this->hasMany(Portfolio::class);
     }
 
+    public function getImageAttribute($value)
+    {
+        return $value ? asset('storage/' . $value) : null;
+    }
+
     public function sluggable(): array
     {
         return [

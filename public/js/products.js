@@ -5,39 +5,32 @@ $(document).ready(function () {
             scrollX: true,
             processing: true,
             serverSide: true,
+            createdRow,
             ajax: "/admin/products",
             columns: [
                 {
-                    data: "name",
-                    name: "name",
+                    data: "name_html",
                 },
                 {
-                    data: "is_best_seller",
-                    name: "is_best_seller",
+                    data: "is_best_seller_html",
                 },
                 {
-                    data: "image",
-                    name: "image",
+                    data: "image_html",
                 },
                 {
-                    data: "description",
-                    name: "description",
+                    data: "description_html",
                 },
                 {
-                    data: "additional_information",
-                    name: "additional_information",
+                    data: "additional_information_html",
                 },
                 {
-                    data: "price",
-                    name: "price",
+                    data: "price_html",
                 },
                 {
-                    data: "category_id",
-                    name: "category_id",
+                    data: "category_id_html",
                 },
                 {
-                    data: "action",
-                    name: "action",
+                    data: "action_html",
                 },
             ],
         })
