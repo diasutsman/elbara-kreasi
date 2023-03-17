@@ -21,10 +21,10 @@ class AdminPortfolioController extends Controller
     {
         $this->products = Product::all();
         $this->fieldsView = [
-            'title' => function ($portfolio) {
+            'title_html' => function ($portfolio) {
                 return
                     view('admin.components.form',  [
-                        'route' => route('admin.portfolios.update', $portfolio->slug),
+                        'route' => route('admin.portfolios.update', ''),
                         'method' => 'PUT',
                         'obj' => $portfolio,
                     ])->render()
@@ -34,13 +34,13 @@ class AdminPortfolioController extends Controller
                         'field' => 'title',
                     ])->render();
             },
-            'image' => function ($portfolio) {
+            'image_html' => function ($portfolio) {
                 return view('admin.components.image', [
                     'obj' => $portfolio,
                     'field' => 'image',
                 ])->render();
             },
-            'product_id' => function ($portfolio) {
+            'product_id_html' => function ($portfolio) {
                 return view('admin.components.datalist', [
                     'obj' => $portfolio,
                     'field' => 'product_id',
@@ -48,7 +48,7 @@ class AdminPortfolioController extends Controller
                     'options' => $this->products,
                 ])->render();
             },
-            'action' => function ($portfolio) {
+            'action_html' => function ($portfolio) {
                 return view('admin.components.action', [
                     'obj' => $portfolio,
                     'field' => 'slug',
@@ -119,7 +119,12 @@ class AdminPortfolioController extends Controller
 
         $portfolio->update($validatedData);
 
-        return $this->updatedRow($portfolio);
+        return $this->show($portfolio);
+    }
+
+    public function show(Portfolio $portfolio)
+    {
+        return $portfolio;
     }
 
     public function updatedRow(Portfolio $portfolio)

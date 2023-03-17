@@ -42,8 +42,7 @@ class AdminProductController extends Controller
             'is_best_seller_html' => function (Product $product) {
                 return view('admin.components.checkbox', [
                     'obj' => $product,
-                    'checked' => $product->is_best_seller == '1' ? true : false,
-                    'formId' => 'form-' . $product->slug,
+                    'field' => 'is_best_seller',
                 ])->render();
             },
             'image_html' => function (Product $product) {

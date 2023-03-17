@@ -6,22 +6,19 @@ $(document).ready(function () {
             serverSide: true,
             scrollX: true,
             ajax: "/admin/portfolios",
+            createdRow,
             columns: [
                 {
-                    data: "title",
-                    name: "title",
+                    data: "title_html",
                 },
                 {
-                    data: "image",
-                    name: "image",
+                    data: "image_html",
                 },
                 {
-                    data: "product_id",
-                    name: "product_id",
+                    data: "product_id_html",
                 },
                 {
-                    data: "action",
-                    name: "action",
+                    data: "action_html",
                 },
             ],
         })

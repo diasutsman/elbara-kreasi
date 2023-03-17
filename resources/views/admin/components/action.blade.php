@@ -27,7 +27,7 @@
     </div>
     <button
         class="btn-edit inline-flex items-center p-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md mr-0"
-        type="button" @click="editMode = true" x-show="!editMode">
+        type="button" @click="onEdit(event)" x-show="!editMode">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-pencil-fill h-5 w-5"
             viewBox="0 0 16 16">
             <path

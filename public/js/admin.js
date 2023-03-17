@@ -1,20 +1,28 @@
+function htmlDecode(input) {
+    const doc = new DOMParser().parseFromString(input, "text/html");
+    return doc.documentElement.textContent;
+}
+
+String.prototype.simplified = function () {
+    const text = $('<div></div>').html(this.toString()).text();
+
+    console.log(text);
+
+    return text.slice(0, 20) + (text.slice(20) && "...");
+};
+
 function createdRow(row, data, dataIndex) {
     const jsonString = JSON.stringify(
         Object.keys(data).reduce(
-            (obj, key) => (
-                key.endsWith("_html")
-                    ? delete obj[key]
-                    : (obj[key + "-temp"] = obj[key]),
-                obj
-            ),
+            (obj, key) => (key.endsWith("_html") ? delete obj[key] : null, obj),
             { ...data }
         )
     );
     $(row).attr(
         "x-data",
         `{
-            editMode: false,
             data: ${jsonString},
+            ...EditAction(),
             ...CancelAction(),
             ...UpdateAction(),
             ...DeleteAction(),
@@ -67,30 +75,18 @@ function UpdateAction() {
     };
 }
 
-async function onEdit(event) {
-    event.preventDefault();
+function EditAction() {
+    return {
+        editMode: false,
+        async onEdit(event) {
+            event.preventDefault();
+            this.editMode = true;
 
-    // const tr = event.target.closest("tr");
-    // trContent = tr.innerHTML;
-
-    // const btnDelete = tr.querySelector(".btn-delete");
-    // const btnEdit = tr.querySelector(".btn-edit");
-    // const btnUpdate = tr.querySelector(".btn-update");
-    // const btnCancel = tr.querySelector(".btn-cancel");
-
-    // btnDelete.classList.add("hidden");
-    // btnEdit.classList.add("hidden");
-
-    // btnUpdate.classList.remove("hidden");
-    // btnCancel.classList.remove("hidden");
-
-    // const inputs = [...tr.querySelectorAll("input, button, select")].filter(
-    //     (input) => input.closest("form") === null && !input.name.startsWith("_")
-    // );
-
-    // inputs.forEach((input) => (input.disabled = false));
-    // inputs[0].focus();
-    // inputs[0].selectionStart = inputs[0].selectionEnd = 10000;
+            Object.keys(this.data).forEach((key) => {
+                this.data[key + "-temp"] = this.data[key];
+            });
+        },
+    };
 }
 
 async function onEditLongText(event) {
@@ -118,7 +114,6 @@ function CancelAction() {
                     this.data[key.split("-")[0]] = this.data[key];
                 }
             });
-
 
             this.editMode = false;
         },
