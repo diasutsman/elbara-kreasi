@@ -11,11 +11,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="shortcut icon" x-bind:href="dark? '{{ asset('favicon-dark.ico') }}' : '{{ asset('favicon.ico') }}'" type="image/x-icon"/>
-    
+
+    <link rel="shortcut icon" x-bind:href="dark ? '{{ asset('favicon-dark.ico') }}' : '{{ asset('favicon.ico') }}'"
+        type="image/x-icon" />
+
     @vite('resources/css/app.css')
-    
+
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
                 '(prefers-color-scheme: dark)').matches)) {
@@ -114,12 +115,13 @@
         </script>
     @endif
 
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @vite('resources/js/app.js')
 
     @if (Request::is('products'))
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
         <script>
             /* Isotope Code */
             const iso = new Isotope('.products', {
@@ -138,11 +140,6 @@
                     })
                 })
             })
-        </script>
-    @endif
-
-    @if (Request::is('products/*'))
-        <script type="module">
         </script>
     @endif
 </body>

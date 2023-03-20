@@ -35,12 +35,15 @@
                 @foreach ($categories as $category)
                     <a class="group" href="{{ route('categories.show', $category->slug) }}">
                         <div class="min-h-[250px] bg-[#d9d9d9] grid">
-                            <div class="aspect-square p-1 opacity-0 group-hover:opacity-100 transition-opacity row-span-full col-span-full z-10 place-self-center bg-white rounded-full grid place-items-center">
+                            <div
+                                class="aspect-square p-1 opacity-0 group-hover:opacity-100 transition-opacity row-span-full col-span-full z-10 place-self-center bg-white rounded-full grid place-items-center">
                                 <p class="text-base text-primary dark:text-onPrimary font-bold">Lihat Produk</p>
                             </div>
-                            <img src="@if ($category->image) {{ asset('storage/' .$category->image) }}
+                            <img src="@if ($category->image) {{ asset('storage/' . $category->image) }}
                             @else https://source.unsplash.com/500x500?{{ $category->slug }} @endif"
-                                alt="{{ $category->name }}" class="w-full row-span-full col-span-full group-hover:brightness-50 transition" loading="lazy">
+                                alt="{{ $category->name }}"
+                                class="w-full row-span-full col-span-full group-hover:brightness-50 transition"
+                                loading="lazy">
                         </div>
                         <p class="mt-5 text-base font-bold">
                             {{ $category->name }}
@@ -65,11 +68,10 @@
                     </div> --}}
                     <a class="text-left" href="{{ route('products.show', $product->slug) }}">
                         <div class="bg-[#d9d9d9] overflow-hidden">
-                            <img src="@if ($product->image)
-                            {{ asset('storage/' . $product->image) }}
+                            <img src="@if ($product->image) {{ asset('storage/' . $product->image) }}
                             @else
-                                /img/placeholder.webp
-                            @endif" alt="" class="w-full">
+                                /img/placeholder.webp @endif"
+                                alt="" class="w-full">
                         </div>
                         <p class="mt-5 text-base uppercase font-bold">{{ $product->name }}</p>
                         <p class="text-xs text-muted mt-1">{{ $product->category->name }}</p>
@@ -118,23 +120,91 @@
             {{-- Contact us form --}}
             <div class="basis-64 flex-grow-0 flex-shrink-0">
                 <h1 class="text-xl mb-3 font-bold">Pemesanan via email</h1>
-                <form action="" method="POST" class="flex flex-col gap-1 w-full">
+                <form x-data="{
+                    isLoading: false,
+                    errors: {},
+                    async submit(form) {
+                        this.isLoading = 1;
+                        this.errors = {};
+                
+                        const timeoutId = setTimeout(() => {
+                            this.isLoading = 2
+                        }, 1000);
+                
+                        await fetch(form.action, {
+                                method: 'POST',
+                                body: new FormData(form),
+                                headers: {
+                                    'X-Requested-With': 'XMLHttpRequest',
+                                },
+                            })
+                            .then((response) => {
+                                if (!response.ok)
+                                    return response.text().then((text) => {
+                                        throw new Error(text);
+                                    });
+                                Swal.fire(
+                                    'Email Sent!',
+                                    '',
+                                    'success'
+                                )
+                            }).catch((error) => {
+                                console.error(error.message);
+                                const { errors } = JSON.parse(error.message);
+                                this.errors = errors;
+                            })
+                        clearTimeout(timeoutId)
+                        this.isLoading = false;
+                    }
+                }" action="{{ route('email') }}" method="POST" @submit.prevent="submit($el)"
+                    class="flex flex-col gap-1 w-full">
+                    @csrf
                     <input type="text" name="name"
-                        class="p-4 border-grey dark:border-greyDark border-2 text-grey font-medium placeholder:text-grey
+                        class="p-4 border-grey dark:border-greyDark border-2 text-black font-medium placeholder:text-grey
                         dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode"
                         placeholder="Nama Lengkap">
+                    <template x-if="errors['name']">
+                        <p class="text-sm text-red-600 dark:text-red-500" x-text="errors['name']">
+                        </p>
+                    </template>
+
                     <input type="email" name="email"
-                        class="p-4 border-grey dark:border-greyDark border-2 text-grey font-medium placeholder:text-grey
+                        class="p-4 border-grey dark:border-greyDark border-2 text-black font-medium placeholder:text-grey
                         dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode"
                         placeholder="Email">
+                    <template x-if="errors['email']">
+                        <p class="text-sm text-red-600 dark:text-red-500" x-text="errors['email']">
+                        </p>
+                    </template>
                     <textarea placeholder="Pesan" name="message"
-                        class="p-4 border-grey dark:border-greyDark border-2 text-grey font-medium placeholder:text-grey
+                        class="p-4 border-grey dark:border-greyDark border-2 text-black font-medium placeholder:text-grey
                         dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode"
                         id="message"></textarea>
+
+                    <template x-if="errors['message']">
+                        <p class="text-sm text-red-600 dark:text-red-500" x-text="errors['message']">
+                        </p>
+                    </template>
+
                     <button type="submit"
-                        class="px-5 py-2 bg-primary dark:text-dark-mode text-white mt-2 self-start rounded-md hover:opacity-90 transition-opacity font-bold">
-                        Kirim
+                        class="px-5 py-2 bg-primary dark:text-dark-mode text-white mt-2 self-start rounded-md hover:opacity-90 transition-opacity font-bold"
+                        :disabled="isLoading">
+
+                        <template x-if="!isLoading">
+                            <span>Kirim</span>
+                        </template>
+                        <template x-if="isLoading">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-repeat animate-spin" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+                                <path fill-rule="evenodd"
+                                    d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
+                            </svg>
+                        </template>
                     </button>
+                    <p x-show="isLoading === 2" x-transition class="text-xs text-slate-400">This took longer than usual</p>
+
                 </form>
             </div>
         </div>

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminPortfolioController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,8 @@ Route::get('/about', function () {
 Route::get('/how-to-order', function () {
     return view('order');
 })->name('order');
+
+Route::post('/email', [MailController::class, 'send'])->name('email');
 
 /* Admin Routes */
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], function () {
