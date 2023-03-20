@@ -9,12 +9,15 @@ $(document).ready(function () {
             createdRow,
             columns: [
                 {
+                    name: "title",
                     data: "title_html",
                 },
                 {
+                    name: "image",
                     data: "image_html",
                 },
                 {
+                    name: "product_id",
                     data: "product_id_html",
                 },
                 {

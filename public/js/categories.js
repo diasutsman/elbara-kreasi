@@ -9,9 +9,11 @@ $(document).ready(function () {
             ajax: "/admin/categories",
             columns: [
                 {
+                    name: "name",
                     data: "name_html",
                 },
                 {
+                    name: "image",
                     data: "image_html",
                 },
                 {

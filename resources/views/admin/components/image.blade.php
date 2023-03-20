@@ -7,9 +7,10 @@
         };
     }
 }">
-    <input type="file" class="hidden row-span-full col-span-full peer" x-on:change="previewImage($el)" name="image"
+    <input type="file" class="hidden row-span-full col-span-full peer" @change="previewImage($el)" name="image"
         form="form-{{ $obj->slug }}" :disabled="!editMode">
-    <img loading="lazy" :src="data.{{ $field }} ?? '{{ asset('img/placeholder.webp') }}'" class="row-span-full col-span-full" />
+    <img loading="lazy" :src="data.{{ $field }} ?? '{{ asset('img/placeholder.webp') }}'"
+        class="row-span-full col-span-full" />
     <div
         class="bg-black peer-enabled:cursor-pointer peer-enabled:hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 row-span-full col-span-full" fill="white"

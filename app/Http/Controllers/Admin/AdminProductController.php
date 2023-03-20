@@ -100,7 +100,7 @@ class AdminProductController extends Controller
             foreach ($this->fieldsView as $key => $value) {
                 $dataTables->addColumn($key, $value);
             }
-            return $dataTables->rawColumns(array_keys($this->fieldsView))->make(true);
+            return $dataTables->rawColumns(array_keys(array_merge($this->fieldsView, $data->toArray()[0])))->make(true);
         }
         return view('admin.products.index', [
             'categories' => $this->categories(),
@@ -154,15 +154,6 @@ class AdminProductController extends Controller
 
         return $this->show($product);
     }
-
-    // public function updatedRow(Product $product)
-    // {
-    //     return collect($this->fieldsView)->map(function ($field) use ($product) {
-    //         return view('admin.components.td', [
-    //             'data' => $field($product),
-    //         ])->render();
-    //     })->join('');
-    // }
 
     public function show(Product $product)
     {

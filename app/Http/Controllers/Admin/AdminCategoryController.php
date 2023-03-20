@@ -11,6 +11,7 @@ use App\Http\Requests\UpdateCategoryRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Log;
 
 class AdminCategoryController extends Controller
 {
@@ -57,7 +58,8 @@ class AdminCategoryController extends Controller
             foreach ($this->fieldsView as $key => $value) {
                 $dataTables->addColumn($key, $value);
             }
-            return $dataTables->rawColumns(array_keys($this->fieldsView))->make(true);
+            Log::info(($data->toArray()[0]));
+            return $dataTables->rawColumns(array_keys(array_merge($this->fieldsView, $data->toArray()[0])))->make(true);
         }
         return view('admin.categories.index');
     }
@@ -102,15 +104,6 @@ class AdminCategoryController extends Controller
 
         return $this->show($category);
     }
-
-    // public function updatedRow(Category $category)
-    // {
-    //     return collect($this->fieldsView)->map(function ($field) use ($category) {
-    //         return view('admin.components.td', [
-    //             'data' => $field($category),
-    //         ])->render();
-    //     })->join('');
-    // }
 
     public function show(Category $category)
     {

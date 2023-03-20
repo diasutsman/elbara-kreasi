@@ -67,13 +67,13 @@ class AdminPortfolioController extends Controller
     {
         if ($request->ajax()) {
             $data = Portfolio::all();
-            $dataTable = DataTables::of($data)->addIndexColumn();
+            $dataTables = DataTables::of($data)->addIndexColumn();
 
             foreach ($this->fieldsView as $field => $view) {
-                $dataTable->addColumn($field, $view);
+                $dataTables->addColumn($field, $view);
             }
 
-            return $dataTable->rawColumns(array_keys($this->fieldsView))->make(true);
+            return $dataTables->rawColumns(array_keys(array_merge($this->fieldsView, $data->toArray()[0])))->make(true);
         }
         return view('admin.portfolios.index', [
             'products' => $this->products,
@@ -125,15 +125,6 @@ class AdminPortfolioController extends Controller
     public function show(Portfolio $portfolio)
     {
         return $portfolio;
-    }
-
-    public function updatedRow(Portfolio $portfolio)
-    {
-        return collect($this->fieldsView)->map(function ($field) use ($portfolio) {
-            return view('admin.components.td', [
-                'data' => $field($portfolio),
-            ])->render();
-        })->join('');
     }
 
     /**

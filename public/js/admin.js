@@ -58,17 +58,16 @@ function UpdateAction() {
                 Object.keys(data).forEach((key) => {
                     this.data[key] = data[key];
                 });
-                
+
                 this.isUpdating = false;
                 this.editMode = false;
             } catch (error) {
                 console.error(error.message);
                 const obj = JSON.parse(error.message);
-                this.onCancel()
+                this.onCancel();
                 this.isUpdating = false;
-                
-                Swal.fire(obj["message"], "", "error");
 
+                Swal.fire(obj["message"], "", "error");
             }
         },
     };
@@ -90,7 +89,6 @@ function EditAction() {
 function CancelAction() {
     return {
         onCancel() {
-
             Object.keys(this.data).forEach((key) => {
                 if (key.endsWith("_temp")) {
                     this.data[key.replace(/_temp$/, "")] = this.data[key];
