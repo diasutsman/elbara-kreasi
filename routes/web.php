@@ -25,25 +25,32 @@ use App\Http\Controllers\Admin\AdminPortfolioController;
 */
 
 Route::get('/', function () {
-  return view('welcome', [
-    'categories' => Category::all(),
-    'products' => Product::where('is_best_seller', 1)->get(),
-  ]);
+    return view('welcome', [
+        'categories' => Category::all(),
+        'products' => Product::where('is_best_seller', 1)->get(),
+    ]);
 });
 
 Route::resource('/products', ProductController::class);
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/how-to-order', function () {
+    return view('order');
+})->name('order');
+
 /* Admin Routes */
-Route::group(['prefix' => 'admin', 'middleware' => ['auth','can:admin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], function () {
 
-  Route::resource('/categories', AdminCategoryController::class)->names('admin.categories');
-  Route::resource('/products', AdminProductController::class)->names('admin.products');
-  Route::resource('/portfolios', AdminPortfolioController::class)->names('admin.portfolios');
-  Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
-
+    Route::resource('/categories', AdminCategoryController::class)->names('admin.categories');
+    Route::resource('/products', AdminProductController::class)->names('admin.products');
+    Route::resource('/portfolios', AdminPortfolioController::class)->names('admin.portfolios');
+    Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 });
 
-Route::get('/admin/login', function() {
+Route::get('/admin/login', function () {
     return view('admin.login');
 })->name('admin.login')->middleware('admin');
 

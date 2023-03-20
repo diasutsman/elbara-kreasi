@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                    <a href="#" class="sm:p-4 sm:px-6 block p-2">
+                    <a href="{{ route('about') }}" class="sm:p-4 sm:px-6 block p-2">
                         Tentang kami
                     </a>
                 </li>
@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                    <a href="#" class="sm:p-4 sm:px-6 block p-2">
+                    <a href="{{ route('order') }}" class="sm:p-4 sm:px-6 block p-2">
                         cara order
                     </a>
                 </li>
