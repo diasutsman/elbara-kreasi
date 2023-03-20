@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Request;
 use Laravel\Cashier\Cashier;
 
 class Product extends Model
@@ -32,7 +33,7 @@ class Product extends Model
 
     public function getImageAttribute($value)
     {
-        return $value ? asset('storage/' . $value) : null;
+        return $value ? (Request::is('admin/*') ? asset('storage/' . $value) : $value) : null;
     }
 
     public function sluggable(): array
