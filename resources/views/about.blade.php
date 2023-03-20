@@ -31,61 +31,61 @@
 
     {{-- Points --}}
     <div class="block bg-primary dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-16 my-32">
-        <div class="container flex">
-            <div class="w-1/4">
+        <div class="container flex flex-col md:flex-row gap-4">
+            <div class="md:w-1/4">
                 <div class="h-40 bg-[#CCCCCC]"></div>
             </div>
-            <div class="w-3/4 flex">
-                <div class="w-1/2">
-                    <div class="flex pl-10 mb-10">
+            <div class="md:w-3/4 md:flex">
+                <div class="md:w-1/2">
+                    <div class="flex md:pl-10 mb-10">
                         <div class="h-20 w-20 bg-white rounded-full"></div>
-                        <div class="w-1/2 pl-6">
+                        <div class="md:w-1/2 pl-6">
                             <p class="text-left text-2xl">Point 1</p>
                             <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
 
                         </div>
                     </div>
 
-                    <div class="flex pl-10 mb-10">
+                    <div class="flex md:pl-10 mb-10">
                         <div class="h-20 w-20 bg-white rounded-full"></div>
-                        <div class="w-1/2 pl-6">
+                        <div class="md:w-1/2 pl-6">
                             <p class="text-left text-2xl">Point 2</p>
                             <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
 
                         </div>
                     </div>
 
-                    <div class="flex pl-10 mb-10">
+                    <div class="flex md:pl-10 mb-10">
                         <div class="h-20 w-20 bg-white rounded-full"></div>
-                        <div class="w-1/2 pl-6">
+                        <div class="md:w-1/2 pl-6">
                             <p class="text-left text-2xl">Point 3</p>
                             <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
 
                         </div>
                     </div>
                 </div>
-                <div class="w-1/2">
-                    <div class="flex pl-10 mb-10">
+                <div class="md:w-1/2">
+                    <div class="flex md:pl-10 mb-10">
                         <div class="h-20 w-20 bg-white rounded-full"></div>
-                        <div class="w-1/2 pl-6">
+                        <div class="md:w-1/2 pl-6">
                             <p class="text-left text-2xl">Point 1</p>
                             <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
 
                         </div>
                     </div>
 
-                    <div class="flex pl-10 mb-10">
+                    <div class="flex md:pl-10 mb-10">
                         <div class="h-20 w-20 bg-white rounded-full"></div>
-                        <div class="w-1/2 pl-6">
+                        <div class="md:w-1/2 pl-6">
                             <p class="text-left text-2xl">Point 2</p>
                             <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
 
                         </div>
                     </div>
 
-                    <div class="flex pl-10 mb-10">
+                    <div class="flex md:pl-10 mb-10">
                         <div class="h-20 w-20 bg-white rounded-full"></div>
-                        <div class="w-1/2 pl-6">
+                        <div class="md:w-1/2 pl-6">
                             <p class="text-left text-2xl">Point 3</p>
                             <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eligendi.</p>
 
