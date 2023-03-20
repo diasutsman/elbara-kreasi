@@ -1,10 +1,15 @@
-<label class="grid w-min min-w-[100px]">
-    <input type="file" class="hidden row-span-full col-span-full peer" x-on:change="previewImage(event)" name="image"
+<label class="grid w-min min-w-[100px]" x-data="{
+    previewImage(image) {
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+        oFReader.onload = (oFREvent) => {
+            data.{{ $field }} = oFREvent.target.result;
+        };
+    }
+}">
+    <input type="file" class="hidden row-span-full col-span-full peer" x-on:change="previewImage($el)" name="image"
         form="form-{{ $obj->slug }}" :disabled="!editMode">
-    <img loading="lazy"
-        :src="src"
-        src="{{ $obj->image ? asset('storage/' . $obj->image) : asset('img/placeholder.png') }}"
-        class="row-span-full col-span-full" />
+    <img loading="lazy" :src="data.{{ $field }} ?? '{{ asset('img/placeholder.webp') }}'" class="row-span-full col-span-full" />
     <div
         class="bg-black peer-enabled:cursor-pointer peer-enabled:hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 row-span-full col-span-full" fill="white"

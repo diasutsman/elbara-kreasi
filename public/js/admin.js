@@ -4,9 +4,7 @@ function htmlDecode(input) {
 }
 
 String.prototype.simplified = function () {
-    const text = $('<div></div>').html(this.toString()).text();
-
-    console.log(text);
+    const text = this.replace(/<[^>]*>/g, "");
 
     return text.slice(0, 20) + (text.slice(20) && "...");
 };
@@ -26,9 +24,6 @@ function createdRow(row, data, dataIndex) {
             ...CancelAction(),
             ...UpdateAction(),
             ...DeleteAction(),
-            ...ImagePreview('${
-                data.image ?? window.location.origin + "/img/placeholder.webp"
-            }'),
         }
         `
     );
@@ -63,13 +58,17 @@ function UpdateAction() {
                 Object.keys(data).forEach((key) => {
                     this.data[key] = data[key];
                 });
+                
                 this.isUpdating = false;
                 this.editMode = false;
             } catch (error) {
                 console.error(error.message);
                 const obj = JSON.parse(error.message);
+                this.onCancel()
+                this.isUpdating = false;
+                
                 Swal.fire(obj["message"], "", "error");
-                // tr.innerHTML = trContent;
+
             }
         },
     };
@@ -78,40 +77,23 @@ function UpdateAction() {
 function EditAction() {
     return {
         editMode: false,
-        async onEdit(event) {
-            event.preventDefault();
+        async onEdit() {
             this.editMode = true;
 
             Object.keys(this.data).forEach((key) => {
-                this.data[key + "-temp"] = this.data[key];
+                this.data[key + "_temp"] = this.data[key];
             });
         },
     };
 }
 
-async function onEditLongText(event) {
-    const tr = event.target.closest("tr");
-
-    Swal.fire({
-        title: "<strong>Edit Long Text</strong>",
-        icon: "info",
-        html: tr.querySelector(".editor").innerHTML,
-        showCloseButton: true,
-        showCancelButton: true,
-        focusConfirm: false,
-        confirmButtonText: "Save",
-        cancelButtonText: "Cancel",
-    }).then();
-}
-
 function CancelAction() {
     return {
-        onCancel(event) {
-            event.preventDefault();
+        onCancel() {
 
             Object.keys(this.data).forEach((key) => {
-                if (key.endsWith("-temp")) {
-                    this.data[key.split("-")[0]] = this.data[key];
+                if (key.endsWith("_temp")) {
+                    this.data[key.replace(/_temp$/, "")] = this.data[key];
                 }
             });
 

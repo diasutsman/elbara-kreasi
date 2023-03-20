@@ -26,4 +26,9 @@ class Portfolio extends Model
     {
         return 'slug';
     }
+
+    public function getImageAttribute($value)
+    {
+        return $value ? asset('storage/' . $value) : null;
+    }
 }
