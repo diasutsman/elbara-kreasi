@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use App\Models\Client;
+use App\Models\Portfolio;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -19,13 +21,12 @@ class PortfolioFactory extends Factory
      */
     public function definition()
     {
-      $title = $this->faker->words(2, true);
+        $title = $this->faker->words(2, true);
 
-      return [
-          'title' => $title,
-          'client_id' => Client::all()->random()->id,
-          'slug' => SlugService::createSlug(Category::class, 'slug', $title),
-          'image' => $this->faker->imageUrl(640, 480, 'cats', true),
-      ];
+        return [
+            'title' => $title,
+            'slug' => SlugService::createSlug(Portfolio::class, 'slug', $title),
+            'product_id' => Product::all()->random()->id,
+        ];
     }
 }

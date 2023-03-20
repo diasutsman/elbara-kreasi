@@ -6,6 +6,8 @@ use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Request;
+use Laravel\Cashier\Cashier;
 
 class Product extends Model
 {
@@ -13,9 +15,25 @@ class Product extends Model
 
     public $with = ['category'];
 
+    protected $casts = [
+        'is_best_seller' => 'boolean',
+    ];
+
+    protected $guarded = ['id',];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function portfolios()
+    {
+        return $this->hasMany(Portfolio::class);
+    }
+
+    public function getImageAttribute($value)
+    {
+        return $value ? (Request::is('admin/*') ? asset('storage/' . $value) : $value) : null;
     }
 
     public function sluggable(): array
@@ -25,5 +43,10 @@ class Product extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

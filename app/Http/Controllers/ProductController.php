@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Facades\Route;
 
 class ProductController extends Controller
 {
@@ -15,7 +19,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('products.index', [
+            'products' => Product::all(),
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
@@ -47,7 +54,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', [
+            'product' => $product,
+        ]);
     }
 
     /**

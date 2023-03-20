@@ -9,26 +9,31 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-  use HasFactory, Sluggable;
+    use HasFactory, Sluggable;
 
-  protected $guarded = ['id'];
+    protected $guarded = ['id'];
 
-  public function products()
-  {
-    return $this->hasMany(Product::class);
-  }
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 
-  public function sluggable(): array
-  {
-    return [
-      'slug' => [
-        'source' => 'name'
-      ]
-    ];
-  }
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function getImageAttribute($value)
+    {
+        return $value ? asset('storage/' . $value) : null;
     }
 }

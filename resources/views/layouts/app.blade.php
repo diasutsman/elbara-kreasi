@@ -1,17 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" class="font-sans">
+<html lang="en" class="font-sans"
+    x-data='{ dark: localStorage.theme === "dark", 
+    toggleDark() {
+        $el.classList.toggle("dark");
+        localStorage.theme = (this.dark = !this.dark) ? "dark" : "light";
+    } }'
+    :class="dark && 'dark'" x-ref="html">
 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="shortcut icon" x-bind:href="dark? '{{ asset('favicon-dark.ico') }}' : '{{ asset('favicon.ico') }}'" type="image/x-icon"/>
+    
     @vite('resources/css/app.css')
-
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
-    <link rel="shortcut icon" href="{{ asset('favicon-dark.ico') }}" type="image/x-icon"
-        media="(prefers-color-scheme: dark)" />
+    
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    @if (Request::is('products/*'))
+        <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.theme.default.min.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
+    @endif
 
     {{-- Fonts custom --}}
     <link rel="stylesheet" href="/css/fonts.css">
@@ -20,187 +40,111 @@
 </head>
 
 <body class="dark:bg-dark-mode">
-    <!-- Top Bar -->
-    <div class="bg-primary text-onPrimary dark:text-onPrimaryDark text-sm p-4">
-        <div class="container flex justify-between sm:items-center h-full gap-x-4 items-start">
-            <div class="flex gap-x-5 gap-y-4 flex-wrap justify-start">
-                <p><a href="https://facebook.com"><i class="bi bi-facebook"></i> Facebook</a></p>
-                <p><a href="https://facebook.com"><i class="bi bi-instagram"></i> Instagram</a></p>
-            </div>
-            <div class="flex uppercase gap-x-10 gap-y-4 flex-wrap justify-end">
-                <p>ALAMAT</p>
-                <div class="relative inline-block">
-                    <button id="contact-btn" aria-expanded="false" class="flex gap-x-1">
-                        <span>HUBUNGI KAMI</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-chevron-down transition-transform origin-center" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                    </button>
-                    <div id="menu-dropdown"
-                        class="transition ease-out duration-100 transform opacity-0 scale-95 -z-10
-                              absolute right-0 top-10 w-max origin-top-right rounded-md bg-white
-                              shadow-lg dark:bg-black ring-1 ring-black ring-opacity-5 focus:outline-none"
-                        role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                        <div class="py-1 divide-y-[1px] divide-primary" role="none">
-                            <a class="p-3 block hover:bg-gray-50 dark:hover:bg-gray-900" href="tel:6281234567890"
-                                target="_blank">
-                                <p>Telepon</p>
-                                <div class="mt-2">
-                                    <p><i class="bi bi-telephone-fill"></i> 0812-3456-7890</p>
-                                </div>
-                            </a>
-                            <a class="p-3 block hover:bg-gray-50 dark:hover:bg-gray-900"
-                                href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
-                                target="_blank">
-                                <p>Whatsapp</p>
-                                <div class="mt-2">
-                                    <p><i class="bi bi-whatsapp"></i> 0812-3456-7890</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex gap-x-2 items-center">
-                    <i class="bi bi-brightness-high-fill"></i>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input id="dark-mode-toggle" type="checkbox" class="sr-only peer">
-                        <div
-                            class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                        </div>
-                    </label>
-                    <i class="bi bi-moon-fill"></i>
-                </div>
-            </div>
+    @include('partials.top-bar')
+    @include('partials.header')
+    @include('partials.nav')
 
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header class="w-full bg-[#EEEEEE] dark:bg-[#1E1E1E] py-4 h-24 px-4">
-        <div class="flex container h-full flex-wrap lg:justify-between justify-center">
-            <a href="/" class="h-full block">
-                <img src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-full dark:invert" />
-            </a>
-            <ul class="hidden lg:flex items-center justify-end text-dark dark:text-linkDarkMode divide-x-[0.5px]">
-                <li class="px-3">
-                    <p class="uppercase text-black dark:text-white text-xs">Telepon kami</p>
-                    <p class="text-base"><a href="tel:081234567890">0812-3456-7890</a></p>
-                </li>
-                <li class="px-3">
-                    <p class="uppercase text-black dark:text-white text-xs">Whatsapp Kami</p>
-                    <a class="text-base"
-                        href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order">0812-3456-7890</a>
-                </li>
-                <li class="px-3">
-                    <p class="uppercase text-black dark:text-white text-xs">email kami</p>
-                    <a class="text-base" href="mailto:elbarakreasi@gmail.com">elbarakreasi@gmail.com</a>
-                </li>
-                <li class="px-3">
-                    <p class="uppercase text-black dark:text-white text-xs">jam kerja</p>
-                    <p class="text-base">Senin - Jumat 09:00 - 21:00</p>
-                </li>
-            </ul>
-        </div>
-    </header>
-
-    <!-- Nav Bar -->
-    <nav class="w-full p-4 md:flex md:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode">
-        <div class="flex md:justify-center justify-between flex-wrap mx-auto w-auto relative">
-            <button id="hamburger" name="hamburger" type="button" class="block md:hidden relative">
-                <span class="hamburger-line origin-top-left"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line origin-bottom-left"></span>
-            </button>
-            <div id="nav-menu"
-                class="order-3 w-full max-h-0 md:max-h-max overflow-hidden md:block md:w-auto md:order-none
-           text-sm md:text-xs transition-[max-height] duration-500 ease-in-out">
-                <ul
-                    class="uppercase flex flex-col md:flex-row md:items-center items-start
-          justify-center gap-4 h-full py-4 md:py-0">
-                    <li><a href="#" class="md:px-4">Home</a></li>
-                    <li><a href="#" class="md:px-4">Tentang kami</a></li>
-                    <li><a href="#" class="md:px-4">Produk kami</a></li>
-                    <li><a href="#" class="md:px-4">cara order</a></li>
-                </ul>
-            </div>
-            <div class="search-trigger grid place-content-center">
-                <button class="md:px-4 px-0 grid place-content-center z-10" id="search-btn">
-                    <i
-                        class="bi bi-search col-span-full row-span-full
-              transition-opacity duration-500"></i>
-                    <i
-                        class="bi bi-x-lg col-span-full row-span-full
-              transition-opacity duration-500 opacity-0">
-                    </i>
-                </button>
-                <form action="#" method="GET"
-                    class="absolute w-full h-full m-0 top-0 left-0 -z-10 opacity-0 transition-opacity duration-500"
-                    id="search-form">
-                    <input type="text" name="search" id="search" placeholder="Cari produk"
-                        class="w-full h-full py-0 outline-none border-none
-                   text-xl dark:bg-dark-mode" />
-                </form>
-            </div>
-        </div>
-    </nav>
+    @if (!Request::is('products/*'))
+        <a class="bg-[#25D366] p-4 fixed rounded-full right-4 bottom-4 md:bottom-10 xl:bottom-1/2 xl:translate-y-1/2 z-10 text-white"
+            href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-whatsapp h-5 w-5"
+                viewBox="0 0 16 16">
+                <path
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+            </svg>
+        </a>
+    @endif
 
     @yield('content')
 
-    <footer>
-        <div class="px-4 bg-primary text-onPrimary dark:text-onPrimaryDark pt-11 pb-6">
-            <div class="container flex flex-wrap md:flex-nowrap justify-between gap-8 lg:gap-16">
-                <div>
-                    <img src="img/white-logo.webp" alt="White Elbara Kreasi Logo" class="w-52 md:w-full">
-                </div>
-                <div class="flex flex-col capitalize">
-                    <a href="#" class="w-max">Home</a>
-                    <a href="#" class="w-max">Tentang Kami</a>
-                    <a href="#" class="w-max">Produk Kami</a>
-                    <a href="#" class="w-max">Portfolio & klien</a>
-                </div>
-                <div class="flex gap-5 flex-wrap md:flex-nowrap">
-                    <div>
-                        <p>Main Office</p>
-                        <p class="text-white dark:text-dark-mode-text inline">
-                            Jl. Raya Keadilan No.39, Rangkapan Jaya Baru, Kec. Pancoran Mas, Kota Depok, Jawa Barat
-                            16434
-                        </p>
-                    </div>
-                    <iframe class="m-0 p-0" title="Elbara Kreasi Map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.9064612735992!2d106.7853925144214!3d-6.406050695364924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e916907ea677%3A0x539fe5a1e4c64903!2sJl.%20Raya%20Keadilan%20No.39%2C%20RT.4%2FRW.8%2C%20Rangkapan%20Jaya%20Baru%2C%20Kec.%20Pancoran%20Mas%2C%20Kota%20Depok%2C%20Jawa%20Barat%2016434!5e0!3m2!1sen!2sid!4v1676000016127!5m2!1sen!2sid"
-                        width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div>
-                    <p class="text-base">Telepon Kami :</p>
-                    <a href="tel:6281234567890"
-                        class="text-xl text-white dark:text-dark-mode-text mt-1">0812-3456-7890</a>
-                    <p class="text-base mt-2">Whatsapp Kami :</p>
-                    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
-                        class="text-xl text-white dark:text-dark-mode-text mt-1">0812-3456-7890</a>
-                    <p class="text-base mt-2">Email Kami :</p>
-                    <a href="mailto:elbarakreasi@gmail.com"
-                        class="text-xl text-white dark:text-dark-mode-text mt-1">elbarakreasi@gmail.com</a>
-                    <div class="mt-4 gap-x-4 flex">
-                        <a href="https://facebook.com" class="text-2xl">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a href="https://instagram.com" class="text-2xl">
-                            <i class="bi bi-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bg-onPrimaryDark text-primary p-3">
-            <div class="container">
-                <p class="text-xs">©{{ date('Y') }} Elbara Kreasi Indonesia</p>
-            </div>
-        </div>
-    </footer>
+    @include('partials.footer')
+
+    @if (Request::is('products/*'))
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+        <script src="{{ asset('/js/owlcarousel/owl.carousel.min.js') }}"></script>
+
+        <script type="module">
+            $(document).ready(function() {
+                $(".owl-carousel").owlCarousel({
+                    margin: 35,
+                    items: 1,
+                    nav: true,
+                    responsive: {
+                        640: {
+                            items: 2,
+                        },
+                        768: {
+                            items: 3,
+                        },
+                        1024: {
+                            items: 4,
+                        }
+                    }
+                });
+            });
+            import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+            const lightbox = new PhotoSwipeLightbox({
+                gallery: '#my-gallery',
+                children: 'a',
+                pswpModule: () => import('https://unpkg.com/photoswipe')
+            });
+            lightbox.on('uiRegister', function() {
+                lightbox.pswp.ui.registerElement({
+                    name: 'caption text-white text-center absolute left-1/2 -translate-x-1/2 bottom-10 font-bold text-2xl',
+                    ariaLabel: 'Toggle zoom',
+                    order: 9,
+                    html: 'Test',
+                    appendTo: 'root',
+                    onInit: (el, pswp) => {
+                        lightbox.pswp.on('change', () => {
+                            console.log('change');
+                            const currSlideElement = lightbox.pswp.currSlide.data.element;
+                            let captionHTML = '';
+                            if (currSlideElement) {
+                                // get caption from alt attribute
+                                captionHTML = currSlideElement.querySelector('img').getAttribute(
+                                    'alt');
+                            }
+                            el.innerHTML = captionHTML || '';
+                        });
+                    }
+                })
+            });
+            lightbox.init();
+        </script>
+    @endif
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     @vite('resources/js/app.js')
+
+    @if (Request::is('products'))
+        <script>
+            /* Isotope Code */
+            const iso = new Isotope('.products', {
+                itemSelector: '.product',
+                layoutMode: 'fitRows'
+            })
+
+            const filterButtons = document.querySelectorAll('.filter-button-group button');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    filterButtons.forEach(button => button.classList.remove('bg-secondary', 'text-white'))
+                    button.classList.add('bg-secondary', 'text-white')
+                    iso.arrange({
+                        filter: event.target.dataset.filter
+                    })
+                })
+            })
+        </script>
+    @endif
+
+    @if (Request::is('products/*'))
+        <script type="module">
+        </script>
+    @endif
 </body>
 
 </html>

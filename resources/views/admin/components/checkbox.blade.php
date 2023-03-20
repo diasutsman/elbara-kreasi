@@ -1,0 +1,1 @@
+<input type="checkbox" class="w-12 h-12 text-center" name="{{ $field }}" x-model="data.{{ $field }}" :disabled="!editMode" form="form-{{ $obj->slug }}">

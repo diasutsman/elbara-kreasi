@@ -6,9 +6,9 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    public function productsByCategory(Category $category)
+    public function show(Category $category)
     {
-        return view('category.products', [
+        return view('categories.index', [
             'category' => $category,
         ]);
     }

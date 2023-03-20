@@ -80,7 +80,7 @@
     </section>
 
     <div class="mt-16 px-4">
-        <a href="#"
+        <a href="{{ route('products.index') }}"
             class="container block text-center bg-secondary dark:bg-secondaryDark text-white dark:text-dark-mode
         p-4 rounded-md hover:opacity-80 focus:bg-opacity-80 transition-opacity font-bold">
             Lihat Produk Lainnya
