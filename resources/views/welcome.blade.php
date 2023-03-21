@@ -129,7 +129,7 @@
                 
                         const timeoutId = setTimeout(() => {
                             this.isLoading = 2
-                        }, 1000);
+                        }, 3000);
                 
                         await fetch(form.action, {
                                 method: 'POST',
@@ -149,7 +149,6 @@
                                     'success'
                                 )
                             }).catch((error) => {
-                                console.error(error.message);
                                 const { errors } = JSON.parse(error.message);
                                 this.errors = errors;
                             })
@@ -161,7 +160,7 @@
                     @csrf
                     <input type="text" name="name"
                         class="p-4 border-grey dark:border-greyDark border-2 text-black font-medium placeholder:text-grey
-                        dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode"
+                        dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 transition"
                         placeholder="Nama Lengkap">
                     <template x-if="errors['name']">
                         <p class="text-sm text-red-600 dark:text-red-500" x-text="errors['name']">
@@ -170,7 +169,7 @@
 
                     <input type="email" name="email"
                         class="p-4 border-grey dark:border-greyDark border-2 text-black font-medium placeholder:text-grey
-                        dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode"
+                        dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 transition"
                         placeholder="Email">
                     <template x-if="errors['email']">
                         <p class="text-sm text-red-600 dark:text-red-500" x-text="errors['email']">
@@ -178,7 +177,7 @@
                     </template>
                     <textarea placeholder="Pesan" name="message"
                         class="p-4 border-grey dark:border-greyDark border-2 text-black font-medium placeholder:text-grey
-                        dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode"
+                        dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 transition"
                         id="message"></textarea>
 
                     <template x-if="errors['message']">
@@ -187,7 +186,7 @@
                     </template>
 
                     <button type="submit"
-                        class="px-5 py-2 bg-primary dark:text-dark-mode text-white mt-2 self-start rounded-md hover:opacity-90 transition-opacity font-bold"
+                        class="px-5 py-2 bg-primary dark:text-dark-mode text-white mt-2 self-start rounded-md hover:opacity-90 font-bold focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 transition focus-visible:outline-none"
                         :disabled="isLoading">
 
                         <template x-if="!isLoading">

@@ -37,7 +37,7 @@
         </div>
         <div class="search-trigger grid place-content-center sm:hover:bg-gray-200 sm:dark:hover:bg-gray-900 transition-colors duration-300"
             x-data="{ searchOpen: false }">
-            <button class="sm:px-4 px-0 grid place-content-center z-20" id="search-btn"
+            <button class="sm:px-4 px-0 grid place-content-center z-30" id="search-btn"
                 @click="menuOpen = menuOpen && false;searchOpen = !searchOpen;searchOpen && $refs.search.focus()">
                 <i class="bi bi-search col-span-full row-span-full transition-opacity duration-500"
                     :class="searchOpen && 'opacity-0'"></i>
@@ -47,7 +47,7 @@
             </button>
             <form action="#" method="GET"
                 class="absolute w-full h-full -z-10 m-0 top-0 left-0 opacity-0 transition-opacity duration-500"
-                :class="searchOpen && 'z-10 opacity-100'" id="search-form">
+                :class="searchOpen && 'z-20 opacity-100'" id="search-form">
                 <input type="text" name="search" id="search" placeholder="Cari produk"
                     class="w-full h-full py-0 outline-none border-none text-xl dark:bg-dark-mode" x-ref="search" />
             </form>
