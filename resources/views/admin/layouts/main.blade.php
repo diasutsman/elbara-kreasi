@@ -29,6 +29,7 @@
 
     <!--Replace with your tailwind.css once created-->
     @vite(['resources/css/app.css'])
+    @yield('styles')
 
 </head>
 
@@ -66,8 +67,6 @@
         </div>
     </main>
 
-
-    {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -77,14 +76,9 @@
     <!--Datatables -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    
+    @yield('scripts')
 
-    @if (Request::is('admin/categories'))
-        <script src="/js/categories.js"></script>
-    @elseif(Request::is('admin/products'))
-        <script src="/js/products.js"></script>
-    @elseif(Request::is('admin/portfolios'))
-        <script src="/js/portfolios.js"></script>
-    @endif
     <script src="/js/admin.js"></script>
 </body>
 

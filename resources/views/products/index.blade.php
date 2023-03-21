@@ -6,13 +6,17 @@
         <div class="container">
             <h2 class="text-3xl mt-8 font-bold">Produk Kami</h2>
 
-            <ul class="button-group filter-button-group mt-5 mb-16 flex w-fit mx-auto border-[1px] border-[#DBDBDB] rounded-md divide-x-[1px] divide-[#DBDBDB] overflow-hidden text-[#A3A3A3] font-normal">
+            <ul
+                class="button-group filter-button-group mt-5 mb-16 flex w-fit mx-auto border-[1px] border-[#DBDBDB] rounded-md divide-x-[1px] divide-[#DBDBDB] overflow-hidden text-[#A3A3A3] font-normal">
                 <li>
-                    <button class="p-3 text-base font-normal bg-secondary hover:bg-secondary transition-colors text-white hover:text-white" data-filter="*">Semua produk</button>
+                    <button
+                        class="p-3 text-base font-normal bg-secondary hover:bg-secondary transition-colors text-white hover:text-white"
+                        data-filter="*">Semua produk</button>
                 </li>
                 @foreach ($categories as $category)
                     <li>
-                        <button class="p-3 text-base font-normal hover:bg-secondary transition-colors hover:text-white" data-filter=".{{ $category->slug }}">{{ $category->name }}</button>
+                        <button class="p-3 text-base font-normal hover:bg-secondary transition-colors hover:text-white"
+                            data-filter=".{{ $category->slug }}">{{ $category->name }}</button>
                     </li>
                 @endforeach
             </ul>
@@ -20,7 +24,8 @@
             {{-- <div class="products mt-4 gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"> --}}
             <div class="products sm:-mr-4">
                 @foreach ($products as $product)
-                    <a class="product {{ $product->category->slug }} text-left block w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 sm:pb-6 sm:pr-6" href="{{ route('products.show', $product->slug) }}">
+                    <a class="product {{ $product->category->slug }} text-left block w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 sm:pb-6 sm:pr-6"
+                        href="{{ route('products.show', $product->slug) }}">
                         <div class="bg-[#d9d9d9] overflow-hidden w-full h-auto">
                             <img src="@if ($product->image) {{ asset('storage/' . $product->image) }}
                             @else /img/placeholder.webp @endif"
@@ -33,4 +38,27 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('scripts')
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script>
+        /* Isotope Code */
+        const iso = new Isotope('.products', {
+            itemSelector: '.product',
+            layoutMode: 'fitRows'
+        })
+
+        const filterButtons = document.querySelectorAll('.filter-button-group button');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                filterButtons.forEach(button => button.classList.remove('bg-secondary', 'text-white'))
+                button.classList.add('bg-secondary', 'text-white')
+                iso.arrange({
+                    filter: event.target.dataset.filter
+                })
+            })
+        })
+    </script>
 @endsection

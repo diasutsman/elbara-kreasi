@@ -13,9 +13,8 @@
                 <div class="pswp-gallery flex gap-2 justify-center flex-wrap" id="my-gallery">
                     @foreach ($product->portfolios as $portfolio)
                         <a href="{{ $portfolio->image }}" target="_blank" data-pswp-width="700" class="w-[70px]"
-                            data-pswp-height="700" >
-                            <img src="{{ $portfolio->image }}"
-                                alt="{{ $portfolio->title }}" loading="lazy"/>
+                            data-pswp-height="700">
+                            <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}" loading="lazy" />
                         </a>
                         {{-- <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg" target="_blank" data-pswp-width="462" 
                         data-pswp-height="616" >
@@ -139,4 +138,64 @@
         </section>
 
     </section>
+@endsection
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="{{ asset('/js/owlcarousel/owl.carousel.min.js') }}"></script>
+
+    <script type="module">
+            $(document).ready(function() {
+                $(".owl-carousel").owlCarousel({
+                    margin: 35,
+                    items: 1,
+                    nav: true,
+                    responsive: {
+                        640: {
+                            items: 2,
+                        },
+                        768: {
+                            items: 3,
+                        },
+                        1024: {
+                            items: 4,
+                        }
+                    }
+                });
+            });
+            import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+            const lightbox = new PhotoSwipeLightbox({
+                gallery: '#my-gallery',
+                children: 'a',
+                pswpModule: () => import('https://unpkg.com/photoswipe')
+            });
+            lightbox.on('uiRegister', function() {
+                lightbox.pswp.ui.registerElement({
+                    name: 'caption text-white text-center absolute left-1/2 -translate-x-1/2 bottom-10 font-bold text-2xl',
+                    ariaLabel: 'Toggle zoom',
+                    order: 9,
+                    html: 'Test',
+                    appendTo: 'root',
+                    onInit: (el, pswp) => {
+                        lightbox.pswp.on('change', () => {
+                            console.log('change');
+                            const currSlideElement = lightbox.pswp.currSlide.data.element;
+                            let captionHTML = '';
+                            if (currSlideElement) {
+                                // get caption from alt attribute
+                                captionHTML = currSlideElement.querySelector('img').getAttribute(
+                                    'alt');
+                            }
+                            el.innerHTML = captionHTML || '';
+                        });
+                    }
+                })
+            });
+            lightbox.init();
+        </script>
+@endsection
+
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
 @endsection

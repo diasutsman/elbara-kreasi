@@ -69,3 +69,7 @@
     </div>
     <!--/container-->
 @endsection
+
+@section('scripts')
+    @vite('resources/js/categories.js')
+@endsection

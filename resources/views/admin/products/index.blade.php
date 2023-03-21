@@ -91,7 +91,7 @@
 
                                                 <img loading="lazy" x-ref="imgAdd" :src="src"
                                                     data-placeholder="{{ asset('/img/placeholder.webp') }}"
-                                                    class="row-span-full col-span-full w-full peer-invalid:aspect-square"/>
+                                                    class="row-span-full col-span-full w-full peer-invalid:aspect-square" />
 
                                                 <div
                                                     class="bg-black cursor-pointer hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">
@@ -160,4 +160,8 @@
 
     </div>
     <!--/container-->
+@endsection
+
+@section('scripts')
+    @vite(['resources/js/products.js'])
 @endsection

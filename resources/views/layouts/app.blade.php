@@ -28,11 +28,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
-    @if (Request::is('products/*'))
-        <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.theme.default.min.css') }}">
-        <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
-    @endif
+    @yield('styles')
 
     {{-- Fonts custom --}}
     <link rel="stylesheet" href="/css/fonts.css">
@@ -60,88 +56,12 @@
 
     @include('partials.footer')
 
-    @if (Request::is('products/*'))
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-        <script src="{{ asset('/js/owlcarousel/owl.carousel.min.js') }}"></script>
-
-        <script type="module">
-            $(document).ready(function() {
-                $(".owl-carousel").owlCarousel({
-                    margin: 35,
-                    items: 1,
-                    nav: true,
-                    responsive: {
-                        640: {
-                            items: 2,
-                        },
-                        768: {
-                            items: 3,
-                        },
-                        1024: {
-                            items: 4,
-                        }
-                    }
-                });
-            });
-            import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
-            const lightbox = new PhotoSwipeLightbox({
-                gallery: '#my-gallery',
-                children: 'a',
-                pswpModule: () => import('https://unpkg.com/photoswipe')
-            });
-            lightbox.on('uiRegister', function() {
-                lightbox.pswp.ui.registerElement({
-                    name: 'caption text-white text-center absolute left-1/2 -translate-x-1/2 bottom-10 font-bold text-2xl',
-                    ariaLabel: 'Toggle zoom',
-                    order: 9,
-                    html: 'Test',
-                    appendTo: 'root',
-                    onInit: (el, pswp) => {
-                        lightbox.pswp.on('change', () => {
-                            console.log('change');
-                            const currSlideElement = lightbox.pswp.currSlide.data.element;
-                            let captionHTML = '';
-                            if (currSlideElement) {
-                                // get caption from alt attribute
-                                captionHTML = currSlideElement.querySelector('img').getAttribute(
-                                    'alt');
-                            }
-                            el.innerHTML = captionHTML || '';
-                        });
-                    }
-                })
-            });
-            lightbox.init();
-        </script>
-    @endif
-
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @vite('resources/js/app.js')
+    @yield('scripts')
 
-    @if (Request::is('products'))
-        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-        <script>
-            /* Isotope Code */
-            const iso = new Isotope('.products', {
-                itemSelector: '.product',
-                layoutMode: 'fitRows'
-            })
-
-            const filterButtons = document.querySelectorAll('.filter-button-group button');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    filterButtons.forEach(button => button.classList.remove('bg-secondary', 'text-white'))
-                    button.classList.add('bg-secondary', 'text-white')
-                    iso.arrange({
-                        filter: event.target.dataset.filter
-                    })
-                })
-            })
-        </script>
-    @endif
 </body>
 
 </html>

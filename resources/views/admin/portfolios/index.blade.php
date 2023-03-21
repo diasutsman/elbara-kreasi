@@ -35,8 +35,10 @@
                     </div>
                 </label>
 
-                <div x-data="{productId: ''}">
-                    <input type="text" list="products" id="product" placeholder="Product Name" x-on:change="productId = [...$refs.products.children].find(prod => prod.value == $refs.productInput.value).dataset.value" x-ref="productInput">
+                <div x-data="{ productId: '' }">
+                    <input type="text" list="products" id="product" placeholder="Product Name"
+                        x-on:change="productId = [...$refs.products.children].find(prod => prod.value == $refs.productInput.value).dataset.value"
+                        x-ref="productInput">
 
                     <datalist id="products" x-ref="products">
                         @foreach ($products as $product)
@@ -81,4 +83,8 @@
 
     </div>
     <!--/container-->
+@endsection
+
+@section('scripts')
+    @vite('resources/js/portfolios.js')
 @endsection
