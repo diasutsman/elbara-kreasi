@@ -23,4 +23,14 @@ Route::get('/', function () {
     ]);
 });
 
+
+Route::get('/about', function () {
+  return view('about');
+});
+
+Route::get('/order', function() {
+  return view('order');
+});
+
+// Category function must be on the lowest
 Route::get('/{category}', [CategoryController::class, 'productsByCategory'])->name('category.products');
