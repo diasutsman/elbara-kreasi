@@ -5,10 +5,10 @@
                 <img src="{{ asset('img/white-logo.webp') }}" alt="White Elbara Kreasi Logo" class="w-52 md:w-full">
             </div>
             <div class="flex flex-col capitalize">
-                <a href="#" class="w-max">Home</a>
-                <a href="#" class="w-max">Tentang Kami</a>
-                <a href="#" class="w-max">Produk Kami</a>
-                <a href="#" class="w-max">Portfolio & klien</a>
+                <a href="/" class="w-max">Home</a>
+                <a href="{{ route('about') }}" class="w-max">Tentang Kami</a>
+                <a href="{{ route('products.index') }}" class="w-max">Produk Kami</a>
+                <a href="{{ route('products.index') }}" class="w-max">Portfolio & klien</a>
             </div>
             <div class="flex gap-5 flex-wrap md:flex-nowrap">
                 <div>
@@ -25,19 +25,19 @@
             </div>
             <div>
                 <p class="text-base">Telepon Kami :</p>
-                <a href="tel:6281234567890"
-                    class="text-xl text-white dark:text-dark-mode-text mt-1">0812-3456-7890</a>
+                <a href="tel:{{ phone($phoneNumbers, 'ID', 1) }}"
+                    class="text-xl text-white dark:text-dark-mode-text mt-1">{{ phone($phoneNumbers, 'ID', 2) }}</a>
                 <p class="text-base mt-2">Whatsapp Kami :</p>
-                <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
-                    class="text-xl text-white dark:text-dark-mode-text mt-1">0812-3456-7890</a>
+                <a href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
+                    class="text-xl text-white dark:text-dark-mode-text mt-1" target="_SEJ" rel="noreferrer">{{ phone($whatsappNumbers, 'ID', 2) }}</a>
                 <p class="text-base mt-2">Email Kami :</p>
-                <a href="mailto:elbarakreasi@gmail.com"
-                    class="text-xl text-white dark:text-dark-mode-text mt-1">elbarakreasi@gmail.com</a>
+                <a href="mailto:{{ $emailReceiver }}"
+                    class="text-xl text-white dark:text-dark-mode-text mt-1">{{ $emailReceiver }}</a>
                 <div class="mt-4 gap-x-4 flex">
-                    <a href="https://facebook.com" class="text-2xl">
+                    <a href="https://facebook.com" class="text-2xl" target="_SEJ" rel="noreferrer">
                         <i class="bi bi-facebook"></i>
                     </a>
-                    <a href="https://instagram.com" class="text-2xl">
+                    <a href="https://instagram.com" class="text-2xl" target="_SEJ" rel="noreferrer">
                         <i class="bi bi-instagram"></i>
                     </a>
                 </div>

@@ -86,5 +86,5 @@
 @endsection
 
 @section('scripts')
-    @vite('resources/js/portfolios.js')
+    <script src="/js/portfolios.js"></script>
 @endsection

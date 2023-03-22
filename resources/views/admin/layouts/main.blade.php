@@ -80,6 +80,8 @@
     @yield('scripts')
 
     <script src="/js/admin.js"></script>
+
+    @vite('resources/js/app.js')
 </body>
 
 </html>

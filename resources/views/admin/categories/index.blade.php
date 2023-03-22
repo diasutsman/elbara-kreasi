@@ -71,5 +71,5 @@
 @endsection
 
 @section('scripts')
-    @vite('resources/js/categories.js')
+    <script src="/js/categories.js"></script>
 @endsection

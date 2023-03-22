@@ -7,16 +7,16 @@
         <ul class="flex items-center justify-end text-dark dark:text-linkDarkMode lg:divide-x-[0.5px]">
             <li class="px-3 hidden lg:block">
                 <p class="uppercase text-black dark:text-white text-xs">Telepon kami</p>
-                <p class="text-base"><a href="tel:081234567890">0812-3456-7890</a></p>
+                <p class="text-base"><a href="tel:{{ phone($phoneNumbers, 'ID', 1) }}">{{ phone($phoneNumbers, 'ID', 2) }}</a></p>
             </li>
             <li class="px-3 hidden lg:block">
                 <p class="uppercase text-black dark:text-white text-xs">Whatsapp Kami</p>
                 <a class="text-base"
-                    href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order">0812-3456-7890</a>
+                    href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order" target="_SEJ" rel="noreferrer">{{ phone($whatsappNumbers, 'ID', 2) }}</a>
             </li>
             <li class="px-3 hidden lg:block">
                 <p class="uppercase text-black dark:text-white text-xs">email kami</p>
-                <a class="text-base" href="mailto:elbarakreasi@gmail.com">elbarakreasi@gmail.com</a>
+                <a class="text-base" href="mailto:{{ $emailReceiver }}">{{ $emailReceiver }}</a>
             </li>
             @auth
                 <li class="lg:px-3" x-data="{ show: false }">

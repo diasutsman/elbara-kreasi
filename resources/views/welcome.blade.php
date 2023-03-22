@@ -60,12 +60,6 @@
             <h2 class="text-3xl font-bold">Product Best Seller</h2>
             <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
                 @foreach ($products as $product)
-                    {{-- <div class="text-left">
-                        <div class="h-60 bg-[#d9d9d9]">
-                        </div>
-                        <p class="mt-4 text-base uppercase font-bold">{{ $product->name }}</p>
-                        <p class="text-xs text-muted mt-1">{{ $product->category->name }}</p>
-                    </div> --}}
                     <a class="text-left" href="{{ route('products.show', $product->slug) }}">
                         <div class="bg-[#d9d9d9] overflow-hidden">
                             <img src="@if ($product->image) {{ asset('storage/' . $product->image) }}
@@ -89,8 +83,8 @@
         </a>
     </div>
 
-    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
-        class="block bg-primaryVariant dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-9 mt-16 hover:opacity-90 transition-opacity font-bold">
+    <a href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
+        class="block bg-primaryVariant dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-9 mt-16 hover:opacity-90 transition-opacity font-bold" target="_SEJ" rel="noreferrer">
         Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>
     </a>
 

@@ -51,6 +51,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], funct
     Route::resource('/products', AdminProductController::class)->names('admin.products');
     Route::resource('/portfolios', AdminPortfolioController::class)->names('admin.portfolios');
     Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
+
+    Route::post('/change-email', [AdminDashboardController::class, 'setEmailReceiver'])->name('admin.change-email');
+
+    Route::post('/change-whatsapp', [AdminDashboardController::class, 'setWhatsappNumber'])->name('admin.change-whatsapp');
+
+    Route::post('/change-phone', [AdminDashboardController::class, 'setPhoneNumber'])->name('admin.change-phone');
 });
 
 Route::get('/admin/login', function () {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ElbaraEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redis;
 
 class MailController extends Controller
 {
@@ -21,8 +22,9 @@ class MailController extends Controller
         ], function($mail) use($request) {
             $mail->from($request->email, $request->name);
     
-            // ! Temporary email
-            $mail->to('utsmand91@gmail.com')->subject('Elbara Email');
+            $emailAddress = Redis::get('email_receiver');
+            
+            $mail->to($emailAddress)->subject('Elbara Email');
         });
 
         if(!$request->ajax()) return back();

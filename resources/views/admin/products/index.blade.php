@@ -163,5 +163,5 @@
 @endsection
 
 @section('scripts')
-    @vite(['resources/js/products.js'])
+    <script src="/js/products.js"></script>
 @endsection

@@ -2,11 +2,13 @@
 <div class="bg-primary text-onPrimary dark:text-onPrimaryDark text-sm p-4 font-bold">
     <div class="container flex justify-between sm:items-center h-full gap-x-4 items-start">
         <div class="flex gap-x-5 gap-y-4 flex-wrap justify-start">
-            <p><a href="https://facebook.com"><i class="bi bi-facebook"></i> Facebook</a></p>
-            <p><a href="https://facebook.com"><i class="bi bi-instagram"></i> Instagram</a></p>
+            <p><a href="https://facebook.com" target="_SEJ" rel="noreferrer"><i class="bi bi-facebook"></i> Facebook</a></p>
+            <p><a href="https://facebook.com" target="_SEJ" rel="noreferrer"><i class="bi bi-instagram"></i> Instagram</a></p>
         </div>
         <div class="flex uppercase gap-x-10 gap-y-4 flex-wrap justify-end items-center">
-            <p>ALAMAT</p>
+            <div>
+                <a href="https://www.google.com/maps/search/Jl.+Raya+Keadilan+No.39+RT.4%2FRW.8,+Rangkapan+Jaya+Baru+Kec.+Pancoran+Mas+Kota+Depok,+Jawa+Barat+16434/@-6.406051,106.787581,15z?hl=en" target="_SEJ" rel="noreferrer">ALAMAT</a>
+            </div>
             <div class="relative inline-flex items-center" x-data="{ show: false }">
                 <button id="contact-btn" aria-expanded="false" class="flex gap-x-1" @click="show = !show">
                     <span>HUBUNGI KAMI</span>
@@ -24,19 +26,18 @@
                     class="z-30 absolute right-0 top-10 w-max origin-top-right rounded-md bg-white shadow-lg dark:bg-black ring-1 ring-black ring-opacity-5 focus:outline-none"
                     role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                     <div class="py-1 divide-y-[1px] divide-primary" role="none">
-                        <a class="p-3 block hover:bg-gray-50 dark:hover:bg-gray-900" href="tel:6281234567890"
-                            target="_blank">
+                        <a class="p-3 block hover:bg-gray-50 dark:hover:bg-gray-900" href="tel:{{ phone($phoneNumbers, 'ID', 1) }}">
                             <p>Telepon</p>
                             <div class="mt-2">
-                                <p><i class="bi bi-telephone-fill"></i> 0812-3456-7890</p>
+                                <p><i class="bi bi-telephone-fill"></i> {{ phone($phoneNumbers, 'ID', 2) }}</p>
                             </div>
                         </a>
                         <a class="p-3 block hover:bg-gray-50 dark:hover:bg-gray-900"
-                            href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
-                            target="_blank">
+                            href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
+                            target="_SEJ" rel="noreferrer">
                             <p>Whatsapp</p>
                             <div class="mt-2">
-                                <p><i class="bi bi-whatsapp"></i> 0812-3456-7890</p>
+                                <p><i class="bi bi-whatsapp"></i> {{ phone($whatsappNumbers, 'ID', 2) }}</p>
                             </div>
                         </a>
                     </div>

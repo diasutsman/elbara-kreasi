@@ -43,7 +43,7 @@
 
     @if (!Request::is('products/*'))
         <a class="bg-[#25D366] p-4 fixed rounded-full right-4 bottom-4 md:bottom-10 xl:bottom-1/2 xl:translate-y-1/2 z-10 text-white"
-            href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order">
+            href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order" target="_SEJ" rel="noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-whatsapp h-5 w-5"
                 viewBox="0 0 16 16">
                 <path
