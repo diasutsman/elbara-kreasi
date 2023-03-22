@@ -31,6 +31,10 @@ module.exports = {
       height : {
         '85' : '22rem'
       },
+      spacing :{
+        '25' : '100px'
+
+      },
     },
   },
   plugins: [

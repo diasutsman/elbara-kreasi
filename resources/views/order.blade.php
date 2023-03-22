@@ -3,7 +3,7 @@
     
 <h1 class="text-4xl text-center my-14">Cara Order</h1>
 
-<div class="flex container flex-wrap gap-x-8 mb-16">
+<div class="flex container flex-wrap gap-x-8">
     
     <div class="row-2 bg-primary justify-items-center p-5 rounded-xl border-2 border-secondary">
         <div class="text-center mb-6 text-white">
@@ -11,7 +11,6 @@
         </div>
         <div class="w-60 h-60 bg-grey" ></div>
     </div>
-
     <img src="{{ asset ('img/arrow-right.svg')}}" class="w-20 h-20 place-self-center" alt="">
 
     <div class="row-2 bg-primary justify-items-center p-5 rounded-xl border-2 border-secondary">
@@ -20,7 +19,6 @@
         </div>
         <div class="w-60 h-60 bg-grey" ></div>
     </div>
-
     <img src="{{ asset ('img/arrow-right.svg')}}" class="w-20 h-20 place-self-center" alt="">
 
     <div class="row-2 bg-primary justify-items-center p-5 rounded-xl border-2 border-secondary">
@@ -30,13 +28,29 @@
         <div class="w-60 h-60 bg-grey" ></div>
     </div>
 
-    <img src="{{ asset ('img/arrow-down.svg')}}" class="w-20 h-20 " alt="">
-
-
-    
-    
+    <div class="container flex justify-end">
+        <img src="{{ asset ('img/arrow-down.svg')}}" class="w-20 h-20 my-8 mr-28" alt="">
+    </div>
 
 </div>
+
+<div class="container flex flex-row-reverse gap-x-8 mb-16">
+        <div class="row-2 bg-primary justify-items-center p-5 rounded-xl border-2 border-secondary mr-2">
+            <div class="text-center mb-12 text-white">
+                <p>Klik Tomobl Pesan</p>
+            </div>
+            <div class="w-60 h-60 bg-grey" ></div>
+        </div>
+        <img src="{{ asset ('img/arrow-left.svg')}}" class="w-20 h-20 place-self-center" alt="">
+
+        <div class="row-2 bg-primary justify-items-center p-5 rounded-xl border-2 border-secondary">
+            <div class="text-center mb-6 text-white">
+                <p>Pesanan Otomatis <br> Terkirim ke Whatsapp</p>
+            </div>
+            <div class="w-60 h-60 bg-grey" ></div>
+        </div>
+
+    </div>
 
 
     
