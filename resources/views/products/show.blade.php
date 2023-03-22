@@ -68,7 +68,7 @@
             <div class="basis-0">
                 <p class="w-full md:w-min p-9 md:py-9 md:px-4 bg-primary text-white font-bold text-2xl text-center">
                     Ingin membuat packaging custom? <span class="whitespace-nowrap">hubungi kami</span> <a class="underline"
-                        href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order">Disini</a>
+                        href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order" target="_SEJ" rel="noreferrer">Disini</a>
                     >
                 </p>
 
