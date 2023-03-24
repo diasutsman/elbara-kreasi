@@ -1,65 +1,76 @@
 @extends('layouts.app')
 @section('content')
-    <h1 class="text-4xl text-center my-14">Cara Order</h1>
+    <h1 class="my-14 text-center text-4xl">Cara Order</h1>
 
-    <div class="container flex items-center md:items-stretch gap-y-6 flex-col md:grid md:grid-cols-[1fr,90px,1fr] lg:grid-cols-[1fr,90px,1fr,90px,1fr] px-4">
+    <div
+        class="container flex flex-col items-center gap-y-6 px-4 md:grid md:grid-cols-[1fr,90px,1fr] md:items-stretch lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
 
-        <div class="bg-primary p-8 flex flex-col justify-between gap-y-4 min-h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0">
+        <div
+            class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:min-w-0">
             <div class="text-center text-white">
                 <p>Masuk/Daftar <br> (Opsional)</p>
             </div>
-            <div class="w-full aspect-square rounded-xl bg-grey"></div>
+            <div class="aspect-square w-full rounded-xl bg-grey"></div>
         </div>
 
-        <img src="{{ asset('img/arrow-right.svg') }}" class="hidden md:block w-10 place-self-center" alt="">
-        <img src="{{ asset('img/arrow-down.svg') }}" class="w-10 md:hidden" alt="">
+        <img class="hidden w-10 place-self-center md:block" src="{{ asset('img/arrow-right.svg') }}" alt="">
+        <img class="w-10 md:hidden" src="{{ asset('img/arrow-down.svg') }}" alt="">
 
-        <div class="bg-primary p-8 flex flex-col justify-between gap-y-4 min-h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0">
+        <div
+            class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:min-w-0">
             <div class="text-center text-white">
                 <p>Pilih Item yang Mau Dibeli</p>
             </div>
-            <div class="w-full aspect-square rounded-xl bg-grey"></div>
+            <div class="aspect-square w-full rounded-xl bg-grey"></div>
         </div>
 
-        <div class="hidden md:grid lg:hidden col-span-full justify-self-stretch md:grid-cols-[1fr,90px,1fr] lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
-            <img src="{{ asset('img/arrow-down.svg') }}" class="w-10 col-start-[-2] justify-self-center" alt="">
+        <div
+            class="col-span-full hidden justify-self-stretch md:grid md:grid-cols-[1fr,90px,1fr] lg:hidden lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
+            <img class="col-start-[-2] w-10 justify-self-center" src="{{ asset('img/arrow-down.svg') }}" alt="">
         </div>
 
-        <img src="{{ asset('img/arrow-right.svg') }}" class="hidden md:block w-10 place-self-center md:col-start-2 lg:col-start-auto md:rotate-180 lg:rotate-0" alt="">
-        <img src="{{ asset('img/arrow-down.svg') }}" class="w-10 md:hidden" alt="">
+        <img class="hidden w-10 place-self-center md:col-start-2 md:block md:rotate-180 lg:col-start-auto lg:rotate-0"
+            src="{{ asset('img/arrow-right.svg') }}" alt="">
+        <img class="w-10 md:hidden" src="{{ asset('img/arrow-down.svg') }}" alt="">
 
-        <div class="bg-primary p-8 flex flex-col justify-between gap-y-4 min-h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0 md:col-start-3 lg:col-start-auto">
+        <div
+            class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:col-start-3 md:min-w-0 lg:col-start-auto">
             <div class="text-center text-white">
                 <p>Tambahkan Item ke Keranjang</p>
             </div>
-            <div class="w-full aspect-square rounded-xl bg-grey"></div>
+            <div class="aspect-square w-full rounded-xl bg-grey"></div>
         </div>
 
-        <div class="col-span-full justify-self-stretch md:grid md:grid-cols-[1fr,90px,1fr] lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
-            <img src="{{ asset('img/arrow-down.svg') }}" class="w-10 md:col-start-1 lg:col-start-[-2] justify-self-center" alt="">
+        <div
+            class="col-span-full justify-self-stretch md:grid md:grid-cols-[1fr,90px,1fr] lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
+            <img class="w-10 justify-self-center md:col-start-1 lg:col-start-[-2]" src="{{ asset('img/arrow-down.svg') }}"
+                alt="">
         </div>
 
-        <div class="bg-primary p-8 flex flex-col justify-between gap-y-4 min-h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0 lg:col-start-3">
+        <div
+            class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:min-w-0 lg:col-start-3">
             <div class="text-center text-white">
                 <p>Pesanan Otomatis <br> Terkirim ke Whatsapp</p>
             </div>
-            <div class="w-full aspect-square rounded-xl bg-grey"></div>
+            <div class="aspect-square w-full rounded-xl bg-grey"></div>
         </div>
 
-        <img src="{{ asset('img/arrow-left.svg') }}" class="hidden md:hidden lg:block w-10 place-self-center" alt="">
-        <img src="{{ asset('img/arrow-down.svg') }}" class="w-10 md:hidden" alt="">
+        <img class="hidden w-10 place-self-center md:hidden lg:block" src="{{ asset('img/arrow-left.svg') }}"
+            alt="">
+        <img class="w-10 md:hidden" src="{{ asset('img/arrow-down.svg') }}" alt="">
 
-        <div class="bg-primary p-8 flex flex-col justify-between gap-y-4 min-h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0 md:row-start-3 lg:row-start-auto">
+        <div
+            class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:row-start-3 md:min-w-0 lg:row-start-auto">
             <div class="text-center text-white">
                 <p>Klik Tombol Pesan</p>
             </div>
-            <div class="w-full aspect-square rounded-xl bg-grey"></div>
+            <div class="aspect-square w-full rounded-xl bg-grey"></div>
         </div>
 
     </div>
 
-    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order"
-        class="block bg-primaryVariant dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-9 hover:opacity-90 transition-opacity my-32">
+    <a class="my-32 block bg-primaryVariant p-9 text-center text-xl text-white transition-opacity hover:opacity-90 dark:bg-primaryVariantDark dark:text-dark-mode"
+        href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order">
         Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>>
     </a>
 @endsection

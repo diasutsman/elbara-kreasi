@@ -33,21 +33,20 @@
 
 </head>
 
-<body class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
+<body class="mt-12 bg-gray-800 font-sans leading-normal tracking-normal">
 
     @include('admin.layouts.header')
-
 
     <main>
 
         <div class="flex flex-col md:flex-row">
             @include('admin.layouts.sidebar')
             <section class="flex-1 overflow-hidden">
-                <div id="main" class="main-content bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5 h-full">
-                    <div class="bg-gray-800 pt-3 w-full">
+                <div class="main-content mt-12 h-full bg-gray-100 pb-24 md:mt-2 md:pb-5" id="main">
+                    <div class="w-full bg-gray-800 pt-3">
                         <div
-                            class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
-                            <h1 class="font-bold pl-2">
+                            class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 text-2xl text-white shadow">
+                            <h1 class="pl-2 font-bold">
                                 @if (Request::is('admin'))
                                     Dashboard
                                 @elseif (Request::is('admin/products'))
@@ -76,7 +75,7 @@
     <!--Datatables -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    
+
     @yield('scripts')
 
     <script src="/js/admin.js"></script>

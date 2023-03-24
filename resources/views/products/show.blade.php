@@ -1,19 +1,19 @@
 @extends('layouts.app')
 @section('content')
-    <section class="container mx-auto px-4 dark:text-white mb-24 mt-12">
-        <section class="flex flex-col md:flex-row gap-10">
-            <div class="flex flex-col gap-y-6 basis-[400px] shrink">
+    <section class="container mx-auto mb-24 mt-12 px-4 dark:text-white">
+        <section class="flex flex-col gap-10 md:flex-row">
+            <div class="flex shrink basis-[400px] flex-col gap-y-6">
                 {{-- <div class="w-full min-h-[400px] bg-placeholder"></div> --}}
-                <img class="max-w-[400px] mx-auto w-full" src="{{ asset('storage/' . $product->image) }}" alt="">
+                <img class="mx-auto w-full max-w-[400px]" src="{{ asset('storage/' . $product->image) }}" alt="">
                 {{-- <div class="flex gap-x-2 justify-center">
                     <div class="h-16 w-16 bg-placeholder"></div>
                     <div class="h-16 w-16 bg-placeholder"></div>
                     <div class="h-16 w-16 bg-placeholder"></div>
                 </div> --}}
-                <div class="pswp-gallery flex gap-2 justify-center flex-wrap" id="my-gallery">
+                <div class="pswp-gallery flex flex-wrap justify-center gap-2" id="my-gallery">
                     @foreach ($product->portfolios as $portfolio)
-                        <a href="{{ $portfolio->image }}" target="_blank" data-pswp-width="700" class="w-[70px]"
-                            data-pswp-height="700">
+                        <a class="w-[70px]" data-pswp-width="700" data-pswp-height="700" href="{{ $portfolio->image }}"
+                            target="_blank">
                             <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}" loading="lazy" />
                         </a>
                         {{-- <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg" target="_blank" data-pswp-width="462" 
@@ -34,41 +34,44 @@
             </div>
 
             <div class="flex-1" x-data="{ price: {{ $product->price }}, quantity: 1 }">
-                <h1 class="text-3xl text-dark font-bold">{{ $product->name }}</h1>
-                <p class="text-secondary text-2xl mt-4"
+                <h1 class="text-3xl font-bold text-dark">{{ $product->name }}</h1>
+                <p class="mt-4 text-2xl text-secondary"
                     x-text='new Intl.NumberFormat("id-ID", {
                     style: "currency",
                     currency: "IDR"
                   }).format(quantity * price)'>
                     @currency($product->price)</p>
 
-                <form action="#" method="POST" class="mt-8">
-                    <label class="text-[#B0B0B0] block" for="quantity">Quantity</label>
-                    <div class="flex border-[1px] border-secondary rounded-md overflow-hidden mt-2 w-fit">
+                <form class="mt-8" action="#" method="POST">
+                    <label class="block text-[#B0B0B0]" for="quantity">Quantity</label>
+                    <div class="mt-2 flex w-fit overflow-hidden rounded-md border-[1px] border-secondary">
                         <button class="bg-secondary px-4 py-2 text-white" type="button"
                             onclick="this.parentElement.querySelector('input[type=number]').stepDown()"
                             @click="quantity = Math.max(1, quantity - 1)">-</button>
-                        <input type="number" name="quantity" id="quantity"
-                            class="w-16 text-center focus-visible:outline-none" min="1" value="1" readonly>
+                        <input class="w-16 text-center focus-visible:outline-none" id="quantity" type="number"
+                            name="quantity" min="1" value="1" readonly>
                         <button class="bg-secondary px-4 py-2 text-white" type="button"
                             onclick="this.parentElement.querySelector('input[type=number]').stepUp()"
                             @click="quantity++">+</button>
                     </div>
 
-                    <button type="submit"
-                        class="w-full bg-secondary py-4 hover:opacity-90 transition-opacity text-white mt-12 rounded-md font-bold">Beli
+                    <button
+                        class="mt-12 w-full rounded-md bg-secondary py-4 font-bold text-white transition-opacity hover:opacity-90"
+                        type="submit">Beli
                         Sekarang</button>
 
-                    <button type="submit"
-                        class="w-full bg-primary py-4 hover:opacity-90 transition-opacity text-white mt-4 rounded-md font-bold">Tambahkan
+                    <button
+                        class="mt-4 w-full rounded-md bg-primary py-4 font-bold text-white transition-opacity hover:opacity-90"
+                        type="submit">Tambahkan
                         ke keranjang</button>
                 </form>
             </div>
 
             <div class="basis-0">
-                <p class="w-full md:w-min p-9 md:py-9 md:px-4 bg-primary text-white font-bold text-2xl text-center">
+                <p class="w-full bg-primary p-9 text-center text-2xl font-bold text-white md:w-min md:py-9 md:px-4">
                     Ingin membuat packaging custom? <span class="whitespace-nowrap">hubungi kami</span> <a class="underline"
-                        href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order" target="_SEJ" rel="noreferrer">Disini</a>
+                        href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
+                        target="_SEJ" rel="noreferrer">Disini</a>
                     >
                 </p>
 
@@ -76,24 +79,24 @@
 
                 <div class="flex flex-col gap-y-8">
                     <div>
-                        <p class="text-base text-dark font-bold"><i class="bi bi-hand-thumbs-up-fill"></i> Kualitas Terjamin
+                        <p class="text-base font-bold text-dark"><i class="bi bi-hand-thumbs-up-fill"></i> Kualitas Terjamin
                         </p>
                         <p class="text-xs text-[#777]">Jaminan kualitas terbaik dari produsen terbaik</p>
                     </div>
 
                     <div>
-                        <p class="text-base text-dark font-bold"><i class="bi bi-hand-thumbs-up-fill"></i> Jasa Design</p>
+                        <p class="text-base font-bold text-dark"><i class="bi bi-hand-thumbs-up-fill"></i> Jasa Design</p>
                         <p class="text-xs text-[#777]">Lengkap dengan jasa design untuk packaging custom anda</p>
                     </div>
 
                     <div>
-                        <p class="text-base text-dark font-bold"><i class="bi bi-hand-thumbs-up-fill"></i> Pembayaran Mudah
+                        <p class="text-base font-bold text-dark"><i class="bi bi-hand-thumbs-up-fill"></i> Pembayaran Mudah
                         </p>
                         <p class="text-xs text-[#777]">Dengan berbagai macam metode pembayaran yang terpercaya</p>
                     </div>
 
                     <div>
-                        <p class="text-base text-dark font-bold"><i class="bi bi-hand-thumbs-up-fill"></i> Harga Terbaik</p>
+                        <p class="text-base font-bold text-dark"><i class="bi bi-hand-thumbs-up-fill"></i> Harga Terbaik</p>
                         <p class="text-xs text-[#777]">Harga yang dapat bersaing dengan kompetitor di bidang packaging</p>
                     </div>
                 </div>
@@ -101,14 +104,14 @@
         </section>
 
         <section class="mt-8" x-data="{ tab: 1 }">
-            <div class="font-bold flex gap-x-4 ml-4 md:ml-8">
-                <button @click="tab = 1" class="p-3 border-secondary border-2 border-b-0 transition-colors"
+            <div class="ml-4 flex gap-x-4 font-bold md:ml-8">
+                <button class="border-2 border-b-0 border-secondary p-3 transition-colors" @click="tab = 1"
                     :class="tab == 1 && 'text-white bg-primary'">Deskripsi Produk</button>
-                <button @click="tab = 2" class="p-3 border-secondary border-2 border-b-0 transition-colors"
+                <button class="border-2 border-b-0 border-secondary p-3 transition-colors" @click="tab = 2"
                     :class="tab == 2 && 'text-white bg-primary'">Informasi Tambahan</button>
             </div>
 
-            <div class="px-8 py-7 border-y-2 border-secondary">
+            <div class="border-y-2 border-secondary px-8 py-7">
                 <div x-show="tab == 1" x-transition:enter="transition ease-out duration-300"
                     x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="hidden">
                     {!! $product->description !!}
@@ -120,14 +123,12 @@
                 </div>
             </div>
 
-
         </section>
-
 
         <section class="mt-16">
             <h2 class="text-xl font-bold">Produk Terkait</h2>
 
-            <div class="mt-10 owl-carousel flex gap-x-9">
+            <div class="owl-carousel mt-10 flex gap-x-9">
                 @foreach (range(1, 4) as $index)
                     <div>
                         <div class="min-h-[184px] w-full bg-placeholder"></div>

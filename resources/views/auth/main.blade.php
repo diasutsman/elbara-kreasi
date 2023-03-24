@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="font-sans">
+<html class="font-sans" lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -13,10 +13,11 @@
 </head>
 
 <body class="h-[100dvh] h-screen">
-    <div class="flex p-5 items-stretch h-full gap-16">
-        <div class="hidden md:grid bg-placeholder flex-1 rounded-lg px-10 py-12">
-            <img src="{{ asset('img/logo.webp') }}" alt="Elbara Kreasi Logo" class="h-12 row-span-full col-span-full">
-            <h1 class="text-white font-bold text-4xl self-center row-span-full col-span-full">Custom Packaging Untuk Produk Anda</h1>
+    <div class="flex h-full items-stretch gap-16 p-5">
+        <div class="hidden flex-1 rounded-lg bg-placeholder px-10 py-12 md:grid">
+            <img class="col-span-full row-span-full h-12" src="{{ asset('img/logo.webp') }}" alt="Elbara Kreasi Logo">
+            <h1 class="col-span-full row-span-full self-center text-4xl font-bold text-white">Custom Packaging Untuk
+                Produk Anda</h1>
         </div>
 
         <div class="flex-[1.5]">

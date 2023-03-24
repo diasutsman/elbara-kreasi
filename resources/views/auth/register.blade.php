@@ -175,20 +175,19 @@
         </div>
     </div> --}}
 
-
-    <div class="grid items-center h-full">
+    <div class="grid h-full items-center">
         <div>
-            <h1 class="font-bold text-2xl">Register</h1>
-            <p class="mt-6 text-xl">Have an account? <a href="{{ route('login') }}"
-                    class="text-onPrimary underline hover:text-primary transition-colors">Login Here</a></p>
+            <h1 class="text-2xl font-bold">Register</h1>
+            <p class="mt-6 text-xl">Have an account? <a class="text-onPrimary underline transition-colors hover:text-primary"
+                    href="{{ route('login') }}">Login Here</a></p>
 
-            <form action="{{ route('register') }}" method="POST" class="mt-16 flex flex-col gap-y-11">
+            <form class="mt-16 flex flex-col gap-y-11" action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="flex flex-col gap-y-4">
-                    <label for="email" class="text-[#777] text-xl font-bold">Email</label>
-                    <input type="email" id="email" name="email"
-                        class="w-full h-12 border-primary border-opacity-30 border-2 rounded-md focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
-                        value="{{ old('email') }}" required>
+                    <label class="text-xl font-bold text-[#777]" for="email">Email</label>
+                    <input
+                        class="h-12 w-full rounded-md border-2 border-primary border-opacity-30 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                        id="email" type="email" name="email" value="{{ old('email') }}" required>
                     @error('email')
                         <p class="text-sm text-red-600 dark:text-red-500">
                             {{ $message }}
@@ -197,10 +196,10 @@
                 </div>
 
                 <div class="flex flex-col gap-y-4">
-                    <label for="username" class="text-[#777] text-xl font-bold">Username</label>
-                    <input type="text" id="username" name="username"
-                        class="w-full h-12 border-primary border-opacity-30 border-2 rounded-md focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none transition-all"
-                        value="{{ old('username') }}" maxlength="12" required>
+                    <label class="text-xl font-bold text-[#777]" for="username">Username</label>
+                    <input
+                        class="h-12 w-full rounded-md border-2 border-primary border-opacity-30 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                        id="username" type="text" name="username" value="{{ old('username') }}" maxlength="12" required>
                     @error('username')
                         <p class="text-sm text-red-600 dark:text-red-500">
                             {{ $message }}
@@ -208,10 +207,11 @@
                     @enderror
                 </div>
 
-                <div class="flex flex-col gap-y-4 flex-1">
-                    <label for="password" class="text-[#777] text-xl font-bold">Password</label>
-                    <input type="password" id="password" name="password"
-                        class="w-full h-12 border-primary border-opacity-30 border-2 rounded-md focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none transition-all" required>
+                <div class="flex flex-1 flex-col gap-y-4">
+                    <label class="text-xl font-bold text-[#777]" for="password">Password</label>
+                    <input
+                        class="h-12 w-full rounded-md border-2 border-primary border-opacity-30 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                        id="password" type="password" name="password" required>
                     @error('password')
                         <p class="text-sm text-red-600 dark:text-red-500">
                             {{ $message }}
@@ -219,8 +219,9 @@
                     @enderror
                 </div>
 
-                <button type="submit"
-                    class="bg-primary px-8 rounded-xl py-4 text-white self-start font-bold hover:opacity-90 focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none transition-all">Login</button>
+                <button
+                    class="self-start rounded-xl bg-primary px-8 py-4 font-bold text-white transition-all hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    type="submit">Login</button>
             </form>
         </div>
     </div>

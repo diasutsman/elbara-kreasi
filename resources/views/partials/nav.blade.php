@@ -1,43 +1,42 @@
 <!-- Nav Bar -->
 <nav
-    class="w-full px-4 sm:p-0 sm:flex sm:justify-center sticky top-0 bg-white dark:bg-dark-mode dark:text-linkDarkMode z-10 font-bold">
-    <div class="flex sm:justify-center justify-between flex-wrap mx-auto w-auto relative" x-data="{ menuOpen: false }">
-        <button id="hamburger" name="hamburger" type="button" class="block sm:hidden relative py-3"
+    class="sticky top-0 z-10 w-full bg-white px-4 font-bold dark:bg-dark-mode dark:text-linkDarkMode sm:flex sm:justify-center sm:p-0">
+    <div class="relative mx-auto flex w-auto flex-wrap justify-between sm:justify-center" x-data="{ menuOpen: false }">
+        <button class="relative block py-3 sm:hidden" id="hamburger" name="hamburger" type="button"
             :class="menuOpen && 'hamburger-active'" @click="menuOpen = !menuOpen">
             <span class="hamburger-line origin-top-left"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line origin-bottom-left"></span>
         </button>
-        <div id="nav-menu"
-            class="order-3 w-full sm:max-h-max overflow-hidden sm:block sm:w-auto sm:order-none text-sm sm:text-xs transition-[max-height] duration-500 ease-in-out"
-            :class="menuOpen ? 'max-h-40' : 'max-h-0'">
+        <div class="order-3 w-full overflow-hidden text-sm transition-[max-height] duration-500 ease-in-out sm:order-none sm:block sm:max-h-max sm:w-auto sm:text-xs"
+            id="nav-menu" :class="menuOpen ? 'max-h-40' : 'max-h-0'">
             <ul
-                class="uppercase flex flex-col sm:flex-row sm:items-center items-start justify-center h-full py-4 sm:py-0">
-                <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                    <a href="/" class="sm:p-4 sm:px-6 block p-2">
+                class="flex h-full flex-col items-start justify-center py-4 uppercase sm:flex-row sm:items-center sm:py-0">
+                <li class="w-full transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-900 sm:w-auto">
+                    <a class="block p-2 sm:p-4 sm:px-6" href="/">
                         Home
                     </a>
                 </li>
-                <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                    <a href="{{ route('about') }}" class="sm:p-4 sm:px-6 block p-2">
+                <li class="w-full transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-900 sm:w-auto">
+                    <a class="block p-2 sm:p-4 sm:px-6" href="{{ route('about') }}">
                         Tentang kami
                     </a>
                 </li>
-                <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                    <a href="{{ route('products.index') }}" class="sm:p-4 sm:px-6 block p-2">
+                <li class="w-full transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-900 sm:w-auto">
+                    <a class="block p-2 sm:p-4 sm:px-6" href="{{ route('products.index') }}">
                         Produk kami
                     </a>
                 </li>
-                <li class="w-full sm:w-auto hover:bg-gray-200 dark:hover:bg-gray-900 transition-colors duration-300">
-                    <a href="{{ route('order') }}" class="sm:p-4 sm:px-6 block p-2">
+                <li class="w-full transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-900 sm:w-auto">
+                    <a class="block p-2 sm:p-4 sm:px-6" href="{{ route('order') }}">
                         cara order
                     </a>
                 </li>
             </ul>
         </div>
-        <div class="search-trigger grid place-content-center sm:hover:bg-gray-200 sm:dark:hover:bg-gray-900 transition-colors duration-300"
+        <div class="search-trigger grid place-content-center transition-colors duration-300 sm:hover:bg-gray-200 sm:dark:hover:bg-gray-900"
             x-data="{ searchOpen: false }">
-            <button class="sm:px-4 px-0 grid place-content-center z-30" id="search-btn"
+            <button class="z-30 grid place-content-center px-0 sm:px-4" id="search-btn"
                 @click="menuOpen = menuOpen && false;searchOpen = !searchOpen;searchOpen && $refs.search.focus()">
                 <i class="bi bi-search col-span-full row-span-full transition-opacity duration-500"
                     :class="searchOpen && 'opacity-0'"></i>
@@ -45,11 +44,10 @@
                     :class="!searchOpen && 'opacity-0'" x-cloak>
                 </i>
             </button>
-            <form action="#" method="GET"
-                class="absolute w-full h-full -z-10 m-0 top-0 left-0 opacity-0 transition-opacity duration-500"
-                :class="searchOpen && 'z-20 opacity-100'" id="search-form">
-                <input type="text" name="search" id="search" placeholder="Cari produk"
-                    class="w-full h-full py-0 outline-none border-none text-xl dark:bg-dark-mode" x-ref="search" />
+            <form class="absolute top-0 left-0 -z-10 m-0 h-full w-full opacity-0 transition-opacity duration-500"
+                id="search-form" action="#" method="GET" :class="searchOpen && 'z-20 opacity-100'">
+                <input class="h-full w-full border-none py-0 text-xl outline-none dark:bg-dark-mode" id="search"
+                    type="text" name="search" placeholder="Cari produk" x-ref="search" />
             </form>
         </div>
     </div>

@@ -1,41 +1,44 @@
 <nav aria-label="sidebar">
     <div
-        class="bg-gray-800 shadow-xl h-20 fixed bottom-0 mt-12 md:relative md:h-screen z-10 w-full md:w-48 content-center">
+        class="fixed bottom-0 z-10 mt-12 h-20 w-full content-center bg-gray-800 shadow-xl md:relative md:h-screen md:w-48">
 
         <div
-            class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
-            <ul class="list-reset flex flex-row md:flex-col pt-3 md:py-3 px-1 md:px-2 text-center md:text-left">
+            class="content-center justify-between text-left md:fixed md:left-0 md:top-0 md:mt-12 md:w-48 md:content-start">
+            <ul class="list-reset flex flex-row px-1 pt-3 text-center md:flex-col md:py-3 md:px-2 md:text-left">
                 <li class="mr-3 flex-1">
-                    <a href="{{ route('admin.dashboard') }}"
-                        class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white @if (Request::is('admin')) border-b-2 border-blue-600 @endif transition-colors duration-300">
-                        <i class="bi @if (Request::is('admin')) bi-house-door-fill @else bi-house-door @endif pr-0 md:pr-3 @if (Request::is('admin')) text-blue-600 @endif"></i><span
-                            class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-white block md:inline-block">Dashboard</span>
+                    <a class="@if (Request::is('admin')) border-b-2 border-blue-600 @endif block py-1 pl-1 align-middle text-white no-underline transition-colors duration-300 hover:text-white md:py-3"
+                        href="{{ route('admin.dashboard') }}">
+                        <i
+                            class="bi @if (Request::is('admin')) bi-house-door-fill @else bi-house-door @endif @if (Request::is('admin')) text-blue-600 @endif pr-0 md:pr-3"></i><span
+                            class="block pb-1 text-xs text-white md:inline-block md:pb-0 md:text-base md:text-white">Dashboard</span>
                     </a>
                 </li>
                 <li class="mr-3 flex-1">
-                    <a href="{{ route('admin.categories.index') }}"
-                        class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500 transition-colors duration-300 @if (Request::is('admin/categories')) border-b-2 border-purple-500 @endif">
-                        <i class="bi @if (Request::is('admin/categories')) bi-bookmarks-fill @else bi-bookmarks @endif pr-0 md:pr-3 @if (Request::is('admin/categories')) text-purple-500 @endif"></i><span
-                            class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Categories</span>
+                    <a class="@if (Request::is('admin/categories')) border-b-2 border-purple-500 @endif block border-b-2 border-gray-800 py-1 pl-1 align-middle text-white no-underline transition-colors duration-300 hover:border-purple-500 hover:text-white md:py-3"
+                        href="{{ route('admin.categories.index') }}">
+                        <i
+                            class="bi @if (Request::is('admin/categories')) bi-bookmarks-fill @else bi-bookmarks @endif @if (Request::is('admin/categories')) text-purple-500 @endif pr-0 md:pr-3"></i><span
+                            class="block pb-1 text-xs text-gray-400 md:inline-block md:pb-0 md:text-base md:text-gray-200">Categories</span>
                     </a>
                 </li>
                 <li class="mr-3 flex-1">
-                    <a href="{{ route('admin.products.index') }}"
-                        class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 hover:border-pink-500 @if (Request::is('admin/products')) border-pink-500 @else border-gray-800 @endif transition-colors duration-300">
-                        <i class="bi bi-card-list pr-0 md:pr-3 @if (Request::is('admin/products')) text-pink-500 @endif"></i><span
-                            class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Products</span>
+                    <a class="@if (Request::is('admin/products')) border-pink-500 @else border-gray-800 @endif block border-b-2 py-1 pl-1 align-middle text-white no-underline transition-colors duration-300 hover:border-pink-500 hover:text-white md:py-3"
+                        href="{{ route('admin.products.index') }}">
+                        <i
+                            class="bi bi-card-list @if (Request::is('admin/products')) text-pink-500 @endif pr-0 md:pr-3"></i><span
+                            class="block pb-1 text-xs text-gray-400 md:inline-block md:pb-0 md:text-base md:text-gray-200">Products</span>
                     </a>
                 </li>
                 <li class="mr-3 flex-1">
-                    <a href="{{ route('admin.portfolios.index') }}"
-                        class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 hover:border-yellow-500 @if (Request::is('admin/portfolios')) border-yellow-500 @else border-gray-800 @endif transition-colors duration-300">
-                        <i class="bi bi-images pr-0 md:pr-3 @if (Request::is('admin/portfolios')) text-yellow-500 @endif"></i><span
-                            class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Portfolios</span>
+                    <a class="@if (Request::is('admin/portfolios')) border-yellow-500 @else border-gray-800 @endif block border-b-2 py-1 pl-1 align-middle text-white no-underline transition-colors duration-300 hover:border-yellow-500 hover:text-white md:py-3"
+                        href="{{ route('admin.portfolios.index') }}">
+                        <i
+                            class="bi bi-images @if (Request::is('admin/portfolios')) text-yellow-500 @endif pr-0 md:pr-3"></i><span
+                            class="block pb-1 text-xs text-gray-400 md:inline-block md:pb-0 md:text-base md:text-gray-200">Portfolios</span>
                     </a>
                 </li>
             </ul>
         </div>
-
 
     </div>
 </nav>

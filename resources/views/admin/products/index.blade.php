@@ -2,12 +2,12 @@
 
 @section('content')
     <!--Container-->
-    <div class="w-full overflow-x-auto h-full">
+    <div class="h-full w-full overflow-x-auto">
 
         <!--Card-->
-        <div class="p-8 mt-6 rounded shadow bg-white mx-4">
+        <div class="mx-4 mt-6 rounded bg-white p-8 shadow">
 
-            <div class="flex justify-start mb-4" x-data="{
+            <div class="mb-4 flex justify-start" x-data="{
                 open: false,
                 close() {
                     this.open = false;
@@ -18,28 +18,28 @@
                 },
                 ...ImagePreview('{{ asset('/img/placeholder.webp') }}'),
             }">
-                <button @click="$refs.dialogAdd.show();open=true;document.body.style.overflow='hidden'"
-                    class="btn-add inline-flex gap-x-1 items-center p-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md mr-0"
-                    type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus-lg h-5 w-5"
+                <button
+                    class="btn-add mr-0 inline-flex items-center gap-x-1 rounded-md bg-green-600 p-2 text-sm font-medium text-white hover:bg-green-700"
+                    @click="$refs.dialogAdd.show();open=true;document.body.style.overflow='hidden'" type="button">
+                    <svg class="bi bi-plus-lg h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
                             d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                     </svg>
                     <p>Add Data</p>
                 </button>
-                <dialog x-ref="dialogAdd" x-show="open" x-cloak class="bg-transparent z-50 absolute w-screen h-screen"
+                <dialog class="absolute z-50 h-screen w-screen bg-transparent" x-ref="dialogAdd" x-show="open" x-cloak
                     x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
                     x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300"
                     x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
                     <div
-                        class="sm:p-7 flex justify-center items-start overflow-x-hidden overflow-y-auto fixed left-0 top-0 w-full h-full bg-gray-900 bg-opacity-50 z-50 transition-opacity duration-300">
-                        <div class="bg-white flex sm:rounded-lg w-min relative" @click.outside="close">
+                        class="fixed left-0 top-0 z-50 flex h-full w-full items-start justify-center overflow-y-auto overflow-x-hidden bg-gray-900 bg-opacity-50 transition-opacity duration-300 sm:p-7">
+                        <div class="relative flex w-min bg-white sm:rounded-lg" @click.outside="close">
                             <form class="flex flex-col items-start" action="{{ route('admin.products.store') }}"
                                 method="POST" onsubmit="onAdd(event)" x-ref="formAdd" @submit="close">
-                                <div class="p-7 flex items-center w-full justify-between">
-                                    <div class="text-gray-900 font-bold text-lg">Add product</div>
-                                    <svg @click="close" class="fill-current text-gray-700 w-5 h-5 cursor-pointer"
+                                <div class="flex w-full items-center justify-between p-7">
+                                    <div class="text-lg font-bold text-gray-900">Add product</div>
+                                    <svg class="h-5 w-5 cursor-pointer fill-current text-gray-700" @click="close"
                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
                                         <path
                                             d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
@@ -49,20 +49,18 @@
                                 <div class="px-7">
                                     <div class="flex flex-col gap-y-4">
                                         @csrf
-                                        <input type="text" placeholder="Product Name" name="name"
-                                            class="bg-gray-100 p-2 focus-visible:outline-none focus:ring-2 transition"
-                                            required>
+                                        <input class="bg-gray-100 p-2 transition focus:ring-2 focus-visible:outline-none"
+                                            type="text" placeholder="Product Name" name="name" required>
 
-                                        <input type="number" placeholder="Product Price (RP)" name="price"
-                                            class="bg-gray-100 p-2 focus-visible:outline-none focus:ring-2 transition"
-                                            required>
+                                        <input class="bg-gray-100 p-2 transition focus:ring-2 focus-visible:outline-none"
+                                            type="number" placeholder="Product Price (RP)" name="price" required>
 
                                         <label>
                                             Is Best Seller?
-                                            <input type="checkbox" name="is_best_seller"
-                                                class="bg-gray-100 p-2 focus-visible:outline-none focus:ring-2 transition">
+                                            <input
+                                                class="bg-gray-100 p-2 transition focus:ring-2 focus-visible:outline-none"
+                                                type="checkbox" name="is_best_seller">
                                         </label>
-
 
                                         <div>
                                             <label for="description">Description</label>
@@ -76,8 +74,8 @@
                                             <trix-editor input="additional_information"></trix-editor>
                                         </div>
 
-                                        <select name="category_id"
-                                            class="bg-gray-100 p-2 focus-visible:outline-none focus:ring-2 transition">
+                                        <select class="bg-gray-100 p-2 transition focus:ring-2 focus-visible:outline-none"
+                                            name="category_id">
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
@@ -86,18 +84,18 @@
                                         <div>
                                             <p>Image:</p>
                                             <label class="grid w-24">
-                                                <input type="file" class="hidden row-span-full col-span-full peer"
+                                                <input class="peer col-span-full row-span-full hidden" type="file"
                                                     name="image" x-on:change="previewImage(event)">
 
-                                                <img loading="lazy" x-ref="imgAdd" :src="src"
-                                                    data-placeholder="{{ asset('/img/placeholder.webp') }}"
-                                                    class="row-span-full col-span-full w-full peer-invalid:aspect-square" />
+                                                <img class="col-span-full row-span-full w-full peer-invalid:aspect-square"
+                                                    data-placeholder="{{ asset('/img/placeholder.webp') }}" loading="lazy"
+                                                    x-ref="imgAdd" :src="src" />
 
                                                 <div
-                                                    class="bg-black cursor-pointer hover:opacity-100 transition-opacity opacity-0 bg-opacity-50 row-span-full col-span-full grid place-content-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="h-5 w-5 row-span-full col-span-full" fill="white"
-                                                        class="bi bi-upload" viewBox="0 0 16 16">
+                                                    class="col-span-full row-span-full grid cursor-pointer place-content-center bg-black bg-opacity-50 opacity-0 transition-opacity hover:opacity-100">
+                                                    <svg class="col-span-full row-span-full h-5 w-5" class="bi bi-upload"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="white"
+                                                        viewBox="0 0 16 16">
                                                         <path
                                                             d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
                                                             stroke-width="5" />
@@ -111,19 +109,22 @@
                                     </div>
                                 </div>
 
-                                <div class="p-7 flex justify-between items-center w-full">
-                                    <button type="button"
-                                        @click="$refs.formAdd.reset();$refs.imgAdd.src = $refs.imgAdd.dataset.placeholder"
-                                        class="bg-transparent hover:bg-gray-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                <div class="flex w-full items-center justify-between p-7">
+                                    <button
+                                        class="rounded border border-blue-500 bg-transparent py-2 px-4 font-semibold text-blue-700 hover:border-transparent hover:bg-gray-500 hover:text-white"
+                                        type="button"
+                                        @click="$refs.formAdd.reset();$refs.imgAdd.src = $refs.imgAdd.dataset.placeholder">
                                         Reset
                                     </button>
                                     <div>
-                                        <button type="submit"
-                                            class="btn-add bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-3">
+                                        <button
+                                            class="btn-add mr-3 rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700"
+                                            type="submit">
                                             Add
                                         </button>
-                                        <button type="button" @click="close"
-                                            class="bg-transparent hover:bg-gray-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                        <button
+                                            class="rounded border border-blue-500 bg-transparent py-2 px-4 font-semibold text-blue-700 hover:border-transparent hover:bg-gray-500 hover:text-white"
+                                            type="button" @click="close">
                                             Close
                                         </button>
                                     </div>
@@ -134,8 +135,7 @@
                 </dialog>
             </div>
 
-
-            <table id="products-table" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+            <table class="stripe hover" id="products-table" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>
                     <tr>
                         <th data-priority="1">Name</th>
@@ -153,10 +153,8 @@
 
             </table>
 
-
         </div>
         <!--/Card-->
-
 
     </div>
     <!--/container-->

@@ -2,9 +2,9 @@
 @section('content')
     <!-- Hero -->
     <div class="px-4 dark:text-white">
-        <div class="flex container mt-16 flex-wrap gap-y-8">
+        <div class="container mt-16 flex flex-wrap gap-y-8">
             <div class="md:flex-1">
-                <div class="md:mr-40 flex flex-col justify-center items-start h-full gap-4">
+                <div class="flex h-full flex-col items-start justify-center gap-4 md:mr-40">
                     <h1 class="text-4xl font-bold">
                         Custom Cosmetic <br />
                         Packaging Solutions
@@ -14,36 +14,34 @@
                         beatae incidunt quos officia nemo distinctio soluta. Voluptas sint
                         fugiat inventore?
                     </p>
-                    <a href="#"
-                        class="uppercase text-sm p-3 text-white dark:text-dark-mode
-                        bg-secondary dark:bg-secondaryDark rounded-full mt-4 hover:opacity-90 transition-opacity font-bold">
+                    <a class="mt-4 rounded-full bg-secondary p-3 text-sm font-bold uppercase text-white transition-opacity hover:opacity-90 dark:bg-secondaryDark dark:text-dark-mode"
+                        href="#">
                         custom sekarang!
                     </a>
                 </div>
             </div>
-            <div class="md:flex-1 w-full">
-                <div class="h-80 bg-[#CCCCCC] rounded-[67px]"></div>
+            <div class="w-full md:flex-1">
+                <div class="h-80 rounded-[67px] bg-[#CCCCCC]"></div>
             </div>
         </div>
     </div>
 
     {{-- Category --}}
-    <section class="mt-36 text-center px-4 dark:text-white">
+    <section class="mt-36 px-4 text-center dark:text-white">
         <div class="container">
             <h2 class="text-3xl font-bold">Kategori Pilihan</h2>
-            <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
+            <div class="mt-4 grid gap-12 grid-auto-fit-[15rem]">
                 @foreach ($categories as $category)
                     <a class="group" href="{{ route('categories.show', $category->slug) }}">
-                        <div class="min-h-[250px] bg-[#d9d9d9] grid">
+                        <div class="grid min-h-[250px] bg-[#d9d9d9]">
                             <div
-                                class="aspect-square p-1 opacity-0 group-hover:opacity-100 transition-opacity row-span-full col-span-full z-10 place-self-center bg-white rounded-full grid place-items-center">
-                                <p class="text-base text-primary dark:text-onPrimary font-bold">Lihat Produk</p>
+                                class="z-10 col-span-full row-span-full grid aspect-square place-items-center place-self-center rounded-full bg-white p-1 opacity-0 transition-opacity group-hover:opacity-100">
+                                <p class="text-base font-bold text-primary dark:text-onPrimary">Lihat Produk</p>
                             </div>
-                            <img src="@if ($category->image) {{ asset('storage/' . $category->image) }}
+                            <img class="col-span-full row-span-full w-full transition group-hover:brightness-50"
+                                src="@if ($category->image) {{ asset('storage/' . $category->image) }}
                             @else https://source.unsplash.com/500x500?{{ $category->slug }} @endif"
-                                alt="{{ $category->name }}"
-                                class="w-full row-span-full col-span-full group-hover:brightness-50 transition"
-                                loading="lazy">
+                                alt="{{ $category->name }}" loading="lazy">
                         </div>
                         <p class="mt-5 text-base font-bold">
                             {{ $category->name }}
@@ -55,20 +53,21 @@
     </section>
 
     {{-- Best Seller Product --}}
-    <section class="mt-16 text-center px-4 dark:text-white">
+    <section class="mt-16 px-4 text-center dark:text-white">
         <div class="container">
             <h2 class="text-3xl font-bold">Product Best Seller</h2>
-            <div class="mt-4 gap-12 grid grid-auto-fit-[15rem]">
+            <div class="mt-4 grid gap-12 grid-auto-fit-[15rem]">
                 @foreach ($products as $product)
                     <a class="text-left" href="{{ route('products.show', $product->slug) }}">
-                        <div class="bg-[#d9d9d9] overflow-hidden">
-                            <img src="@if ($product->image) {{ asset('storage/' . $product->image) }}
+                        <div class="overflow-hidden bg-[#d9d9d9]">
+                            <img class="w-full"
+                                src="@if ($product->image) {{ asset('storage/' . $product->image) }}
                             @else
                                 /img/placeholder.webp @endif"
-                                alt="" class="w-full">
+                                alt="">
                         </div>
-                        <p class="mt-5 text-base uppercase font-bold">{{ $product->name }}</p>
-                        <p class="text-xs text-muted mt-1">{{ $product->category->name }}</p>
+                        <p class="mt-5 text-base font-bold uppercase">{{ $product->name }}</p>
+                        <p class="mt-1 text-xs text-muted">{{ $product->category->name }}</p>
                     </a>
                 @endforeach
             </div>
@@ -76,28 +75,28 @@
     </section>
 
     <div class="mt-16 px-4">
-        <a href="{{ route('products.index') }}"
-            class="container block text-center bg-secondary dark:bg-secondaryDark text-white dark:text-dark-mode
-        p-4 rounded-md hover:opacity-80 focus:bg-opacity-80 transition-opacity font-bold">
+        <a class="container block rounded-md bg-secondary p-4 text-center font-bold text-white transition-opacity hover:opacity-80 focus:bg-opacity-80 dark:bg-secondaryDark dark:text-dark-mode"
+            href="{{ route('products.index') }}">
             Lihat Produk Lainnya
         </a>
     </div>
 
-    <a href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
-        class="block bg-primaryVariant dark:bg-primaryVariantDark dark:text-dark-mode text-white text-center text-xl p-9 mt-16 hover:opacity-90 transition-opacity font-bold" target="_SEJ" rel="noreferrer">
+    <a class="mt-16 block bg-primaryVariant p-9 text-center text-xl font-bold text-white transition-opacity hover:opacity-90 dark:bg-primaryVariantDark dark:text-dark-mode"
+        href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
+        target="_SEJ" rel="noreferrer">
         Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>
     </a>
 
     {{-- Why Us & Contact us form --}}
-    <div class="mt-24 px-4 mb-60 dark:text-white">
-        <div class="container flex flex-col md:flex-row gap-16">
+    <div class="mt-24 mb-60 px-4 dark:text-white">
+        <div class="container flex flex-col gap-16 md:flex-row">
             {{-- Why Us --}}
             <div>
                 <h1 class="text-4xl font-bold">Kenapa Kami?</h1>
-                <h2 class="text-2xl mt-11 font-bold">
+                <h2 class="mt-11 text-2xl font-bold">
                     Elbara Kreasi Indonesia - Solusi Packaging Custom Untuk Produk Kosmetik Profesional
                 </h2>
-                <p class="text-sm mt-4 tracking-wide font-thin text-desc">
+                <p class="mt-4 text-sm font-thin tracking-wide text-desc">
                     Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie,
                     dictum est a, mattis
                     tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus,
@@ -112,9 +111,9 @@
                 </p>
             </div>
             {{-- Contact us form --}}
-            <div class="basis-64 flex-grow-0 flex-shrink-0">
-                <h1 class="text-xl mb-3 font-bold">Pemesanan via email</h1>
-                <form x-data="{
+            <div class="flex-shrink-0 flex-grow-0 basis-64">
+                <h1 class="mb-3 text-xl font-bold">Pemesanan via email</h1>
+                <form class="flex w-full flex-col gap-1" x-data="{
                     isLoading: false,
                     errors: {},
                     async submit(form) {
@@ -149,46 +148,43 @@
                         clearTimeout(timeoutId)
                         this.isLoading = false;
                     }
-                }" action="{{ route('email') }}" method="POST" @submit.prevent="submit($el)"
-                    class="flex flex-col gap-1 w-full">
+                }" action="{{ route('email') }}"
+                    method="POST" @submit.prevent="submit($el)">
                     @csrf
-                    <input type="text" name="name"
-                        class="p-4 border-grey dark:border-greyDark border-2 text-black font-medium placeholder:text-grey
-                        dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 transition"
-                        placeholder="Nama Lengkap">
+                    <input
+                        class="border-2 border-grey p-4 text-xs font-medium text-black outline-none transition placeholder:font-medium placeholder:text-grey focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-greyDark dark:bg-dark-mode dark:placeholder:text-greyDark"
+                        type="text" name="name" placeholder="Nama Lengkap">
                     <template x-if="errors['name']">
                         <p class="text-sm text-red-600 dark:text-red-500" x-text="errors['name']">
                         </p>
                     </template>
 
-                    <input type="email" name="email"
-                        class="p-4 border-grey dark:border-greyDark border-2 text-black font-medium placeholder:text-grey
-                        dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 transition"
-                        placeholder="Email">
+                    <input
+                        class="border-2 border-grey p-4 text-xs font-medium text-black outline-none transition placeholder:font-medium placeholder:text-grey focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-greyDark dark:bg-dark-mode dark:placeholder:text-greyDark"
+                        type="email" name="email" placeholder="Email">
                     <template x-if="errors['email']">
                         <p class="text-sm text-red-600 dark:text-red-500" x-text="errors['email']">
                         </p>
                     </template>
-                    <textarea placeholder="Pesan" name="message"
-                        class="p-4 border-grey dark:border-greyDark border-2 text-black font-medium placeholder:text-grey
-                        dark:placeholder:text-greyDark placeholder:font-medium text-xs outline-none dark:bg-dark-mode focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 transition"
-                        id="message"></textarea>
+                    <textarea
+                        class="border-2 border-grey p-4 text-xs font-medium text-black outline-none transition placeholder:font-medium placeholder:text-grey focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-greyDark dark:bg-dark-mode dark:placeholder:text-greyDark"
+                        id="message" placeholder="Pesan" name="message"></textarea>
 
                     <template x-if="errors['message']">
                         <p class="text-sm text-red-600 dark:text-red-500" x-text="errors['message']">
                         </p>
                     </template>
 
-                    <button type="submit"
-                        class="px-5 py-2 bg-primary dark:text-dark-mode text-white mt-2 self-start rounded-md hover:opacity-90 font-bold focus-visible:ring-primary focus-visible:ring-2 focus-visible:ring-offset-2 transition focus-visible:outline-none"
-                        :disabled="isLoading">
+                    <button
+                        class="mt-2 self-start rounded-md bg-primary px-5 py-2 font-bold text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-dark-mode"
+                        type="submit" :disabled="isLoading">
 
                         <template x-if="!isLoading">
                             <span>Kirim</span>
                         </template>
                         <template x-if="isLoading">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-arrow-repeat animate-spin" viewBox="0 0 16 16">
+                            <svg class="bi bi-arrow-repeat animate-spin" xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path
                                     d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
                                 <path fill-rule="evenodd"
@@ -196,7 +192,7 @@
                             </svg>
                         </template>
                     </button>
-                    <p x-show="isLoading === 2" x-transition class="text-xs text-slate-400">This took longer than usual</p>
+                    <p class="text-xs text-slate-400" x-show="isLoading === 2" x-transition>This took longer than usual</p>
 
                 </form>
             </div>

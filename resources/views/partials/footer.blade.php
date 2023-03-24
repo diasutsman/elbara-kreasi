@@ -1,19 +1,19 @@
 <footer>
-    <div class="px-4 bg-primary text-onPrimary dark:text-onPrimaryDark pt-11 pb-6 font-bold">
-        <div class="container flex flex-wrap md:flex-nowrap justify-between gap-8 lg:gap-16">
+    <div class="bg-primary px-4 pt-11 pb-6 font-bold text-onPrimary dark:text-onPrimaryDark">
+        <div class="container flex flex-wrap justify-between gap-8 md:flex-nowrap lg:gap-16">
             <div>
-                <img src="{{ asset('img/white-logo.webp') }}" alt="White Elbara Kreasi Logo" class="w-52 md:w-full">
+                <img class="w-52 md:w-full" src="{{ asset('img/white-logo.webp') }}" alt="White Elbara Kreasi Logo">
             </div>
             <div class="flex flex-col capitalize">
-                <a href="/" class="w-max">Home</a>
-                <a href="{{ route('about') }}" class="w-max">Tentang Kami</a>
-                <a href="{{ route('products.index') }}" class="w-max">Produk Kami</a>
-                <a href="{{ route('products.index') }}" class="w-max">Portfolio & klien</a>
+                <a class="w-max" href="/">Home</a>
+                <a class="w-max" href="{{ route('about') }}">Tentang Kami</a>
+                <a class="w-max" href="{{ route('products.index') }}">Produk Kami</a>
+                <a class="w-max" href="{{ route('products.index') }}">Portfolio & klien</a>
             </div>
-            <div class="flex gap-5 flex-wrap md:flex-nowrap">
+            <div class="flex flex-wrap gap-5 md:flex-nowrap">
                 <div>
                     <p>Main Office</p>
-                    <p class="text-white dark:text-dark-mode-text inline">
+                    <p class="inline text-white dark:text-dark-mode-text">
                         Jl. Raya Keadilan No.39, Rangkapan Jaya Baru, Kec. Pancoran Mas, Kota Depok, Jawa Barat
                         16434
                     </p>
@@ -25,26 +25,27 @@
             </div>
             <div>
                 <p class="text-base">Telepon Kami :</p>
-                <a href="tel:{{ phone($phoneNumbers, 'ID', 1) }}"
-                    class="text-xl text-white dark:text-dark-mode-text mt-1">{{ phone($phoneNumbers, 'ID', 2) }}</a>
-                <p class="text-base mt-2">Whatsapp Kami :</p>
-                <a href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
-                    class="text-xl text-white dark:text-dark-mode-text mt-1" target="_SEJ" rel="noreferrer">{{ phone($whatsappNumbers, 'ID', 2) }}</a>
-                <p class="text-base mt-2">Email Kami :</p>
-                <a href="mailto:{{ $emailReceiver }}"
-                    class="text-xl text-white dark:text-dark-mode-text mt-1">{{ $emailReceiver }}</a>
-                <div class="mt-4 gap-x-4 flex">
-                    <a href="https://facebook.com" class="text-2xl" target="_SEJ" rel="noreferrer">
+                <a class="mt-1 text-xl text-white dark:text-dark-mode-text"
+                    href="tel:{{ phone($phoneNumbers, 'ID', 1) }}">{{ phone($phoneNumbers, 'ID', 2) }}</a>
+                <p class="mt-2 text-base">Whatsapp Kami :</p>
+                <a class="mt-1 text-xl text-white dark:text-dark-mode-text"
+                    href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
+                    target="_SEJ" rel="noreferrer">{{ phone($whatsappNumbers, 'ID', 2) }}</a>
+                <p class="mt-2 text-base">Email Kami :</p>
+                <a class="mt-1 text-xl text-white dark:text-dark-mode-text"
+                    href="mailto:{{ $emailReceiver }}">{{ $emailReceiver }}</a>
+                <div class="mt-4 flex gap-x-4">
+                    <a class="text-2xl" href="https://facebook.com" target="_SEJ" rel="noreferrer">
                         <i class="bi bi-facebook"></i>
                     </a>
-                    <a href="https://instagram.com" class="text-2xl" target="_SEJ" rel="noreferrer">
+                    <a class="text-2xl" href="https://instagram.com" target="_SEJ" rel="noreferrer">
                         <i class="bi bi-instagram"></i>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bg-onPrimaryDark text-primary p-3">
+    <div class="bg-onPrimaryDark p-3 text-primary">
         <div class="container">
             <p class="text-xs">©{{ date('Y') }} Elbara Kreasi Indonesia</p>
         </div>
