@@ -15,7 +15,7 @@ module.exports = {
                 primaryVariant: "#79A172",
                 primaryVariantDark: "#7AA172",
                 secondary: "#6CC4A1",
-                placeholder: '#D9D9D9',
+                placeholder: "#D9D9D9",
 
                 // Dark Section
                 secondaryDark: "#7ECBAC",
@@ -31,11 +31,14 @@ module.exports = {
                 "dark-mode-text": "#12350C",
             },
             fontFamily: {
-                sans: ['Helvetica', "sans-serif"],
+                sans: ["Helvetica", "sans-serif"],
             },
-      height : {
-        '85' : '22rem'
-      },
+            height: {
+                85: "22rem",
+            },
+            spacing: {
+                25: "100px",
+            },
         },
     },
     plugins: [require("@shrutibalasa/tailwind-grid-auto-fit")],

@@ -35,11 +35,11 @@ Route::get('/', function () {
 Route::resource('/products', ProductController::class);
 
 Route::get('/about', function () {
-    return view('about');
+  return view('about');
 })->name('about');
 
-Route::get('/how-to-order', function () {
-    return view('order');
+Route::get('/order', function() {
+  return view('order');
 })->name('order');
 
 Route::post('/email', [MailController::class, 'send'])->name('email');
