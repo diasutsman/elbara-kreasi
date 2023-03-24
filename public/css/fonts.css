@@ -1,4 +1,29 @@
 @font-face {
-  font-family: "Franklin Gothic Demi";
-  src: url('../fonts/Franklin_Gothic_Demi_Regular.ttf');
+    font-family: "Helvetica";
+    src: url("../fonts/Helvetica.ttf");
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/Helvetica-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/Helvetica-BoldOblique.ttf");
+    font-weight: 700;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/Helvetica-Oblique.ttf");
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/helvetica-light-587ebe5a59211.ttf");
+    font-weight: 100;
 }
