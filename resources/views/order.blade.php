@@ -4,21 +4,21 @@
 
     <div class="container flex items-center md:items-stretch gap-y-6 flex-col md:grid md:grid-cols-[1fr,90px,1fr] lg:grid-cols-[1fr,90px,1fr,90px,1fr] px-4">
 
-        <div class="bg-primary p-5 flex flex-col justify-between gap-y-4 h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0">
+        <div class="bg-primary p-8 flex flex-col justify-between gap-y-4 min-h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0">
             <div class="text-center text-white">
                 <p>Masuk/Daftar <br> (Opsional)</p>
             </div>
-            <div class="w-full h-60 bg-grey"></div>
+            <div class="w-full aspect-square rounded-xl bg-grey"></div>
         </div>
 
         <img src="{{ asset('img/arrow-right.svg') }}" class="hidden md:block w-10 place-self-center" alt="">
         <img src="{{ asset('img/arrow-down.svg') }}" class="w-10 md:hidden" alt="">
 
-        <div class="bg-primary p-5 flex flex-col justify-between gap-y-4 h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0">
+        <div class="bg-primary p-8 flex flex-col justify-between gap-y-4 min-h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0">
             <div class="text-center text-white">
                 <p>Pilih Item yang Mau Dibeli</p>
             </div>
-            <div class="w-full h-60 bg-grey"></div>
+            <div class="w-full aspect-square rounded-xl bg-grey"></div>
         </div>
 
         <div class="hidden md:grid lg:hidden col-span-full justify-self-stretch md:grid-cols-[1fr,90px,1fr] lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
@@ -28,32 +28,32 @@
         <img src="{{ asset('img/arrow-right.svg') }}" class="hidden md:block w-10 place-self-center md:col-start-2 lg:col-start-auto md:rotate-180 lg:rotate-0" alt="">
         <img src="{{ asset('img/arrow-down.svg') }}" class="w-10 md:hidden" alt="">
 
-        <div class="bg-primary p-5 flex flex-col justify-between gap-y-4 h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0 md:col-start-3 lg:col-start-auto">
+        <div class="bg-primary p-8 flex flex-col justify-between gap-y-4 min-h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0 md:col-start-3 lg:col-start-auto">
             <div class="text-center text-white">
                 <p>Tambahkan Item ke Keranjang</p>
             </div>
-            <div class="w-full h-60 bg-grey"></div>
+            <div class="w-full aspect-square rounded-xl bg-grey"></div>
         </div>
 
         <div class="col-span-full justify-self-stretch md:grid md:grid-cols-[1fr,90px,1fr] lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
             <img src="{{ asset('img/arrow-down.svg') }}" class="w-10 md:col-start-1 lg:col-start-[-2] justify-self-center" alt="">
         </div>
 
-        <div class="bg-primary p-5 flex flex-col justify-between gap-y-4 h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0 lg:col-start-3">
+        <div class="bg-primary p-8 flex flex-col justify-between gap-y-4 min-h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0 lg:col-start-3">
             <div class="text-center text-white">
                 <p>Pesanan Otomatis <br> Terkirim ke Whatsapp</p>
             </div>
-            <div class="w-full h-60 bg-grey"></div>
+            <div class="w-full aspect-square rounded-xl bg-grey"></div>
         </div>
 
         <img src="{{ asset('img/arrow-left.svg') }}" class="hidden md:hidden lg:block w-10 place-self-center" alt="">
         <img src="{{ asset('img/arrow-down.svg') }}" class="w-10 md:hidden" alt="">
 
-        <div class="bg-primary p-5 flex flex-col justify-between gap-y-4 h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0 md:row-start-3 lg:row-start-auto">
+        <div class="bg-primary p-8 flex flex-col justify-between gap-y-4 min-h-[320px] rounded-xl border-2 border-secondary min-w-[400px] md:min-w-0 md:row-start-3 lg:row-start-auto">
             <div class="text-center text-white">
                 <p>Klik Tombol Pesan</p>
             </div>
-            <div class="w-full h-60 bg-grey"></div>
+            <div class="w-full aspect-square rounded-xl bg-grey"></div>
         </div>
 
     </div>
