@@ -26,8 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('phoneNumbers', Redis::get('phone_numbers'));
-        View::share('whatsappNumbers', Redis::get('whatsapp_numbers'));
-        View::share('emailReceiver', Redis::get('email_receiver'));
+        View::share('phoneNumbers', Redis::get('phone_numbers') ?? '+6281234567890');
+        View::share('whatsappNumbers', Redis::get('whatsapp_numbers') ?? '+6281234567890');
+        View::share('emailReceiver', Redis::get('email_receiver') ?? 'elbarakreasi@gmail.com');
     }
 }
