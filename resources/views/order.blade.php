@@ -69,8 +69,9 @@
 
     </div>
 
-    <a class="my-32 block bg-primaryVariant p-9 text-center text-xl text-white transition-opacity hover:opacity-90 dark:bg-primaryVariantDark dark:text-dark-mode"
-        href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20Saya%20mau%20order">
-        Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>>
+    <a class="my-32 block bg-primaryVariant p-9 text-center text-xl font-bold text-white transition-opacity hover:opacity-90 dark:bg-primaryVariantDark dark:text-dark-mode"
+        href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
+        target="_SEJ" rel="noreferrer">
+        Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>
     </a>
 @endsection

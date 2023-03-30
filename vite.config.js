@@ -10,6 +10,7 @@ export default defineConfig({
                 "resources/js/portfolios.js",
                 "resources/js/products.js",
                 "resources/css/app.css",
+                "resources/css/product.css",
             ],
             refresh: true,
         }),

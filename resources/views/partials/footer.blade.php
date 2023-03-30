@@ -1,8 +1,8 @@
 <footer>
     <div class="bg-primary px-4 pt-11 pb-6 font-bold text-onPrimary dark:text-onPrimaryDark">
-        <div class="container flex flex-wrap justify-between gap-8 md:flex-nowrap lg:gap-16">
+        <div class="container flex flex-wrap justify-between gap-8 lg:flex-nowrap lg:gap-16">
             <div>
-                <img class="w-52 md:w-full" src="{{ asset('img/white-logo.webp') }}" alt="White Elbara Kreasi Logo">
+                <img class="w-52 lg:w-full" src="{{ asset('img/white-logo.webp') }}" alt="White Elbara Kreasi Logo">
             </div>
             <div class="flex flex-col capitalize">
                 <a class="w-max" href="/">Home</a>
@@ -13,9 +13,7 @@
             <div class="flex flex-wrap gap-5 md:flex-nowrap">
                 <div>
                     <p>Main Office</p>
-                    <p class="inline text-white dark:text-dark-mode-text">
-                        Jl. Raya Keadilan No.39, Rangkapan Jaya Baru, Kec. Pancoran Mas, Kota Depok, Jawa Barat
-                        16434
+                    <p class="text-white dark:text-dark-mode-text">Jl. Raya Keadilan No.39, Rangkapan Jaya Baru, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16434
                     </p>
                 </div>
                 <iframe class="m-0 p-0" title="Elbara Kreasi Map"

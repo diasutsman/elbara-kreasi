@@ -6,15 +6,15 @@
             <h2 class="mt-8 text-3xl font-bold">Produk Kami</h2>
 
             <ul
-                class="button-group filter-button-group mx-auto mt-5 mb-16 flex w-fit divide-x-[1px] divide-[#DBDBDB] overflow-hidden rounded-md border-[1px] border-[#DBDBDB] font-normal text-[#A3A3A3]">
+                class="button-group filter-button-group mx-auto mt-5 mb-16 flex w-fit flex-wrap justify-center overflow-hidden font-normal text-[#A3A3A3] md:flex-nowrap md:divide-x-[1px] md:divide-[#DBDBDB] md:rounded-md md:border-[1px] md:border-[#DBDBDB]">
                 <li>
                     <button
-                        class="bg-secondary p-3 text-base font-normal text-white transition-colors hover:bg-secondary hover:text-white"
+                        class="bg-secondary p-3 text-base font-normal text-white transition-colors hover:bg-secondary hover:text-white h-full"
                         data-filter="*">Semua produk</button>
                 </li>
                 @foreach ($categories as $category)
                     <li>
-                        <button class="p-3 text-base font-normal transition-colors hover:bg-secondary hover:text-white"
+                        <button class="p-3 text-base font-normal transition-colors hover:bg-secondary hover:text-white h-full"
                             data-filter=".{{ $category->slug }}">{{ $category->name }}</button>
                     </li>
                 @endforeach

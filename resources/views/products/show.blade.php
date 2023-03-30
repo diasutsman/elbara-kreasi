@@ -4,32 +4,17 @@
         <section class="flex flex-col gap-10 md:flex-row">
             <div class="flex shrink basis-[400px] flex-col gap-y-6">
                 {{-- <div class="w-full min-h-[400px] bg-placeholder"></div> --}}
-                <img class="mx-auto w-full max-w-[400px]" src="{{ asset('storage/' . $product->image) }}" alt="">
-                {{-- <div class="flex gap-x-2 justify-center">
-                    <div class="h-16 w-16 bg-placeholder"></div>
-                    <div class="h-16 w-16 bg-placeholder"></div>
-                    <div class="h-16 w-16 bg-placeholder"></div>
-                </div> --}}
+                <img class="mx-auto w-full max-w-[400px]"
+                    src="@if ($product->image) {{ asset('storage/' . $product->image) }}@else {{ asset('img/placeholder.webp') }} @endif"
+                    alt="{{ $product->name }}">
                 <div class="pswp-gallery flex flex-wrap justify-center gap-2" id="my-gallery">
                     @foreach ($product->portfolios as $portfolio)
                         <a class="w-[70px]" data-pswp-width="700" data-pswp-height="700" href="{{ $portfolio->image }}"
                             target="_blank">
-                            <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}" loading="lazy" />
+                            <img src="@if ($portfolio->image) {{ asset('storage/' . $portfolio->image) }}@else {{ asset('img/placeholder.webp') }} @endif"
+                                alt="{{ $portfolio->title }}" loading="lazy" />
                         </a>
-                        {{-- <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg" target="_blank" data-pswp-width="462" 
-                        data-pswp-height="616" >
-                            <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-200.jpg" alt="" />
-                        </a> --}}
                     @endforeach
-                    {{-- <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-2500.jpg" target="_blank">
-                        <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/1/img-200.jpg" alt="" />
-                    </a>
-                    <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-2500.jpg" target="_blank">
-                        <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/2/img-200.jpg" alt="" />
-                    </a>
-                    <a href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-2500.jpg" target="_blank">
-                        <img src="https://cdn.photoswipe.com/photoswipe-demo-images/photos/3/img-200.jpg" alt="" />
-                    </a> --}}
                 </div>
             </div>
 
@@ -128,12 +113,14 @@
         <section class="mt-16">
             <h2 class="text-xl font-bold">Produk Terkait</h2>
 
-            <div class="owl-carousel mt-10 flex gap-x-9">
+            <div class="owl-carousel related-carousel mt-10 flex gap-x-9 overflow-x-hidden">
                 @foreach (range(1, 4) as $index)
-                    <div>
-                        <div class="min-h-[184px] w-full bg-placeholder"></div>
+                    <a href="#">
+                        <div class="min-h-[184px] w-full bg-placeholder">
+                            <img src="{{ asset('img/placeholder.webp') }}" alt="">
+                        </div>
                         <p class="mt-4">Nama Produk</p>
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </section>
@@ -178,7 +165,6 @@
                     appendTo: 'root',
                     onInit: (el, pswp) => {
                         lightbox.pswp.on('change', () => {
-                            console.log('change');
                             const currSlideElement = lightbox.pswp.currSlide.data.element;
                             let captionHTML = '';
                             if (currSlideElement) {
@@ -199,4 +185,5 @@
     <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
+    @vite('resources/css/product.css')
 @endsection

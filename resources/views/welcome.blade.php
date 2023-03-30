@@ -142,7 +142,9 @@
                                     'success'
                                 )
                             }).catch((error) => {
+                                console.log(JSON.parse(error.message))
                                 const { errors } = JSON.parse(error.message);
+                                console.log(errors)
                                 this.errors = errors;
                             })
                         clearTimeout(timeoutId)

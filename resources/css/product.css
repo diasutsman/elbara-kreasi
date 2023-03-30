@@ -1,0 +1,49 @@
+.owl-carousel.related-carousel .owl-nav .owl-next,
+.owl-carousel.related-carousel .owl-nav .owl-prev {
+    @apply absolute top-1/2 h-9 w-9 rounded-full border border-solid border-black border-opacity-20 bg-white text-xl leading-8 text-gray-500 opacity-0 transition-all duration-300 ease-in-out [zoom:1] hover:border-onPrimary hover:border-opacity-100 hover:bg-onPrimary hover:text-white;
+}
+
+.owl-carousel.related-carousel .owl-nav .owl-next {
+    @apply -right-10;
+}
+
+.owl-carousel.related-carousel .owl-nav .owl-prev {
+    @apply -left-10;
+}
+
+.owl-carousel.related-carousel .owl-nav div.owl-next.disabled {
+    @apply -right-10;
+}
+
+.owl-carousel.related-carousel .owl-nav div.owl-prev.disabled {
+    @apply -left-10;
+}
+
+
+.owl-carousel.related-carousel:hover .owl-nav .owl-next,
+.owl-carousel.related-carousel:hover .owl-nav .owl-prev {
+    @apply opacity-100;
+}
+
+.owl-carousel.related-carousel:hover .owl-nav .owl-next:not(.disabled) {
+    @apply right-2;
+}
+
+.owl-carousel.related-carousel:hover .owl-nav .owl-prev:not(.disabled) {
+    @apply left-2;
+}
+
+.owl-nav .owl-prev,
+.owl-nav .owl-next,
+.owl-dot,
+.owl-dots button {
+    cursor: pointer;
+    cursor: hand;
+    padding: 0;
+    border: 0;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

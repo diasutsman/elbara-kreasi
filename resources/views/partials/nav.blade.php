@@ -36,7 +36,7 @@
         </div>
         <div class="search-trigger grid place-content-center transition-colors duration-300 sm:hover:bg-gray-200 sm:dark:hover:bg-gray-900"
             x-data="{ searchOpen: false }">
-            <button class="z-30 grid place-content-center px-0 sm:px-4" id="search-btn"
+            <button class="z-30 grid h-full place-content-center px-0 sm:px-4 place-self-stretch" id="search-btn"
                 @click="menuOpen = menuOpen && false;searchOpen = !searchOpen;searchOpen && $refs.search.focus()">
                 <i class="bi bi-search col-span-full row-span-full transition-opacity duration-500"
                     :class="searchOpen && 'opacity-0'"></i>
