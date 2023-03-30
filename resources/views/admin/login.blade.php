@@ -34,7 +34,7 @@
                             <label class="text-xl font-bold text-[#777]" for="username">Username</label>
                             <input
                                 class="h-12 w-full rounded-md border-2 border-primary border-opacity-30 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                                id="username" type="text" name="username" value="{{ old('username') }}">
+                                id="username" type="text" name="username" value="{{ old('username') }}" autofocus>
                             @error('username')
                                 <p class="text-sm text-red-600 dark:text-red-500">
                                     {{ $message }}
