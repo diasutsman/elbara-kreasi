@@ -3,15 +3,14 @@
 namespace App\Models;
 
 use App\Models\Category;
+use App\Traits\GetImage;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Support\Facades\Request;
-use Laravel\Cashier\Cashier;
 
 class Product extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable, GetImage;
 
     public $with = ['category'];
 
@@ -29,11 +28,6 @@ class Product extends Model
     public function portfolios()
     {
         return $this->hasMany(Portfolio::class);
-    }
-
-    public function getImageAttribute($value)
-    {
-        return $value ? (Request::is('admin/*') ? asset('storage/' . $value) : $value) : null;
     }
 
     public function sluggable(): array

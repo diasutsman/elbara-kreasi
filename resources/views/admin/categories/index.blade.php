@@ -14,12 +14,12 @@
                 <input class="bg-gray-100 p-2 transition focus:ring-2 focus-visible:outline-none" type="text"
                     placeholder="Add Category" name="name" required>
 
-                <label class="grid basis-16">
-                    <input class="peer col-span-full row-span-full hidden" type="file" onchange="previewImage(event)"
+                <label class="grid basis-16" x-data="ImagePreview('{{ asset('/img/placeholder.webp') }}')">
+                    <input class="peer col-span-full row-span-full hidden" type="file" @change="previewImage(event)"
                         name="image">
 
                     <img class="col-span-full row-span-full w-full peer-invalid:aspect-square" loading="lazy"
-                        src="{{ asset('/img/placeholder.webp') }}" />
+                        src="{{ asset('/img/placeholder.webp') }}" :src="src" />
 
                     <div
                         class="col-span-full row-span-full grid cursor-pointer place-content-center bg-black bg-opacity-50 opacity-0 transition-opacity hover:opacity-100">
