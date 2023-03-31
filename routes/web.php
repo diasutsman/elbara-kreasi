@@ -1,18 +1,16 @@
 <?php
 
-use App\Models\Product;
-use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminPortfolioController;
-use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,43 +23,31 @@ use App\Http\Controllers\MailController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome', [
-        'categories' => Category::all(),
-        'products' => Product::where('is_best_seller', 1)->get(),
-    ]);
-});
+Route::get('/', [NavigationController::class, 'welcome'])->name('welcome');
 
-Route::resource('/products', ProductController::class);
+Route::get('/about', [NavigationController::class, 'about'])->name('about');
 
-Route::get('/about', function () {
-  return view('about');
-})->name('about');
+Route::get('/order', [NavigationController::class, 'order'])->name('order');
 
-Route::get('/order', function() {
-  return view('order');
-})->name('order');
+Route::resource('/products', ProductController::class)->only('index', 'show');
 
 Route::post('/email', [MailController::class, 'send'])->name('email');
 
 /* Admin Routes */
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], function () {
 
-    Route::resource('/categories', AdminCategoryController::class)->names('admin.categories');
-    Route::resource('/products', AdminProductController::class)->names('admin.products');
-    Route::resource('/portfolios', AdminPortfolioController::class)->names('admin.portfolios');
+    Route::resource('/categories', AdminCategoryController::class)->names('admin.categories')->except('create', 'edit');
+    Route::resource('/products', AdminProductController::class)->names('admin.products')->except('create', 'edit');
+    Route::resource('/portfolios', AdminPortfolioController::class)->names('admin.portfolios')->except('create', 'edit');
     Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 
     Route::post('/change-email', [AdminDashboardController::class, 'setEmailReceiver'])->name('admin.change-email');
-
     Route::post('/change-whatsapp', [AdminDashboardController::class, 'setWhatsappNumber'])->name('admin.change-whatsapp');
-
     Route::post('/change-phone', [AdminDashboardController::class, 'setPhoneNumber'])->name('admin.change-phone');
 });
 
-Route::get('/admin/login', function () {
-    return view('admin.login');
-})->name('admin.login')->middleware('admin');
+Route::get('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login')->middleware('admin');
+/* Admin Routes End */
 
 Route::post('/admin/login', [AdminLoginController::class, 'login']);
 

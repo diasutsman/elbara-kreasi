@@ -2,36 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Controllers\Controller;
 
 class AdminLoginController extends Controller
 {
-    use AuthenticatesUsers;
-
-    protected $redirectTo = '/admin';
-
-    public function __construct()
+    public function login()
     {
-        $this->middleware('guest')->except('logout');
+        return view('admin.login');
     }
-
-    public function authenticated(Request $request, User $user)
-    {
-        if(!$user->isAdmin()) {
-            Session::flush();
-            Auth::logout();
-            return back()->withErrors(['username' => 'These credentials do not match our records.'])->withInput();
-        }
-    }
-
-    public function username()
-    {
-        return 'username';
-    }
-    
 }
