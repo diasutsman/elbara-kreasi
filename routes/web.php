@@ -46,7 +46,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], funct
     Route::post('/change-phone', [AdminDashboardController::class, 'setPhoneNumber'])->name('admin.change-phone');
 });
 
-Route::get('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login')->middleware('admin');
+Route::get('/admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login')->middleware('admin');
+Route::post('/admin/login', [AdminLoginController::class, 'login']);
 /* Admin Routes End */
 
 Route::post('/admin/login', [AdminLoginController::class, 'login']);
