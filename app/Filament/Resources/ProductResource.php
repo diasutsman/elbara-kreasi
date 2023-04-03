@@ -83,16 +83,12 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('category.name'),
+                Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('category.name')->searchable()->sortable(),
                 Tables\Columns\IconColumn::make('is_best_seller')
                     ->boolean(),
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\TextColumn::make('price'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                Tables\Columns\TextColumn::make('price')->searchable()->sortable(),
             ])
             ->filters([
                 //

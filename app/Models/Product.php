@@ -6,11 +6,10 @@ use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
-    use HasFactory, Sluggable, Searchable;
+    use HasFactory, Sluggable;
 
     public $with = ['category'];
 

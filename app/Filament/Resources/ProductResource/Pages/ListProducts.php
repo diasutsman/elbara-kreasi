@@ -18,18 +18,4 @@ class ListProducts extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
-
-    public function isTableSearchable(): bool
-    {
-        return true;
-    }
-
-    protected function applySearchToTableQuery(Builder $query): Builder
-    {
-        if (filled($searchQuery = $this->getTableSearchQuery())) {
-            $query->whereIn('id', Product::search($searchQuery)->keys());
-        }
-
-        return $query;
-    }
 }

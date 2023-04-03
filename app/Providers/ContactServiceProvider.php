@@ -30,9 +30,9 @@ class ContactServiceProvider extends ServiceProvider
         $whatsappNumbers = '+6281234567890';
         $emailReceiver = 'elbarakreasi@gmail.com';
         try {
-            $phoneNumbers = Redis::get('phone_numbers') ?? $phoneNumbers;
-            $whatsappNumbers = Redis::get('whatsapp_numbers') ?? $whatsappNumbers;
-            $emailReceiver = Redis::get('email_receiver') ?? $emailReceiver;
+            // $phoneNumbers = Redis::get('phone_numbers') ?? $phoneNumbers;
+            // $whatsappNumbers = Redis::get('whatsapp_numbers') ?? $whatsappNumbers;
+            // $emailReceiver = Redis::get('email_receiver') ?? $emailReceiver;
         }catch (Exception $e) {
             // do nothing
         }
