@@ -20,21 +20,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(20)->create();
+        // User::factory(20)->create();
 
-        User::create([
-            'username' => 'admin',
-            'email' => 'admin@gmail.com',
-            'role' => 'admin',
-            'password' => bcrypt('12345678'),
-        ]);
+        // User::create([
+        //     'username' => 'admin',
+        //     'email' => 'admin@gmail.com',
+        //     'role' => 'admin',
+        //     'password' => bcrypt('12345678'),
+        // ]);
 
-        User::create([
-            'username' => 'user',
-            'email' => 'user@gmail.com',
-            'role' => 'user',   
-            'password' => bcrypt('12345678'),
-        ]);
+        // User::create([
+        //     'username' => 'user',
+        //     'email' => 'user@gmail.com',
+        //     'role' => 'user',   
+        //     'password' => bcrypt('12345678'),
+        // ]);
 
         Category::create([
             'name' => 'Kemasan Makanan',
@@ -57,8 +57,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Product::factory(20)->create();
-
-        Client::factory(10)->create();
 
         Portfolio::factory(30)->create();
     }

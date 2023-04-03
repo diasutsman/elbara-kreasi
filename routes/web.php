@@ -33,25 +33,6 @@ Route::resource('/products', ProductController::class)->only('index', 'show');
 
 Route::post('/email', [MailController::class, 'send'])->name('email');
 
-/* Admin Routes */
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin']], function () {
-
-    Route::resource('/categories', AdminCategoryController::class)->names('admin.categories')->except('create', 'edit');
-    Route::resource('/products', AdminProductController::class)->names('admin.products')->except('create', 'edit');
-    Route::resource('/portfolios', AdminPortfolioController::class)->names('admin.portfolios')->except('create', 'edit');
-    Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
-
-    Route::post('/change-email', [AdminDashboardController::class, 'setEmailReceiver'])->name('admin.change-email');
-    Route::post('/change-whatsapp', [AdminDashboardController::class, 'setWhatsappNumber'])->name('admin.change-whatsapp');
-    Route::post('/change-phone', [AdminDashboardController::class, 'setPhoneNumber'])->name('admin.change-phone');
-});
-
-Route::get('/admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login')->middleware('admin');
-Route::post('/admin/login', [AdminLoginController::class, 'login']);
-/* Admin Routes End */
-
-Route::post('/admin/login', [AdminLoginController::class, 'login']);
-
 Auth::routes();
 
 /* Category routes (being put here because of url design) */

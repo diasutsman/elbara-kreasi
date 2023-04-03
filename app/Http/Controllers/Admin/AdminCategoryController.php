@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use App\Traits\GetImage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminCategoryController extends Controller

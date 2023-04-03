@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use App\Models\Product;
-use App\Traits\GetImage;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-    use HasFactory, Sluggable, GetImage;
+    use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
 

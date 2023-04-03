@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use App\Models\Product;
-use App\Traits\GetImage;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Portfolio extends Model
 {
-    use HasFactory, Sluggable, GetImage;
+    use HasFactory, Sluggable;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
@@ -28,8 +27,8 @@ class Portfolio extends Model
         return 'slug';
     }
 
-    public function getImageAttribute($value)
+    public function product()
     {
-        return $value ? asset('storage/' . $value) : null;
+        return $this->belongsTo(Product::class);
     }
 }

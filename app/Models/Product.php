@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use App\Models\Category;
-use App\Traits\GetImage;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
-    use HasFactory, Sluggable, GetImage;
+    use HasFactory, Sluggable, Searchable;
 
     public $with = ['category'];
 
