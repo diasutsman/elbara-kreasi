@@ -9,12 +9,13 @@
                 class="button-group filter-button-group mx-auto mt-5 mb-16 flex w-fit flex-wrap justify-center overflow-hidden font-normal text-[#A3A3A3] md:flex-nowrap md:divide-x-[1px] md:divide-[#DBDBDB] md:rounded-md md:border-[1px] md:border-[#DBDBDB]">
                 <li>
                     <button
-                        class="bg-secondary p-3 text-base font-normal text-white transition-colors hover:bg-secondary hover:text-white h-full"
+                        class="h-full bg-secondary p-3 text-base font-normal text-white transition-colors hover:bg-secondary hover:text-white"
                         data-filter="*">Semua produk</button>
                 </li>
                 @foreach ($categories as $category)
                     <li>
-                        <button class="p-3 text-base font-normal transition-colors hover:bg-secondary hover:text-white h-full"
+                        <button
+                            class="h-full p-3 text-base font-normal transition-colors hover:bg-secondary hover:text-white"
                             data-filter=".{{ $category->slug }}">{{ $category->name }}</button>
                     </li>
                 @endforeach
@@ -25,11 +26,17 @@
                 @foreach ($products as $product)
                     <a class="product {{ $product->category->slug }} block w-full text-left sm:w-1/2 sm:pb-6 sm:pr-6 lg:w-1/3 xl:w-1/4"
                         href="{{ route('products.show', $product->slug) }}">
-                        <div class="h-auto w-full overflow-hidden bg-[#d9d9d9]">
-                            <img class="block h-full w-full object-center"
+                        <div class="grid h-auto w-full overflow-hidden bg-[#d9d9d9]">
+                            <img class="col-span-full row-span-full block h-full w-full object-center"
                                 src="@if ($product->image) {{ asset('storage/' . $product->image) }}
                             @else /img/placeholder.webp @endif"
                                 alt="">
+
+                            @if ($product->is_best_seller)
+                                <div class="col-span-full row-span-full p-2">
+                                    <p class="w-fit bg-onPrimary py-2 px-3 text-white">Best Seller</p>
+                                </div>
+                            @endif
                         </div>
                         <p class="mt-4 text-base font-bold uppercase">{{ $product->name }}</p>
                         <p class="mt-1 text-xs text-muted">{{ $product->category->name }}</p>
