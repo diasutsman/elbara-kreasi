@@ -58,13 +58,23 @@
             <h2 class="text-3xl font-bold">Product Best Seller</h2>
             <div class="mt-4 grid gap-12 grid-auto-fit-[15rem]">
                 @foreach ($products as $product)
-                    <a class="text-left" href="{{ route('products.show', $product->slug) }}">
-                        <div class="overflow-hidden bg-[#d9d9d9]">
-                            <img class="w-full"
+                    <a class="group text-left" href="{{ route('products.show', $product->slug) }}">
+                        <div class="grid overflow-hidden bg-[#d9d9d9]">
+
+                            <div
+                                class="z-10 col-span-full row-span-full grid aspect-square place-items-center place-self-center rounded-full bg-white p-1 opacity-0 transition-opacity group-hover:opacity-100">
+                                <p class="text-base font-bold text-primary dark:text-onPrimary">Lihat Produk</p>
+                            </div>
+
+                            <div
+                                class="col-span-full row-span-full place-self-stretch bg-black opacity-0 transition-opacity group-hover:opacity-50">
+                            </div>
+
+                            <img class="col-span-full row-span-full w-full"
                                 src="@if ($product->image) {{ asset('storage/' . $product->image) }}
                             @else
                                 /img/placeholder.webp @endif"
-                                alt="">
+                                alt="" loading="lazy">
                         </div>
                         <p class="mt-5 text-base font-bold uppercase">{{ $product->name }}</p>
                         <p class="mt-1 text-xs text-muted">{{ $product->category->name }}</p>
