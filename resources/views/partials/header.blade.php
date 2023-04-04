@@ -35,7 +35,7 @@
                             x-transition @click.outside="show = false">
                             @can('admin')
                                 <a class="z-20 block w-full border-2 border-dark bg-white p-3 text-center font-bold transition-colors hover:bg-blue-500 hover:text-white"
-                                    href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                    href="/admin">Dashboard</a>
                             @endcan
 
                             <form action="{{ route('logout') }}" method="POST">
