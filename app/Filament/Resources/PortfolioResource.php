@@ -37,7 +37,8 @@ class PortfolioResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('image'),
+                Forms\Components\FileUpload::make('image')
+                    ->directory('portfolio-images'),
             ]);
     }
 
