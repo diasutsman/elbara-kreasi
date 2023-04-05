@@ -32,10 +32,6 @@ input[type="number"]::-webkit-outer-spin-button {
     @apply scale-0;
 }
 
-.container {
-    @apply max-w-6xl mx-auto;
-}
-
 /* Admin Styles */
 
 /*Form fields*/
