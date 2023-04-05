@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\DeletedItem;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -12,6 +13,15 @@ class Category extends Model
     use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
+    
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'deleted' => DeletedItem::class,
+    ];
 
     public function products()
     {
