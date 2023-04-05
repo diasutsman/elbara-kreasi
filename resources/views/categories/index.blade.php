@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <section class="mt-1 mb-24 px-4 text-center dark:text-white">
+    <section class="mb-24 mt-1 px-4 text-center dark:text-white">
 
-        <div class="container">
+        <div class="container mx-auto">
             <div class="h-[250px] w-full overflow-hidden bg-placeholder">
                 <img class="w-full" src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}">
             </div>

@@ -2,10 +2,10 @@
 @section('content')
     {{-- Hero --}}
     <div class="px-4 dark:text-white">
-        <div class="container mt-16 flex flex-wrap gap-y-8">
+        <div class="container mx-auto mt-16 flex flex-wrap gap-y-8">
             <div class="md:flex-1">
                 <div class="flex h-full flex-col items-start justify-center gap-4 md:mr-14">
-                    <h1 class="text-4xl text-dark font-bold">
+                    <h1 class="text-4xl font-bold text-dark">
                         Tentang Kami
                     </h1>
                     <h1 class="text-xl text-gray-400">
@@ -22,7 +22,7 @@
                         lacinia. Aliquam in elementum tellus.
                     </p>
                     <a class="mt-4 rounded-md bg-primary px-7 py-3 text-sm text-white transition-opacity hover:opacity-90 dark:bg-secondaryDark dark:text-dark-mode"
-                        href="#">
+                        href="{{ route('portfolios.index') }}">
                         Lihat Portfolio Kami
                     </a>
                 </div>
@@ -35,7 +35,7 @@
 
     {{-- Points --}}
     <div class="my-32 block bg-primary p-16 text-center text-xl text-white dark:bg-primaryVariantDark dark:text-dark-mode">
-        <div class="container flex flex-col gap-4 md:flex-row">
+        <div class="container mx-auto flex flex-col gap-4 md:flex-row">
             <div class="md:w-1/4">
                 <div class="h-40 bg-[#CCCCCC]"></div>
             </div>
@@ -108,7 +108,7 @@
         </div>
     </div>
 
-    <a class="mt-16 mb-80 block bg-primaryVariant p-9 text-center text-xl font-bold text-white transition-opacity hover:opacity-90 dark:bg-primaryVariantDark dark:text-dark-mode"
+    <a class="mb-80 mt-16 block bg-primaryVariant p-9 text-center text-xl font-bold text-white transition-opacity hover:opacity-90 dark:bg-primaryVariantDark dark:text-dark-mode"
         href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
         target="_SEJ" rel="noreferrer">
         Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>

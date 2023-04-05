@@ -1,6 +1,6 @@
 <!-- Header -->
-<header class="h-min w-full bg-[#EEEEEE] py-3 px-4 font-bold dark:bg-[#1E1E1E]">
-    <div class="container flex h-full flex-wrap justify-between">
+<header class="h-min w-full bg-[#EEEEEE] px-4 py-3 font-bold dark:bg-[#1E1E1E]">
+    <div class="container mx-auto flex h-full flex-wrap justify-between">
         <a class="flex items-center" href="/">
             <img class="h-16 dark:invert" src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" />
         </a>
@@ -31,7 +31,7 @@
                             </div>
                         </button>
 
-                        <div class="absolute top-14 left-0 right-0 z-20 flex flex-col gap-2" x-cloak x-show="show"
+                        <div class="absolute left-0 right-0 top-14 z-20 flex flex-col gap-2" x-cloak x-show="show"
                             x-transition @click.outside="show = false">
                             @can('admin')
                                 <a class="z-20 block w-full border-2 border-dark bg-white p-3 text-center font-bold transition-colors hover:bg-blue-500 hover:text-white"

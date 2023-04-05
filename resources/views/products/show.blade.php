@@ -53,7 +53,7 @@
             </div>
 
             <div class="basis-0">
-                <p class="w-full bg-primary p-9 text-center text-2xl font-bold text-white md:w-min md:py-9 md:px-4">
+                <p class="w-full bg-primary p-9 text-center text-2xl font-bold text-white md:w-min md:px-4 md:py-9">
                     Ingin membuat packaging custom? <span class="whitespace-nowrap">hubungi kami</span> <a class="underline"
                         href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
                         target="_SEJ" rel="noreferrer">Disini</a>

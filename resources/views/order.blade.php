@@ -3,7 +3,7 @@
     <h1 class="my-14 text-center text-4xl">Cara Order</h1>
 
     <div
-        class="container flex flex-col items-center gap-y-6 px-4 md:grid md:grid-cols-[1fr,90px,1fr] md:items-stretch lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
+        class="container mx-auto flex flex-col items-center gap-y-6 px-4 md:grid md:grid-cols-[1fr,90px,1fr] md:items-stretch lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
 
         <div
             class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:min-w-0">

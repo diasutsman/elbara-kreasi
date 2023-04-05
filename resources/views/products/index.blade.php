@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-    <section class="mt-1 mb-24 px-4 text-center dark:text-white">
+    <section class="mb-24 mt-1 px-4 text-center dark:text-white">
 
-        <div class="container">
+        <div class="container mx-auto">
             <h2 class="mt-8 text-3xl font-bold">Produk Kami</h2>
 
             <ul
-                class="button-group filter-button-group mx-auto mt-5 mb-16 flex w-fit flex-wrap justify-center overflow-hidden font-normal text-[#A3A3A3] md:flex-nowrap md:divide-x-[1px] md:divide-[#DBDBDB] md:rounded-md md:border-[1px] md:border-[#DBDBDB]">
+                class="button-group filter-button-group mx-auto mb-16 mt-5 flex w-fit flex-wrap justify-center overflow-hidden font-normal text-[#A3A3A3] md:flex-nowrap md:divide-x-[1px] md:divide-[#DBDBDB] md:rounded-md md:border-[1px] md:border-[#DBDBDB]">
                 <li>
                     <button
                         class="h-full bg-secondary p-3 text-base font-normal text-white transition-colors hover:bg-secondary hover:text-white"
@@ -34,7 +34,7 @@
 
                             @if ($product->is_best_seller)
                                 <div class="col-span-full row-span-full p-2">
-                                    <p class="w-fit bg-onPrimary py-2 px-3 text-white">Best Seller</p>
+                                    <p class="w-fit bg-onPrimary px-3 py-2 text-white">Best Seller</p>
                                 </div>
                             @endif
                         </div>
