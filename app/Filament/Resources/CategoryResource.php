@@ -30,7 +30,8 @@ class CategoryResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
-                    ->directory('category-images'),
+                    ->directory('category-images')
+                    ->required(),
             ]);
     }
 

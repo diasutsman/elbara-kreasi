@@ -39,7 +39,8 @@ class PortfoliosRelationManager extends RelationManager
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
-                    ->directory('portfolio-images'),
+                    ->directory('portfolio-images')
+                    ->required(),
             ]);
     }
 

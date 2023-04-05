@@ -27,7 +27,8 @@ class ProductResource extends Resource
                     ->reactive()
                     ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state)))
                     ->maxLength(255),
-                Forms\Components\Select::make('category_id')->relationship('category', 'name'),
+                Forms\Components\Select::make('category_id')->relationship('category', 'name')
+                    ->required(),
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
@@ -72,7 +73,7 @@ class ProductResource extends Resource
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->directory('product-images')
-                    ->default('image'),
+                    ->required(),
                 Forms\Components\TextInput::make('price')
                     ->numeric()
                     ->required(),
