@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Portfolio;
+use Illuminate\Support\Str;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Forms\Components\TextInput;
@@ -26,14 +27,22 @@ class PortfolioResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
+                    ->reactive()
+                    ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state)))
                     ->maxLength(255),
-                Forms\Components\Select::make('product')
-                    ->searchable()
-                    ->relationship('product', 'name'),
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('image'),
+                Forms\Components\TextInput::make('client')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Select::make('product_id')
+                    ->searchable()
+                    ->required()
+                    ->relationship('product', 'name'),
+                Forms\Components\FileUpload::make('image')
+                    ->directory('portfolio-images')
+                    ->required(),
             ]);
     }
 
@@ -42,6 +51,7 @@ class PortfolioResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('client')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('product.name')->searchable()->sortable(),
                 Tables\Columns\ImageColumn::make('image'),
             ])
