@@ -27,8 +27,12 @@ class PortfolioResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('client')
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\Select::make('product')
                     ->searchable()
+                    ->required()
                     ->relationship('product', 'name'),
                 Forms\Components\TextInput::make('slug')
                     ->required()
@@ -42,6 +46,7 @@ class PortfolioResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('client')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('product.name')->searchable()->sortable(),
                 Tables\Columns\ImageColumn::make('image'),
             ])
