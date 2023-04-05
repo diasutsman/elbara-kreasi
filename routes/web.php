@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminPortfolioController;
+use App\Http\Controllers\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::get('/about', [NavigationController::class, 'about'])->name('about');
 Route::get('/order', [NavigationController::class, 'order'])->name('order');
 
 Route::resource('/products', ProductController::class)->only('index', 'show');
+Route::resource('/portfolios', PortfolioController::class)->only('index');
 
 Route::post('/email', [MailController::class, 'send'])->name('email');
 
