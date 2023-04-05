@@ -32,6 +32,9 @@ class PortfoliosRelationManager extends RelationManager
                     ->reactive()
                     ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state)))
                     ->maxLength(255),
+                Forms\Components\TextInput::make('client')
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
@@ -43,8 +46,9 @@ class PortfoliosRelationManager extends RelationManager
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('title')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('client')->searchable()->sortable(),
+                Tables\Columns\ImageColumn::make('image')->searchable()->sortable(),
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),
