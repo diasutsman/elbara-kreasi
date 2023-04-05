@@ -97,6 +97,7 @@ class DatabaseSeeder extends Seeder
             Portfolio::create([
                 'title' => 'Portfolio ' . Str::before($image, '.'),
                 'slug' => SlugService::createSlug(Portfolio::class, 'slug', 'Portfolio ' . Str::before($image, '.')),
+                'client' => 'Client ' . Str::before($image, '.'),
                 'image' => 'portfolio-images/' . $image,
                 'product_id' => Product::all()->random()->id,
             ]);
