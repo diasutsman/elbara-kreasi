@@ -23,6 +23,8 @@
         <div class="flex-[1.5]">
             @yield('content')
         </div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
     </div>
 </body>
 

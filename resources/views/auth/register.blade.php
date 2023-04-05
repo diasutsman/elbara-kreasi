@@ -7,7 +7,10 @@
             <p class="mt-6 text-xl">Have an account? <a class="text-onPrimary underline transition-colors hover:text-primary"
                     href="{{ route('login') }}">Login Here</a></p>
 
-            <form class="mt-16 flex flex-col gap-y-11" action="{{ route('register') }}" method="POST">
+            <form class="mt-16 flex flex-col gap-y-11" action="{{ route('register') }}" method="POST" x-data="{
+                submitting: false,
+            }"
+                @submit.prevent="submitting = true;$el.submit()">
                 @csrf
                 <div class="flex flex-col gap-y-4">
                     <label class="text-xl font-bold text-[#777]" for="email">Email</label>
@@ -46,8 +49,17 @@
                 </div>
 
                 <button
-                    class="self-start rounded-xl bg-primary px-8 py-4 font-bold text-white transition-all hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                    type="submit">Register</button>
+                    class="grid place-items-center self-start rounded-xl bg-primary px-8 py-4 font-bold text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 enabled:hover:opacity-90"
+                    :class="submitting && 'opacity-50'" type="submit" :disabled="submitting">
+                    <span class="col-span-full row-span-full" :class="submitting && 'opacity-0'">Register</span>
+                    <svg class="col-span-full row-span-full h-6 w-6 animate-spin" x-show="submitting" x-cloak
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path fill="currentColor" d="M4 12a8 8 0 018-8v8H4z">
+                        </path>
+                    </svg>
+                </button>
             </form>
         </div>
     </div>
