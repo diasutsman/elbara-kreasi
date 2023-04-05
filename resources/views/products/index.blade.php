@@ -20,9 +20,7 @@
                     </li>
                 @endforeach
             </ul>
-
-            {{-- <div class="products mt-4 gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"> --}}
-            <div class="products sm:-mr-4">
+            <div class="products sm:-mr-6">
                 @foreach ($products as $product)
                     <a class="product {{ $product->category->slug }} block w-full text-left sm:w-1/2 sm:pb-6 sm:pr-6 lg:w-1/3 xl:w-1/4"
                         href="{{ route('products.show', $product->slug) }}">
