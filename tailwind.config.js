@@ -15,7 +15,7 @@ module.exports = {
                 primaryVariant: "#79A172",
                 primaryVariantDark: "#7AA172",
                 secondary: "#6CC4A1",
-                placeholder: "#D9D9D9",
+                placeholder: "#D9D9D900",
 
                 // Dark Section
                 secondaryDark: "#7ECBAC",

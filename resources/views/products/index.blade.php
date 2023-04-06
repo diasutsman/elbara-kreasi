@@ -25,12 +25,12 @@
                     @foreach ($products as $product)
                         <a class="product {{ $product->category->slug }} block w-full text-left sm:w-1/2 sm:pb-6 sm:pr-6 lg:w-1/3 xl:w-1/4"
                             href="{{ route('products.show', $product->slug) }}">
-                            <div class="grid h-auto w-full overflow-hidden bg-[#d9d9d9]">
+                            <div class="grid h-auto w-full overflow-hidden bg-placeholder">
                                 <img class="col-span-full row-span-full block h-full w-full object-center"
                                     src="@if ($product->image) {{ asset('storage/' . $product->image) }}
                                 @else /img/placeholder.webp @endif"
                                     alt="{{ $product->name }}" height="100" width="100" loading="lazy">
-    
+
                                 @if ($product->is_best_seller)
                                     <div class="col-span-full row-span-full p-2">
                                         <p class="w-fit bg-onPrimary px-3 py-2 text-white">Best Seller</p>

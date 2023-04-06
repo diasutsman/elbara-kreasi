@@ -9,7 +9,7 @@
                     <div class="pagination-button-group flex flex-wrap">
                         @foreach (range(1, $portfolios->count() / 10) as $page)
                             <button
-                                class="@if ($page == 1) text-secondary border-secondary border-opacity-100 @endif @if($page != 1) border-opacity-10 @endif grid h-11 w-11 place-items-center rounded-md border border-solid border-black transition-colors hover:border-secondary hover:text-secondary"
+                                class="@if ($page == 1) text-secondary border-secondary border-opacity-100 @endif @if ($page != 1) border-opacity-10 @endif grid h-11 w-11 place-items-center rounded-md border border-solid border-black transition-colors hover:border-secondary hover:text-secondary"
                                 data-filter=".page-{{ $page }}">
                                 {{ $page }}
                             </button>
@@ -31,7 +31,7 @@
                     @foreach (range(0, $portfolios->count() - 1) as $index)
                         <div
                             class="portfolio page-{{ floor($index / 10) + 1 }} block h-auto w-full pb-6 text-left sm:w-1/2 sm:pr-6 md:w-1/3 lg:w-1/4">
-                            <div class="h-auto w-full overflow-hidden bg-[#d9d9d9]">
+                            <div class="h-auto w-full overflow-hidden bg-placeholder">
                                 <img class="block h-full w-full object-center"
                                     src="@if ($portfolios[$index]->image) {{ asset('storage/' . $portfolios[$index]->image) }}
                                 @else /img/placeholder.webp @endif"
@@ -67,7 +67,8 @@
         paginationButtons.forEach(button => {
             button.addEventListener('click', () => {
                 paginationButtons.forEach(btn => {
-                    btn.classList.remove('border-secondary', 'text-secondary', 'border-opacity-100');
+                    btn.classList.remove('border-secondary', 'text-secondary',
+                    'border-opacity-100');
                     btn.classList.add('border-opacity-10');
                 })
                 button.classList.add('border-secondary', 'text-secondary', 'border-opacity-100');
