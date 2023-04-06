@@ -16,7 +16,9 @@ class PortfolioController extends Controller
     public function index()
     {
         return view('portfolios.index', [
-            'portfolios' => Portfolio::all()
+            // 'portfolios' => Portfolio::paginate(10)->withQueryString(),
+            // 'portfolios' => Portfolio::limit(20)->get(),
+            'portfolios' => Portfolio::all(),
         ]);
     }
 }

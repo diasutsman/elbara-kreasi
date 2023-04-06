@@ -6,9 +6,6 @@ export default defineConfig({
         laravel({
             input: [
                 "resources/js/app.js",
-                "resources/js/categories.js",
-                "resources/js/portfolios.js",
-                "resources/js/products.js",
                 "resources/css/app.css",
                 "resources/css/product.css",
             ],
