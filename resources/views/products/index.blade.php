@@ -30,7 +30,7 @@
                             <img class="col-span-full row-span-full block h-full w-full object-center"
                                 src="@if ($product->image) {{ asset('storage/' . $product->image) }}
                             @else /img/placeholder.webp @endif"
-                                alt="">
+                                alt="{{ $product->name }}" height="100" width="100" loading="lazy">
 
                             @if ($product->is_best_seller)
                                 <div class="col-span-full row-span-full p-2">
