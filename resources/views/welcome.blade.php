@@ -33,7 +33,7 @@
             <div class="mt-4 grid gap-12 grid-auto-fit-[15rem]">
                 @foreach ($categories as $category)
                     <a class="group" href="{{ route('categories.show', $category->slug) }}">
-                        <div class="grid min-h-[250px] bg-[#d9d9d9]">
+                        <div class="grid bg-[#d9d9d9]">
                             <div
                                 class="z-10 col-span-full row-span-full grid aspect-square place-items-center place-self-center rounded-full bg-white p-1 opacity-0 transition-opacity group-hover:opacity-100">
                                 <p class="text-base font-bold text-primary dark:text-onPrimary">Lihat Produk</p>
