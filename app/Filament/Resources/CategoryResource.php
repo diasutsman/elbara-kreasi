@@ -30,8 +30,9 @@ class CategoryResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
-                    ->directory('category-images')
-                    ->required(),
+                    ->directory('category-images'),
+                Forms\Components\FileUpload::make('header_image')
+                    ->directory('category-header-images'),
             ]);
     }
 
@@ -42,6 +43,7 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('slug')->searchable()->sortable(),
                 Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('header_image'),
             ])
             ->filters([
                 //

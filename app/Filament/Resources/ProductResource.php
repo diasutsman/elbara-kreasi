@@ -72,8 +72,7 @@ class ProductResource extends Resource
                     ->maxLength(65535),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->directory('product-images')
-                    ->required(),
+                    ->directory('product-images'),
                 Forms\Components\TextInput::make('price')
                     ->numeric()
                     ->required(),

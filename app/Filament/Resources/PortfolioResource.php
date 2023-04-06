@@ -41,8 +41,7 @@ class PortfolioResource extends Resource
                     ->required()
                     ->relationship('product', 'name'),
                 Forms\Components\FileUpload::make('image')
-                    ->directory('portfolio-images')
-                    ->required(),
+                    ->directory('portfolio-images'),
             ]);
     }
 

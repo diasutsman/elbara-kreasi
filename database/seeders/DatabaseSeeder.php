@@ -49,24 +49,28 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'name' => 'Kemasan Makanan',
             'image'=> 'category-images/kemasan-makanan.webp',
+            'header_image' => 'category-header-images/kemasan-makanan.webp',
             'slug' => 'kemasan-makanan',
         ]);
 
         Category::create([
             'name' => 'Kemasan Produk',
             'image'=> 'category-images/kemasan-produk.webp',
+            'header_image' => 'category-header-images/kemasan-produk.webp',
             'slug' => 'kemasan-produk',
         ]);
 
         Category::create([
             'name' => 'Perlengkapan Kantor',
             'image'=> 'category-images/perlengkapan-kantor.webp',
+            'header_image' => 'category-header-images/perlengkapan-kantor.webp',
             'slug' => 'perlengkapan-kantor',
         ]);
 
         Category::create([
             'name' => 'Kalender & Notes',
             'image'=> 'category-images/kalender-notes.webp',
+            'header_image' => 'category-header-images/kalender-notes.webp',
             'slug' => 'kalender-notes',
         ]);
 
