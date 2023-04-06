@@ -3,13 +3,26 @@
     <section class="container mx-auto mb-24 mt-12 px-4 dark:text-white">
         <section class="flex flex-col gap-10 md:flex-row">
             <div class="flex shrink basis-[400px] flex-col gap-y-6">
-                {{-- <div class="w-full min-h-[400px] bg-placeholder"></div> --}}
-                <img class="mx-auto w-full max-w-[400px]"
-                    src="@if ($product->image) {{ asset('storage/' . $product->image) }}@else {{ asset('img/placeholder.webp') }} @endif"
-                    alt="{{ $product->name }}">
+                <figure class="relative mx-auto w-full max-w-[400px] cursor-zoom-in overflow-hidden"
+                    x-data="{
+                        zoom(e) {
+                            var zoomer = e.currentTarget;
+                            e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+                            e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+                            x = offsetX / zoomer.offsetWidth * 100
+                            y = offsetY / zoomer.offsetHeight * 100
+                            zoomer.style.backgroundPosition = x + '% ' + y + '%';
+                        }
+                    }"
+                    style="background-image: url('@if ($product->image) {{ asset('storage/' . $product->image) }}@else{{ asset('img/placeholder.webp') }} @endif')" @mousemove="zoom(event)" @mouseleave="$el.style.backgroundPosition=null">
+                    <img class="block w-full transition-opacity duration-500 hover:opacity-0"
+                        src="@if ($product->image) {{ asset('storage/' . $product->image) }}@else {{ asset('img/placeholder.webp') }} @endif"
+                        alt="{{ $product->name }}">
+                </figure>
+
                 <div class="pswp-gallery flex flex-wrap justify-center gap-2" id="my-gallery">
                     @foreach ($product->portfolios as $portfolio)
-                        <a class="w-[70px]" data-pswp-width="700" data-pswp-height="700" href="{{ $portfolio->image }}"
+                        <a class="w-[70px]" data-pswp-width="700" data-pswp-height="700" href="@if ($portfolio->image) {{ asset('storage/' . $portfolio->image) }}@else {{ asset('img/placeholder.webp') }} @endif"
                             target="_blank">
                             <img src="@if ($portfolio->image) {{ asset('storage/' . $portfolio->image) }}@else {{ asset('img/placeholder.webp') }} @endif"
                                 alt="{{ $portfolio->title }}" loading="lazy" />
