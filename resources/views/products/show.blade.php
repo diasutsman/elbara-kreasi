@@ -147,7 +147,7 @@
 @endsection
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
-    <script src="{{ asset('/js/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('/vendor/owlcarousel/owl.carousel.min.js') }}"></script>
 
     <script type="module">
             $(document).ready(function() {
@@ -200,8 +200,8 @@
 @endsection
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/owlcarousel/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/owlcarousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/owlcarousel/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
     @vite('resources/css/product.css')
 @endsection

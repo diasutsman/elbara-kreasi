@@ -27,16 +27,19 @@
                         </svg>
                     </button>
                 </div>
-                <div class="portfolios sm:-mr-6 sm:px-0">
+                <div class="portfolios sm:-mr-6 sm:px-0" id="my-gallery">
                     @foreach (range(0, $portfolios->count() - 1) as $index)
                         <div
                             class="portfolio page-{{ floor($index / 10) + 1 }} block h-auto w-full pb-6 text-left sm:w-1/2 sm:pr-6 md:w-1/3 lg:w-1/4">
-                            <div class="h-auto w-full overflow-hidden bg-placeholder">
+                            <a class="block h-auto w-full overflow-hidden bg-placeholder" data-pswp-width="700"
+                                data-pswp-height="700"
+                                href="@if ($portfolios[$index]->image) {{ asset('storage/' . $portfolios[$index]->image) }}
+                                @else /img/placeholder.webp @endif">
                                 <img class="block h-full w-full object-center"
                                     src="@if ($portfolios[$index]->image) {{ asset('storage/' . $portfolios[$index]->image) }}
                                 @else /img/placeholder.webp @endif"
                                     loading="lazy" alt="" width="100" height="100">
-                            </div>
+                            </a>
                             <p class="mt-4 text-base font-bold uppercase">{{ $portfolios[$index]->title }}</p>
                             <p class="mt-1 text-xs text-muted">{{ $portfolios[$index]->client }}</p>
                         </div>
@@ -48,9 +51,19 @@
     </section>
 @endsection
 
+@section('styles')
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
+    <style>
+        /* override zoom cursor */
+        .pswp__img {
+            cursor: pointer !important;
+        }
+    </style>
+@endsection
+
 @section('scripts')
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-    <script>
+    <script type="module">
         /* Isotope Code */
         const iso = new Isotope('.portfolios', {
             itemSelector: '.portfolio',
@@ -68,7 +81,7 @@
             button.addEventListener('click', () => {
                 paginationButtons.forEach(btn => {
                     btn.classList.remove('border-secondary', 'text-secondary',
-                    'border-opacity-100');
+                        'border-opacity-100');
                     btn.classList.add('border-opacity-10');
                 })
                 button.classList.add('border-secondary', 'text-secondary', 'border-opacity-100');
@@ -82,5 +95,15 @@
         iso.arrange({
             filter: '.page-1'
         });
+
+        import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '#my-gallery',
+            children: 'a',
+            imageClickAction: 'close',
+            tapAction: 'close',
+            pswpModule: () => import('https://unpkg.com/photoswipe')
+        });
+        lightbox.init()
     </script>
 @endsection
