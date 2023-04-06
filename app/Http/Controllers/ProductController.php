@@ -30,6 +30,12 @@ class ProductController extends Controller
     {
         return view('products.show', [
             'product' => $product,
+            'related_products' => Product::where('category_id', $product->category_id)
+                ->without('category')
+                ->inRandomOrder()
+                ->where('id', '!=', $product->id)
+                ->take(rand(4, 5))
+                ->get(),
         ]);
     }
 }

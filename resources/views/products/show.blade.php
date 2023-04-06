@@ -111,16 +111,21 @@
         </section>
 
         <section class="mt-16">
-            <h2 class="text-xl font-bold">Produk Terkait</h2>
+            <h2 class="text-xl font-bold text-dark">Produk Terkait</h2>
 
             <div class="owl-carousel related-carousel mt-10 flex gap-x-9 overflow-x-hidden">
-                @foreach (range(1, 4) as $index)
-                    <a href="#">
-                        <div class="min-h-[184px] w-full bg-placeholder">
-                            <img src="{{ asset('img/placeholder.webp') }}" alt="">
-                        </div>
-                        <p class="mt-4">Nama Produk</p>
-                    </a>
+                @foreach ($related_products as $product)
+                    <div>
+                        <a class="block min-h-[184px] w-full bg-placeholder"
+                            href="{{ route('products.show', $product->slug) }}">
+                            <img src="@if ($product->image) {{ asset('storage/' . $product->image) }}
+                                @else
+                                    {{ asset('/images/placeholder.png') }} @endif"
+                                alt="">
+                        </a>
+                        <a class="mt-4 block text-center font-bold text-dark"
+                            href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a>
+                    </div>
                 @endforeach
             </div>
         </section>
