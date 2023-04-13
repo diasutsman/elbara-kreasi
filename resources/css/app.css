@@ -24,20 +24,22 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 
-.hamburger-line {
-    @apply my-2 block h-[2px] w-[30px] bg-dark transition duration-300 dark:bg-linkDarkMode;
-}
-
-.hamburger-active > span:nth-child(1) {
-    @apply rotate-45;
-}
-
-.hamburger-active > span:nth-child(3) {
-    @apply -rotate-45;
-}
-
-.hamburger-active > span:nth-child(2) {
-    @apply scale-0;
+@layer components {
+    .hamburger-line {
+        @apply block h-[2px] rounded-full w-[30px] bg-dark transition duration-300 dark:bg-linkDarkMode;
+    }
+    
+    .hamburger-active > span:nth-child(1) {
+        @apply rotate-45;
+    }
+    
+    .hamburger-active > span:nth-child(3) {
+        @apply -rotate-45;
+    }
+    
+    .hamburger-active > span:nth-child(2) {
+        @apply scale-0;
+    }
 }
 
 /* Admin Styles */
