@@ -10,14 +10,22 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* Tailwind CSS */
-[x-cloak] { display: none !important; }
+[x-cloak] {
+    display: none !important;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .container {
+        @apply max-w-6xl;
+    }
+}
+
 .hamburger-line {
-    @apply my-2 block h-[2px] w-[30px] bg-dark dark:bg-linkDarkMode transition duration-300;
+    @apply my-2 block h-[2px] w-[30px] bg-dark transition duration-300 dark:bg-linkDarkMode;
 }
 
 .hamburger-active > span:nth-child(1) {
@@ -125,17 +133,17 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
 /* Loading */
 .dataTables_wrapper .dataTables_processing {
     /* @apply absolute left-1/2 -translate-x-1/2 m-0 -top-16 bg-opacity-100 h-auto p-0 w-full from-transparent to-transparent bg-gradient-to-b; */
-    @apply w-auto left-1/2 m-0 -translate-x-1/2 p-0 h-auto invisible -top-4;
+    @apply invisible -top-4 left-1/2 m-0 h-auto w-auto -translate-x-1/2 p-0;
 }
 
 .dataTables_wrapper .dataTables_processing::after {
-    @apply block visible indent-0 leading-[initial] font-bold text-4xl;
-    content: 'Loading...';
+    @apply visible block indent-0 text-4xl font-bold leading-[initial];
+    content: "Loading...";
 }
 
 /* input styles */
 .is-invalid {
-    @apply bg-red-50 border border-red-500 text-red-900 placeholder:text-red-700 focus:ring-red-500 focus:border-red-500 dark:bg-red-100 dark:border-red-400;
+    @apply border border-red-500 bg-red-50 text-red-900 placeholder:text-red-700 focus:border-red-500 focus:ring-red-500 dark:border-red-400 dark:bg-red-100;
 }
 
 .is-invalid::placeholder {
