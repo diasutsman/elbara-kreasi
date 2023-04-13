@@ -2,7 +2,7 @@
 @section('content')
     <!-- Hero -->
     <div class="px-4 dark:text-white">
-        <div class="container mx-auto mt-16 flex flex-wrap gap-y-8">
+        <div class="container mt-16 flex flex-wrap gap-y-8">
             <div class="md:flex-1">
                 <div class="flex h-full flex-col items-start justify-center gap-4 md:mr-40">
                     <h1 class="text-4xl font-bold">
@@ -28,7 +28,7 @@
 
     {{-- Category --}}
     <section class="mt-36 px-4 text-center dark:text-white">
-        <div class="container mx-auto">
+        <div class="container">
             <h2 class="text-3xl font-bold">Kategori Pilihan</h2>
             <div class="mt-4 grid gap-12 grid-auto-fit-[15rem]">
                 @foreach ($categories as $category)
@@ -54,7 +54,7 @@
 
     {{-- Best Seller Product --}}
     <section class="mt-16 px-4 text-center dark:text-white">
-        <div class="container mx-auto">
+        <div class="container">
             <h2 class="text-3xl font-bold">Product Best Seller</h2>
             <div class="mt-4 grid gap-12 grid-auto-fit-[15rem]">
                 @foreach ($products as $product)
@@ -85,7 +85,7 @@
     </section>
 
     <div class="mt-16 px-4">
-        <a class="container mx-auto block rounded-md bg-secondary p-4 text-center font-bold text-white transition-opacity hover:opacity-80 focus:bg-opacity-80 dark:bg-secondaryDark dark:text-dark-mode"
+        <a class="container block rounded-md bg-secondary p-4 text-center font-bold text-white transition-opacity hover:opacity-80 focus:bg-opacity-80 dark:bg-secondaryDark dark:text-dark-mode"
             href="{{ route('products.index') }}">
             Lihat Produk Lainnya
         </a>
@@ -99,7 +99,7 @@
 
     {{-- Why Us & Contact us form --}}
     <div class="mb-60 mt-24 px-4 dark:text-white">
-        <div class="container mx-auto flex flex-col gap-16 md:flex-row">
+        <div class="container flex flex-col gap-16 md:flex-row">
             {{-- Why Us --}}
             <div>
                 <h1 class="text-4xl font-bold">Kenapa Kami?</h1>

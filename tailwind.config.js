@@ -1,14 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: "class",
-    content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./public/**/*.js",
-        "./resources/**/*.vue",
-    ],
+    content: ["./resources/**/*.blade.php", "./resources/**/*.js", "./public/**/*.js", "./resources/**/*.vue"],
     theme: {
         extend: {
+            container: {
+                center: true,
+            },
             colors: {
                 // Light Section
                 primary: "#A0D995",
@@ -41,8 +39,5 @@ module.exports = {
             },
         },
     },
-    plugins: [
-        require("@shrutibalasa/tailwind-grid-auto-fit"),
-        require('prettier-plugin-tailwindcss'),
-    ],
+    plugins: [require("@shrutibalasa/tailwind-grid-auto-fit"), require("prettier-plugin-tailwindcss")],
 };

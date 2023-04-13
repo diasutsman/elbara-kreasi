@@ -1,6 +1,6 @@
 <!-- Top Bar -->
 <div class="bg-primary p-4 text-sm font-bold text-onPrimary dark:text-onPrimaryDark">
-    <div class="container mx-auto flex h-full items-start justify-between gap-x-4 sm:items-center">
+    <div class="container flex h-full items-start justify-between gap-x-4 sm:items-center">
         <div class="flex flex-wrap justify-start gap-x-5 gap-y-4">
             <p><a href="https://facebook.com" target="_SEJ" rel="noreferrer"><i class="bi bi-facebook"></i> Facebook</a>
             </p>

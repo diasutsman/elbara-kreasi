@@ -2,7 +2,7 @@
 @section('content')
     <section class="mb-24 mt-1 px-6 text-center dark:text-white">
 
-        <div class="container mx-auto">
+        <div class="container">
             <h2 class="mt-8 text-3xl font-bold">Produk Kami</h2>
 
             <ul

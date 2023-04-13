@@ -1,6 +1,6 @@
 <footer>
     <div class="bg-primary px-4 pb-6 pt-11 font-bold text-onPrimary dark:text-onPrimaryDark">
-        <div class="container mx-auto flex flex-wrap justify-between gap-8 lg:flex-nowrap lg:gap-16">
+        <div class="container flex flex-wrap justify-between gap-8 lg:flex-nowrap lg:gap-16">
             <div>
                 <img class="w-52 lg:w-full" src="{{ asset('img/white-logo.webp') }}" alt="White Elbara Kreasi Logo">
             </div>
@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="bg-onPrimaryDark p-3 text-primary">
-        <div class="container mx-auto">
+        <div class="container">
             <p class="text-xs">©{{ date('Y') }} Elbara Kreasi Indonesia</p>
         </div>
     </div>

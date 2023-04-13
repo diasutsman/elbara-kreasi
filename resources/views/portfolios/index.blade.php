@@ -2,7 +2,7 @@
 @section('content')
     <section class="mb-24 mt-1 px-6 text-center dark:text-white">
 
-        <div class="container mx-auto">
+        <div class="container">
             <h2 class="mb-5 mt-8 text-3xl font-bold">Portfolio Kami</h2>
             <div class="px-10 sm:px-0">
                 <div class="mb-3 mt-5 flex justify-between">

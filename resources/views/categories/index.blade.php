@@ -2,7 +2,7 @@
 @section('content')
     <section class="mb-24 mt-1 px-4 text-center dark:text-white">
 
-        <div class="container mx-auto">
+        <div class="container">
             <div class="max-h-[250px] w-full overflow-hidden bg-placeholder">
                 <img class="w-full"
                     src="@if ($category->header_image) {{ asset('storage/' . $category->header_image) }}

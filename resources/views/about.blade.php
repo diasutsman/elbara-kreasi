@@ -2,7 +2,7 @@
 @section('content')
     {{-- Hero --}}
     <div class="px-4 dark:text-white">
-        <div class="container mx-auto mt-16 flex flex-wrap gap-y-8">
+        <div class="container mt-16 flex flex-wrap gap-y-8">
             <div class="md:flex-1">
                 <div class="flex h-full flex-col items-start justify-center gap-4 md:mr-14">
                     <h1 class="text-4xl font-bold text-dark">
@@ -35,7 +35,7 @@
 
     {{-- Points --}}
     <div class="my-32 block bg-primary p-16 text-center text-xl text-white dark:bg-primaryVariantDark dark:text-dark-mode">
-        <div class="container mx-auto flex flex-col gap-4 md:flex-row">
+        <div class="container flex flex-col gap-4 md:flex-row">
             <div class="md:w-1/4">
                 <div class="h-40 bg-[#CCCCCC]"></div>
             </div>
