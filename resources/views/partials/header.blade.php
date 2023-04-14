@@ -1,27 +1,27 @@
 <!-- Header -->
 <header class="h-min w-full bg-[#EEEEEE] py-2 font-bold dark:bg-[#1E1E1E]">
-    <div class="container flex h-full justify-center lg:justify-between">
+    <div class="container flex h-full justify-center sm:justify-between">
         <a class="flex items-center" href="/">
             <img class="h-16 dark:invert" src="{{ asset('/img/logo.webp') }}" alt="Elbara Kreasi Logo" />
         </a>
-        <ul class="hidden items-center justify-end text-dark dark:text-linkDarkMode lg:flex lg:divide-x-[0.5px]">
-            <li class="px-3">
+        <ul class="flex items-center justify-end text-dark dark:text-linkDarkMode lg:divide-x-[0.5px]">
+            <li class="hidden px-3 lg:block">
                 <p class="text-xs uppercase text-black dark:text-white">Telepon kami</p>
                 <p class="text-base"><a
                         href="tel:{{ phone($phoneNumbers, 'ID', 1) }}">{{ phone($phoneNumbers, 'ID', 2) }}</a></p>
             </li>
-            <li class="px-3">
+            <li class="hidden px-3 lg:block">
                 <p class="text-xs uppercase text-black dark:text-white">Whatsapp Kami</p>
                 <a class="text-base"
                     href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
                     target="_SEJ" rel="noreferrer">{{ phone($whatsappNumbers, 'ID', 2) }}</a>
             </li>
-            <li class="px-3">
+            <li class="hidden px-3 lg:block">
                 <p class="text-xs uppercase text-black dark:text-white">email kami</p>
                 <a class="text-base" href="mailto:{{ $emailReceiver }}">{{ $emailReceiver }}</a>
             </li>
             @auth
-                <li class="lg:px-3" x-data="{ show: false }">
+                <li class="lg:px-3 hidden sm:block" x-data="{ show: false }">
                     <div class="relative flex items-center justify-center">
                         <button class="flex cursor-pointer items-center gap-x-2" @click="show = !show">
                             <p>{{ auth()->user()->username }}</p>
@@ -47,7 +47,7 @@
                     </div>
                 </li>
             @else
-                <li class="flex flex-col gap-y-1 text-center lg:px-3">
+                <li class="hidden flex-col gap-y-1 text-center sm:flex lg:px-3">
                     <a class="rounded-md bg-secondary px-16 py-3 text-white transition-opacity hover:opacity-90"
                         href="{{ route('login') }}">Login</a>
                     <a class="rounded-md bg-primary px-16 py-3 text-white transition-opacity hover:opacity-90"
