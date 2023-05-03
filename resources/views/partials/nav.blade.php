@@ -47,12 +47,38 @@
                         </a>
                     </li>
                 </ul>
-                <div class="mt-6 flex flex-col gap-y-3 sm:hidden">
-                    <a class="block rounded-md bg-secondary px-3 py-2 text-white transition-opacity hover:opacity-90"
-                        href="{{ route('login') }}">Login</a>
-                    <a class="block rounded-md bg-primary px-3 py-2 text-white transition-opacity hover:opacity-90"
-                        href="{{ route('register') }}">Register</a>
-                </div>
+                @auth
+                    <div class="relative mt-6 flex items-center sm:hidden gap-2" x-data="{ show: false }">
+                        <button class="flex cursor-pointer items-center gap-x-2" @click="show = !show">
+                            <p>{{ auth()->user()->username }}</p>
+                            <div class="h-12 w-12 rounded-full bg-placeholder">
+                                <img src="{{ asset('img/user-placeholder.webp') }}"
+                                    alt="{{ auth()->user()->username }} Image">
+                            </div>
+                        </button>
+
+                        <div class="sm:absolute left-0 right-0 top-14 z-20 flex flex-col gap-2" x-cloak x-show="show"
+                            x-transition @click.outside="show = false">
+                            @can('admin')
+                                <a class="z-20 block w-full border-2 border-dark bg-white p-3 text-center font-bold transition-colors hover:bg-blue-500 hover:text-white"
+                                    href="/admin">Dashboard</a>
+                            @endcan
+
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button
+                                    class="z-20 w-full border-2 border-dark bg-white p-3 text-center font-bold transition-colors hover:bg-red-500 hover:text-white">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                @else
+                    <div class="mt-6 flex flex-col gap-y-3 sm:hidden">
+                        <a class="block rounded-md bg-secondary px-3 py-2 text-white transition-opacity hover:opacity-90"
+                            href="{{ route('login') }}">Login</a>
+                        <a class="block rounded-md bg-primary px-3 py-2 text-white transition-opacity hover:opacity-90"
+                            href="{{ route('register') }}">Register</a>
+                    </div>
+                @endauth
             </div>
         </div>
         <button
