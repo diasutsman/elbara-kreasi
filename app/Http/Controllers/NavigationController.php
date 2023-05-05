@@ -22,7 +22,7 @@ class NavigationController extends Controller
     {
         return view('welcome', [
             'categories' => Category::all(),
-            'products' => Product::where('is_best_seller', 1)->get(),
+            'products' => Product::where('is_best_seller', 1)->limit(10)->orderBy('updated_at', 'DESC')->get(),
         ]);
     }
 }
