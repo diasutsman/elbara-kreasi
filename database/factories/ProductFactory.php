@@ -26,7 +26,7 @@ class ProductFactory extends Factory
       'slug' => SlugService::createSlug(Product::class, 'slug', $name),
       'description' => collect($this->faker->paragraphs(mt_rand(1, 3)))
       ->map(fn ($p) => '<p>' . $p . '</p>')->join(''),
-      'is_best_seller' => $this->faker->boolean(70),
+      'is_best_seller' => $this->faker->boolean(1),
       'additional_information' => collect($this->faker->paragraphs(mt_rand(5, 10)))
       ->map(fn ($p) => '<p>' . $p . '</p>')->join(''),
       'price' => $this->faker->numberBetween(1000, 10_000_000),
