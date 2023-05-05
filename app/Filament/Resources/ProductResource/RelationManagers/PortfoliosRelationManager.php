@@ -47,8 +47,8 @@ class PortfoliosRelationManager extends RelationManager
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('client')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('title')->searchable()->sortable()->wrap(true),
+                Tables\Columns\TextColumn::make('client')->searchable()->sortable()->wrap(true),
                 Tables\Columns\ImageColumn::make('image')->searchable()->sortable(),
             ])
             ->headerActions([

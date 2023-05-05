@@ -49,9 +49,9 @@ class PortfolioResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('client')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('product.name')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('title')->searchable()->sortable()->wrap(true),
+                Tables\Columns\TextColumn::make('client')->searchable()->sortable()->wrap(true),
+                Tables\Columns\TextColumn::make('product.name')->searchable()->sortable()->wrap(true),
                 Tables\Columns\ImageColumn::make('image'),
             ])
             ->filters([

@@ -40,8 +40,8 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('slug')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('name')->searchable()->sortable()->wrap(true),
+                Tables\Columns\TextColumn::make('slug')->searchable()->sortable()->wrap(true),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\ImageColumn::make('header_image'),
             ])
