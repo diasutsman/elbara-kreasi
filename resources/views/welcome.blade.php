@@ -26,6 +26,47 @@
         </div>
     </div>
 
+    {{-- Product photos --}}
+    <section class="mt-36 px-4">
+        <div class="container">
+            <div class="mx-auto w-3/4 text-center">
+                <h1 class="text-xl font-bold text-onPrimary">Elbara Kreasi Indonesia</h1>
+                <h2 class="text-2xl font-bold text-dark">Solusi Packaging Custom Untuk Berbagai Macam Produk</h2>
+                <p class="text-[#606060]">Elbara Kreasi Indonesia adalah perusahaan importir dan supplier kemasan custom
+                    untuk
+                    berbagai macam produk seperti kemasan makanan, kemasan minuman, kemasan kosmetik, kartu nama, dan
+                    lain-lain
+                    dengan kualitas tinggi dan bermutu.</p>
+            </div>
+            <div class="mt-12 flex gap-5">
+                <div class="h-85 flex-1 bg-placeholder"></div>
+                <div class="h-85 flex-1 bg-placeholder"></div>
+                <div class="h-85 flex-1 bg-placeholder"></div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Why Us --}}
+    <section class="text-onPrimaryLight mt-32 bg-secondary">
+        <div class="container pb-12 pt-8">
+            <h1 class="text-center text-4xl font-bold">Kenapa Harus Elbara?</h1>
+            <div class="mt-12 flex gap-6">
+                <div
+                    class="border-onPrimaryLight h-80 flex-1 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+                </div>
+                <div
+                    class="border-onPrimaryLight h-80 flex-1 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+                </div>
+                <div
+                    class="border-onPrimaryLight h-80 flex-1 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+                </div>
+                <div
+                    class="border-onPrimaryLight h-80 flex-1 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- Category --}}
     <section class="mt-36 px-4 text-center dark:text-white">
         <div class="container">
@@ -52,76 +93,10 @@
         </div>
     </section>
 
-    {{-- Best Seller Product --}}
-    <section class="mt-16 px-4 text-center dark:text-white">
-        <div class="container">
-            <h2 class="text-3xl font-bold">Product Best Seller</h2>
-            <div class="mt-4 grid gap-12 grid-auto-fit-[15rem]">
-                @foreach ($products as $product)
-                    <a class="group text-left" href="{{ route('products.show', $product->slug) }}">
-                        <div class="grid overflow-hidden bg-placeholder">
-
-                            <div
-                                class="z-10 col-span-full row-span-full grid aspect-square place-items-center place-self-center rounded-full bg-white p-1 opacity-0 transition-opacity group-hover:opacity-100">
-                                <p class="text-base font-bold text-primary dark:text-onPrimary">Lihat Produk</p>
-                            </div>
-
-                            <div
-                                class="col-span-full row-span-full place-self-stretch bg-black opacity-0 transition-opacity group-hover:opacity-50">
-                            </div>
-
-                            <img class="col-span-full row-span-full w-full"
-                                src="@if ($product->image) {{ asset('storage/' . $product->image) }}
-                            @else
-                                /img/placeholder.webp @endif"
-                                alt="" loading="lazy">
-                        </div>
-                        <p class="mt-5 text-base font-bold uppercase">{{ $product->name }}</p>
-                        <p class="mt-1 text-xs text-muted">{{ $product->category->name }}</p>
-                    </a>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <div class="mt-16 px-4">
-        <a class="container block rounded-md bg-secondary p-4 text-center font-bold text-white transition-opacity hover:opacity-80 focus:bg-opacity-80 dark:bg-secondaryDark dark:text-dark-mode"
-            href="{{ route('products.index') }}">
-            Lihat Produk Lainnya
-        </a>
-    </div>
-
-    <a class="mt-16 block bg-primaryVariant p-9 text-center text-xl font-bold text-white transition-opacity hover:opacity-90 dark:bg-primaryVariantDark dark:text-dark-mode"
-        href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
-        target="_SEJ" rel="noreferrer">
-        Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>
-    </a>
-
-    {{-- Why Us & Contact us form --}}
+    {{-- Contact us form --}}
     <div class="mb-60 mt-24 px-4 dark:text-white">
         <div class="container flex flex-col gap-16 md:flex-row">
-            {{-- Why Us --}}
-            <div>
-                <h1 class="text-4xl font-bold">Kenapa Kami?</h1>
-                <h2 class="mt-11 text-2xl font-bold">
-                    Elbara Kreasi Indonesia - Solusi Packaging Custom Untuk Produk Kosmetik Profesional
-                </h2>
-                <p class="mt-4 text-sm font-thin tracking-wide text-desc">
-                    Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie,
-                    dictum est a, mattis
-                    tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus,
-                    ut interdum tellus
-                    elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Vorem ipsum
-                    dolor sit amet,
-                    consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.
-                    Sed dignissim, metus
-                    nec fringilla accumsan, risus sem sollicitudin lacus,
-                    ut interdum tellus elit sed risus. Maecenas eget
-                    condimentum velit, sit amet feugiat lectus.
-                </p>
-            </div>
-            {{-- Contact us form --}}
-            <div class="flex-shrink-0 flex-grow-0 basis-64">
+            <div class="ml-auto flex-shrink-0 flex-grow-0 basis-64">
                 <h1 class="mb-3 text-xl font-bold">Pemesanan via email</h1>
                 <form class="flex w-full flex-col gap-1" x-data="{
                     isLoading: false,

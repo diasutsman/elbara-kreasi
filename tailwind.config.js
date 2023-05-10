@@ -22,6 +22,7 @@ module.exports = {
                 dark: "#2D0333",
                 onPrimary: "#518646",
                 onPrimaryDark: "#5B974F",
+                onPrimaryLight: "#E3F8DF",
                 muted: "#9B9B9B",
                 desc: "#606060",
                 grey: "#D9D9D9",
