@@ -58,11 +58,6 @@
                         class="mt-12 w-full rounded-md bg-secondary py-4 font-bold text-white transition-opacity hover:opacity-90"
                         type="submit">Beli
                         Sekarang</button>
-
-                    <button
-                        class="mt-4 w-full rounded-md bg-primary py-4 font-bold text-white transition-opacity hover:opacity-90"
-                        type="submit">Tambahkan
-                        ke keranjang</button>
                 </form>
             </div>
 
