@@ -2,8 +2,8 @@
 @section('content')
     <!-- Hero -->
     <div class="px-4 dark:text-white">
-        <div class="container mt-16 flex flex-wrap gap-y-8">
-            <div class="md:flex-1">
+        <div class="container mt-16 flex flex-wrap sm:gap-y-8">
+            <div class="hidden sm:block md:flex-1">
                 <div class="flex h-full flex-col items-start justify-center gap-4 md:mr-40">
                     <h1 class="text-4xl font-bold">
                         Custom Cosmetic <br />
@@ -14,14 +14,28 @@
                         beatae incidunt quos officia nemo distinctio soluta. Voluptas sint
                         fugiat inventore?
                     </p>
-                    <a class="mt-4 rounded-full bg-secondary p-3 text-sm font-bold uppercase text-white transition-opacity hover:opacity-90 dark:bg-secondaryDark dark:text-dark-mode"
+                    <a class="mt-4 rounded-md bg-secondary p-3 text-sm font-bold uppercase text-white transition-opacity hover:opacity-90 dark:bg-secondaryDark dark:text-dark-mode"
                         href="#">
                         custom sekarang!
                     </a>
                 </div>
             </div>
             <div class="w-full md:flex-1">
-                <div class="h-80 rounded-[67px] bg-[#CCCCCC]"></div>
+                <div class="rounded-[25px] h-80 sm:rounded-[67px] bg-[#CCCCCC]"></div>
+            </div>
+
+            <!-- Hero Mobile -->
+            <div class="block mt-8 sm:hidden md:flex-1">
+                <div class="flex h-full flex-col items-start justify-center gap-4 md:mr-40">
+                    <h1 class="text-3xl font-bold">
+                        Custom Cosmetic <br />
+                        Packaging Solutions
+                    </h1>
+                    <a class="mt-4 rounded-md bg-secondary p-3 text-sm font-bold uppercase text-white transition-opacity hover:opacity-90 dark:bg-secondaryDark dark:text-dark-mode"
+                        href="#">
+                        custom sekarang!
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -29,22 +43,23 @@
     {{-- Product photos --}}
     <section class="mt-36 px-4">
         <div class="container">
-            <div class="mx-auto w-3/4 text-center">
-                <h1 class="text-xl font-bold text-onPrimary">Elbara Kreasi Indonesia</h1>
-                <h2 class="text-2xl font-bold text-dark">Solusi Packaging Custom Untuk Berbagai Macam Produk</h2>
+            <div class="sm:mx-auto sm:w-3/4 text-center">
+                <h1 class="text-xl font-bold text-onPrimary mb-2">Elbara Kreasi Indonesia</h1>
+                <h2 class="text-2xl font-bold text-dark mb-3">Solusi Packaging Custom Untuk Berbagai Macam Produk</h2>
                 <p class="text-[#606060]">Elbara Kreasi Indonesia adalah perusahaan importir dan supplier kemasan custom
                     untuk
                     berbagai macam produk seperti kemasan makanan, kemasan minuman, kemasan kosmetik, kartu nama, dan
                     lain-lain
                     dengan kualitas tinggi dan bermutu.</p>
             </div>
-            <div class="mt-12 flex gap-5">
-                <div class="h-85 flex-1 bg-placeholder"></div>
-                <div class="h-85 flex-1 bg-placeholder"></div>
-                <div class="h-85 flex-1 bg-placeholder"></div>
+            <div class="flex-nowrap mt-12 flex gap-5 overflow-x-scroll">
+                <div class="w-96 h-85 flex-none sm:h-85 sm:flex-1 bg-placeholder"></div>
+                <div class="w-96 h-85 flex-none sm:h-85 sm:flex-1 bg-placeholder"></div>
+                <div class="w-96 h-85 flex-none sm:h-85 sm:flex-1 bg-placeholder"></div>
             </div>
         </div>
     </section>
+    
 
     {{-- Why Us --}}
     <section class="text-onPrimaryLight mt-32 bg-secondary">

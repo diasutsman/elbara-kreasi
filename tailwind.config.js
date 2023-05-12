@@ -34,11 +34,10 @@ module.exports = {
             fontFamily: {
                 sans: ["Helvetica", "sans-serif"],
             },
-            height: {
-                85: "22rem",
-            },
             spacing: {
                 25: "100px",
+                85:"22rem",
+                half:"50%",
             },
         },
     },
