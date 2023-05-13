@@ -53,30 +53,47 @@
                     dengan kualitas tinggi dan bermutu.</p>
             </div>
             <div class="flex-nowrap mt-12 flex gap-5 overflow-x-scroll">
-                <div class="w-96 h-85 flex-none sm:h-85 sm:flex-1 bg-placeholder"></div>
-                <div class="w-96 h-85 flex-none sm:h-85 sm:flex-1 bg-placeholder"></div>
-                <div class="w-96 h-85 flex-none sm:h-85 sm:flex-1 bg-placeholder"></div>
+                <div class="w-96 h-85 flex-none sm:flex-1 bg-placeholder"></div>
+                <div class="w-96 h-85 flex-none sm:flex-1 bg-placeholder"></div>
+                <div class="w-96 h-85 flex-none sm:flex-1 bg-placeholder"></div>
             </div>
         </div>
     </section>
     
 
     {{-- Why Us --}}
-    <section class="text-onPrimaryLight mt-32 bg-secondary">
-        <div class="container pb-12 pt-8">
-            <h1 class="text-center text-4xl font-bold">Kenapa Harus Elbara?</h1>
-            <div class="mt-12 flex gap-6">
-                <div
-                    class="border-onPrimaryLight h-80 flex-1 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+    <section class="text-onPrimaryLight px-4 mt-32 bg-secondary">
+        <div class="container pb-12 pt-12">
+            <h1 class="block md:hidden text-2xl text-center md:text-4xl font-bold">Kenapa Harus di <br> Elbara Kreasi?</h1>
+            <div class="mt-12 sm:pb-24 sm:mt-0 flex flex-col gap-8 md:flex-row md:gap-0 md:overflow-auto xl:overflow-visible">
+
+                <div class="flex-none hidden md:block mr-26 self-center mt-24">
+                    <h1 class=" text-2xl text-left md:text-3xl font-bold max-w-xs">Kenapa Harus di Elbara Kreasi?</h1>
+                    <p class="text-onPrimaryLight text-left max-w-xs mt-4">Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed</p>
                 </div>
-                <div
-                    class="border-onPrimaryLight h-80 flex-1 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+
+                <div class="flex md:flex-none">
+                    <div class="border-onPrimaryLight bg-secondary h-56 w-56 flex-none md:w-48 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+                    </div>
+                    <p class="text-onPrimaryLight text-xl self-center pl-4 md:hidden">Morem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-                <div
-                    class="border-onPrimaryLight h-80 flex-1 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+
+                <div class="flex md:flex-none md:relative md:top-32 md:right-6">
+                    <p class="text-onPrimaryLight text-xl self-center pl-4 md:hidden">Morem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="border-onPrimaryLight bg-secondary h-56 w-56 flex-none md:w-48 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+                    </div>
                 </div>
-                <div
-                    class="border-onPrimaryLight h-80 flex-1 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+
+                <div class="flex md:flex-none md:relative md:right-12 md:2">
+                    <div class="border-onPrimaryLight bg-secondary h-56 w-56 flex-none md:w-48 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+                    </div>
+                    <p class="text-onPrimaryLight text-xl self-center pl-4 md:hidden">Morem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="flex md:flex-none md:relative md:top-32 md:right-18">
+                    <p class="text-onPrimaryLight text-xl self-center pl-4 md:hidden">Morem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="border-onPrimaryLight bg-secondary h-56 w-56 flex-none md:w-48 rounded-2xl border shadow-[4px_4px_10px_1px_rgba(81,134,70,0.35)]">
+                    </div>
                 </div>
             </div>
         </div>
