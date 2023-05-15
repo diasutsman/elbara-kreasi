@@ -27,6 +27,7 @@ class PortfolioFactory extends Factory
             'title' => $title,
             'slug' => SlugService::createSlug(Portfolio::class, 'slug', $title),
             'product_id' => Product::all()->random()->id,
+            'client' => $this->faker->company(),
         ];
     }
 }
