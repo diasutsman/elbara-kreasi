@@ -18,7 +18,7 @@
     @vite('resources/css/app.css')
 
     <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage))) {
+        if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark')
         } else {
             document.documentElement.classList.remove('dark')
@@ -33,9 +33,10 @@
     <link rel="stylesheet" href="/css/fonts.css">
 
     <title>Elbara Kreasi Indonesia</title>
+    @livewireStyles
 </head>
 
-<body class="dark:bg-dark-mode">
+<body class="dark:bg-dark-mode overflow-x-hidden">
     @include('partials.top-bar')
     @include('partials.header')
     @include('partials.nav')
@@ -44,12 +45,13 @@
 
     @include('partials.footer')
 
+    @livewireScripts
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @vite('resources/js/app.js')
     @yield('scripts')
-
+    
 </body>
 
 </html>
