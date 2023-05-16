@@ -1,6 +1,6 @@
 <!-- Nav Bar -->
 <nav
-    class="sticky top-0 z-10 w-full bg-white font-bold dark:bg-dark-mode dark:text-linkDarkMode sm:flex sm:justify-center sm:p-0">
+    class="sticky top-0 z-50 w-full bg-white font-bold dark:bg-dark-mode dark:text-linkDarkMode sm:flex sm:justify-center sm:p-0">
     <div class="relative mx-auto flex w-auto flex-wrap justify-between transition-colors sm:justify-center"
         x-data="{ menuOpen: false }" :class="menuOpen && 'max-sm:bg-[#F6F6F6]'">
         <button class="relative p-4 sm:hidden" id="hamburger" name="hamburger" type="button"
@@ -48,7 +48,7 @@
                     </li>
                 </ul>
                 @auth
-                    <div class="relative mt-6 flex items-center sm:hidden gap-2" x-data="{ show: false }">
+                    <div class="relative mt-6 flex items-center gap-2 sm:hidden" x-data="{ show: false }">
                         <button class="flex cursor-pointer items-center gap-x-2" @click="show = !show">
                             <p>{{ auth()->user()->username }}</p>
                             <div class="h-12 w-12 rounded-full bg-placeholder">
@@ -57,7 +57,7 @@
                             </div>
                         </button>
 
-                        <div class="sm:absolute left-0 right-0 top-14 z-20 flex flex-col gap-2" x-cloak x-show="show"
+                        <div class="left-0 right-0 top-14 z-20 flex flex-col gap-2 sm:absolute" x-cloak x-show="show"
                             x-transition @click.outside="show = false">
                             @can('admin')
                                 <a class="z-20 block w-full border-2 border-dark bg-white p-3 text-center font-bold transition-colors hover:bg-blue-500 hover:text-white"

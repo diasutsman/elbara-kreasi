@@ -21,8 +21,7 @@ class NavigationController extends Controller
     public function welcome()
     {
         return view('welcome', [
-            'categories' => Category::all(),
-            'products' => Product::where('is_best_seller', 1)->limit(10)->orderBy('updated_at', 'DESC')->get(),
+            'products' => Product::where('is_best_seller', 1)->limit(4)->orderBy('updated_at', 'DESC')->get(),
         ]);
     }
 }

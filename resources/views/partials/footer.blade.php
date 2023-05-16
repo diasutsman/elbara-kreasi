@@ -1,7 +1,7 @@
 <footer>
     <div class="bg-primary py-4 pb-6 font-bold text-onPrimary dark:text-onPrimaryDark xl:pt-11">
         <div
-            class="container flex flex-wrap justify-between gap-8 sm:max-md:px-10 md:max-lg:px-8 lg:max-xl:px-16 xl:flex-nowrap xl:gap-10">
+            class="container flex flex-wrap justify-between gap-8 md:max-lg:px-8 lg:max-xl:px-16 xl:flex-nowrap xl:gap-10">
             <div class="flex w-full justify-between gap-x-16">
                 <div class="grid content-center md:content-start">
                     <img class="w-36 md:w-56 xl:w-full" src="{{ asset('img/white-logo.webp') }}"

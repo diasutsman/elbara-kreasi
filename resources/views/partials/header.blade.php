@@ -47,7 +47,7 @@
                     </div>
                 </li>
             @else
-                <li class="hidden flex-col gap-y-1 text-center sm:flex lg:px-3">
+                <li class="hidden flex-col gap-y-1 text-center sm:flex lg:pl-3">
                     <a class="rounded-md bg-secondary px-16 py-3 text-white transition-opacity hover:opacity-90"
                         href="{{ route('login') }}">Login</a>
                     <a class="rounded-md bg-primary px-16 py-3 text-white transition-opacity hover:opacity-90"

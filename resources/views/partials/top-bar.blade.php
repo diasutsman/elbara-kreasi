@@ -1,5 +1,5 @@
 <!-- Top Bar -->
-<div class="bg-primary p-4 text-sm font-bold text-onPrimary dark:text-onPrimaryDark">
+<div class="bg-primary py-4 text-sm font-bold text-onPrimary dark:text-onPrimaryDark">
     <div class="container flex h-full items-start justify-between gap-x-4 sm:items-center">
         <div class="flex flex-wrap justify-start gap-x-5 gap-y-4">
             <p><a href="https://facebook.com" target="_SEJ" rel="noreferrer"><i class="bi bi-facebook"></i> Facebook</a>
@@ -46,17 +46,6 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="flex items-center gap-x-2">
-                <i class="bi bi-brightness-high-fill"></i>
-                <label class="relative inline-flex cursor-pointer items-center">
-                    <input class="peer sr-only" id="dark-mode-toggle" type="checkbox" x-on:change="toggleDark"
-                        :checked="dark">
-                    <div
-                        class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800">
-                    </div>
-                </label>
-                <i class="bi bi-moon-fill"></i>
             </div>
         </div>
 
