@@ -13,6 +13,10 @@
 @section('scripts')
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script>
+        Livewire.on('loadedMore', () => {
+            initIsotope();
+        })
+
         function initIsotope() {
             /* Isotope Code */
             const iso = new Isotope('.products', {
@@ -33,9 +37,5 @@
             })
         }
         initIsotope();
-        Livewire.on('loadedMore', () => {
-            initIsotope();
-            
-        })
     </script>
 @endsection

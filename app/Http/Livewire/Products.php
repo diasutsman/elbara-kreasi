@@ -13,6 +13,7 @@ class Products extends Component
     public function render()
     {
         $products = Product::paginate($this->page * 8);
+        $this->emit('loadedMore', $products);
         return view('livewire.products', [
             'products' => $products,
             'categories' => Category::whereIn('id', $products->map(fn($product) => $product->category_id))->get(),
@@ -22,10 +23,5 @@ class Products extends Component
     public function loadMore()
     {
         $this->page++;
-    }
-
-    public function dehydrate()
-    {
-        $this->emit('loadedMore');
     }
 }
