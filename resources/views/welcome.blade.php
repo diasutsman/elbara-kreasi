@@ -52,7 +52,7 @@
                     lain-lain
                     dengan kualitas tinggi dan bermutu.</p>
             </div>
-            <div class="mt-12 flex flex-nowrap gap-5 overflow-x-scroll">
+            <div class="mt-12 flex flex-nowrap gap-5 overflow-x-auto">
                 <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1"></div>
                 <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1"></div>
                 <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1"></div>
