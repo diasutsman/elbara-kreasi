@@ -1,4 +1,7 @@
 <div class="container">
+    @if ($products->count() == 0)
+        <h1 class="text-center text-2xl">Product with query "{{ $query }}" not found</h1>
+    @endif
     <div class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
         @foreach ($products as $product)
             <a class="group text-left" href="{{ route('products.show', $product->slug) }}">
