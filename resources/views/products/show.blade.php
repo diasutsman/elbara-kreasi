@@ -33,8 +33,8 @@
             </div>
 
             <div class="flex-1" x-data="{ price: {{ $product->price }}, quantity: 1 }">
-                <h1 class="text-3xl font-bold text-dark">{{ $product->name }}</h1>
-                <p class="mt-4 text-2xl text-secondary"
+                <h1 class="text-lg font-bold text-dark md:text-3xl">{{ $product->name }}</h1>
+                <p class="mt-4 text-lg text-secondary md:text-2xl"
                     x-text='new Intl.NumberFormat("id-ID", {
                     style: "currency",
                     currency: "IDR"
@@ -98,14 +98,14 @@
         </section>
 
         <section class="mt-8" x-data="{ tab: 1 }">
-            <div class="ml-4 flex gap-x-4 font-bold md:ml-8">
-                <button class="border-2 border-b-0 border-secondary p-3 transition-colors" @click="tab = 1"
+            <div class="ml-2 flex gap-x-4 font-bold md:ml-8">
+                <button class="border-2 border-b-0 border-secondary p-3 transition-colors max-md:text-xs" @click="tab = 1"
                     :class="tab == 1 && 'text-white bg-primary'">Deskripsi Produk</button>
-                <button class="border-2 border-b-0 border-secondary p-3 transition-colors" @click="tab = 2"
+                <button class="border-2 border-b-0 border-secondary p-3 transition-colors max-md:text-xs" @click="tab = 2"
                     :class="tab == 2 && 'text-white bg-primary'">Informasi Tambahan</button>
             </div>
 
-            <div class="border-y-2 border-secondary px-8 py-7">
+            <div class="min-h-[360px] border-y-2 border-secondary py-7">
                 <div x-show="tab == 1" x-transition:enter="transition ease-out duration-300"
                     x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="hidden">
                     {!! $product->description !!}
