@@ -2,71 +2,149 @@
 @section('content')
     <h1 class="my-14 text-center text-4xl">Cara Order</h1>
 
-    <div
-        class="container flex flex-col items-center gap-y-6 px-4 md:grid md:grid-cols-[1fr,90px,1fr] md:items-stretch lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
+    <div class="container">
 
         <div
-            class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:min-w-0">
-            <div class="text-center text-white">
-                <p>Masuk/Daftar <br> (Opsional)</p>
+            class="flex flex-col items-center gap-y-6 px-4 max-md:hidden md:grid md:grid-cols-[1fr,90px,1fr] md:items-stretch lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
+            <div
+                class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:min-w-0">
+                <div class="text-center text-white">
+                    <p>Masuk/Daftar <br> (Opsional)</p>
+                </div>
+                <div class="aspect-square w-full rounded-xl bg-grey"></div>
             </div>
-            <div class="aspect-square w-full rounded-xl bg-grey"></div>
-        </div>
 
-        <img class="hidden w-10 place-self-center md:block" src="{{ asset('img/arrow-right.svg') }}" alt="">
-        <img class="w-10 md:hidden" src="{{ asset('img/arrow-down.svg') }}" alt="">
+            <img class="hidden w-10 place-self-center md:block" src="{{ asset('img/arrow-right.svg') }}" alt="">
+            <img class="w-10 md:hidden" src="{{ asset('img/arrow-down.svg') }}" alt="">
 
-        <div
-            class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:min-w-0">
-            <div class="text-center text-white">
-                <p>Pilih Item yang Mau Dibeli</p>
+            <div
+                class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:min-w-0">
+                <div class="text-center text-white">
+                    <p>Pilih Item yang Mau Dibeli</p>
+                </div>
+                <div class="aspect-square w-full rounded-xl bg-grey"></div>
             </div>
-            <div class="aspect-square w-full rounded-xl bg-grey"></div>
-        </div>
 
-        <div
-            class="col-span-full hidden justify-self-stretch md:grid md:grid-cols-[1fr,90px,1fr] lg:hidden lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
-            <img class="col-start-[-2] w-10 justify-self-center" src="{{ asset('img/arrow-down.svg') }}" alt="">
-        </div>
-
-        <img class="hidden w-10 place-self-center md:col-start-2 md:block md:rotate-180 lg:col-start-auto lg:rotate-0"
-            src="{{ asset('img/arrow-right.svg') }}" alt="">
-        <img class="w-10 md:hidden" src="{{ asset('img/arrow-down.svg') }}" alt="">
-
-        <div
-            class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:col-start-3 md:min-w-0 lg:col-start-auto">
-            <div class="text-center text-white">
-                <p>Tambahkan Item ke Keranjang</p>
+            <div
+                class="col-span-full hidden justify-self-stretch md:grid md:grid-cols-[1fr,90px,1fr] lg:hidden lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
+                <img class="col-start-[-2] w-10 justify-self-center" src="{{ asset('img/arrow-down.svg') }}" alt="">
             </div>
-            <div class="aspect-square w-full rounded-xl bg-grey"></div>
-        </div>
 
-        <div
-            class="col-span-full justify-self-stretch md:grid md:grid-cols-[1fr,90px,1fr] lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
-            <img class="w-10 justify-self-center md:col-start-1 lg:col-start-[-2]" src="{{ asset('img/arrow-down.svg') }}"
+            <img class="hidden w-10 place-self-center md:col-start-2 md:block md:rotate-180 lg:col-start-auto lg:rotate-0"
+                src="{{ asset('img/arrow-right.svg') }}" alt="">
+            <img class="w-10 md:hidden" src="{{ asset('img/arrow-down.svg') }}" alt="">
+
+            <div
+                class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:col-start-3 md:min-w-0 lg:col-start-auto">
+                <div class="text-center text-white">
+                    <p>Tambahkan Item ke Keranjang</p>
+                </div>
+                <div class="aspect-square w-full rounded-xl bg-grey"></div>
+            </div>
+
+            <div
+                class="col-span-full justify-self-stretch md:grid md:grid-cols-[1fr,90px,1fr] lg:grid-cols-[1fr,90px,1fr,90px,1fr]">
+                <img class="w-10 justify-self-center md:col-start-1 lg:col-start-[-2]"
+                    src="{{ asset('img/arrow-down.svg') }}" alt="">
+            </div>
+
+            <div
+                class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:min-w-0 lg:col-start-3">
+                <div class="text-center text-white">
+                    <p>Pesanan Otomatis <br> Terkirim ke Whatsapp</p>
+                </div>
+                <div class="aspect-square w-full rounded-xl bg-grey"></div>
+            </div>
+
+            <img class="hidden w-10 place-self-center md:hidden lg:block" src="{{ asset('img/arrow-left.svg') }}"
                 alt="">
-        </div>
+            <img class="w-10 md:hidden" src="{{ asset('img/arrow-down.svg') }}" alt="">
 
-        <div
-            class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:min-w-0 lg:col-start-3">
-            <div class="text-center text-white">
-                <p>Pesanan Otomatis <br> Terkirim ke Whatsapp</p>
+            <div
+                class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:row-start-3 md:min-w-0 lg:row-start-auto">
+                <div class="text-center text-white">
+                    <p>Klik Tombol Pesan</p>
+                </div>
+                <div class="aspect-square w-full rounded-xl bg-grey"></div>
             </div>
-            <div class="aspect-square w-full rounded-xl bg-grey"></div>
         </div>
 
-        <img class="hidden w-10 place-self-center md:hidden lg:block" src="{{ asset('img/arrow-left.svg') }}"
-            alt="">
-        <img class="w-10 md:hidden" src="{{ asset('img/arrow-down.svg') }}" alt="">
+        <div class="md:hidden">
+            <!-- Slider main container -->
+            <div class="order swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="relative flex justify-evenly gap-x-2">
+                            <div
+                                class="flex min-h-[320px] w-60 flex-col gap-y-4 rounded-xl border-2 border-secondary bg-primary p-5 pt-9">
+                                <div class="text-center text-white">
+                                    <p>Masuk/Daftar <br> (Opsional)</p>
+                                </div>
+                                <div class="h-full w-full rounded-xl bg-grey"></div>
+                            </div>
+                            <img class="absolute left-[calc(100%+9px)] top-1/2 w-10 -translate-y-1/2 place-self-center"
+                                src="{{ asset('img/arrow-right.svg') }}" alt="">
+                        </div>
+                    </div>
 
-        <div
-            class="flex min-h-[320px] min-w-[400px] flex-col justify-between gap-y-4 rounded-xl border-2 border-secondary bg-primary p-8 md:row-start-3 md:min-w-0 lg:row-start-auto">
-            <div class="text-center text-white">
-                <p>Klik Tombol Pesan</p>
+                    <div class="swiper-slide">
+                        <div class="relative flex justify-evenly gap-x-2">
+                            <div
+                                class="flex min-h-[320px] w-60 flex-col gap-y-4 rounded-xl border-2 border-secondary bg-primary p-5 pt-9">
+                                <div class="text-center text-white">
+                                    <p>Pilih Item yang Mau Dibeli</p>
+                                </div>
+                                <div class="h-full w-full rounded-xl bg-grey"></div>
+                            </div>
+                            <img class="absolute left-[calc(100%+9px)] top-1/2 w-10 -translate-y-1/2 place-self-center"
+                                src="{{ asset('img/arrow-right.svg') }}" alt="">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="relative flex justify-evenly gap-x-2">
+                            <div
+                                class="flex min-h-[320px] w-60 flex-col gap-y-4 rounded-xl border-2 border-secondary bg-primary p-5 pt-9">
+                                <div class="text-center text-white">
+                                    <p>Tambahkan Item ke Keranjang</p>
+                                </div>
+                                <div class="h-full w-full rounded-xl bg-grey"></div>
+                            </div>
+                            <img class="absolute left-[calc(100%+9px)] top-1/2 w-10 -translate-y-1/2 place-self-center"
+                                src="{{ asset('img/arrow-right.svg') }}" alt="">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="relative flex justify-evenly gap-x-2">
+                            <div
+                                class="flex min-h-[320px] w-60 flex-col gap-y-4 rounded-xl border-2 border-secondary bg-primary p-5 pt-9">
+                                <div class="text-center text-white">
+                                    <p>Pesanan Otomatis <br> Terkirim ke Whatsapp</p>
+                                </div>
+                                <div class="h-full w-full rounded-xl bg-grey"></div>
+                            </div>
+                            <img class="absolute left-[calc(100%+9px)] top-1/2 w-10 -translate-y-1/2 place-self-center"
+                                src="{{ asset('img/arrow-right.svg') }}" alt="">
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="relative flex justify-evenly gap-x-2">
+                            <div
+                                class="flex min-h-[320px] w-60 flex-col gap-y-4 rounded-xl border-2 border-secondary bg-primary p-5 pt-9">
+                                <div class="text-center text-white">
+                                    <p>Klik Tombol Pesan</p>
+                                </div>
+                                <div class="h-full w-full rounded-xl bg-grey"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="aspect-square w-full rounded-xl bg-grey"></div>
         </div>
-
     </div>
 
     <a class="my-32 block bg-primaryVariant p-9 text-center text-xl font-bold text-white transition-opacity hover:opacity-90 dark:bg-primaryVariantDark dark:text-dark-mode"
@@ -74,4 +152,30 @@
         target="_SEJ" rel="noreferrer">
         Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>
     </a>
+@endsection
+
+@section('scripts')
+    <script>
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            slidesPerView: 'auto',
+            spaceBetween: 58,
+            centeredSlides: true,
+            autoplay: {
+                delay: 1500,
+                disableOnInteraction: false,
+            },
+
+        });
+    </script>
+@endsection
+
+@section('styles')
+    <style>
+        .order.swiper div.swiper-slide {
+            width: fit-content;
+            height: auto;
+        }
+    </style>
 @endsection
