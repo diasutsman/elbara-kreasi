@@ -1,34 +1,32 @@
 @extends('layouts.app')
 @section('content')
     {{-- Hero --}}
-    <div class="px-4 dark:text-white">
-        <div class="container mt-16 flex flex-wrap gap-y-8">
-            <div class="md:flex-1">
-                <div class="flex h-full flex-col items-start justify-center gap-4 md:mr-14">
-                    <h1 class="text-4xl font-bold text-dark">
-                        Tentang Kami
-                    </h1>
-                    <h1 class="text-xl text-gray-400">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-                        beatae inc
-                    </h1>
-                    <p class="text-sm text-dark">
-                        Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a,
-                        mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut
-                        interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class
-                        aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent
-                        auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac
-                        rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet
-                        lacinia. Aliquam in elementum tellus.
-                    </p>
-                    <a class="mt-4 rounded-md bg-primary px-7 py-3 text-sm text-white transition-opacity hover:opacity-90 dark:bg-secondaryDark dark:text-dark-mode"
-                        href="{{ route('portfolios.index') }}">
-                        Lihat Portfolio Kami
-                    </a>
+    <div class="dark:text-white">
+        <div class="container mt-12 flex flex-wrap gap-y-8 md:mt-16">
+            <div class="grid h-full flex-col items-start justify-center gap-4 md:grid-cols-2 md:gap-x-16">
+                <h1 class="text-3xl font-bold text-dark md:text-4xl">
+                    Tentang Kami
+                </h1>
+                <div class="md:col-start-2 md:row-start-1 md:row-end-7">
+                    <div class="h-85 bg-[#CCCCCC]"></div>
                 </div>
-            </div>
-            <div class="w-full md:flex-1">
-                <div class="h-85 bg-[#CCCCCC]"></div>
+                <h1 class="text-gray-400 md:text-xl">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
+                    beatae inc
+                </h1>
+                <p class="text-xs text-dark md:text-sm">
+                    Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a,
+                    mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut
+                    interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class
+                    aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent
+                    auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac
+                    rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet
+                    lacinia. Aliquam in elementum tellus.
+                </p>
+                <a class="justify-self-start rounded-md bg-primary px-7 py-3 text-sm text-white transition-opacity hover:opacity-90 dark:bg-secondaryDark dark:text-dark-mode md:mt-4 md:w-auto"
+                    href="{{ route('portfolios.index') }}">
+                    Lihat Portfolio Kami
+                </a>
             </div>
         </div>
     </div>
