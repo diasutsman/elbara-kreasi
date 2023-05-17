@@ -1,6 +1,6 @@
 <!-- Nav Bar -->
 <nav
-    class="sticky top-0 z-50 w-full bg-white font-bold dark:bg-dark-mode dark:text-linkDarkMode sm:flex sm:justify-center sm:p-0">
+    class="sticky top-0 z-20 w-full bg-white font-bold dark:bg-dark-mode dark:text-linkDarkMode sm:flex sm:justify-center sm:p-0">
     <div class="relative mx-auto flex w-auto flex-wrap justify-between transition-colors sm:justify-center"
         x-data="{ menuOpen: {{ +!Request::has('search') }} }" :class="menuOpen && 'max-sm:bg-[#F6F6F6]'">
         <button class="relative p-4 sm:hidden" id="hamburger" name="hamburger" type="button"

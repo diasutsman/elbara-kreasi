@@ -31,7 +31,7 @@
                             </div>
                         </button>
 
-                        <div class="absolute left-0 right-0 top-14 z-20 flex flex-col gap-2" x-cloak x-show="show"
+                        <div class="absolute left-0 right-0 top-14 z-30 flex flex-col gap-2" x-cloak x-show="show"
                             x-transition @click.outside="show = false">
                             @can('admin')
                                 <a class="z-20 block w-full border-2 border-dark bg-white p-3 text-center font-bold transition-colors hover:bg-blue-500 hover:text-white"
