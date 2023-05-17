@@ -17,7 +17,7 @@ class Search extends Component
     public function render()
     {
         return view('livewire.search', [
-            'products' => Product::latest()->filter(['query' => $this->query])->paginate($this->page * 8),
+            'products' => Product::latest()->filter(['query' => $this->query])->simplePaginate($this->page * 8),
         ]);
     }
 

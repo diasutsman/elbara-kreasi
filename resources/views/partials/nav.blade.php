@@ -83,7 +83,7 @@
         </div>
         <button
             class="search-trigger grid place-content-center px-4 transition-colors duration-300 sm:px-0 sm:hover:bg-gray-200 sm:dark:hover:bg-gray-900"
-            x-data="{ searchOpen: {{ +Request::has('search') }} }" :class="menuOpen && 'max-sm:pointer-events-none'"
+            x-data="{ searchOpen: {{ +Request::has('query') }} }" :class="menuOpen && 'max-sm:pointer-events-none'"
             @click="searchOpen = !searchOpen;searchOpen && $refs.search.focus();menuOpen = false">
             <div class="z-30 grid h-full place-content-center place-self-stretch px-0 transition-opacity sm:px-4"
                 id="search-btn" :class="menuOpen && 'max-sm:opacity-0'">
@@ -94,15 +94,14 @@
                 </i>
             </div>
             <form class="absolute left-0 top-0 -z-10 m-0 h-full w-full opacity-0 transition-opacity duration-500"
-                id="search-form" @if (Route::is('products.search'))
-                    @submit.prevent="window.livewire.emit('searchProducts', $refs.search.value)"
-                @else action="{{ route('products.search') }}" 
-                @endif
+                id="search-form"
+                @if (Route::is('products.search')) @submit.prevent="window.livewire.emit('searchProducts', $refs.search.value)"
+                @else action="{{ route('products.search') }}" @endif
                 method="GET" :class="searchOpen && 'z-20 opacity-100'">
                 <input
                     class="h-full w-full border-none px-4 py-0 text-xl outline-none dark:bg-dark-mode max-sm:bg-[#F6F6F6]"
-                    id="search" name="query" placeholder="Cari produk..." x-ref="search" value="{{ Request::get('search') }}"
-                    @click="event.stopPropagation()" />
+                    id="search" name="query" placeholder="Cari produk..." x-ref="search"
+                    value="{{ Request::get('query') }}" @click="event.stopPropagation()" />
             </form>
         </button>
     </div>
