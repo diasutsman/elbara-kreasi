@@ -19,11 +19,11 @@ class Products extends Component
     public function render()
     {
         $products = Product::latest();
-        if ($this->categorySlug == '') {
-            $products = $products->paginate($this->page * 8);
-        } else {
-            $products = $products->filter(['category' => $this->categorySlug])->paginate($this->page * 8);
+        if ($this->categorySlug) {
+            $products = $products->filter(['category' => $this->categorySlug]);
         }
+
+        $products = $products->simplePaginate($this->page * 8);
         return view('livewire.products', [
             'products' => $products,
             'categories' => Category::all(),
