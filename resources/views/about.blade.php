@@ -32,81 +32,75 @@
     </div>
 
     {{-- Points --}}
-    <div class="my-32 block bg-primary p-16 text-center text-xl text-white dark:bg-primaryVariantDark dark:text-dark-mode">
-        <div class="container flex flex-col gap-4 md:flex-row">
-            <div class="md:w-1/4">
-                <div class="h-40 bg-[#CCCCCC]"></div>
+    <div
+        class="mb-40 mt-25 block bg-primary px-1 text-white dark:bg-primaryVariantDark dark:text-dark-mode md:my-32 md:text-xl">
+        <div class="container grid justify-center gap-6 py-10 md:grid-flow-row md:grid-cols-3 md:grid-rows-3">
+
+            <div class="flex gap-x-4 md:col-start-2">
+                <div>
+                    <div class="aspect-square w-10 rounded-full bg-white"></div>
+                </div>
+                <div class="md:w-1/2">
+                    <p class="font-bold md:text-2xl">Point 1</p>
+                    <p class="md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
+                        eligendi.</p>
+                </div>
             </div>
-            <div class="md:flex md:w-3/4">
-                <div class="md:w-1/2">
-                    <div class="mb-10 flex md:pl-10">
-                        <div class="h-20 w-20 rounded-full bg-white"></div>
-                        <div class="pl-6 md:w-1/2">
-                            <p class="text-left text-2xl">Point 1</p>
-                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
-                                eligendi.</p>
-
-                        </div>
-                    </div>
-
-                    <div class="mb-10 flex md:pl-10">
-                        <div class="h-20 w-20 rounded-full bg-white"></div>
-                        <div class="pl-6 md:w-1/2">
-                            <p class="text-left text-2xl">Point 2</p>
-                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
-                                eligendi.</p>
-
-                        </div>
-                    </div>
-
-                    <div class="mb-10 flex md:pl-10">
-                        <div class="h-20 w-20 rounded-full bg-white"></div>
-                        <div class="pl-6 md:w-1/2">
-                            <p class="text-left text-2xl">Point 3</p>
-                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
-                                eligendi.</p>
-
-                        </div>
-                    </div>
+            <div class="flex gap-x-4">
+                <div>
+                    <div class="aspect-square w-10 rounded-full bg-white"></div>
                 </div>
                 <div class="md:w-1/2">
-                    <div class="mb-10 flex md:pl-10">
-                        <div class="h-20 w-20 rounded-full bg-white"></div>
-                        <div class="pl-6 md:w-1/2">
-                            <p class="text-left text-2xl">Point 1</p>
-                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
-                                eligendi.</p>
-
-                        </div>
-                    </div>
-
-                    <div class="mb-10 flex md:pl-10">
-                        <div class="h-20 w-20 rounded-full bg-white"></div>
-                        <div class="pl-6 md:w-1/2">
-                            <p class="text-left text-2xl">Point 2</p>
-                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
-                                eligendi.</p>
-
-                        </div>
-                    </div>
-
-                    <div class="mb-10 flex md:pl-10">
-                        <div class="h-20 w-20 rounded-full bg-white"></div>
-                        <div class="pl-6 md:w-1/2">
-                            <p class="text-left text-2xl">Point 3</p>
-                            <p class="text-left text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
-                                eligendi.</p>
-
-                        </div>
-                    </div>
+                    <p class="font-bold md:text-2xl">Point 2</p>
+                    <p class="md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
+                        eligendi.</p>
                 </div>
-
+            </div>
+            <div class="flex gap-x-4 md:col-start-2">
+                <div>
+                    <div class="aspect-square w-10 rounded-full bg-white"></div>
+                </div>
+                <div class="md:w-1/2">
+                    <p class="font-bold md:text-2xl">Point 3</p>
+                    <p class="md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
+                        eligendi.</p>
+                </div>
+            </div>
+            <div class="flex gap-x-4">
+                <div>
+                    <div class="aspect-square w-10 rounded-full bg-white"></div>
+                </div>
+                <div class="md:w-1/2">
+                    <p class="font-bold md:text-2xl">Point 4</p>
+                    <p class="md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
+                        eligendi.</p>
+                </div>
+            </div>
+            <div class="flex gap-x-4 md:col-start-2">
+                <div>
+                    <div class="aspect-square w-10 rounded-full bg-white"></div>
+                </div>
+                <div class="md:w-1/2">
+                    <p class="font-bold md:text-2xl">Point 5</p>
+                    <p class="md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
+                        eligendi.</p>
+                </div>
+            </div>
+            <div class="flex gap-x-4">
+                <div>
+                    <div class="aspect-square w-10 rounded-full bg-white"></div>
+                </div>
+                <div class="md:w-1/2">
+                    <p class="font-bold md:text-2xl">Point 6</p>
+                    <p class="md:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
+                        eligendi.</p>
+                </div>
             </div>
 
         </div>
     </div>
 
-    <a class="mb-80 mt-16 block bg-primaryVariant p-9 text-center text-xl font-bold text-white transition-opacity hover:opacity-90 dark:bg-primaryVariantDark dark:text-dark-mode"
+    <a class="mb-25 mt-16 block bg-primaryVariant p-9 text-center text-xl font-bold text-white transition-opacity hover:opacity-90 dark:bg-primaryVariantDark dark:text-dark-mode"
         href="https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo,%20Saya%20mau%20order"
         target="_SEJ" rel="noreferrer">
         Ingin Memiliki Packaging Custom Untuk Produk Anda? <span class="underline">Hubungi Kami Sekarang</span>
