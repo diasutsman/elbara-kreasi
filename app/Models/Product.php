@@ -64,5 +64,13 @@ class Product extends Model
                 ->orWhere('additional_information', 'like', '%' . $search  . '%')
                 ->orWhere('price', 'like', '%' . $search  . '%');
         });
+
+        $query->when($filters['category'] ?? false, function ($query, $category) {
+            $query->whereHas(
+                'category',
+                fn ($query) =>
+                $query->where('slug', $category)
+            );
+        });
     }
 }

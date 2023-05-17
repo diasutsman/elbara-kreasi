@@ -13,29 +13,5 @@
 @section('scripts')
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script>
-        Livewire.on('loadedMore', () => {
-            initIsotope();
-        })
-
-        function initIsotope() {
-            /* Isotope Code */
-            const iso = new Isotope('.products', {
-                itemSelector: '.product',
-                layoutMode: 'fitRows'
-            })
-
-            const filterButtons = document.querySelectorAll('.filter-button-group button');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    filterButtons.forEach(button => button.classList.remove('bg-secondary', 'text-white'))
-                    button.classList.add('bg-secondary', 'text-white')
-                    iso.arrange({
-                        filter: event.target.dataset.filter
-                    })
-                })
-            })
-        }
-        initIsotope();
     </script>
 @endsection
