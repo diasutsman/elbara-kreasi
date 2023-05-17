@@ -2,7 +2,7 @@
 @section('content')
     {{-- Hero --}}
     <div class="dark:text-white">
-        <div class="container mt-12 flex flex-wrap gap-y-8 md:mt-16">
+        <div class="container mt-12 flex flex-wrap gap-y-8 md:mt-20">
             <div class="grid h-full flex-col items-start justify-center gap-4 md:grid-cols-2 md:gap-x-16">
                 <h1 class="text-3xl font-bold text-dark md:text-4xl">
                     Tentang Kami
