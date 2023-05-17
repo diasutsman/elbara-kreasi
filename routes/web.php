@@ -30,12 +30,11 @@ Route::get('/about', [NavigationController::class, 'about'])->name('about');
 
 Route::get('/order', [NavigationController::class, 'order'])->name('order');
 
+Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
 Route::resource('/products', ProductController::class)->only('index', 'show');
+
 Route::resource('/portfolios', PortfolioController::class)->only('index');
 
 Route::post('/email', [MailController::class, 'send'])->name('email');
 
 Auth::routes();
-
-/* Category routes (being put here because of url design) */
-Route::get('/{category}', [CategoryController::class, 'show'])->name('categories.show');

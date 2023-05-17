@@ -55,4 +55,14 @@ class Product extends Model
     {
         return 'slug';
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['query'] ?? false, function ($query, $search) {
+            return $query->where('name', 'like', '%' . $search  . '%')
+                ->orWhere('description', 'like', '%' . $search  . '%')
+                ->orWhere('additional_information', 'like', '%' . $search  . '%')
+                ->orWhere('price', 'like', '%' . $search  . '%');
+        });
+    }
 }

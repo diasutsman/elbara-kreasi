@@ -2,7 +2,7 @@
 <nav
     class="sticky top-0 z-50 w-full bg-white font-bold dark:bg-dark-mode dark:text-linkDarkMode sm:flex sm:justify-center sm:p-0">
     <div class="relative mx-auto flex w-auto flex-wrap justify-between transition-colors sm:justify-center"
-        x-data="{ menuOpen: false }" :class="menuOpen && 'max-sm:bg-[#F6F6F6]'">
+        x-data="{ menuOpen: {{ +!Request::has('search') }} }" :class="menuOpen && 'max-sm:bg-[#F6F6F6]'">
         <button class="relative p-4 sm:hidden" id="hamburger" name="hamburger" type="button"
             :class="menuOpen && 'hamburger-active'" @click="menuOpen = !menuOpen">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +83,7 @@
         </div>
         <button
             class="search-trigger grid place-content-center px-4 transition-colors duration-300 sm:px-0 sm:hover:bg-gray-200 sm:dark:hover:bg-gray-900"
-            x-data="{ searchOpen: false }" :class="menuOpen && 'max-sm:pointer-events-none'"
+            x-data="{ searchOpen: {{ +Request::has('search') }} }" :class="menuOpen && 'max-sm:pointer-events-none'"
             @click="searchOpen = !searchOpen;searchOpen && $refs.search.focus();menuOpen = false">
             <div class="z-30 grid h-full place-content-center place-self-stretch px-0 transition-opacity sm:px-4"
                 id="search-btn" :class="menuOpen && 'max-sm:opacity-0'">
@@ -94,10 +94,14 @@
                 </i>
             </div>
             <form class="absolute left-0 top-0 -z-10 m-0 h-full w-full opacity-0 transition-opacity duration-500"
-                id="search-form" action="#" method="GET" :class="searchOpen && 'z-20 opacity-100'">
+                id="search-form" @if (Route::is('products.search'))
+                    @submit.prevent="window.livewire.emit('searchProducts', $refs.search.value)"
+                @else action="{{ route('products.search') }}" 
+                @endif
+                method="GET" :class="searchOpen && 'z-20 opacity-100'">
                 <input
                     class="h-full w-full border-none px-4 py-0 text-xl outline-none dark:bg-dark-mode max-sm:bg-[#F6F6F6]"
-                    id="search" type="text" name="search" placeholder="Cari produk..." x-ref="search"
+                    id="search" name="query" placeholder="Cari produk..." x-ref="search" value="{{ Request::get('search') }}"
                     @click="event.stopPropagation()" />
             </form>
         </button>

@@ -37,4 +37,9 @@ class ProductController extends Controller
                 ->get(),
         ]);
     }
+
+    public function search()
+    {
+        return view('products.search');
+    }
 }
