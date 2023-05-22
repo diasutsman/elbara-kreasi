@@ -8,7 +8,9 @@
                     Tentang Kami
                 </h1>
                 <div class="md:col-start-2 md:row-start-1 md:row-end-7">
-                    <div class="h-85 bg-[#CCCCCC]"></div>
+                    <div class="h-85">
+                        <img class="h-full w-full object-contain" src="{{ asset('img/logo.webp') }}" alt="">
+                    </div>
                 </div>
                 <h1 class="text-gray-400 md:text-xl">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
