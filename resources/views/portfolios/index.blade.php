@@ -31,8 +31,7 @@
                     @foreach (range(0, $portfolios->count() - 1) as $index)
                         <div
                             class="portfolio page-{{ floor($index / 10) + 1 }} block h-auto w-full pb-6 text-left sm:w-1/2 sm:pr-6 md:w-1/3 lg:w-1/4">
-                            <a class="block h-auto w-full overflow-hidden bg-placeholder" data-pswp-width="700"
-                                data-pswp-height="700"
+                            <a class="block h-auto w-full overflow-hidden" data-pswp-width="700" data-pswp-height="700"
                                 href="@if ($portfolios[$index]->image) {{ asset('storage/' . $portfolios[$index]->image) }}
                                 @else /img/placeholder.webp @endif">
                                 <img class="block h-full w-full object-center"

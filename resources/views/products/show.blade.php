@@ -125,8 +125,7 @@
             <div class="owl-carousel related-carousel mt-10 flex gap-x-9 overflow-x-hidden">
                 @foreach ($related_products as $product)
                     <div>
-                        <a class="block min-h-[184px] w-full bg-placeholder"
-                            href="{{ route('products.show', $product->slug) }}">
+                        <a class="block min-h-[184px] w-full" href="{{ route('products.show', $product->slug) }}">
                             <img src="@if ($product->image) {{ asset('storage/' . $product->image) }}
                                 @else
                                     {{ asset('/images/placeholder.png') }} @endif"

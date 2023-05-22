@@ -3,7 +3,7 @@
     <section class="mb-24 mt-1 px-4 text-center dark:text-white">
 
         <div class="container">
-            <div class="max-h-[250px] w-full overflow-hidden bg-placeholder">
+            <div class="max-h-[250px] w-full overflow-hidden">
                 <img class="w-full"
                     src="@if ($category->header_image) {{ asset('storage/' . $category->header_image) }}
                 @else
@@ -14,7 +14,7 @@
             <div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 @foreach ($category->products as $product)
                     <a class="group text-left" href="{{ route('products.show', $product->slug) }}">
-                        <div class="grid overflow-hidden bg-placeholder">
+                        <div class="grid overflow-hidden">
 
                             <div
                                 class="z-10 col-span-full row-span-full grid aspect-square place-items-center place-self-center rounded-full bg-white p-1 opacity-0 transition-opacity group-hover:opacity-100">

@@ -21,11 +21,11 @@
                 <a class="text-base" href="mailto:{{ $emailReceiver }}">{{ $emailReceiver }}</a>
             </li>
             @auth
-                <li class="lg:px-3 hidden sm:block" x-data="{ show: false }">
+                <li class="hidden sm:block lg:px-3" x-data="{ show: false }">
                     <div class="relative flex items-center justify-center">
                         <button class="flex cursor-pointer items-center gap-x-2" @click="show = !show">
                             <p>{{ auth()->user()->username }}</p>
-                            <div class="h-12 w-12 rounded-full bg-placeholder">
+                            <div class="h-12 w-12 rounded-full">
                                 <img src="{{ asset('img/user-placeholder.webp') }}"
                                     alt="{{ auth()->user()->username }} Image">
                             </div>

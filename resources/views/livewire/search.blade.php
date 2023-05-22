@@ -5,7 +5,7 @@
     <div class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
         @foreach ($products as $product)
             <a class="group text-left" href="{{ route('products.show', $product->slug) }}">
-                <div class="grid overflow-hidden bg-placeholder">
+                <div class="grid overflow-hidden">
 
                     <div
                         class="z-10 col-span-full row-span-full grid aspect-square place-items-center place-self-center rounded-full bg-white p-1 opacity-0 transition-opacity group-hover:opacity-100">

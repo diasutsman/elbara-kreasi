@@ -55,13 +55,13 @@
                     dengan kualitas tinggi dan bermutu.</p>
             </div>
             <div class="mt-12 flex flex-nowrap gap-5 overflow-x-auto">
-                <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1">
+                <div class="h-85 w-96 flex-none lg:flex-1">
                     <img class="h-full w-full" src="{{ asset('img/sablon-machine-1.webp') }}" alt="">
                 </div>
-                <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1">
+                <div class="h-85 w-96 flex-none lg:flex-1">
                     <img class="h-full w-full" src="{{ asset('img/sablon-machine-2.webp') }}" alt="">
                 </div>
-                <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1">
+                <div class="h-85 w-96 flex-none lg:flex-1">
                     <img class="h-full w-full" src="{{ asset('img/sablon-machine-3.webp') }}" alt="">
                 </div>
             </div>
@@ -127,7 +127,7 @@
             <div class="mt-10 grid grid-cols-2 gap-x-5 gap-y-9 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
                 @foreach ($products as $product)
                     <a class="group" href="{{ route('products.show', $product->slug) }}">
-                        <div class="grid bg-placeholder">
+                        <div class="grid">
                             <div
                                 class="z-10 col-span-full row-span-full grid place-items-center bg-black bg-opacity-50 opacity-0 transition-opacity group-hover:opacity-100">
                                 <div class="grid aspect-square place-content-center rounded-full bg-white p-1">
