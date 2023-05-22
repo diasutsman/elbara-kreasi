@@ -21,7 +21,9 @@
                 </div>
             </div>
             <div class="w-full md:flex-1">
-                <div class="h-80 rounded-[25px] bg-[#CCCCCC] sm:rounded-[67px]"></div>
+                <div class="h-80 place-items-center overflow-hidden rounded-[25px] bg-[#CCCCCC] sm:rounded-[67px]">
+                    <img class="h-full w-full object-cover" src="{{ asset('img/hero.webp') }}" alt="">
+                </div>
             </div>
 
             <!-- Hero Mobile -->
@@ -53,9 +55,15 @@
                     dengan kualitas tinggi dan bermutu.</p>
             </div>
             <div class="mt-12 flex flex-nowrap gap-5 overflow-x-auto">
-                <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1"></div>
-                <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1"></div>
-                <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1"></div>
+                <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1">
+                    <img class="h-full w-full" src="{{ asset('img/sablon-machine-1.webp') }}" alt="">
+                </div>
+                <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1">
+                    <img class="h-full w-full" src="{{ asset('img/sablon-machine-2.webp') }}" alt="">
+                </div>
+                <div class="h-85 w-96 flex-none bg-placeholder lg:flex-1">
+                    <img class="h-full w-full" src="{{ asset('img/sablon-machine-3.webp') }}" alt="">
+                </div>
             </div>
         </div>
     </section>
