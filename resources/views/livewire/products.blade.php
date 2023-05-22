@@ -1,7 +1,7 @@
 <div>
-    <div class="px-8">
+    <div class="mb-16 mt-5 overflow-x-auto md:px-8">
         <ul
-            class="mx-auto mb-16 mt-5 flex w-fit flex-wrap justify-center overflow-hidden rounded-md font-normal text-[#A3A3A3] md:divide-x-[1px] md:divide-[#DBDBDB] md:border-[1px] md:border-[#DBDBDB]">
+            class="mx-auto flex w-fit justify-center font-normal text-[#A3A3A3] max-md:flex-wrap md:divide-x-[1px] md:divide-[#DBDBDB] md:rounded-md md:border-[1px] md:border-[#DBDBDB]">
             <li>
                 <button
                     class="@if (!$categorySlug) bg-secondary text-white @endif h-full p-3 text-base font-normal transition-colors hover:bg-secondary hover:text-white"
@@ -20,7 +20,7 @@
         <div class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
             @foreach ($products as $product)
                 <a class="group text-left" href="{{ route('products.show', $product->slug) }}">
-                    <div class="grid overflow-hidden bg-placeholder">
+                    <div class="grid overflow-hidden">
                         <div
                             class="z-10 col-span-full row-span-full grid aspect-square place-items-center place-self-center rounded-full bg-white p-1 opacity-0 transition-opacity group-hover:opacity-100">
                             <p class="text-base font-bold text-primary dark:text-onPrimary">Lihat Produk</p>
