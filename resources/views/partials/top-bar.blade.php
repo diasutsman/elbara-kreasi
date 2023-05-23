@@ -7,7 +7,7 @@
             <p><a href="https://facebook.com" target="_SEJ" rel="noreferrer"><i class="bi bi-instagram"></i> Instagram</a>
             </p>
         </div>
-        <div class="flex flex-wrap items-center justify-end gap-x-10 gap-y-4 uppercase">
+        <div class="flex flex-wrap items-center justify-end gap-x-5 gap-y-4 uppercase">
             <div>
                 <a href="https://www.google.com/maps/search/Jl.+Raya+Keadilan+No.39+RT.4%2FRW.8,+Rangkapan+Jaya+Baru+Kec.+Pancoran+Mas+Kota+Depok,+Jawa+Barat+16434/@-6.406051,106.787581,15z?hl=en"
                     target="_SEJ" rel="noreferrer">ALAMAT</a>
