@@ -13,11 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('color_options', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->string('name');
             $table->string('slug')->unique();
+            $table->string('bill_from');
+            $table->string('bill_from_address');
+            $table->string('bill_to');
+            $table->string('bill_to_address');
+            $table->string('recipient_email');
+            $table->string('bill_title');
+            $table->date('issued_on');
+            $table->date('due_on');
+            $table->boolean('paid')->default(false);
             $table->timestamps();
         });
     }
@@ -29,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('color_options');
+        Schema::dropIfExists('invoices');
     }
 };

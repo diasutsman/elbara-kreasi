@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminPortfolioController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\PrintInvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +37,7 @@ Route::resource('/products', ProductController::class)->only('index', 'show');
 Route::resource('/portfolios', PortfolioController::class)->only('index');
 
 Route::post('/email', [MailController::class, 'send'])->name('email');
+
+Route::get('/print/{invoice}', PrintInvoiceController::class)->name('print');
 
 Auth::routes();
