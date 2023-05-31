@@ -12,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\InvoiceResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -69,29 +70,47 @@ class InvoiceResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('bill_from'),
-                Tables\Columns\TextColumn::make('bill_from_address'),
-                Tables\Columns\TextColumn::make('bill_to'),
-                Tables\Columns\TextColumn::make('bill_to_address'),
-                Tables\Columns\TextColumn::make('recipient_email'),
                 Tables\Columns\TextColumn::make('bill_title'),
+                Tables\Columns\TextColumn::make('bill_from')
+                    ->description(fn (Invoice $record): string => $record->bill_from_address),
+                Tables\Columns\TextColumn::make('bill_to')
+                    ->description(fn (Invoice $record): string => $record->bill_to_address),
+                Tables\Columns\TextColumn::make('recipient_email'),
                 Tables\Columns\TextColumn::make('issued_on')
-                    ->date(),
+                    ->date('d M Y'),
                 Tables\Columns\TextColumn::make('due_on')
-                    ->date(),
-                Tables\Columns\IconColumn::make('paid')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                    ->date('d M Y'),
+                Tables\Columns\CheckboxColumn::make('paid'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make()
+                        ->view('invoice'),
+                    Tables\Actions\ReplicateAction::make()->button()->color('danger')
+                        ->form([
+                            Forms\Components\DatePicker::make('issued_on')->required()
+                                ->minDate(now()->format('Y-m-d'))
+                                ->reactive()
+                                ->displayFormat('d M Y'),
+                            Forms\Components\DatePicker::make('due_on')->required()
+                                ->minDate(fn (Closure $get) => Carbon::parse($get('issued_on')))
+                                ->displayFormat('d M Y')
+                                ->required()
+                        ])
+                        ->beforeReplicaSaved(function (Model $replica, array $data): void {
+                            $replica->issued_on = $data['issued_on'];
+                            $replica->due_on = $data['due_on'];
+                        }),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                    Tables\Actions\Action::make('print')
+                        ->icon('heroicon-o-printer')
+                        ->url(fn (Invoice $record): string => route('print', $record))
+                        ->openUrlInNewTab()
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Spatie\Browsershot\Browsershot;
 
 class PrintInvoiceController extends Controller
 {
@@ -13,16 +14,12 @@ class PrintInvoiceController extends Controller
         $invoiceNumber = 'INV-' . str_pad($invoice->id, 4, '0', STR_PAD_LEFT);
         $invoiceDate = $invoice->due_on->format('j-F-Y');
         $filename = "invoice_{$invoiceNumber}_{$invoiceDate}.pdf";
-        // $pdf = Pdf::loadView('invoice', [
-        //     'invoice' => $invoice,
-        //     'invoiceNumber' => $invoiceNumber,
-        //     'filename' => $filename,
-        // ]);
-        // return $pdf->stream($filename);
-        return view('invoice', [
+        $html = view('invoice', [
             'invoice' => $invoice,
-            'invoiceNumber'=> $invoiceNumber, 
+            'invoiceNumber' => $invoiceNumber,
             'filename' => "invoice_{$invoiceNumber}_{$invoiceDate}.pdf",
-        ]);
+        ])->render();
+        Browsershot::html($html)->save('storage/' . $filename);
+        return response()->download('storage/' . $filename)->deleteFileAfterSend();
     }
 }
