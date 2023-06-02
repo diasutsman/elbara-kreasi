@@ -20,6 +20,7 @@
         "predis/predis": "^2.1",
         "propaganistas/laravel-phone": "^5.0",
         "spatie/browsershot": "^3.57",
+        "symfony/process": "^6.3",
         "yajra/laravel-datatables-oracle": "~9.0",
         "zanysoft/laravel-pdf": "^2.0"
     },
