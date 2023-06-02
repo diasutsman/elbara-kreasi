@@ -212,7 +212,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'PDF' => ZanySoft\LaravelPDF\Facades\PDF::class
     ])->toArray(),
 
     'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
