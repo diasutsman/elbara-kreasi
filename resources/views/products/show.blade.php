@@ -32,33 +32,36 @@
                 </div>
             </div>
 
-            <div class="flex-1" x-data="{ price: {{ $product->price }}, quantity: 1 }">
+            <div class="flex-1" x-data="{
+                price: {{ $product->price }},
+                quantity: 1,
+                formatter: new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR'
+                })
+            }">
                 <h1 class="text-lg font-bold text-dark md:text-3xl">{{ $product->name }}</h1>
-                <p class="mt-4 text-lg text-secondary md:text-2xl"
-                    x-text='new Intl.NumberFormat("id-ID", {
-                    style: "currency",
-                    currency: "IDR"
-                  }).format(quantity * price)'>
-                    @currency($product->price)</p>
+                <p class="mt-4 text-lg text-secondary md:text-2xl" x-text='formatter.format(quantity * price)'>
+                    {{ money($product->price, 'IDR') }}</p>
 
-                <form class="mt-8" action="#" method="POST">
+                <div class="mt-8">
                     <label class="block text-[#B0B0B0]" for="quantity">Quantity</label>
                     <div class="mt-2 flex w-fit overflow-hidden rounded-md border-[1px] border-secondary">
                         <button class="bg-secondary px-4 py-2 text-white" type="button"
                             onclick="this.parentElement.querySelector('input[type=number]').stepDown()"
                             @click="quantity = Math.max(1, quantity - 1)">-</button>
                         <input class="w-16 text-center focus-visible:outline-none" id="quantity" type="number"
-                            name="quantity" min="1" value="1" readonly>
+                            name="quantity" min="1" value="1" readonly x-model="quantity">
                         <button class="bg-secondary px-4 py-2 text-white" type="button"
                             onclick="this.parentElement.querySelector('input[type=number]').stepUp()"
                             @click="quantity++">+</button>
                     </div>
 
-                    <button
-                        class="mt-12 w-full rounded-md bg-secondary py-4 font-bold text-white transition-opacity hover:opacity-90"
-                        type="submit">Beli
-                        Sekarang</button>
-                </form>
+                    <a target="_SEJ" rel="noreferrer"
+                        :href="`https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo saya mau order {{ $product->name }} sebanyak ${quantity} pcs.%0AApakah benar harganya ${formatter.format(price)}?`"
+                        class="block text-center mt-12 w-full rounded-md bg-secondary py-4 font-bold text-white transition-opacity hover:opacity-90"
+                        type="submit">Beli Sekarang</a>
+                </div>
             </div>
 
             <div class="basis-0">

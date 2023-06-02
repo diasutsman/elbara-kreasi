@@ -26,8 +26,8 @@ class ContactServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $phoneNumbers = '+6281234567890';
-        $whatsappNumbers = '+6281234567890';
+        $phoneNumbers = '+6281286465924';
+        $whatsappNumbers = '+6281286465924';
         $emailReceiver = 'elbarakreasi@gmail.com';
         try {
             // $phoneNumbers = Redis::get('phone_numbers') ?? $phoneNumbers;
