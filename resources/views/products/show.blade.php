@@ -58,7 +58,7 @@
                     </div>
 
                     <a target="_SEJ" rel="noreferrer"
-                        :href="`https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo saya mau order {{ $product->name }} sebanyak ${quantity} pcs.%0AApakah benar harganya ${formatter.format(price)}?`"
+                        :href="`https://api.whatsapp.com/send?phone={{ phone($whatsappNumbers, 'ID', 1) }}&text=Halo saya mau order {{ $product->name }} sebanyak ${quantity} pcs.%0AApakah benar harganya ${formatter.format(price * quantity)}?`"
                         class="block text-center mt-12 w-full rounded-md bg-secondary py-4 font-bold text-white transition-opacity hover:opacity-90"
                         type="submit">Beli Sekarang</a>
                 </div>
