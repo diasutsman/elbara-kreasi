@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Spatie\Browsershot\Browsershot;
 use Symfony\Component\Process\Process;
@@ -28,7 +28,7 @@ class PrintInvoiceController extends Controller
             'invoice' => $invoice,
             'invoiceNumber' => $invoiceNumber,
             'filename' => "invoice_{$invoiceNumber}_{$invoiceDate}.pdf",
-        ];
-        return PDF::loadview('invoice', $data)->download($filename);
+        ]; 
+        return Pdf::loadview('invoice', $data)->download($filename);
     }
 }
