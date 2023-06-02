@@ -16,21 +16,21 @@ class PrintInvoiceController extends Controller
         $invoiceNumber = 'INV-' . str_pad($invoice->id, 4, '0', STR_PAD_LEFT);
         $invoiceDate = $invoice->due_on->format('j-F-Y');
         $filename = "invoice_{$invoiceNumber}_{$invoiceDate}.pdf";
-        $html = view('invoice', [
-            'invoice' => $invoice,
-            'invoiceNumber' => $invoiceNumber,
-            'filename' => "invoice_{$invoiceNumber}_{$invoiceDate}.pdf",
-        ])->render();
-        Browsershot::html($html)->save('storage/' . $filename);
-        return response()->download('storage/' . $filename)->deleteFileAfterSend();
-
-        // $data = [
+        // $html = view('invoice', [
         //     'invoice' => $invoice,
         //     'invoiceNumber' => $invoiceNumber,
         //     'filename' => "invoice_{$invoiceNumber}_{$invoiceDate}.pdf",
-        // ];
-        // $pdf = new PDF();
-        // $pdf->loadView('invoice', $data);
-        // return $pdf->stream($filename);
+        // ])->render();
+        // Browsershot::html($html)->save('storage/' . $filename);
+        // return response()->download('storage/' . $filename)->deleteFileAfterSend();
+
+        $data = [
+            'invoice' => $invoice,
+            'invoiceNumber' => $invoiceNumber,
+            'filename' => "invoice_{$invoiceNumber}_{$invoiceDate}.pdf",
+        ];
+        $pdf = new PDF();
+        $pdf->loadView('invoice', $data);
+        return $pdf->stream($filename);
     }
 }
