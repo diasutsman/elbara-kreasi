@@ -29,7 +29,7 @@ class PrintInvoiceController extends Controller
             'invoiceNumber' => $invoiceNumber,
             'filename' => "invoice_{$invoiceNumber}_{$invoiceDate}.pdf",
         ];
-        $pdf = PDF::Make();
+        $pdf = PDF::make();
         $pdf->loadView('invoice', $data);
         return $pdf->stream($filename);
     }
