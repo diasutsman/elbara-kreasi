@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Filament::serving(function () {
             // Using Vite
-            Filament::registerViteTheme('resources/css/filament.css');
+            // Filament::registerViteTheme('resources/css/filament.css');
         });
     }
 }
