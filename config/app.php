@@ -195,6 +195,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ContactServiceProvider::class,
+        ZanySoft\LaravelPDF\PdfServiceProvider::class,
 
     ],
 
@@ -211,6 +212,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'PDF' => ZanySoft\LaravelPDF\Facades\PDF::class
     ])->toArray(),
 
     'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
