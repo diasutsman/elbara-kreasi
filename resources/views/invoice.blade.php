@@ -8,6 +8,9 @@
     <title>{{ $filename }}</title>
 
     @vite('resources/css/app.css')
+    <style>
+        
+    </style>
 </head>
 
 <body class="p-6 text-base">

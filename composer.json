@@ -20,7 +20,8 @@
         "predis/predis": "^2.1",
         "propaganistas/laravel-phone": "^5.0",
         "spatie/browsershot": "^3.57",
-        "yajra/laravel-datatables-oracle": "~9.0"
+        "yajra/laravel-datatables-oracle": "~9.0",
+        "zanysoft/laravel-pdf": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
