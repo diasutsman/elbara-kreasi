@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Invoice;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf;
+use ZanySoft\LaravelPDF\PDF;
 use Spatie\Browsershot\Browsershot;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\Artisan;
