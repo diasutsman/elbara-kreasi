@@ -12,6 +12,8 @@
         "cviebrock/eloquent-sluggable": "*",
         "filament/filament": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "h4cc/wkhtmltoimage-amd64": "0.12.",
+        "h4cc/wkhtmltopdf-amd64": "0.12.x",
         "itsgoingd/clockwork": "^5.1",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
