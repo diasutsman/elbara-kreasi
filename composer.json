@@ -8,6 +8,7 @@
         "php": "^8.0.2",
         "akaunting/laravel-money": "^4.0",
         "barryvdh/laravel-dompdf": "^2.0",
+        "barryvdh/laravel-snappy": "^1.0",
         "cviebrock/eloquent-sluggable": "*",
         "filament/filament": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
